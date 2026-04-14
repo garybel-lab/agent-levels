@@ -6,281 +6,152 @@
 <title>Profils comportementaux par Agent Level — Tourlane FR Q1 2026</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg-primary:#ffffff; --bg-secondary:#f5f5f3; --text-primary:#1a1a1a; --text-secondary:#666; --border:#e0ddd8; --radius-md:8px; --radius-lg:12px; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; background:#f5f5f3; color:#1a1a1a; line-height:1.5; min-height:100vh; }
+  .wrapper { max-width:960px; margin:0 auto; padding:2rem 1.5rem 4rem; }
+  .doc-header { background:#1a1a1a; color:#fff; border-radius:var(--radius-lg); padding:2rem 2.5rem; margin-bottom:1.5rem; }
+  .doc-header h1 { font-size:22px; font-weight:600; margin-bottom:6px; }
+  .doc-header p { font-size:13px; color:#aaa; }
+  .funnel-legend-box { background:#E6F1FB; border:0.5px solid #85B7EB; border-radius:var(--radius-md); padding:12px 16px; font-size:12px; color:#0C447C; line-height:1.7; margin-bottom:1.5rem; }
+  .funnel-legend-box strong { color:#042C53; }
+  .nav { display:flex; gap:6px; flex-wrap:wrap; padding:1rem 0 1.5rem; border-bottom:1px solid var(--border); margin-bottom:1.5rem; }
+  .nav-btn { padding:6px 16px; border-radius:20px; border:1px solid #ccc; background:transparent; color:#666; font-size:13px; cursor:pointer; font-family:inherit; transition:all 0.15s; }
+  .nav-btn:hover { background:#f0f0ee; }
+  .nav-btn.active { background:#1a1a1a; color:#fff; border-color:#1a1a1a; }
+  .page { display:none; } .page.active { display:block; }
+  .lhdr { display:flex; gap:14px; align-items:center; margin-bottom:1.5rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border); }
+  .badge { width:56px; height:56px; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; }
+  .badge .blbl { font-size:10px; font-weight:600; letter-spacing:0.06em; }
+  .badge .bnum { font-size:24px; font-weight:600; line-height:1.1; }
+  .b0{background:#D3D1C7;color:#2C2C2A} .b1{background:#B5D4F4;color:#042C53} .b2{background:#CECBF6;color:#26215C} .b3{background:#C0DD97;color:#173404}
+  .lhdr h2 { font-size:17px; font-weight:600; color:#1a1a1a; }
+  .lhdr p { font-size:12px; color:#666; margin-top:3px; line-height:1.5; }
+  .sec { font-size:11px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase; color:#666; margin-bottom:10px; margin-top:1.5rem; }
+  .kv-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:8px; margin-bottom:1.5rem; }
+  .kv { background:#f5f5f3; border-radius:var(--radius-md); padding:12px 14px; border:1px solid transparent; }
+  .kv.warn{background:#FCEBEB;border-color:#F09595} .kv.good{background:#EAF3DE;border-color:#97C459} .kv.info{background:#E6F1FB;border-color:#85B7EB}
+  .kv-l{font-size:11px;color:#888;margin-bottom:3px} .kv-v{font-size:22px;font-weight:600;color:#1a1a1a}
+  .kv.warn .kv-v{color:#A32D2D} .kv.good .kv-v{color:#3B6D11} .kv.info .kv-v{color:#185FA5}
+  .kv-n{font-size:11px;color:#999;margin-top:2px} .kv.warn .kv-n{color:#791F1F} .kv.good .kv-n{color:#27500A} .kv.info .kv-n{color:#0C447C}
+  .funnel-wrap{margin-bottom:1.5rem}
+  .f-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .f-lbl{font-size:12px;color:#666;width:110px;flex-shrink:0;text-align:right;line-height:1.3}
+  .f-track{flex:1;background:#eee;border-radius:3px;height:22px;overflow:hidden}
+  .f-fill{height:100%;border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px}
+  .f-pct{font-size:12px;font-weight:600}
+  .f-delta{font-size:11px;width:54px;flex-shrink:0;color:#888}
+  .f-delta.big{color:#A32D2D;font-weight:600} .f-delta.pos{color:#3B6D11;font-weight:600}
+  .f0{background:#B4B2A9} .f0 .f-pct{color:#2C2C2A}
+  .f1{background:#85B7EB} .f1 .f-pct{color:#042C53}
+  .f2{background:#AFA9EC} .f2 .f-pct{color:#26215C}
+  .f3{background:#97C459} .f3 .f-pct{color:#173404}
+  .cyc-tbl{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:1.5rem}
+  .cyc-tbl th{padding:7px 10px;text-align:left;font-weight:600;font-size:11px;color:#fff;background:#2C2C2A}
+  .cyc-tbl td{padding:7px 10px;border-bottom:1px solid #eee;color:#666;font-size:13px}
+  .cyc-tbl tr:nth-child(even) td{background:#f9f9f7}
+  .cyc-tbl td:first-child{color:#1a1a1a;font-weight:500}
+  .cyc-tbl td.bad{color:#A32D2D;font-weight:600} .cyc-tbl td.warn{color:#854F0B;font-weight:600} .cyc-tbl td.good{color:#3B6D11;font-weight:600}
+  .pipe-row{display:flex;height:34px;border-radius:var(--radius-md);overflow:hidden;margin-bottom:1rem;gap:2px}
+  .pipe-seg{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
+  .ps-seg{background:#D3D1C7;color:#2C2C2A} .so-seg{background:#FAC775;color:#633806} .rc-seg{background:#85B7EB;color:#042C53} .sp-seg{background:#97C459;color:#173404}
+  .pipe-legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:1rem;font-size:11px;color:#666}
+  .pl-item{display:flex;align-items:center;gap:5px}
+  .pl-dot{width:10px;height:10px;border-radius:2px}
+  .drop-box{border-radius:var(--radius-md);padding:14px 16px;margin-bottom:1.5rem;border-width:1px;border-style:solid}
+  .drop-danger{background:#FCEBEB;border-color:#F09595} .drop-warning{background:#FAEEDA;border-color:#EF9F27} .drop-info{background:#E6F1FB;border-color:#85B7EB} .drop-success{background:#EAF3DE;border-color:#97C459}
+  .drop-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+  .drop-danger .drop-title{color:#A32D2D} .drop-warning .drop-title{color:#854F0B} .drop-info .drop-title{color:#0C447C} .drop-success .drop-title{color:#3B6D11}
+  .drop-body{font-size:13px;line-height:1.65}
+  .drop-danger .drop-body{color:#791F1F} .drop-warning .drop-body{color:#633806} .drop-info .drop-body{color:#0C447C} .drop-success .drop-body{color:#27500A}
+  .pat-list{display:flex;flex-direction:column;gap:10px;margin-bottom:1.5rem}
+  .pat{border:1px solid #e0ddd8;border-radius:var(--radius-md);padding:14px 16px;background:#fff}
+  .pat-head{display:flex;align-items:baseline;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+  .pat-dim{font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;flex-shrink:0}
+  .d-funnel{background:#E6F1FB;color:#185FA5} .d-cycle{background:#EEEDFE;color:#3C3489} .d-pipeline{background:#FAEEDA;color:#854F0B} .d-crm{background:#EAF3DE;color:#3B6D11} .d-closing{background:#FCEBEB;color:#A32D2D} .d-first{background:#F1EFE8;color:#5F5E5A}
+  .pat-title{font-size:13px;font-weight:600;color:#1a1a1a}
+  .pat-body{font-size:13px;color:#555;line-height:1.65}
+  .pat-body em{color:#1a1a1a;font-style:normal;font-weight:500}
+  .unlock{background:#f5f5f3;border-radius:var(--radius-md);padding:14px 16px;margin-top:1.5rem;border:1px solid #e0ddd8}
+  .unlock-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#666;margin-bottom:10px}
+  .unlock-list{display:flex;flex-direction:column;gap:8px}
+  .unlock-item{display:flex;gap:10px;align-items:flex-start}
+  .un{width:22px;height:22px;border-radius:50%;background:#1a1a1a;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .ut{font-size:13px;color:#555;line-height:1.55}
+  .ut strong{color:#1a1a1a;font-weight:600}
 
-  :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f3;
-    --text-primary: #1a1a1a;
-    --text-secondary: #666666;
-    --border: #e0ddd8;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-  }
+  /* ── COMPARE PAGE ── */
+  .cmp-intro { font-size:13px; color:#555; line-height:1.65; margin-bottom:1.5rem; }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #f5f5f3;
-    color: #1a1a1a;
-    line-height: 1.5;
-    min-height: 100vh;
-  }
+  /* big matrix table */
+  .matrix-wrap { overflow-x:auto; margin-bottom:2rem; }
+  .matrix { width:100%; border-collapse:collapse; font-size:13px; }
+  .matrix th { padding:10px 12px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; text-align:center; border-bottom:2px solid #1a1a1a; }
+  .matrix th.row-hdr { text-align:left; background:#f5f5f3; color:#666; }
+  .matrix th.l0h { background:#D3D1C7; color:#2C2C2A; }
+  .matrix th.l1h { background:#B5D4F4; color:#042C53; }
+  .matrix th.l2h { background:#CECBF6; color:#26215C; }
+  .matrix th.l3h { background:#C0DD97; color:#173404; }
+  .matrix td { padding:9px 12px; border-bottom:1px solid #eee; text-align:center; font-size:13px; color:#444; }
+  .matrix td.row-hdr { text-align:left; font-weight:500; color:#1a1a1a; background:#fafaf8; font-size:12px; }
+  .matrix td.cat-hdr { background:#1a1a1a; color:#fff; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; text-align:left; padding:7px 12px; }
+  .matrix tr:hover td:not(.cat-hdr) { background:#f5f5f3; }
+  .matrix .best { color:#3B6D11; font-weight:700; }
+  .matrix .worst { color:#A32D2D; font-weight:700; }
+  .matrix .warn { color:#854F0B; font-weight:600; }
+  .matrix .ok { color:#185FA5; }
 
-  .wrapper {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-  }
+  /* delta cards */
+  .delta-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:2rem; }
+  .delta-card { border:1px solid #e0ddd8; border-radius:var(--radius-md); padding:14px 16px; background:#fff; }
+  .delta-card-title { font-size:12px; font-weight:600; color:#1a1a1a; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid #eee; }
+  .delta-row { display:flex; justify-content:space-between; align-items:center; padding:5px 0; border-bottom:1px solid #f0f0ee; }
+  .delta-row:last-child { border-bottom:none; }
+  .delta-label { font-size:12px; color:#666; }
+  .delta-vals { display:flex; gap:6px; align-items:center; font-size:12px; font-weight:600; }
+  .pill { padding:2px 8px; border-radius:10px; font-size:11px; font-weight:600; }
+  .pill-0 { background:#D3D1C7; color:#2C2C2A; }
+  .pill-1 { background:#B5D4F4; color:#042C53; }
+  .pill-2 { background:#CECBF6; color:#26215C; }
+  .pill-3 { background:#C0DD97; color:#173404; }
+  .arrow { color:#bbb; font-size:10px; }
 
-  /* ── TOP HEADER ── */
-  .doc-header {
-    background: #1a1a1a;
-    color: #fff;
-    border-radius: var(--radius-lg);
-    padding: 2rem 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-  .doc-header h1 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
-  .doc-header p  { font-size: 13px; color: #aaa; }
+  /* unlock thresholds */
+  .thresh-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:2rem; }
+  .thresh-card { border-radius:var(--radius-md); padding:14px 16px; }
+  .thresh-0 { background:#F1EFE8; border:1px solid #D3D1C7; }
+  .thresh-1 { background:#E6F1FB; border:1px solid #85B7EB; }
+  .thresh-2 { background:#EEEDFE; border:1px solid #AFA9EC; }
+  .thresh-3 { background:#EAF3DE; border:1px solid #97C459; }
+  .thresh-arrow { font-size:13px; font-weight:700; margin-bottom:8px; }
+  .thresh-0 .thresh-arrow { color:#2C2C2A; }
+  .thresh-1 .thresh-arrow { color:#042C53; }
+  .thresh-2 .thresh-arrow { color:#26215C; }
+  .thresh-3 .thresh-arrow { color:#173404; }
+  .thresh-item { font-size:12px; color:#444; padding:3px 0 3px 10px; border-left:2px solid rgba(0,0,0,0.15); margin-bottom:4px; line-height:1.45; }
+  .thresh-item strong { color:#1a1a1a; }
 
-  /* ── FUNNEL LEGEND ── */
-  .funnel-legend-box {
-    background: #E6F1FB;
-    border: 0.5px solid #85B7EB;
-    border-radius: var(--radius-md);
-    padding: 12px 16px;
-    font-size: 12px;
-    color: #0C447C;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-  .funnel-legend-box strong { color: #042C53; }
+  /* insight cards */
+  .ins-list { display:flex; flex-direction:column; gap:10px; margin-bottom:1.5rem; }
+  .ins { padding:12px 16px; border-left:3px solid #1a1a1a; background:#fff; border-radius:0 var(--radius-md) var(--radius-md) 0; border-top:1px solid #eee; border-right:1px solid #eee; border-bottom:1px solid #eee; }
+  .ins-lbl { font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:#888; margin-bottom:3px; }
+  .ins-title { font-size:13px; font-weight:600; color:#1a1a1a; margin-bottom:4px; }
+  .ins-body { font-size:13px; color:#555; line-height:1.65; }
+  .ins-body em { color:#1a1a1a; font-style:normal; font-weight:500; }
 
-  /* ── NAV ── */
-  .nav {
-    display: flex; gap: 6px; flex-wrap: wrap;
-    padding: 1rem 0 1.5rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 1.5rem;
-  }
-  .nav-btn {
-    padding: 6px 16px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    background: transparent;
-    color: #666;
-    font-size: 13px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.15s;
-  }
-  .nav-btn:hover { background: #f0f0ee; }
-  .nav-btn.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
-
-  .page { display: none; }
-  .page.active { display: block; }
-
-  /* ── LEVEL HEADER ── */
-  .lhdr {
-    display: flex; gap: 14px; align-items: center;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .badge {
-    width: 56px; height: 56px;
-    border-radius: 12px;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .badge .blbl { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; }
-  .badge .bnum { font-size: 24px; font-weight: 600; line-height: 1.1; }
-  .b0 { background: #D3D1C7; color: #2C2C2A; }
-  .b1 { background: #B5D4F4; color: #042C53; }
-  .b2 { background: #CECBF6; color: #26215C; }
-  .b3 { background: #C0DD97; color: #173404; }
-  .lhdr h2 { font-size: 17px; font-weight: 600; color: #1a1a1a; }
-  .lhdr p  { font-size: 12px; color: #666; margin-top: 3px; line-height: 1.5; }
-
-  /* ── SECTION LABEL ── */
-  .sec {
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.07em; text-transform: uppercase;
-    color: #666; margin-bottom: 10px; margin-top: 1.5rem;
-  }
-  .sec:first-of-type { margin-top: 0; }
-
-  /* ── METRIC GRID ── */
-  .kv-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-    gap: 8px; margin-bottom: 1.5rem;
-  }
-  .kv {
-    background: #f5f5f3;
-    border-radius: var(--radius-md);
-    padding: 12px 14px;
-    border: 1px solid transparent;
-  }
-  .kv.warn  { background: #FCEBEB; border-color: #F09595; }
-  .kv.good  { background: #EAF3DE; border-color: #97C459; }
-  .kv.info  { background: #E6F1FB; border-color: #85B7EB; }
-  .kv-l { font-size: 11px; color: #888; margin-bottom: 3px; }
-  .kv-v { font-size: 22px; font-weight: 600; color: #1a1a1a; }
-  .kv.warn .kv-v  { color: #A32D2D; }
-  .kv.good .kv-v  { color: #3B6D11; }
-  .kv.info .kv-v  { color: #185FA5; }
-  .kv-n { font-size: 11px; color: #999; margin-top: 2px; }
-  .kv.warn .kv-n  { color: #791F1F; }
-  .kv.good .kv-n  { color: #27500A; }
-  .kv.info .kv-n  { color: #0C447C; }
-
-  /* ── FUNNEL BARS ── */
-  .funnel-wrap { margin-bottom: 1.5rem; }
-  .f-row {
-    display: flex; align-items: center;
-    gap: 10px; margin-bottom: 8px;
-  }
-  .f-lbl {
-    font-size: 12px; color: #666;
-    width: 110px; flex-shrink: 0;
-    text-align: right; line-height: 1.3;
-  }
-  .f-track {
-    flex: 1;
-    background: #eee;
-    border-radius: 3px; height: 22px; overflow: hidden;
-  }
-  .f-fill {
-    height: 100%; border-radius: 3px;
-    display: flex; align-items: center;
-    justify-content: flex-end; padding-right: 8px;
-  }
-  .f-pct { font-size: 12px; font-weight: 600; }
-  .f-delta { font-size: 11px; width: 54px; flex-shrink: 0; color: #888; }
-  .f-delta.big { color: #A32D2D; font-weight: 600; }
-  .f-delta.pos { color: #3B6D11; font-weight: 600; }
-  .f0 { background: #B4B2A9; } .f0 .f-pct { color: #2C2C2A; }
-  .f1 { background: #85B7EB; } .f1 .f-pct { color: #042C53; }
-  .f2 { background: #AFA9EC; } .f2 .f-pct { color: #26215C; }
-  .f3 { background: #97C459; } .f3 .f-pct { color: #173404; }
-
-  /* ── CYCLE TABLE ── */
-  .cyc-tbl {
-    width: 100%; border-collapse: collapse;
-    font-size: 12px; margin-bottom: 1.5rem;
-  }
-  .cyc-tbl th {
-    padding: 7px 10px; text-align: left;
-    font-weight: 600; font-size: 11px;
-    color: #fff; background: #2C2C2A;
-  }
-  .cyc-tbl td {
-    padding: 7px 10px;
-    border-bottom: 1px solid #eee;
-    color: #666; font-size: 13px;
-  }
-  .cyc-tbl tr:nth-child(even) td { background: #f9f9f7; }
-  .cyc-tbl td:first-child { color: #1a1a1a; font-weight: 500; }
-  .cyc-tbl td.bad  { color: #A32D2D; font-weight: 600; }
-  .cyc-tbl td.warn { color: #854F0B; font-weight: 600; }
-  .cyc-tbl td.good { color: #3B6D11; font-weight: 600; }
-
-  /* ── PIPELINE VIZ ── */
-  .pipe-row {
-    display: flex; height: 34px;
-    border-radius: var(--radius-md);
-    overflow: hidden; margin-bottom: 1rem;
-    gap: 2px;
-  }
-  .pipe-seg {
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 600;
-  }
-  .ps-seg { background: #D3D1C7; color: #2C2C2A; }
-  .so-seg { background: #FAC775; color: #633806; }
-  .rc-seg { background: #85B7EB; color: #042C53; }
-  .sp-seg { background: #97C459; color: #173404; }
-  .pipe-legend {
-    display: flex; gap: 14px; flex-wrap: wrap;
-    margin-bottom: 1rem; font-size: 11px; color: #666;
-  }
-  .pl-item { display: flex; align-items: center; gap: 5px; }
-  .pl-dot { width: 10px; height: 10px; border-radius: 2px; }
-
-  /* ── DROP BOXES ── */
-  .drop-box {
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    margin-bottom: 1.5rem;
-    border-width: 1px; border-style: solid;
-  }
-  .drop-danger  { background: #FCEBEB; border-color: #F09595; }
-  .drop-warning { background: #FAEEDA; border-color: #EF9F27; }
-  .drop-info    { background: #E6F1FB; border-color: #85B7EB; }
-  .drop-success { background: #EAF3DE; border-color: #97C459; }
-  .drop-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
-  .drop-danger  .drop-title { color: #A32D2D; }
-  .drop-warning .drop-title { color: #854F0B; }
-  .drop-info    .drop-title { color: #0C447C; }
-  .drop-success .drop-title { color: #3B6D11; }
-  .drop-body { font-size: 13px; line-height: 1.65; }
-  .drop-danger  .drop-body { color: #791F1F; }
-  .drop-warning .drop-body { color: #633806; }
-  .drop-info    .drop-body { color: #0C447C; }
-  .drop-success .drop-body { color: #27500A; }
-
-  /* ── PATTERN CARDS ── */
-  .pat-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
-  .pat {
-    border: 1px solid #e0ddd8;
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    background: #fff;
-  }
-  .pat-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
-  .pat-dim {
-    font-size: 10px; font-weight: 600;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    padding: 2px 7px; border-radius: 6px; flex-shrink: 0;
-  }
-  .d-funnel   { background: #E6F1FB; color: #185FA5; }
-  .d-cycle    { background: #EEEDFE; color: #3C3489; }
-  .d-pipeline { background: #FAEEDA; color: #854F0B; }
-  .d-crm      { background: #EAF3DE; color: #3B6D11; }
-  .d-closing  { background: #FCEBEB; color: #A32D2D; }
-  .d-first    { background: #F1EFE8; color: #5F5E5A; }
-  .pat-title { font-size: 13px; font-weight: 600; color: #1a1a1a; }
-  .pat-body  { font-size: 13px; color: #555; line-height: 1.65; }
-  .pat-body em { color: #1a1a1a; font-style: normal; font-weight: 500; }
-
-  /* ── UNLOCK ── */
-  .unlock {
-    background: #f5f5f3;
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    margin-top: 1.5rem;
-    border: 1px solid #e0ddd8;
-  }
-  .unlock-title {
-    font-size: 11px; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.06em;
-    color: #666; margin-bottom: 10px;
-  }
-  .unlock-list { display: flex; flex-direction: column; gap: 8px; }
-  .unlock-item { display: flex; gap: 10px; align-items: flex-start; }
-  .un {
-    width: 22px; height: 22px; border-radius: 50%;
-    background: #1a1a1a; color: #fff;
-    font-size: 11px; font-weight: 600;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; margin-top: 1px;
-  }
-  .ut { font-size: 13px; color: #555; line-height: 1.55; }
-  .ut strong { color: #1a1a1a; font-weight: 600; }
-
-  /* ── DIVIDER ── */
-  hr { border: none; border-top: 1px solid #e0ddd8; margin: 1.5rem 0; }
+  /* funnel compare */
+  .fcmp-grid { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:2px; margin-bottom:1.5rem; background:#e0ddd8; border-radius:var(--radius-md); overflow:hidden; }
+  .fcmp-col { background:#fff; padding:10px; }
+  .fcmp-hdr { font-size:11px; font-weight:700; text-align:center; padding:6px; border-radius:6px; margin-bottom:10px; }
+  .fcmp-0 { background:#D3D1C7; color:#2C2C2A; }
+  .fcmp-1 { background:#B5D4F4; color:#042C53; }
+  .fcmp-2 { background:#CECBF6; color:#26215C; }
+  .fcmp-3 { background:#C0DD97; color:#173404; }
+  .fcmp-row { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid #f0f0ee; font-size:12px; }
+  .fcmp-row:last-child { border-bottom:none; }
+  .fcmp-stage { color:#888; font-size:11px; }
+  .fcmp-val { font-weight:600; color:#1a1a1a; }
+  .fcmp-val.best { color:#3B6D11; }
+  .fcmp-val.worst { color:#A32D2D; }
 </style>
 </head>
 <body>
@@ -306,18 +177,15 @@
     <button class="nav-btn" onclick="show('l1',this)">L1</button>
     <button class="nav-btn" onclick="show('l2',this)">L2</button>
     <button class="nav-btn" onclick="show('l3',this)">L3</button>
+    <button class="nav-btn" onclick="show('compare',this)">Comparaison</button>
   </div>
 
-  <!-- ══════════════════════════════ L0 ══════════════════════════════ -->
+  <!-- L0 -->
   <div class="page active" id="page-l0">
     <div class="lhdr">
       <div class="badge b0"><span class="blbl">LEVEL</span><span class="bnum">0</span></div>
-      <div>
-        <h2>"Ils envoient l'offre, puis perdent le client"</h2>
-        <p>Agents actifs analysés · CR3 gross moyen : 18.87% · 1 097 opps · 207 bookings</p>
-      </div>
+      <div><h2>"Ils envoient l'offre, puis perdent le client"</h2><p>Agents actifs analysés · CR3 gross moyen : 18.87% · 1 097 opps · 207 bookings</p></div>
     </div>
-
     <div class="sec">Métriques clés</div>
     <div class="kv-row">
       <div class="kv warn"><div class="kv-l">CR3 gross moy.</div><div class="kv-v">18.87%</div><div class="kv-n">Le plus bas du corpus</div></div>
@@ -326,7 +194,6 @@
       <div class="kv warn"><div class="kv-l">RC / agent</div><div class="kv-v">6.2</div><div class="kv-n">Pipeline RC quasi vide</div></div>
       <div class="kv warn"><div class="kv-l">Pend → Conf</div><div class="kv-v">8.96j</div><div class="kv-n">Le plus long du corpus</div></div>
     </div>
-
     <div class="sec">Funnel de conversion</div>
     <div class="funnel-wrap">
       <div class="f-row"><span class="f-lbl">FC Done</span><div class="f-track"><div class="f-fill f0" style="width:90.65%"><span class="f-pct">90.65%</span></div></div><span class="f-delta"></span></div>
@@ -335,12 +202,10 @@
       <div class="f-row"><span class="f-lbl">RC Done</span><div class="f-track"><div class="f-fill f0" style="width:49.35%"><span class="f-pct">49.35%</span></div></div><span class="f-delta big">−19pt ⚠</span></div>
       <div class="f-row"><span class="f-lbl">RC Bkg</span><div class="f-track"><div class="f-fill f0" style="width:55.26%"><span class="f-pct">55.26%</span></div></div><span class="f-delta"></span></div>
     </div>
-
     <div class="drop-box drop-danger">
       <div class="drop-title">Double chute caractéristique du L0</div>
       <div class="drop-body">Le funnel perd 21 points entre Offer Made et OC Done, puis encore 19 points entre OC et RC. Cause racine unique : l'agent ne verrouille aucune étape suivante avant de raccrocher. Il envoie l'offre sans fixer l'OC. Il finit l'OC sans fixer le RC. À chaque étape, la responsabilité de la suite est laissée au client.</div>
     </div>
-
     <div class="sec">Cycles de vente moyens</div>
     <table class="cyc-tbl">
       <thead><tr><th>Étape</th><th>Délai moyen</th><th>Lecture</th></tr></thead>
@@ -353,7 +218,6 @@
         <tr><td>Pending → Confirmed</td><td class="bad">8.96j</td><td class="bad">Le plus long du corpus — suivi DMC passif après signature</td></tr>
       </tbody>
     </table>
-
     <div class="sec">Composition du pipeline</div>
     <div class="pipe-row">
       <div class="pipe-seg ps-seg" style="flex:22">PS 22</div>
@@ -367,35 +231,15 @@
       <span class="pl-item"><span class="pl-dot" style="background:#85B7EB"></span>RC — 41.6%</span>
       <span class="pl-item"><span class="pl-dot" style="background:#97C459"></span>SP (Signing) — 8.4%</span>
     </div>
-
     <div class="sec">Comportements identifiés</div>
     <div class="pat-list">
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">Le pipeline SO saturé (37.6%) révèle que les offres sont envoyées sans plan de suivi</span></div>
-        <div class="pat-body">37.6% du pipeline bloqué en Send Offer — le ratio SO le plus élevé de tous les levels. Chaque opp en SO est une offre envoyée sans OC schedulé dans la foulée. <em>Le L0 traite l'envoi de l'offre comme une fin d'étape, là où c'est un début.</em> Ces offres resteront en SO indéfiniment jusqu'à ce que le client relance — ce qu'il ne fera généralement pas.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→OC schedulé rapide (0.84j) mais OC réalisé en 3.8j : l'OC est planifié mais ne se tient pas</span></div>
-        <div class="pat-body">Le L0 planifie son OC rapidement en théorie (0.84j après le FC), mais entre la planification et la réalisation, il s'écoule ~3j de plus. <em>Les OC sont schedulés mais ne se tiennent pas.</em> Deux causes probables : le client no-show, ou l'agent reporte. Dans les deux cas, il n'y a pas de relance pour maintenir le rendez-vous.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-closing">Closing</span><span class="pat-title">RC Bkg à 55% : le L0 sait conclure — son problème est structurel, pas technique</span></div>
-        <div class="pat-body">55% de conversion quand le RC se tient, c'est dans la norme. <em>Le L0 n'a pas un problème de compétence de closing</em> — il a un problème de mécanique de suivi. Former le L0 au closing RC serait inefficace. Le levier est avant : verrouiller l'OC, puis verrouiller le RC pendant l'OC.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">SP à 8.4% seulement : les deals ne progressent presque jamais jusqu'à la signature</span></div>
-        <div class="pat-body">15 opps en Signing sur 178 totales — le plus faible ratio SP de tous les levels. <em>Un pipeline sain devrait avoir 15 à 20% en SP</em> pour garantir un flux régulier de bookings. Ici la chaîne se brise systématiquement avant d'arriver à la signature.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">Peu de cases ouvertes = pipeline vide, pas bonne organisation</span></div>
-        <div class="pat-body">En L3, peu de cases = process maîtrisé. En L0, peu de cases = absence de dossiers avancés. <em>La charge CRM est un indicateur contextuel :</em> elle reflète le volume de deals actifs en cours de traitement. Un agent L0 avec 0 case n'est pas organisé — il n'a simplement pas de dossiers complexes à gérer.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">Pend→Conf à 8.96j : la phase post-signature est entièrement passive</span></div>
-        <div class="pat-body">Une fois le client signé, le dossier est envoyé à la DMC et l'agent attend. 8.96j — le plus long du corpus. <em>Le L0 ne pilote pas la confirmation des hôtels :</em> pas de contact DMC, pas de mise à jour client. Ce délai est un risque direct de défection client après signature.</div>
-      </div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">Le pipeline SO saturé (37.6%) révèle que les offres sont envoyées sans plan de suivi</span></div><div class="pat-body">37.6% du pipeline bloqué en Send Offer — le ratio SO le plus élevé de tous les levels. Chaque opp en SO est une offre envoyée sans OC schedulé dans la foulée. <em>Le L0 traite l'envoi de l'offre comme une fin d'étape, là où c'est un début.</em> Ces offres resteront en SO indéfiniment jusqu'à ce que le client relance — ce qu'il ne fera généralement pas.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→OC schedulé rapide (0.84j) mais OC réalisé en 3.8j : l'OC est planifié mais ne se tient pas</span></div><div class="pat-body">Le L0 planifie son OC rapidement en théorie (0.84j après le FC), mais entre la planification et la réalisation, il s'écoule ~3j de plus. <em>Les OC sont schedulés mais ne se tiennent pas.</em> Deux causes probables : le client no-show, ou l'agent reporte. Dans les deux cas, il n'y a pas de relance pour maintenir le rendez-vous.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-closing">Closing</span><span class="pat-title">RC Bkg à 55% : le L0 sait conclure — son problème est structurel, pas technique</span></div><div class="pat-body">55% de conversion quand le RC se tient, c'est dans la norme. <em>Le L0 n'a pas un problème de compétence de closing</em> — il a un problème de mécanique de suivi. Former le L0 au closing RC serait inefficace. Le levier est avant : verrouiller l'OC, puis verrouiller le RC pendant l'OC.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">SP à 8.4% seulement : les deals ne progressent presque jamais jusqu'à la signature</span></div><div class="pat-body">15 opps en Signing sur 178 totales — le plus faible ratio SP de tous les levels. <em>Un pipeline sain devrait avoir 15 à 20% en SP</em> pour garantir un flux régulier de bookings. Ici la chaîne se brise systématiquement avant d'arriver à la signature.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">Peu de cases ouvertes = pipeline vide, pas bonne organisation</span></div><div class="pat-body">En L3, peu de cases = process maîtrisé. En L0, peu de cases = absence de dossiers avancés. <em>La charge CRM est un indicateur contextuel :</em> elle reflète le volume de deals actifs en cours de traitement. Un agent L0 avec 0 case n'est pas organisé — il n'a simplement pas de dossiers complexes à gérer.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">Pend→Conf à 8.96j : la phase post-signature est entièrement passive</span></div><div class="pat-body">Une fois le client signé, le dossier est envoyé à la DMC et l'agent attend. 8.96j — le plus long du corpus. <em>Le L0 ne pilote pas la confirmation des hôtels :</em> pas de contact DMC, pas de mise à jour client. Ce délai est un risque direct de défection client après signature.</div></div>
     </div>
-
     <div class="unlock">
       <div class="unlock-title">Ce qu'il faut changer pour sortir du L0</div>
       <div class="unlock-list">
@@ -407,16 +251,12 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════ L1 ══════════════════════════════ -->
+  <!-- L1 -->
   <div class="page" id="page-l1">
     <div class="lhdr">
       <div class="badge b1"><span class="blbl">LEVEL</span><span class="bnum">1</span></div>
-      <div>
-        <h2>"Ils bookent tous — mais le volume dilue l'efficacité à chaque étape"</h2>
-        <p>8 agents · 0% à 0 booking (seul level) · CR3 gross : 19.81% · 1 827 opps · 228 opps/agent (record corpus)</p>
-      </div>
+      <div><h2>"Ils bookent tous — mais le volume dilue l'efficacité à chaque étape"</h2><p>8 agents · 0% à 0 booking (seul level) · CR3 gross : 19.81% · 1 827 opps · 228 opps/agent (record corpus)</p></div>
     </div>
-
     <div class="sec">Métriques clés</div>
     <div class="kv-row">
       <div class="kv warn"><div class="kv-l">CR3 gross moy.</div><div class="kv-v">19.81%</div><div class="kv-n">Régulier, sans pic</div></div>
@@ -425,7 +265,6 @@
       <div class="kv good"><div class="kv-l">RC / agent</div><div class="kv-v">10.9</div><div class="kv-n">Volume RC réel</div></div>
       <div class="kv warn"><div class="kv-l">FC → Pending</div><div class="kv-v">6.7j</div><div class="kv-n">Trop court — sous-qual.</div></div>
     </div>
-
     <div class="sec">Funnel de conversion</div>
     <div class="funnel-wrap">
       <div class="f-row"><span class="f-lbl">FC Done</span><div class="f-track"><div class="f-fill f1" style="width:91.52%"><span class="f-pct">91.52%</span></div></div><span class="f-delta"></span></div>
@@ -434,12 +273,10 @@
       <div class="f-row"><span class="f-lbl">RC Done</span><div class="f-track"><div class="f-fill f1" style="width:40.95%"><span class="f-pct">40.95%</span></div></div><span class="f-delta big">−24pt ⚠</span></div>
       <div class="f-row"><span class="f-lbl">RC Bkg</span><div class="f-track"><div class="f-fill f1" style="width:54.24%"><span class="f-pct">54.24%</span></div></div><span class="f-delta"></span></div>
     </div>
-
     <div class="drop-box drop-warning">
       <div class="drop-title">Le paradoxe L1 : RC Done plus bas que le L0</div>
       <div class="drop-body">Le L1 a un RC Done (40.95%) inférieur au L0 (49.35%) malgré plus d'expérience. Explication : avec 228 opps/agent en moyenne, les agents L1 ne peuvent pas maintenir un suivi RC structuré pour chaque lead. Les deals les moins avancés sont sacrifiés. Le funnel perd des leads à chaque étape sans exception — ce n'est pas un goulot unique, c'est une fuite diffuse qui traduit un manque de pilotage lié au volume excessif.</div>
     </div>
-
     <div class="sec">Cycles de vente moyens</div>
     <table class="cyc-tbl">
       <thead><tr><th>Étape</th><th>Délai moyen</th><th>Lecture</th></tr></thead>
@@ -452,7 +289,6 @@
         <tr><td>Pending → Confirmed</td><td class="warn">8.61j</td><td class="warn">Long — suivi post-signature encore passif</td></tr>
       </tbody>
     </table>
-
     <div class="sec">Composition du pipeline</div>
     <div class="pipe-row">
       <div class="pipe-seg ps-seg" style="flex:11">PS 11</div>
@@ -466,56 +302,32 @@
       <span class="pl-item"><span class="pl-dot" style="background:#85B7EB"></span>RC — 64% ✓</span>
       <span class="pl-item"><span class="pl-dot" style="background:#97C459"></span>SP — 21.3% ✓</span>
     </div>
-
     <div class="sec">Comportements identifiés</div>
     <div class="pat-list">
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">Pipeline RC-heavy (64%) et SP solide (21%) : le L1 fait avancer ses deals — mais pas jusqu'à la conversion</span></div>
-        <div class="pat-body">Le pipeline L1 est structurellement sain : SO quasi vide (6.6%), RC fourni (64%), SP à 21.3%. <em>Le L1 maîtrise la progression des deals dans le pipeline</em> — il sait amener ses clients jusqu'en RC. Son problème : ces RC ne se convertissent qu'à 41% en booking. Le goulot est dans la qualité du suivi RC, pas dans la mécanique de progression.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→Pending à 6.7j — le plus court : le client est engagé trop tôt dans le process</span></div>
-        <div class="pat-body">6.7j entre le premier call et la signature — le client est envoyé en DMC avant d'être pleinement convaincu. <em>Conséquence directe : le Pend→Conf prend 8.61j</em> parce que le client, moins engagé, est plus hésitant pendant la phase de confirmation des hôtels.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">OC→RC à 7.3j — le délai de relance le plus long : conséquence du volume, pas du comportement</span></div>
-        <div class="pat-body">Avec 228 opps/agent, l'agent ne peut pas relancer tous ses clients dans les 5j suivant l'OC. <em>Il priorise les leads réactifs et laisse les autres attendre.</em> Le RC Done à 41% en est la conséquence directe : seuls les clients qui relancent d'eux-mêmes arrivent au RC.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-funnel">Funnel</span><span class="pat-title">−7pt entre FC Done et Offer Made : seul level à perdre autant avant l'offre</span></div>
-        <div class="pat-body">Le L0 perd 2pt entre FC et Offer Made. Le L1 en perd 7. Avec 228 opps/agent, <em>certains leads ne reçoivent tout simplement jamais d'offre</em> — l'agent n'a pas le temps de les traiter tous. Ce n'est pas un problème de compétence, c'est un problème de capacité.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-first">First OC Bkg</span><span class="pat-title">32.86% de signature au 1er OC — identique au L0 : le premier OC est une présentation, pas un call de conviction</span></div>
-        <div class="pat-body">1 client sur 3 signe au premier OC — identique au L0 malgré plus d'expérience. <em>Le premier OC est traité comme une présentation d'offre, pas comme un appel de conviction.</em> Les agents L2 sur ce même indicateur atteignent 39.5% — signe que quelque chose change dans la façon d'animer ce call.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">Jusqu'à 55 tasks et 55 cases ouvertes : la surcharge CRM est incompatible avec un suivi de qualité</span></div>
-        <div class="pat-body">Chaque task ouverte est une relance non faite ou un dossier en attente. <em>Un agent avec 55 tasks ouvertes consacre une part de son énergie à gérer l'arriéré CRM</em> plutôt qu'à relancer ses leads RC. Cercle vicieux : plus de tasks = moins de relances = RC Done qui baisse = plus de tasks qui s'accumulent.</div>
-      </div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">Pipeline RC-heavy (64%) et SP solide (21%) : le L1 fait avancer ses deals — mais pas jusqu'à la conversion</span></div><div class="pat-body">Le pipeline L1 est structurellement sain : SO quasi vide (6.6%), RC fourni (64%), SP à 21.3%. <em>Le L1 maîtrise la progression des deals dans le pipeline</em> — il sait amener ses clients jusqu'en RC. Son problème : ces RC ne se convertissent qu'à 41% en booking.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→Pending à 6.7j — le plus court : le client est engagé trop tôt dans le process</span></div><div class="pat-body">6.7j entre le premier call et la signature — le client est envoyé en DMC avant d'être pleinement convaincu. <em>Conséquence directe : le Pend→Conf prend 8.61j</em> parce que le client, moins engagé, est plus hésitant pendant la phase de confirmation des hôtels.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">OC→RC à 7.3j — le délai de relance le plus long : conséquence du volume, pas du comportement</span></div><div class="pat-body">Avec 228 opps/agent, l'agent ne peut pas relancer tous ses clients dans les 5j suivant l'OC. <em>Il priorise les leads réactifs et laisse les autres attendre.</em> Le RC Done à 41% en est la conséquence directe.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-funnel">Funnel</span><span class="pat-title">−7pt entre FC Done et Offer Made : seul level à perdre autant avant l'offre</span></div><div class="pat-body">Le L0 perd 2pt entre FC et Offer Made. Le L1 en perd 7. Avec 228 opps/agent, <em>certains leads ne reçoivent tout simplement jamais d'offre</em> — l'agent n'a pas le temps de les traiter tous.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-first">First OC Bkg</span><span class="pat-title">32.86% de signature au 1er OC — identique au L0 : le premier OC est une présentation, pas un call de conviction</span></div><div class="pat-body">1 client sur 3 signe au premier OC — identique au L0 malgré plus d'expérience. <em>Le premier OC est traité comme une présentation d'offre, pas comme un appel de conviction.</em></div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">Jusqu'à 55 tasks et 55 cases ouvertes : la surcharge CRM est incompatible avec un suivi de qualité</span></div><div class="pat-body">Chaque task ouverte est une relance non faite ou un dossier en attente. <em>Un agent avec 55 tasks ouvertes consacre une part de son énergie à gérer l'arriéré CRM</em> plutôt qu'à relancer ses leads RC. Cercle vicieux : plus de tasks = moins de relances = RC Done qui baisse.</div></div>
     </div>
-
     <div class="unlock">
       <div class="unlock-title">Ce qu'il faut changer pour sortir du L1</div>
       <div class="unlock-list">
-        <div class="unlock-item"><div class="un">1</div><div class="ut"><strong>Réduire le portefeuille actif à ~150 opps.</strong> Moins de leads mieux suivis = meilleur CR3. C'est le levier numéro 1 — tout le reste découle du volume excessif.</div></div>
-        <div class="unlock-item"><div class="un">2</div><div class="ut"><strong>Ne pas passer en Pending avant qualification complète.</strong> FC→Pending à 6.7j est trop court. Le client doit être pleinement convaincu avant que le dossier parte à la DMC.</div></div>
-        <div class="unlock-item"><div class="un">3</div><div class="ut"><strong>Planifier le RC pendant l'OC.</strong> Amener l'OC→RC de 7.3j à 5j max. Avec un portefeuille réduit, cette relance devient structurellement possible.</div></div>
+        <div class="unlock-item"><div class="un">1</div><div class="ut"><strong>Réduire le portefeuille actif à ~150 opps.</strong> Moins de leads mieux suivis = meilleur CR3. C'est le levier numéro 1.</div></div>
+        <div class="unlock-item"><div class="un">2</div><div class="ut"><strong>Ne pas passer en Pending avant qualification complète.</strong> FC→Pending à 6.7j est trop court.</div></div>
+        <div class="unlock-item"><div class="un">3</div><div class="ut"><strong>Planifier le RC pendant l'OC.</strong> Amener l'OC→RC de 7.3j à 5j max.</div></div>
         <div class="unlock-item"><div class="un">4</div><div class="ut"><strong>Vider les tasks ouvertes chaque semaine.</strong> Objectif : moins de 10 tasks ouvertes à tout moment.</div></div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════ L2 ══════════════════════════════ -->
+  <!-- L2 -->
   <div class="page" id="page-l2">
     <div class="lhdr">
       <div class="badge b2"><span class="blbl">LEVEL</span><span class="bnum">2</span></div>
-      <div>
-        <h2>"Le cycle commercial est maîtrisé — mais la confirmation des hôtels ne l'est pas encore"</h2>
-        <p>Agents actifs · CR3 gross : ~25% · First OC Bkg : 39.5% (meilleur du corpus) · Groupe le plus hétérogène</p>
-      </div>
+      <div><h2>"Le cycle commercial est maîtrisé — mais la confirmation des hôtels ne l'est pas encore"</h2><p>Agents actifs · CR3 gross : ~25% · First OC Bkg : 39.5% (meilleur du corpus) · Groupe le plus hétérogène</p></div>
     </div>
-
     <div class="sec">Métriques clés</div>
     <div class="kv-row">
       <div class="kv info"><div class="kv-l">CR3 gross moy.</div><div class="kv-v">~25%</div><div class="kv-n">Proche du L3</div></div>
@@ -524,7 +336,6 @@
       <div class="kv good"><div class="kv-l">First OC Bkg</div><div class="kv-v">39.5%</div><div class="kv-n">Meilleur du corpus</div></div>
       <div class="kv warn"><div class="kv-l">Pend → Conf</div><div class="kv-v">9.25j</div><div class="kv-n">Le plus long du corpus ⚠</div></div>
     </div>
-
     <div class="sec">Funnel de conversion</div>
     <div class="funnel-wrap">
       <div class="f-row"><span class="f-lbl">FC Done</span><div class="f-track"><div class="f-fill f2" style="width:91%"><span class="f-pct">~91%</span></div></div><span class="f-delta"></span></div>
@@ -533,12 +344,10 @@
       <div class="f-row"><span class="f-lbl">RC Done</span><div class="f-track"><div class="f-fill f2" style="width:65%"><span class="f-pct">~65%</span></div></div><span class="f-delta pos">−5pt ✓</span></div>
       <div class="f-row"><span class="f-lbl">RC Bkg</span><div class="f-track"><div class="f-fill f2" style="width:62%"><span class="f-pct">~62%</span></div></div><span class="f-delta"></span></div>
     </div>
-
     <div class="drop-box drop-info">
       <div class="drop-title">Le saut clé L1→L2 : de −24pt à −5pt entre OC et RC</div>
       <div class="drop-body">Le L1 perdait 24 points entre OC et RC avec 7.3j de délai. Le L2 perd seulement 5 points avec 6.4j. 0.9j de différence de délai, 19pt de différence de résultat. Ce n'est pas la vitesse qui change — c'est que le L2 planifie le RC pendant l'OC, avant de raccrocher. Ce seul réflexe explique intégralement le saut de RC Done de 41% à 65%.</div>
     </div>
-
     <div class="sec">Cycles de vente moyens</div>
     <table class="cyc-tbl">
       <thead><tr><th>Étape</th><th>Délai moyen</th><th>Lecture</th></tr></thead>
@@ -551,7 +360,6 @@
         <tr><td>Pending → Confirmed</td><td class="bad">9.25j</td><td class="bad">Le plus long du corpus — goulot opérationnel majeur</td></tr>
       </tbody>
     </table>
-
     <div class="sec">Composition du pipeline</div>
     <div class="pipe-row">
       <div class="pipe-seg ps-seg" style="flex:25">PS 25</div>
@@ -565,56 +373,32 @@
       <span class="pl-item"><span class="pl-dot" style="background:#85B7EB"></span>RC — 66.5% ✓</span>
       <span class="pl-item"><span class="pl-dot" style="background:#97C459"></span>SP — 20.8% ✓</span>
     </div>
-
     <div class="sec">Comportements identifiés</div>
     <div class="pat-list">
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">OC→RC à 6.4j et −5pt : planifier le RC pendant l'OC est le comportement discriminant L1→L2</span></div>
-        <div class="pat-body">0.9j de délai de moins qu'au L1, mais 19pt de résultat en plus. <em>Ce n'est pas la rapidité qui change — c'est le comportement pendant l'OC :</em> le L2 planifie le RC avant de raccrocher. Le client est cadré pour le prochain appel. Ce seul réflexe explique intégralement le saut de RC Done de 41% à 65%.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-first">First OC Bkg</span><span class="pat-title">39.5% de signature au 1er OC — meilleur du corpus, mieux que le L3 : le L2 est percutant dès la première présentation</span></div>
-        <div class="pat-body">Le L2 convertit plus que le L3 au premier OC. <em>Le L2 sait créer la conviction lors de la première présentation d'offre.</em> Ce qui lui manque, c'est la constance sur un volume élevé et la maîtrise opérationnelle post-signature — pas la compétence de vente initiale.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→1ère offre à 1.50j : le L2 prend plus de temps avant d'envoyer l'offre — qualification plus ciblée</span></div>
-        <div class="pat-body">0.4j de plus que le L0/L1 avant l'envoi. Ce délai supplémentaire reflète une meilleure préparation de la proposition. <em>L'offre envoyée par le L2 est plus adaptée au client</em> — ce qui explique en partie son meilleur First OC Bkg (39.5% vs 32.86% pour le L1) et son meilleur RC Bkg (~62%).</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">Cas extrême : 41/42 opps bloquées en RC — signal d'alarme sur le closing post-RC</span></div>
-        <div class="pat-body">Ce profil extrême (Pend→Conf à 22j sur un agent) révèle un pattern L2 : <em>les deals progressent jusqu'au RC mais ne se transforment pas en Pending.</em> RC insuffisamment conclusif, offre qui ne matche pas, ou problème de timing. C'est une version amplifiée du problème structurel L2 : maîtriser jusqu'au RC mais bloquer avant la signature.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">De 0 à 41 tasks ouvertes : le L2 n'a pas encore un comportement CRM homogène</span></div>
-        <div class="pat-body">En L3, tous les agents ont moins de 25 tasks. En L2, certains ont 0, d'autres 41. Cette dispersion traduit l'absence d'une méthode CRM partagée. <em>Les agents L2 qui ont le plus de tasks sont ceux dont la conversion est la plus faible</em> — la surcharge administrative absorbe l'énergie qui devrait aller aux relances RC.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-closing">Closing</span><span class="pat-title">Pend→Conf à 9.25j : le L2 maîtrise la vente mais pas la coordination opérationnelle post-signature</span></div>
-        <div class="pat-body">Le L2 sait convaincre, relancer, faire progresser ses deals. Mais une fois le client signé, il entre en mode passif. <em>Le Pend→Conf à 9.25j révèle que la relation client s'arrête à la signature pour le L2</em> — là où le L3 continue à piloter activement jusqu'à la confirmation de tous les hôtels.</div>
-      </div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">OC→RC à 6.4j et −5pt : planifier le RC pendant l'OC est le comportement discriminant L1→L2</span></div><div class="pat-body">0.9j de délai de moins qu'au L1, mais 19pt de résultat en plus. <em>Ce n'est pas la rapidité qui change — c'est le comportement pendant l'OC :</em> le L2 planifie le RC avant de raccrocher. Ce seul réflexe explique intégralement le saut de RC Done de 41% à 65%.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-first">First OC Bkg</span><span class="pat-title">39.5% de signature au 1er OC — meilleur du corpus, mieux que le L3</span></div><div class="pat-body">Le L2 convertit plus que le L3 au premier OC. <em>Le L2 sait créer la conviction lors de la première présentation d'offre.</em> Ce qui lui manque : la constance sur un volume élevé et la maîtrise opérationnelle post-signature.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→1ère offre à 1.50j : le L2 prend plus de temps avant d'envoyer l'offre — qualification plus ciblée</span></div><div class="pat-body">0.4j de plus que le L0/L1 avant l'envoi. <em>L'offre envoyée par le L2 est plus adaptée au client</em> — ce qui explique en partie son meilleur First OC Bkg (39.5% vs 32.86% pour le L1).</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">Cas extrême : 41/42 opps bloquées en RC — signal d'alarme sur le closing post-RC</span></div><div class="pat-body">Ce profil révèle un pattern L2 : <em>les deals progressent jusqu'au RC mais ne se transforment pas en Pending.</em> RC insuffisamment conclusif, offre qui ne matche pas, ou problème de timing.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">De 0 à 41 tasks ouvertes : le L2 n'a pas encore un comportement CRM homogène</span></div><div class="pat-body">En L3, tous les agents ont moins de 25 tasks. En L2, certains ont 0, d'autres 41. <em>Les agents L2 qui ont le plus de tasks sont ceux dont la conversion est la plus faible.</em></div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-closing">Closing</span><span class="pat-title">Pend→Conf à 9.25j : le L2 maîtrise la vente mais pas la coordination post-signature</span></div><div class="pat-body">Une fois le client signé, il entre en mode passif. <em>Le Pend→Conf à 9.25j révèle que la relation client s'arrête à la signature pour le L2</em> — là où le L3 continue à piloter activement.</div></div>
     </div>
-
     <div class="unlock">
       <div class="unlock-title">Ce qu'il faut changer pour sortir du L2</div>
       <div class="unlock-list">
-        <div class="unlock-item"><div class="un">1</div><div class="ut"><strong>Piloter le Pend→Conf activement.</strong> Contact DMC J+1 après signature, mise à jour client tous les 2j. Objectif : descendre de 9.25j à 7j. C'est le seul levier opérationnel restant.</div></div>
-        <div class="unlock-item"><div class="un">2</div><div class="ut"><strong>Verrouiller l'OC avant l'envoi de l'offre</strong> pour réduire la chute −19pt Offer→OC. Dernier goulot funnel non résolu.</div></div>
-        <div class="unlock-item"><div class="un">3</div><div class="ut"><strong>Nourrir le pipeline RC à 12+ opps/agent</strong> (vs 9.4 actuellement). +2.6 opps en RC par agent = bookings supplémentaires directs chaque mois.</div></div>
-        <div class="unlock-item"><div class="un">4</div><div class="ut"><strong>Homogénéiser la gestion CRM.</strong> Objectif : moins de 15 tasks ouvertes pour tous les agents du groupe.</div></div>
+        <div class="unlock-item"><div class="un">1</div><div class="ut"><strong>Piloter le Pend→Conf activement.</strong> Contact DMC J+1 après signature. Objectif : descendre de 9.25j à 7j.</div></div>
+        <div class="unlock-item"><div class="un">2</div><div class="ut"><strong>Verrouiller l'OC avant l'envoi de l'offre</strong> pour réduire la chute −19pt Offer→OC.</div></div>
+        <div class="unlock-item"><div class="un">3</div><div class="ut"><strong>Nourrir le pipeline RC à 12+ opps/agent</strong> (vs 9.4 actuellement).</div></div>
+        <div class="unlock-item"><div class="un">4</div><div class="ut"><strong>Homogénéiser la gestion CRM.</strong> Objectif : moins de 15 tasks ouvertes pour tous.</div></div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════ L3 ══════════════════════════════ -->
+  <!-- L3 -->
   <div class="page" id="page-l3">
     <div class="lhdr">
       <div class="badge b3"><span class="blbl">LEVEL</span><span class="bnum">3</span></div>
-      <div>
-        <h2>"Chaque étape est verrouillée. Le process s'étend jusqu'à la confirmation des hôtels."</h2>
-        <p>13 agents actifs sur 15 · CR3 gross : 24.54% · 2 706 opps · 664 bookings · Groupe le plus homogène</p>
-      </div>
+      <div><h2>"Chaque étape est verrouillée. Le process s'étend jusqu'à la confirmation des hôtels."</h2><p>13 agents actifs sur 15 · CR3 gross : 24.54% · 2 706 opps · 664 bookings · Groupe le plus homogène</p></div>
     </div>
-
     <div class="sec">Métriques clés</div>
     <div class="kv-row">
       <div class="kv good"><div class="kv-l">OC Done</div><div class="kv-v">72.61%</div><div class="kv-n">Meilleur du corpus</div></div>
@@ -623,7 +407,6 @@
       <div class="kv good"><div class="kv-l">RC / agent</div><div class="kv-v">12.7</div><div class="kv-n">Meilleur du corpus</div></div>
       <div class="kv good"><div class="kv-l">Pend → Conf</div><div class="kv-v">6.9j</div><div class="kv-n">Le plus court du corpus</div></div>
     </div>
-
     <div class="sec">Funnel de conversion — aucun maillon faible</div>
     <div class="funnel-wrap">
       <div class="f-row"><span class="f-lbl">FC Done</span><div class="f-track"><div class="f-fill f3" style="width:93.64%"><span class="f-pct">93.64%</span></div></div><span class="f-delta"></span></div>
@@ -632,12 +415,10 @@
       <div class="f-row"><span class="f-lbl">RC Done</span><div class="f-track"><div class="f-fill f3" style="width:68.04%"><span class="f-pct">68.04%</span></div></div><span class="f-delta pos">−5pt ✓</span></div>
       <div class="f-row"><span class="f-lbl">RC Bkg</span><div class="f-track"><div class="f-fill f3" style="width:58.02%"><span class="f-pct">58.02%</span></div></div><span class="f-delta pos">Meilleur ✓</span></div>
     </div>
-
     <div class="drop-box drop-success">
       <div class="drop-title">Le seul level où toutes les étapes sont maîtrisées simultanément</div>
-      <div class="drop-body">L'excellence du L3 n'est pas de performer sur une étape particulière — c'est de ne faiblir sur aucune. OC Done meilleur, RC Done meilleur, RC Bkg meilleur, Pend→Conf le plus court. La caractéristique centrale est sa complétude, pas un talent isolé. À noter : le goulot Offer→OC de −20pt persiste même au L3 — c'est le seul goulot universel non résolu à ce stade.</div>
+      <div class="drop-body">L'excellence du L3 n'est pas de performer sur une étape particulière — c'est de ne faiblir sur aucune. OC Done meilleur, RC Done meilleur, RC Bkg meilleur, Pend→Conf le plus court. À noter : le goulot Offer→OC de −20pt persiste même au L3 — c'est le seul goulot universel non résolu.</div>
     </div>
-
     <div class="sec">Cycles de vente moyens</div>
     <table class="cyc-tbl">
       <thead><tr><th>Étape</th><th>Délai moyen</th><th>Lecture</th></tr></thead>
@@ -650,7 +431,6 @@
         <tr><td>Pending → Confirmed</td><td class="good">6.9j</td><td class="good">Le plus court — suivi actif de la DMC post-signature</td></tr>
       </tbody>
     </table>
-
     <div class="sec">Composition du pipeline</div>
     <div class="pipe-row">
       <div class="pipe-seg ps-seg" style="flex:24">PS 24</div>
@@ -664,52 +444,376 @@
       <span class="pl-item"><span class="pl-dot" style="background:#85B7EB"></span>RC — 54.9%</span>
       <span class="pl-item"><span class="pl-dot" style="background:#97C459"></span>SP — 26.9% ✓ record</span>
     </div>
-
     <div class="sec">Comportements identifiés</div>
     <div class="pat-list">
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">SP à 26.9% — le plus élevé : le L3 a toujours un matelas de deals en cours de signature</span></div>
-        <div class="pat-body">93 opps en Signing sur 346 totales — 6.2 SP/agent. <em>Le L3 est le seul level avec un pipeline SP suffisamment profond pour garantir des bookings les semaines où le flux RC est faible.</em> Ce matelas SP est la marque d'un pipeline long terme géré, pas d'un pipeline court terme dépendant du flux entrant.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">SO à 11.3% — plus élevé que L1/L2, mais ces SO ont un OC déjà schedulé</span></div>
-        <div class="pat-body">Le L3 a 39 opps en SO — plus que le L1 (9) et le L2 (25). Apparemment paradoxal. En réalité, <em>ces SO sont des offres envoyées dont l'OC est déjà dans le calendrier.</em> Le SO du L3 est actif, celui du L0 est passif. Même métrique, signification opposée.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→Pending à 9.1j — le plus long : le L3 s'assure que le client est pleinement convaincu avant de signer</span></div>
-        <div class="pat-body">9.1j entre le FC et la signature client — 2.4j de plus que le L1. <em>Ces 2.4j supplémentaires sont investis dans la qualification et la conviction progressive</em> à travers les étapes OC et RC. Conséquence directe : le Pend→Conf est le plus court (6.9j), car le client bien convaincu confirme plus facilement ses hôtels.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">Pend→Conf à 6.9j : la phase post-signature est pilotée comme une étape commerciale à part entière</span></div>
-        <div class="pat-body">Le L3 ne considère pas que son travail s'arrête à la signature. <em>Il pilote activement la confirmation des hôtels avec la DMC</em> et maintient la relation client pendant cette phase. C'est le comportement qui différencie le L3 du L2 (9.25j) alors que leurs CR3 sont quasi identiques.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">Moins de 10 tasks ouvertes pour presque tous : l'hygiène CRM reflète l'absence de relances manquées</span></div>
-        <div class="pat-body">Peu de tasks ouvertes ne signifie pas peu d'activité — le L3 est le level le plus actif en bookings. <em>Chaque relance est faite dans les temps, chaque dossier est traité.</em> C'est un comportement de process, pas une conséquence de faible volume.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-funnel">Funnel</span><span class="pat-title">−20pt entre Offer Made et OC Done : le goulot universel que même le L3 n'a pas résolu</span></div>
-        <div class="pat-body">Le L3 perd aussi ~20pt entre l'envoi de l'offre et l'OC, avec ~3.7j de délai. <em>C'est le seul goulot qui persiste à tous les levels sans exception.</em> Probablement structurel — lié à la disponibilité des clients, pas uniquement au comportement de l'agent. C'est le levier inexploité commun à tous les levels.</div>
-      </div>
-      <div class="pat">
-        <div class="pat-head"><span class="pat-dim d-first">First OC Bkg</span><span class="pat-title">35.6% au 1er OC — en dessous du L2 (39.5%) : le L3 compense par le volume RC et la rigueur du cycle</span></div>
-        <div class="pat-body">Paradoxe : le L3 convertit moins que le L2 au premier OC. Mais il compense par un RC Done supérieur (68% vs 65%), un RC Bkg supérieur (58% vs 62%) et un pipeline SP bien plus profond (6.2 vs 5.7 SP/agent). <em>Le L3 est plus efficace sur l'ensemble du cycle, pas nécessairement sur chaque appel individuel.</em></div>
-      </div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">SP à 26.9% — le plus élevé : le L3 a toujours un matelas de deals en cours de signature</span></div><div class="pat-body">93 opps en Signing sur 346 totales — 6.2 SP/agent. <em>Le L3 est le seul level avec un pipeline SP suffisamment profond pour garantir des bookings les semaines où le flux RC est faible.</em></div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-pipeline">Pipeline</span><span class="pat-title">SO à 11.3% — plus élevé que L1/L2, mais ces SO ont un OC déjà schedulé</span></div><div class="pat-body">Le L3 a 39 opps en SO — plus que le L1 (9) et le L2 (25). En réalité, <em>ces SO sont des offres envoyées dont l'OC est déjà dans le calendrier.</em> Le SO du L3 est actif, celui du L0 est passif.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">FC→Pending à 9.1j — le plus long : le L3 s'assure que le client est pleinement convaincu avant de signer</span></div><div class="pat-body">9.1j entre le FC et la signature client — 2.4j de plus que le L1. <em>Ces 2.4j supplémentaires sont investis dans la qualification et la conviction progressive.</em> Conséquence : le Pend→Conf est le plus court (6.9j).</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-cycle">Cycle</span><span class="pat-title">Pend→Conf à 6.9j : la phase post-signature est pilotée comme une étape commerciale à part entière</span></div><div class="pat-body">Le L3 ne considère pas que son travail s'arrête à la signature. <em>Il pilote activement la confirmation des hôtels avec la DMC</em> et maintient la relation client. C'est le comportement qui différencie le L3 du L2 alors que leurs CR3 sont quasi identiques.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-crm">CRM</span><span class="pat-title">Moins de 10 tasks ouvertes pour presque tous : l'hygiène CRM reflète l'absence de relances manquées</span></div><div class="pat-body"><em>Chaque relance est faite dans les temps, chaque dossier est traité.</em> C'est un comportement de process, pas une conséquence de faible volume.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-funnel">Funnel</span><span class="pat-title">−20pt entre Offer Made et OC Done : le goulot universel que même le L3 n'a pas résolu</span></div><div class="pat-body"><em>C'est le seul goulot qui persiste à tous les levels sans exception.</em> Probablement structurel — lié à la disponibilité des clients. C'est le levier inexploité commun à tous.</div></div>
+      <div class="pat"><div class="pat-head"><span class="pat-dim d-first">First OC Bkg</span><span class="pat-title">35.6% au 1er OC — en dessous du L2 (39.5%) : le L3 compense par le volume RC et la rigueur du cycle</span></div><div class="pat-body">Paradoxe : le L3 convertit moins que le L2 au premier OC. Mais il compense par un RC Done supérieur (68% vs 65%) et un pipeline SP bien plus profond. <em>Le L3 est plus efficace sur l'ensemble du cycle, pas sur chaque appel individuel.</em></div></div>
     </div>
-
     <div class="unlock">
       <div class="unlock-title">Ce qui caractérise le L3 — et que les autres levels n'ont pas encore</div>
       <div class="unlock-list">
-        <div class="unlock-item"><div class="un">✓</div><div class="ut"><strong>Le process s'étend jusqu'au Confirmed.</strong> La responsabilité de l'agent ne s'arrête pas à la signature — elle continue jusqu'à la confirmation de tous les hôtels par la DMC.</div></div>
-        <div class="unlock-item"><div class="un">✓</div><div class="ut"><strong>Le pipeline SP est nourri en permanence.</strong> 6.2 opps en Signing par agent = réserve de bookings garantie chaque semaine indépendamment du flux entrant.</div></div>
-        <div class="unlock-item"><div class="un">✓</div><div class="ut"><strong>Le CRM est tenu à jour systématiquement.</strong> Moins de 10 tasks ouvertes = aucune relance manquée, aucun dossier oublié, aucun momentum perdu.</div></div>
-        <div class="unlock-item"><div class="un">✗</div><div class="ut"><strong>Goulot non résolu : Offer Made → OC Done.</strong> −20pt à ce stade, même au L3. C'est le seul levier encore inexploité à ce niveau de maturité.</div></div>
+        <div class="unlock-item"><div class="un">✓</div><div class="ut"><strong>Le process s'étend jusqu'au Confirmed.</strong> La responsabilité continue jusqu'à la confirmation de tous les hôtels par la DMC.</div></div>
+        <div class="unlock-item"><div class="un">✓</div><div class="ut"><strong>Le pipeline SP est nourri en permanence.</strong> 6.2 opps en Signing par agent = réserve de bookings garantie chaque semaine.</div></div>
+        <div class="unlock-item"><div class="un">✓</div><div class="ut"><strong>Le CRM est tenu à jour systématiquement.</strong> Moins de 10 tasks ouvertes = aucune relance manquée.</div></div>
+        <div class="unlock-item"><div class="un">✗</div><div class="ut"><strong>Goulot non résolu : Offer Made → OC Done.</strong> −20pt à ce stade, même au L3. Levier encore inexploité.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════ COMPARE ══════════════════════════════ -->
+  <div class="page" id="page-compare">
+    <div class="lhdr" style="border-bottom:none;padding-bottom:0;">
+      <div style="width:56px;height:56px;border-radius:12px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <span style="color:#fff;font-size:20px;">⟷</span>
+      </div>
+      <div><h2>Vue comparative — Différences fondamentales entre les levels</h2><p>Toutes les métriques côte à côte · Seuils de passage · Insights transversaux</p></div>
+    </div>
+
+    <!-- MATRICE PRINCIPALE -->
+    <div class="sec" style="margin-top:1.5rem;">Tableau comparatif — toutes les métriques</div>
+    <div class="matrix-wrap">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th class="row-hdr" style="width:220px;">Métrique</th>
+            <th class="l0h">L0</th>
+            <th class="l1h">L1</th>
+            <th class="l2h">L2</th>
+            <th class="l3h">L3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="cat-hdr" colspan="5">Performance globale</td></tr>
+          <tr>
+            <td class="row-hdr">CR3 Gross moyen</td>
+            <td class="worst">18.87%</td>
+            <td>19.81%</td>
+            <td class="ok">~25%</td>
+            <td class="best">24.54%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">Opps totales</td>
+            <td>1 097</td>
+            <td class="worst">1 827</td>
+            <td>~2 887</td>
+            <td class="best">2 706</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">Bookings totaux</td>
+            <td class="worst">207</td>
+            <td>362</td>
+            <td>~720</td>
+            <td class="best">664</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">Opps / agent</td>
+            <td>91</td>
+            <td class="worst">228 ⚠</td>
+            <td>103</td>
+            <td class="best">180</td>
+          </tr>
+
+          <tr><td class="cat-hdr" colspan="5">Funnel de conversion</td></tr>
+          <tr>
+            <td class="row-hdr">FC Done</td>
+            <td class="worst">90.65%</td>
+            <td>91.52%</td>
+            <td>~91%</td>
+            <td class="best">93.64%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">Offer Made</td>
+            <td>88.57%</td>
+            <td class="worst">84.99%</td>
+            <td>~89%</td>
+            <td class="best">92.66%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">OC Done</td>
+            <td>67.87%</td>
+            <td class="worst">64.69%</td>
+            <td>~70%</td>
+            <td class="best">72.61%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">RC Done</td>
+            <td>49.35%</td>
+            <td class="worst">40.95%</td>
+            <td>~65%</td>
+            <td class="best">68.04%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">First OC Bkg</td>
+            <td class="worst">32.86%</td>
+            <td>32.86%</td>
+            <td class="best">39.5% ★</td>
+            <td>35.6%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">RC Bkg</td>
+            <td>55.26%</td>
+            <td class="worst">54.24%</td>
+            <td>~62%</td>
+            <td class="best">58.02%</td>
+          </tr>
+
+          <tr><td class="cat-hdr" colspan="5">Cycles de vente (jours)</td></tr>
+          <tr>
+            <td class="row-hdr">FC → 1ère offre</td>
+            <td class="best">1.07j</td>
+            <td>1.12j</td>
+            <td>1.50j</td>
+            <td>1.52j</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">Offre → OC réalisé</td>
+            <td class="warn">~3.8j</td>
+            <td class="warn">~3.6j</td>
+            <td class="warn">~4.1j</td>
+            <td class="warn">~3.7j ⚠ universel</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">OC → RC</td>
+            <td>5.0j*</td>
+            <td class="worst">7.3j</td>
+            <td class="best">6.4j</td>
+            <td>6.9j</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">FC → Pending</td>
+            <td>7.8j</td>
+            <td class="worst">6.7j ⚠</td>
+            <td>8.4j</td>
+            <td class="best">9.1j</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">Pending → Confirmed</td>
+            <td class="warn">8.96j</td>
+            <td>8.61j</td>
+            <td class="worst">9.25j ⚠</td>
+            <td class="best">6.9j</td>
+          </tr>
+
+          <tr><td class="cat-hdr" colspan="5">Pipeline (composition)</td></tr>
+          <tr>
+            <td class="row-hdr">SO % pipeline</td>
+            <td class="worst">37.6% ⚠</td>
+            <td class="best">6.6%</td>
+            <td class="best">6.3%</td>
+            <td>11.3%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">RC % pipeline</td>
+            <td class="worst">41.6%</td>
+            <td>64%</td>
+            <td class="best">66.5%</td>
+            <td>54.9%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">SP % pipeline</td>
+            <td class="worst">8.4%</td>
+            <td>21.3%</td>
+            <td>20.8%</td>
+            <td class="best">26.9% ★</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">RC / agent</td>
+            <td class="worst">6.2</td>
+            <td>10.9</td>
+            <td>9.4</td>
+            <td class="best">12.7</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">SP / agent</td>
+            <td class="worst">1.3</td>
+            <td>3.6</td>
+            <td>2.9</td>
+            <td class="best">6.2</td>
+          </tr>
+
+          <tr><td class="cat-hdr" colspan="5">Gestion CRM</td></tr>
+          <tr>
+            <td class="row-hdr">Open Tasks max</td>
+            <td class="best">~17</td>
+            <td class="worst">55 ⚠</td>
+            <td class="warn">41</td>
+            <td class="best">&lt;10 ✓</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">% agents à 0 booking</td>
+            <td class="worst">~33%</td>
+            <td class="best">0% ✓</td>
+            <td class="warn">~29%</td>
+            <td>13%</td>
+          </tr>
+          <tr>
+            <td class="row-hdr">Homogénéité du groupe</td>
+            <td class="worst">Très faible</td>
+            <td>Moyenne</td>
+            <td class="warn">Faible</td>
+            <td class="best">Élevée ✓</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:#999;margin-bottom:2rem;">* OC→RC L0 à 5.0j est trompeur : peu de RC sont effectués, la moyenne est tirée vers le bas par leur absence. ★ = meilleur de tous les levels sur cette métrique.</p>
+
+    <!-- FUNNEL CÔTE À CÔTE -->
+    <div class="sec">Funnel côte à côte — les 4 levels en un coup d'œil</div>
+    <div class="fcmp-grid">
+      <div class="fcmp-col">
+        <div class="fcmp-hdr fcmp-0">L0</div>
+        <div class="fcmp-row"><span class="fcmp-stage">FC Done</span><span class="fcmp-val">90.65%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Offer Made</span><span class="fcmp-val">88.57%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">OC Done</span><span class="fcmp-val worst">67.87%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Done</span><span class="fcmp-val">49.35%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Bkg</span><span class="fcmp-val">55.26%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Pend→Conf</span><span class="fcmp-val worst">8.96j</span></div>
+      </div>
+      <div class="fcmp-col">
+        <div class="fcmp-hdr fcmp-1">L1</div>
+        <div class="fcmp-row"><span class="fcmp-stage">FC Done</span><span class="fcmp-val">91.52%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Offer Made</span><span class="fcmp-val worst">84.99%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">OC Done</span><span class="fcmp-val worst">64.69%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Done</span><span class="fcmp-val worst">40.95%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Bkg</span><span class="fcmp-val">54.24%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Pend→Conf</span><span class="fcmp-val">8.61j</span></div>
+      </div>
+      <div class="fcmp-col">
+        <div class="fcmp-hdr fcmp-2">L2</div>
+        <div class="fcmp-row"><span class="fcmp-stage">FC Done</span><span class="fcmp-val">~91%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Offer Made</span><span class="fcmp-val">~89%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">OC Done</span><span class="fcmp-val">~70%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Done</span><span class="fcmp-val best">~65%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Bkg</span><span class="fcmp-val">~62%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Pend→Conf</span><span class="fcmp-val worst">9.25j ⚠</span></div>
+      </div>
+      <div class="fcmp-col">
+        <div class="fcmp-hdr fcmp-3">L3</div>
+        <div class="fcmp-row"><span class="fcmp-stage">FC Done</span><span class="fcmp-val best">93.64%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Offer Made</span><span class="fcmp-val best">92.66%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">OC Done</span><span class="fcmp-val best">72.61%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Done</span><span class="fcmp-val best">68.04%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">RC Bkg</span><span class="fcmp-val best">58.02%</span></div>
+        <div class="fcmp-row"><span class="fcmp-stage">Pend→Conf</span><span class="fcmp-val best">6.9j ✓</span></div>
+      </div>
+    </div>
+
+    <!-- DELTA L0→L3 -->
+    <div class="sec">Ce qui change concrètement d'un level à l'autre</div>
+    <div class="delta-grid">
+      <div class="delta-card">
+        <div class="delta-card-title">L0 → L1 : le pipeline se structure, la conversion reste faible</div>
+        <div class="delta-row"><span class="delta-label">RC / agent</span><div class="delta-vals"><span class="pill pill-0">6.2</span><span class="arrow">→</span><span class="pill pill-1">10.9</span></div></div>
+        <div class="delta-row"><span class="delta-label">SO % pipeline</span><div class="delta-vals"><span class="pill pill-0">37.6%</span><span class="arrow">→</span><span class="pill pill-1">6.6%</span></div></div>
+        <div class="delta-row"><span class="delta-label">SP % pipeline</span><div class="delta-vals"><span class="pill pill-0">8.4%</span><span class="arrow">→</span><span class="pill pill-1">21.3%</span></div></div>
+        <div class="delta-row"><span class="delta-label">RC Done</span><div class="delta-vals"><span class="pill pill-0">49%</span><span class="arrow">→</span><span class="pill pill-1" style="background:#FCEBEB;color:#A32D2D;">41% ↓</span></div></div>
+        <div class="delta-row"><span class="delta-label">Pend→Conf</span><div class="delta-vals"><span class="pill pill-0">8.96j</span><span class="arrow">→</span><span class="pill pill-1">8.61j</span></div></div>
+        <div style="margin-top:8px;font-size:12px;color:#854F0B;background:#FAEEDA;padding:8px 10px;border-radius:6px;">Le SO se vide et le pipeline RC se construit — mais le RC Done paradoxalement chute à cause du volume excessif (228 opps/agent).</div>
+      </div>
+      <div class="delta-card">
+        <div class="delta-card-title">L1 → L2 : le saut le plus important du corpus</div>
+        <div class="delta-row"><span class="delta-label">RC Done</span><div class="delta-vals"><span class="pill pill-1">40.95%</span><span class="arrow">→</span><span class="pill pill-2">~65%</span></div></div>
+        <div class="delta-row"><span class="delta-label">OC → RC</span><div class="delta-vals"><span class="pill pill-1">7.3j</span><span class="arrow">→</span><span class="pill pill-2">6.4j</span></div></div>
+        <div class="delta-row"><span class="delta-label">First OC Bkg</span><div class="delta-vals"><span class="pill pill-1">32.9%</span><span class="arrow">→</span><span class="pill pill-2">39.5%</span></div></div>
+        <div class="delta-row"><span class="delta-label">FC → Pending</span><div class="delta-vals"><span class="pill pill-1">6.7j</span><span class="arrow">→</span><span class="pill pill-2">8.4j</span></div></div>
+        <div class="delta-row"><span class="delta-label">CR3 gross</span><div class="delta-vals"><span class="pill pill-1">19.8%</span><span class="arrow">→</span><span class="pill pill-2">~25%</span></div></div>
+        <div style="margin-top:8px;font-size:12px;color:#3B6D11;background:#EAF3DE;padding:8px 10px;border-radius:6px;">Un seul comportement explique tout : le L2 planifie le RC pendant l'OC avant de raccrocher. +24pt de RC Done pour 0.9j de délai de moins.</div>
+      </div>
+      <div class="delta-card">
+        <div class="delta-card-title">L2 → L3 : la maîtrise s'étend à la phase post-signature</div>
+        <div class="delta-row"><span class="delta-label">Pend→Conf</span><div class="delta-vals"><span class="pill pill-2">9.25j</span><span class="arrow">→</span><span class="pill pill-3">6.9j</span></div></div>
+        <div class="delta-row"><span class="delta-label">RC / agent</span><div class="delta-vals"><span class="pill pill-2">9.4</span><span class="arrow">→</span><span class="pill pill-3">12.7</span></div></div>
+        <div class="delta-row"><span class="delta-label">SP / agent</span><div class="delta-vals"><span class="pill pill-2">2.9</span><span class="arrow">→</span><span class="pill pill-3">6.2</span></div></div>
+        <div class="delta-row"><span class="delta-label">RC Done</span><div class="delta-vals"><span class="pill pill-2">~65%</span><span class="arrow">→</span><span class="pill pill-3">68%</span></div></div>
+        <div class="delta-row"><span class="delta-label">Homogénéité</span><div class="delta-vals"><span class="pill pill-2">Faible</span><span class="arrow">→</span><span class="pill pill-3">Élevée</span></div></div>
+        <div style="margin-top:8px;font-size:12px;color:#3B6D11;background:#EAF3DE;padding:8px 10px;border-radius:6px;">Le CR3 est quasi identique. La différence est opérationnelle : le L3 pilote activement la DMC après la signature. 2.35j de gagnés sur Pend→Conf.</div>
+      </div>
+      <div class="delta-card">
+        <div class="delta-card-title">L0 → L3 : l'écart total à parcourir</div>
+        <div class="delta-row"><span class="delta-label">CR3 gross</span><div class="delta-vals"><span class="pill pill-0">18.87%</span><span class="arrow">→</span><span class="pill pill-3">24.54%</span></div></div>
+        <div class="delta-row"><span class="delta-label">RC Done</span><div class="delta-vals"><span class="pill pill-0">49.35%</span><span class="arrow">→</span><span class="pill pill-3">68.04%</span></div></div>
+        <div class="delta-row"><span class="delta-label">RC / agent</span><div class="delta-vals"><span class="pill pill-0">6.2</span><span class="arrow">→</span><span class="pill pill-3">12.7</span></div></div>
+        <div class="delta-row"><span class="delta-label">SP / agent</span><div class="delta-vals"><span class="pill pill-0">1.3</span><span class="arrow">→</span><span class="pill pill-3">6.2</span></div></div>
+        <div class="delta-row"><span class="delta-label">Pend→Conf</span><div class="delta-vals"><span class="pill pill-0">8.96j</span><span class="arrow">→</span><span class="pill pill-3">6.9j</span></div></div>
+        <div style="margin-top:8px;font-size:12px;color:#185FA5;background:#E6F1FB;padding:8px 10px;border-radius:6px;">Le RC/agent double et le SP/agent quadruple. Ce sont les deux indicateurs les plus prédictifs de la maturité commerciale.</div>
+      </div>
+    </div>
+
+    <!-- SEUILS DE PASSAGE -->
+    <div class="sec">Seuils de passage officiels entre les levels</div>
+    <div class="thresh-grid">
+      <div class="thresh-card thresh-0">
+        <div class="thresh-arrow">L0 → L1</div>
+        <div class="thresh-item"><strong>CR3 gross &gt; 18%</strong> avec constance sur 2 mois</div>
+        <div class="thresh-item"><strong>100–150 opps</strong> traitées sur la période</div>
+        <div class="thresh-item"><strong>RC Done &gt; 40%</strong></div>
+        <div class="thresh-item">0 opp bloquée en SO sans relance depuis +5j</div>
+        <div class="thresh-item">Pipeline RC &gt; 8 opps actives</div>
+      </div>
+      <div class="thresh-card thresh-1">
+        <div class="thresh-arrow">L1 → L2</div>
+        <div class="thresh-item"><strong>CR3 gross &gt; 22–23%</strong> sur min 200 opps</div>
+        <div class="thresh-item"><strong>FC Done &gt; 91%</strong>, OC Done &gt; 65%</div>
+        <div class="thresh-item"><strong>FC→Pending entre 7 et 9j</strong> (ni trop rapide ni trop lent)</div>
+        <div class="thresh-item"><strong>OC→RC &lt; 6.5j</strong></div>
+        <div class="thresh-item">Pipeline RC% &gt; 60%, SO% &lt; 10%</div>
+      </div>
+      <div class="thresh-card thresh-2">
+        <div class="thresh-arrow">L2 → L3</div>
+        <div class="thresh-item"><strong>CR3 gross &gt; 25%</strong> sur min 150–200 opps</div>
+        <div class="thresh-item"><strong>RC Done &gt; 65%</strong></div>
+        <div class="thresh-item"><strong>Pend→Conf &lt; 7.5j</strong></div>
+        <div class="thresh-item">Aucun goulot &gt; 8j sur une phase</div>
+        <div class="thresh-item"><strong>Constance sur 2 trimestres</strong> consécutifs</div>
+      </div>
+      <div class="thresh-card thresh-3">
+        <div class="thresh-arrow">Maintien L3</div>
+        <div class="thresh-item"><strong>Pipeline RC ≥ 10 opps</strong> en permanence</div>
+        <div class="thresh-item"><strong>SP ≥ 5 opps/agent</strong> à tout moment</div>
+        <div class="thresh-item"><strong>Pend→Conf &lt; 7j</strong></div>
+        <div class="thresh-item"><strong>Tasks ouvertes &lt; 15</strong></div>
+        <div class="thresh-item">Funnel sans maillon faible sur aucune étape</div>
+      </div>
+    </div>
+
+    <!-- INSIGHTS TRANSVERSAUX -->
+    <div class="sec">5 insights transversaux — ce que les données révèlent au-delà des niveaux</div>
+    <div class="ins-list">
+      <div class="ins">
+        <div class="ins-lbl">Insight 1 — Progression</div>
+        <div class="ins-title">La progression entre levels n'est pas linéaire — c'est un changement de paradigme</div>
+        <div class="ins-body">Le L1 a un RC Done inférieur au L0 (41% vs 49%). Le L1 traite plus de volume que le L3 (228 vs 180 opps/agent). Le L2 a un OC→RC plus court que le L3. <em>Chaque level a une stratégie différente, pas seulement une performance différente.</em> Passer de level = adopter un nouveau système de vente, pas améliorer les ratios existants.</div>
+      </div>
+      <div class="ins">
+        <div class="ins-lbl">Insight 2 — Goulot</div>
+        <div class="ins-title">Le goulot d'étranglement change à chaque level — le coaching doit s'adapter</div>
+        <div class="ins-body">L0 : SO saturé + RC non systématisé. L1 : volume excessif + OC→RC trop lent. L2 : Pend→Conf passif. L3 : aucun goulot identifié sauf Offer→OC universel. <em>Coacher un L0 sur le RC Done ne fera pas progresser un L1 sur son OC Done.</em> Chaque level a besoin d'un focus d'amélioration radicalement différent.</div>
+      </div>
+      <div class="ins">
+        <div class="ins-lbl">Insight 3 — Qualification</div>
+        <div class="ins-title">Le temps de qualification FC est un investissement, pas une perte</div>
+        <div class="ins-body">L1 (6.7j FC→Pending) = 19.81% CR3 vs L3 (9.1j FC→Pending) = 24.54% CR3. <em>Ces 2.4j supplémentaires au FC se retrouvent en gain sur toutes les étapes suivantes :</em> meilleur OC Done, meilleur RC Done, meilleur RC Bkg, Pend→Conf plus court. Un client mieux qualifié au FC est un client qui confirme ses hôtels plus vite.</div>
+      </div>
+      <div class="ins">
+        <div class="ins-lbl">Insight 4 — Pipeline</div>
+        <div class="ins-title">Le pipeline SP est le meilleur prédicteur de régularité future</div>
+        <div class="ins-body">L3 : 6.2 SP/agent. L2 : 2.9. L1 : 3.6. L0 : 1.3. <em>Un agent L3 a toujours 6 deals en cours de signature</em> — ce matelas garantit des bookings réguliers même les semaines sans nouveau RC. Les agents L0/L1 vivent dans l'urgence du deal du jour. Le suivi hebdomadaire du SP/agent est l'indicateur de santé le plus prédictif.</div>
+      </div>
+      <div class="ins">
+        <div class="ins-lbl">Insight 5 — Goulot universel</div>
+        <div class="ins-title">Offer Made → OC Done perd 19–21pt à tous les levels : c'est le seul levier inexploité à tous les niveaux</div>
+        <div class="ins-body">L0 perd 21pt, L1 perd 20pt, L2 perd 19pt, L3 perd 20pt. Le délai offre→OC réalisé est de ~3.7–4.1j pour tous. <em>Personne n'a résolu ce goulot.</em> Il est probablement en partie structurel (disponibilité client, délai de lecture de l'offre), mais c'est aussi le seul levier sur lequel une amélioration comportementale bénéficierait à tous les levels simultanément : verrouiller l'OC avant l'envoi de l'offre.</div>
       </div>
     </div>
   </div>
 
 </div>
-
 <script>
 function show(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
