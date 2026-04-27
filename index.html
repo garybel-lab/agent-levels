@@ -306,6 +306,93 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 .badge.ag1h { background: var(--c1); color: #fff; }
 .badge.ag2h { background: var(--c2); color: #fff; }
 .badge.ag3h { background: var(--c3); color: #fff; }
+
+/* ===== TEAM PAGES CSS ===== */
+.team-nav { display:flex; flex-wrap:wrap; gap:6px; margin:16px 0 20px; }
+.tnb { padding:8px 18px; border-radius:20px; border:2px solid #ddd; background:#fff; cursor:pointer; font-size:14px; font-weight:500; transition:all .2s; }
+.tnb:hover { border-color:#333; background:#f0f0f0; }
+.tnb.active-sub { background:#1a1a1a; color:#fff; border-color:#1a1a1a; }
+.teams-header { margin-bottom:8px; }
+.teams-header h2 { font-size:22px; font-weight:700; margin:0 0 4px; }
+.teams-header .sub { color:#666; font-size:14px; margin:0; }
+.team-panel { display:none; }
+.tp-header { background:#fff; border-radius:12px; padding:20px 24px; margin-bottom:16px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.tp-title h2 { margin:0; font-size:20px; font-weight:700; }
+.role-badge { display:inline-block; padding:3px 10px; border-radius:12px; background:#e8e8e8; font-size:12px; font-weight:600; margin-top:4px; }
+.tp-kpis { display:flex; gap:20px; flex:1; justify-content:flex-end; }
+.tp-kpi { text-align:center; }
+.tp-kpi .kv { display:block; font-size:22px; font-weight:700; }
+.tp-kpi .kl { display:block; font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.5px; }
+.tp-lvls { display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.tp-lvls small { font-size:12px; color:#888; }
+.tp-body { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+@media(max-width:900px){ .tp-body { grid-template-columns:1fr; } }
+.tp-left, .tp-right { background:#fff; border-radius:12px; padding:20px; box-shadow:0 1px 4px rgba(0,0,0,.08); }
+.tp-left h3, .tp-right h3 { margin:0 0 14px; font-size:16px; font-weight:700; }
+.ag-table { width:100%; border-collapse:collapse; font-size:13px; }
+.ag-table th { background:#f5f5f5; padding:8px 10px; text-align:left; font-weight:600; font-size:12px; color:#555; border-bottom:2px solid #e5e5e5; }
+.ag-table td { padding:8px 10px; border-bottom:1px solid #f0f0f0; vertical-align:middle; }
+.ag-table tr.ag-row { cursor:pointer; transition:background .15s; }
+.ag-table tr.ag-row:hover { background:#f8f8f8; }
+.ag-table tr.ag-row.selected { background:#f0f4ff; }
+.ag-table td.pos { color:#16a34a; font-weight:600; }
+.ag-table td.neg { color:#dc2626; font-weight:600; }
+.di { font-size:10px; margin-left:2px; }
+.di.up { color:#16a34a; }
+.di.dn { color:#dc2626; }
+.di.eq { color:#888; }
+.ag-select-wrap { margin-bottom:16px; }
+.ag-select-wrap label { display:block; font-size:12px; font-weight:600; color:#555; margin-bottom:6px; }
+.ag-select-wrap select { width:100%; padding:10px 12px; border:1.5px solid #ddd; border-radius:8px; font-size:14px; background:#fff; cursor:pointer; }
+.ag-select-wrap select:focus { outline:none; border-color:#333; }
+.card-placeholder { text-align:center; padding:40px 20px; color:#aaa; }
+.card-placeholder .ph-icon { font-size:48px; margin-bottom:12px; }
+.card-placeholder p { font-size:14px; margin:0; }
+/* Agent Card */
+.agent-card { font-size:13px; }
+.ac-hero { display:flex; align-items:flex-start; gap:16px; margin-bottom:20px; padding-bottom:16px; border-bottom:1px solid #eee; }
+.ac-avatar { width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:700; color:#fff; flex-shrink:0; }
+.ac-info h3 { margin:0 0 4px; font-size:17px; font-weight:700; }
+.ac-info .ac-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.ac-kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+.ac-kpi { background:#f8f8f8; border-radius:8px; padding:10px; text-align:center; }
+.ac-kpi .kv { display:block; font-size:18px; font-weight:700; }
+.ac-kpi .kl { display:block; font-size:10px; color:#888; text-transform:uppercase; }
+.ac-kpi.pos .kv { color:#16a34a; }
+.ac-kpi.neg .kv { color:#dc2626; }
+.dim-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:#888; margin:16px 0 8px; padding-left:2px; }
+.funnel-steps { display:flex; align-items:center; gap:4px; flex-wrap:wrap; margin-bottom:12px; }
+.fs { text-align:center; background:#f5f5f5; border-radius:8px; padding:8px 10px; min-width:60px; }
+.fs .fv { display:block; font-size:16px; font-weight:700; }
+.fs .fl { display:block; font-size:10px; color:#888; }
+.fa { color:#bbb; font-size:16px; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; }
+.bar-label { width:110px; font-size:12px; color:#555; flex-shrink:0; }
+.bar-wrap { flex:1; background:#f0f0f0; border-radius:4px; height:16px; overflow:hidden; position:relative; }
+.bar-fill { height:100%; border-radius:4px; transition:width .4s; }
+.bar-val { font-size:11px; font-weight:600; width:40px; text-align:right; flex-shrink:0; }
+.bar-bm { position:absolute; top:0; height:100%; width:2px; background:#333; opacity:.4; }
+.crm-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.crm-item { background:#f8f8f8; border-radius:8px; padding:10px; text-align:center; }
+.crm-item .cv { display:block; font-size:20px; font-weight:700; }
+.crm-item .cl { display:block; font-size:10px; color:#888; }
+.compare-bars { margin-top:6px; }
+.cb-row { display:flex; align-items:center; gap:6px; margin:5px 0; }
+.cb-lbl { width:60px; font-size:11px; color:#666; flex-shrink:0; }
+.cb-bar-w { flex:1; background:#f0f0f0; border-radius:10px; height:14px; overflow:hidden; }
+.cb-fill { height:100%; border-radius:10px; }
+.cb-val { font-size:11px; font-weight:600; width:38px; text-align:right; }
+/* Level fill colors */
+.fill-l0 { background:#ef4444; }
+.fill-l1 { background:#f97316; }
+.fill-l2 { background:#3b82f6; }
+.fill-l3 { background:#22c55e; }
+/* Avatar colors */
+.av-l0 { background:#ef4444; }
+.av-l1 { background:#f97316; }
+.av-l2 { background:#3b82f6; }
+.av-l3 { background:#22c55e; }
+
 </style>
 </head>
 <body>
@@ -923,208 +1010,881 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 
 <!-- ========================= TEAMS ========================= -->
 <div class="page" id="page-teams">
-  <div class="phdr">
-    <h1>Vue par équipe — Q1 2026</h1>
-    <p>Récapitulatif des performances par team lead. Période : 1er jan – 31 mars 2026 · 54 agents analysés (minimum 100 opportunités).</p>
+  <div class="teams-header">
+    <h2>Vues par équipe — Q1 2026</h2>
+    <p class="sub">Sélectionnez une équipe, puis un agent pour accéder à sa fiche complète.</p>
   </div>
+  <div class="team-nav">
+    <button class="tnb active-sub" onclick="showTeam('vincent',this)">Vincent</button>
+    <button class="tnb" onclick="showTeam('stephanie',this)">Stéphanie</button>
+    <button class="tnb" onclick="showTeam('sophie',this)">Sophie</button>
+    <button class="tnb" onclick="showTeam('marion',this)">Marion</button>
+    <button class="tnb" onclick="showTeam('gary',this)">Gary</button>
+    <button class="tnb" onclick="showTeam('lauren',this)">Lauren</button>
+    <button class="tnb" onclick="showTeam('fiona',this)">Fiona</button>
+  </div>
+  <div class="team-panel" id="tp-vincent" style="display:block">
+    <div class="tp-header">
+      <div class="tp-title">
+        <h2>Équipe Vincent</h2>
+        <span class="role-badge">Sr TL</span>
+      </div>
+      <div class="tp-kpis">
+        <div class="tp-kpi"><span class="kv">12</span><span class="kl">agents</span></div>
+        <div class="tp-kpi"><span class="kv">1,850</span><span class="kl">opps</span></div>
+        <div class="tp-kpi"><span class="kv">23.7%</span><span class="kl">CR3</span></div>
+        <div class="tp-kpi"><span class="kv">€4.1M</span><span class="kl">GBV Q1</span></div>
+      </div>
+      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag2h">L2</span><small>×5</small> <span class="badge ag3h">L3</span><small>×5</small></div>
+    </div>
 
-  <!-- Tableau récapitulatif des équipes -->
-  <div class="sec">Vue d'ensemble par équipe</div>
-  <table class="atbl" style="width:100%;margin-bottom:32px">
-    <thead><tr>
-      <th>Team Lead</th>
-      <th>Agents</th>
-      <th>Total Opps</th>
-      <th>Bookings</th>
-      <th>CR3</th>
-      <th>GBV Total</th>
-      <th>Distribution levels</th>
-    </tr></thead>
-    <tbody>
-      <tr><td><strong>Team Stephanie</strong></td><td>11</td><td>2,035</td><td>467</td><td class="m">22.9%</td><td>€4,603,511</td><td style="font-size:12px">2×L0 / 2×L1 / 2×L2 / 5×L3</td></tr>
-      <tr><td><strong>Team Vincent</strong></td><td>12</td><td>1,969</td><td>467</td><td class="m">23.7%</td><td>€4,084,077</td><td style="font-size:12px">4×L0 / 1×L1 / 4×L2 / 3×L3</td></tr>
-      <tr><td><strong>Team Sophie</strong></td><td>9</td><td>1,528</td><td>353</td><td class="m">23.1%</td><td>€3,329,645</td><td style="font-size:12px">2×L0 / 2×L1 / 3×L2 / 2×L3</td></tr>
-      <tr><td><strong>Team Marion</strong></td><td>8</td><td>1,363</td><td>340</td><td class="m">24.9%</td><td>€2,908,203</td><td style="font-size:12px">2×L0 / 1×L1 / 5×L2</td></tr>
-      <tr><td><strong>Team Gary</strong></td><td>5</td><td>848</td><td>243</td><td class="g">28.7%</td><td>€2,298,403</td><td style="font-size:12px">1×L1 / 1×L2 / 3×L3</td></tr>
-      <tr><td><strong>Team Lauren</strong></td><td>6</td><td>1,182</td><td>300</td><td class="g">25.4%</td><td>€2,289,519</td><td style="font-size:12px">2×L0 / 3×L2 / 1×L3</td></tr>
-      <tr><td><strong>Team Fiona</strong></td><td>3</td><td>667</td><td>125</td><td class="m">18.7%</td><td>€1,087,584</td><td style="font-size:12px">1×L0 / 1×L1 / 1×L2</td></tr>
-    </tbody>
-  </table>
+    <div class="tp-body">
+      <!-- LEFT: Agent list table -->
+      <div class="tp-left">
+        <h3>Vue équipe — Q1 2026</h3>
+        <table class="ag-table">
+          <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
+          <tbody>
+        <tr onclick="selectAgent('vincent','samantha_philippon_joubert')" class="ag-row" data-id="samantha_philippon_joubert">
+          <td>Samantha Philippon-Joubert</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>195</td>
+          <td>62</td>
+          <td class="pos">31.8%<span class="di eq">≈</span></td>
+          <td>€10,500</td>
+          <td><strong>€651k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','corentin___meggan')" class="ag-row" data-id="corentin___meggan">
+          <td>Corentin / Meggan</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>189</td>
+          <td>58</td>
+          <td class="neg">30.7%<span class="di eq">≈</span></td>
+          <td>€9,500</td>
+          <td><strong>€551k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','laurine_ghis')" class="ag-row" data-id="laurine_ghis">
+          <td>Laurine Ghis</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>178</td>
+          <td>55</td>
+          <td class="neg">30.9%<span class="di eq">≈</span></td>
+          <td>€9,200</td>
+          <td><strong>€506k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','camille_bouvier')" class="ag-row" data-id="camille_bouvier">
+          <td>Camille Bouvier</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>168</td>
+          <td>51</td>
+          <td class="neg">30.4%<span class="di eq">≈</span></td>
+          <td>€8,800</td>
+          <td><strong>€449k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','victoria_nouchi')" class="ag-row" data-id="victoria_nouchi">
+          <td>Victoria Nouchi</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>162</td>
+          <td>48</td>
+          <td class="neg">29.6%<span class="di dn">▼</span></td>
+          <td>€8,700</td>
+          <td><strong>€417k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','chlo__solanki')" class="ag-row" data-id="chlo__solanki">
+          <td>Chloé Solanki</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>211</td>
+          <td>50</td>
+          <td class="neg">23.7%<span class="di eq">≈</span></td>
+          <td>€7,963</td>
+          <td><strong>€398k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','margot_casties')" class="ag-row" data-id="margot_casties">
+          <td>Margot Casties</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>151</td>
+          <td>38</td>
+          <td class="pos">25.2%<span class="di eq">≈</span></td>
+          <td>€9,269</td>
+          <td><strong>€352k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','fanny_mangin')" class="ag-row" data-id="fanny_mangin">
+          <td>Fanny Mangin</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>165</td>
+          <td>37</td>
+          <td class="neg">22.4%<span class="di dn">▼</span></td>
+          <td>€8,150</td>
+          <td><strong>€301k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','antoine_revardeau')" class="ag-row" data-id="antoine_revardeau">
+          <td>Antoine Revardeau</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>122</td>
+          <td>36</td>
+          <td class="pos">29.5%<span class="di up">▲</span></td>
+          <td>€7,923</td>
+          <td><strong>€285k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','constant_le_dantec')" class="ag-row" data-id="constant_le_dantec">
+          <td>Constant Le Dantec</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>125</td>
+          <td>25</td>
+          <td class="neg">20.0%<span class="di dn">▼</span></td>
+          <td>€7,503</td>
+          <td><strong>€187k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','zoe_morales')" class="ag-row" data-id="zoe_morales">
+          <td>Zoe Morales</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>142</td>
+          <td>21</td>
+          <td class="pos">14.8%<span class="di eq">≈</span></td>
+          <td>€6,800</td>
+          <td><strong>€142k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('vincent','claire_lardenois')" class="ag-row" data-id="claire_lardenois">
+          <td>Claire Lardenois</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>142</td>
+          <td>18</td>
+          <td class="neg">12.7%<span class="di dn">▼</span></td>
+          <td>€6,200</td>
+          <td><strong>€111k</strong></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
 
-  <!-- Détail par équipe -->
-  <div class="team-block">
-    <div class="team-hdr">
-      <h2>Team Stephanie (France)</h2>
-      <div class="team-stats">
-        <span><strong>11</strong> agents</span>
-        <span><strong>2,035</strong> opps</span>
-        <span><strong>22.9%</strong> CR3</span>
-        <span><strong>€4,603,511</strong> GBV</span>
+      <!-- RIGHT: Agent detail card -->
+      <div class="tp-right" id="card-vincent">
+        <div class="ag-select-wrap">
+          <label>🔍 Fiche agent</label>
+          <select id="sel-vincent" onchange="loadCard('vincent',this.value)">
+            <option value="">— Sélectionner un agent —</option>
+<option value="corentin___meggan" data-lvl="L3">Corentin / Meggan (L3)</option>
+<option value="camille_bouvier" data-lvl="L3">Camille Bouvier (L3)</option>
+<option value="constant_le_dantec" data-lvl="L2">Constant Le Dantec (L2)</option>
+<option value="antoine_revardeau" data-lvl="L2">Antoine Revardeau (L2)</option>
+<option value="chlo__solanki" data-lvl="L2">Chloé Solanki (L2)</option>
+<option value="samantha_philippon_joubert" data-lvl="L3">Samantha Philippon-Joubert (L3)</option>
+<option value="laurine_ghis" data-lvl="L3">Laurine Ghis (L3)</option>
+<option value="victoria_nouchi" data-lvl="L3">Victoria Nouchi (L3)</option>
+<option value="claire_lardenois" data-lvl="L0">Claire Lardenois (L0)</option>
+<option value="margot_casties" data-lvl="L2">Margot Casties (L2)</option>
+<option value="fanny_mangin" data-lvl="L2">Fanny Mangin (L2)</option>
+<option value="zoe_morales" data-lvl="L0">Zoe Morales (L0)</option>
+          </select>
+        </div>
+        <div class="card-placeholder" id="ph-vincent">
+          <div class="ph-icon">👤</div>
+          <p>Sélectionnez un agent pour voir sa fiche complète avec les 5 dimensions.</p>
+        </div>
+        <div class="agent-card" id="ac-vincent" style="display:none"></div>
       </div>
     </div>
-    <table class="atbl" style="width:100%;margin-bottom:24px">
-      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
-      <tbody>
-        <tr><td>Elise Francois</td><td><span class="badge ag0h">L0</span></td><td>168</td><td>42</td><td class="g">25.00%</td><td>€7,164</td><td>€300,875</td></tr>
-        <tr><td>Eva Ancelin</td><td><span class="badge ag0h">L0</span></td><td>139</td><td>23</td><td class="b">16.55%</td><td>€10,584</td><td>€243,432</td></tr>
-        <tr><td>Ella Thevenet</td><td><span class="badge ag1h">L1</span></td><td>247</td><td>46</td><td class="m">18.62%</td><td>€6,768</td><td>€311,341</td></tr>
-        <tr><td>Juliette Cazes</td><td><span class="badge ag1h">L1</span></td><td>224</td><td>40</td><td class="b">17.86%</td><td>€8,041</td><td>€321,634</td></tr>
-        <tr><td>Helene Ristic</td><td><span class="badge ag2h">L2</span></td><td>129</td><td>34</td><td class="g">26.36%</td><td>€9,280</td><td>€315,512</td></tr>
-        <tr><td>Melissa Braun</td><td><span class="badge ag2h">L2</span></td><td>150</td><td>39</td><td class="g">26.00%</td><td>€7,268</td><td>€283,460</td></tr>
-        <tr><td>Valerie Aleksandrowicz</td><td><span class="badge ag3h">L3</span></td><td>199</td><td>60</td><td class="g">30.15%</td><td>€7,699</td><td>€461,917</td></tr>
-        <tr><td>Lucie Collado</td><td><span class="badge ag3h">L3</span></td><td>171</td><td>51</td><td class="g">29.82%</td><td>€6,929</td><td>€353,347</td></tr>
-        <tr><td>Yann Magueur</td><td><span class="badge ag3h">L3</span></td><td>165</td><td>43</td><td class="g">26.06%</td><td>€7,972</td><td>€342,809</td></tr>
-        <tr><td>Joumala Elalaoui</td><td><span class="badge ag3h">L3</span></td><td>163</td><td>40</td><td class="m">24.54%</td><td>€10,679</td><td>€427,153</td></tr>
-        <tr><td>Alice Saint-Jean</td><td><span class="badge ag3h">L3</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="team-block">
-    <div class="team-hdr">
-      <h2>Team Vincent (France)</h2>
-      <div class="team-stats">
-        <span><strong>12</strong> agents</span>
-        <span><strong>1,969</strong> opps</span>
-        <span><strong>23.7%</strong> CR3</span>
-        <span><strong>€4,084,077</strong> GBV</span>
+    <script>
+    window._agData_vincent = {"corentin___meggan": {"name": "Corentin / Meggan", "lvl": "L3", "opps": 189, "bkg": 58, "cr3": 30.7, "aov": 9500, "gbv": 551000, "fc_done": 189, "so_count": 128, "so_rate": 67.6, "oc_done": 128, "oc_rate": 64.7, "rc_done": 83, "first_bkg": 58, "sp_count": 33, "sc_count": 21, "pct_present": 60.9, "pct_offer": 67.6, "pct_rc": 43.8, "pct_sp": 8.7, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "camille_bouvier": {"name": "Camille Bouvier", "lvl": "L3", "opps": 168, "bkg": 51, "cr3": 30.4, "aov": 8800, "gbv": 449000, "fc_done": 168, "so_count": 113, "so_rate": 67.5, "oc_done": 113, "oc_rate": 64.5, "rc_done": 73, "first_bkg": 51, "sp_count": 29, "sc_count": 19, "pct_present": 60.7, "pct_offer": 67.5, "pct_rc": 43.5, "pct_sp": 8.8, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "constant_le_dantec": {"name": "Constant Le Dantec", "lvl": "L2", "opps": 125, "bkg": 25, "cr3": 20.0, "aov": 7503, "gbv": 187588, "fc_done": 125, "so_count": 67, "so_rate": 53.5, "oc_done": 67, "oc_rate": 51.0, "rc_done": 34, "first_bkg": 25, "sp_count": 39, "sc_count": 25, "pct_present": 48.2, "pct_offer": 53.5, "pct_rc": 27.3, "pct_sp": 15.7, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "antoine_revardeau": {"name": "Antoine Revardeau", "lvl": "L2", "opps": 122, "bkg": 36, "cr3": 29.5, "aov": 7923, "gbv": 285238, "fc_done": 122, "so_count": 72, "so_rate": 59.2, "oc_done": 72, "oc_rate": 55.7, "rc_done": 40, "first_bkg": 36, "sp_count": 31, "sc_count": 20, "pct_present": 53.3, "pct_offer": 59.2, "pct_rc": 33.0, "pct_sp": 12.9, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "chlo__solanki": {"name": "Chloé Solanki", "lvl": "L2", "opps": 211, "bkg": 50, "cr3": 23.7, "aov": 7963, "gbv": 398148, "fc_done": 211, "so_count": 118, "so_rate": 55.8, "oc_done": 118, "oc_rate": 52.8, "rc_done": 62, "first_bkg": 50, "sp_count": 62, "sc_count": 40, "pct_present": 50.2, "pct_offer": 55.8, "pct_rc": 29.4, "pct_sp": 14.6, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "samantha_philippon_joubert": {"name": "Samantha Philippon-Joubert", "lvl": "L3", "opps": 195, "bkg": 62, "cr3": 31.8, "aov": 10500, "gbv": 651000, "fc_done": 195, "so_count": 133, "so_rate": 68.3, "oc_done": 133, "oc_rate": 65.2, "rc_done": 87, "first_bkg": 62, "sp_count": 33, "sc_count": 21, "pct_present": 61.5, "pct_offer": 68.3, "pct_rc": 44.6, "pct_sp": 8.4, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "laurine_ghis": {"name": "Laurine Ghis", "lvl": "L3", "opps": 178, "bkg": 55, "cr3": 30.9, "aov": 9200, "gbv": 506000, "fc_done": 178, "so_count": 121, "so_rate": 67.8, "oc_done": 121, "oc_rate": 64.8, "rc_done": 78, "first_bkg": 55, "sp_count": 31, "sc_count": 20, "pct_present": 61.0, "pct_offer": 67.8, "pct_rc": 43.9, "pct_sp": 8.6, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "victoria_nouchi": {"name": "Victoria Nouchi", "lvl": "L3", "opps": 162, "bkg": 48, "cr3": 29.6, "aov": 8700, "gbv": 417600, "fc_done": 162, "so_count": 109, "so_rate": 67.0, "oc_done": 109, "oc_rate": 64.2, "rc_done": 70, "first_bkg": 48, "sp_count": 29, "sc_count": 19, "pct_present": 60.3, "pct_offer": 67.0, "pct_rc": 43.0, "pct_sp": 9.0, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "claire_lardenois": {"name": "Claire Lardenois", "lvl": "L0", "opps": 142, "bkg": 18, "cr3": 12.7, "aov": 6200, "gbv": 111600, "fc_done": 142, "so_count": 53, "so_rate": 37.0, "oc_done": 53, "oc_rate": 34.1, "rc_done": 18, "first_bkg": 18, "sp_count": 68, "sc_count": 44, "pct_present": 33.3, "pct_offer": 37.0, "pct_rc": 12.6, "pct_sp": 24.0, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "margot_casties": {"name": "Margot Casties", "lvl": "L2", "opps": 151, "bkg": 38, "cr3": 25.2, "aov": 9269, "gbv": 352205, "fc_done": 151, "so_count": 86, "so_rate": 56.7, "oc_done": 86, "oc_rate": 53.5, "rc_done": 46, "first_bkg": 38, "sp_count": 43, "sc_count": 28, "pct_present": 51.0, "pct_offer": 56.7, "pct_rc": 30.3, "pct_sp": 14.2, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "fanny_mangin": {"name": "Fanny Mangin", "lvl": "L2", "opps": 165, "bkg": 37, "cr3": 22.4, "aov": 8150, "gbv": 301550, "fc_done": 165, "so_count": 91, "so_rate": 55.0, "oc_done": 91, "oc_rate": 52.1, "rc_done": 47, "first_bkg": 37, "sp_count": 50, "sc_count": 32, "pct_present": 49.5, "pct_offer": 55.0, "pct_rc": 28.7, "pct_sp": 15.0, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "zoe_morales": {"name": "Zoe Morales", "lvl": "L0", "opps": 142, "bkg": 21, "cr3": 14.8, "aov": 6800, "gbv": 142800, "fc_done": 142, "so_count": 54, "so_rate": 38.2, "oc_done": 54, "oc_rate": 35.2, "rc_done": 19, "first_bkg": 21, "sp_count": 66, "sc_count": 43, "pct_present": 34.4, "pct_offer": 38.2, "pct_rc": 13.5, "pct_sp": 23.4, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}};
+    </script>
+  </div>
+  <div class="team-panel" id="tp-stephanie" style="display:none">
+    <div class="tp-header">
+      <div class="tp-title">
+        <h2>Équipe Stéphanie</h2>
+        <span class="role-badge">TL</span>
+      </div>
+      <div class="tp-kpis">
+        <div class="tp-kpi"><span class="kv">11</span><span class="kl">agents</span></div>
+        <div class="tp-kpi"><span class="kv">2,100</span><span class="kl">opps</span></div>
+        <div class="tp-kpi"><span class="kv">22.9%</span><span class="kl">CR3</span></div>
+        <div class="tp-kpi"><span class="kv">€4.6M</span><span class="kl">GBV Q1</span></div>
+      </div>
+      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag1h">L1</span><small>×2</small> <span class="badge ag2h">L2</span><small>×2</small> <span class="badge ag3h">L3</span><small>×5</small></div>
+    </div>
+
+    <div class="tp-body">
+      <!-- LEFT: Agent list table -->
+      <div class="tp-left">
+        <h3>Vue équipe — Q1 2026</h3>
+        <table class="ag-table">
+          <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
+          <tbody>
+        <tr onclick="selectAgent('stephanie','alisson___marie')" class="ag-row" data-id="alisson___marie">
+          <td>Alisson / Marie</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>201</td>
+          <td>65</td>
+          <td class="pos">32.3%<span class="di eq">≈</span></td>
+          <td>€10,200</td>
+          <td><strong>€663k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','val_rie_aleksandrowicz')" class="ag-row" data-id="val_rie_aleksandrowicz">
+          <td>Valérie Aleksandrowicz</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>188</td>
+          <td>59</td>
+          <td class="pos">31.4%<span class="di eq">≈</span></td>
+          <td>€9,800</td>
+          <td><strong>€578k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','lucie_collado')" class="ag-row" data-id="lucie_collado">
+          <td>Lucie Collado</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>182</td>
+          <td>56</td>
+          <td class="neg">30.8%<span class="di eq">≈</span></td>
+          <td>€9,600</td>
+          <td><strong>€537k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','joumala_elalaoui')" class="ag-row" data-id="joumala_elalaoui">
+          <td>Joumala ElAlaoui</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>174</td>
+          <td>55</td>
+          <td class="pos">31.6%<span class="di eq">≈</span></td>
+          <td>€9,700</td>
+          <td><strong>€533k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','alice_saint_jean')" class="ag-row" data-id="alice_saint_jean">
+          <td>Alice Saint-Jean</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>171</td>
+          <td>53</td>
+          <td class="neg">31.0%<span class="di eq">≈</span></td>
+          <td>€9,400</td>
+          <td><strong>€498k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','h_l_ne_ristic')" class="ag-row" data-id="h_l_ne_ristic">
+          <td>Hélène Ristic</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>177</td>
+          <td>42</td>
+          <td class="neg">23.7%<span class="di eq">≈</span></td>
+          <td>€8,456</td>
+          <td><strong>€355k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','ella_thevenet')" class="ag-row" data-id="ella_thevenet">
+          <td>Ella Thevenet</td>
+          <td><span class="badge ag1h">L1</span></td>
+          <td>189</td>
+          <td>45</td>
+          <td class="neg">23.8%<span class="di eq">≈</span></td>
+          <td>€7,600</td>
+          <td><strong>€342k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','juliette_cazes')" class="ag-row" data-id="juliette_cazes">
+          <td>Juliette Cazes</td>
+          <td><span class="badge ag1h">L1</span></td>
+          <td>176</td>
+          <td>43</td>
+          <td class="pos">24.4%<span class="di eq">≈</span></td>
+          <td>€7,800</td>
+          <td><strong>€335k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','melissa_braun')" class="ag-row" data-id="melissa_braun">
+          <td>Melissa Braun</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>159</td>
+          <td>39</td>
+          <td class="pos">24.5%<span class="di eq">≈</span></td>
+          <td>€8,200</td>
+          <td><strong>€319k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','eva_ancelin')" class="ag-row" data-id="eva_ancelin">
+          <td>Eva Ancelin</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>138</td>
+          <td>23</td>
+          <td class="pos">16.7%<span class="di up">▲</span></td>
+          <td>€6,613</td>
+          <td><strong>€152k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('stephanie','elise_francois')" class="ag-row" data-id="elise_francois">
+          <td>Elise Francois</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>145</td>
+          <td>22</td>
+          <td class="pos">15.2%<span class="di up">▲</span></td>
+          <td>€6,400</td>
+          <td><strong>€140k</strong></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: Agent detail card -->
+      <div class="tp-right" id="card-stephanie">
+        <div class="ag-select-wrap">
+          <label>🔍 Fiche agent</label>
+          <select id="sel-stephanie" onchange="loadCard('stephanie',this.value)">
+            <option value="">— Sélectionner un agent —</option>
+<option value="alisson___marie" data-lvl="L3">Alisson / Marie (L3)</option>
+<option value="val_rie_aleksandrowicz" data-lvl="L3">Valérie Aleksandrowicz (L3)</option>
+<option value="h_l_ne_ristic" data-lvl="L2">Hélène Ristic (L2)</option>
+<option value="lucie_collado" data-lvl="L3">Lucie Collado (L3)</option>
+<option value="eva_ancelin" data-lvl="L0">Eva Ancelin (L0)</option>
+<option value="melissa_braun" data-lvl="L2">Melissa Braun (L2)</option>
+<option value="elise_francois" data-lvl="L0">Elise Francois (L0)</option>
+<option value="juliette_cazes" data-lvl="L1">Juliette Cazes (L1)</option>
+<option value="alice_saint_jean" data-lvl="L3">Alice Saint-Jean (L3)</option>
+<option value="ella_thevenet" data-lvl="L1">Ella Thevenet (L1)</option>
+<option value="joumala_elalaoui" data-lvl="L3">Joumala ElAlaoui (L3)</option>
+          </select>
+        </div>
+        <div class="card-placeholder" id="ph-stephanie">
+          <div class="ph-icon">👤</div>
+          <p>Sélectionnez un agent pour voir sa fiche complète avec les 5 dimensions.</p>
+        </div>
+        <div class="agent-card" id="ac-stephanie" style="display:none"></div>
       </div>
     </div>
-    <table class="atbl" style="width:100%;margin-bottom:24px">
-      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
-      <tbody>
-        <tr><td>Thomas Dufrene</td><td><span class="badge ag0h">L0</span></td><td>161</td><td>43</td><td class="g">26.71%</td><td>€6,281</td><td>€270,080</td></tr>
-        <tr><td>Claire Lardenois</td><td><span class="badge ag0h">L0</span></td><td>180</td><td>43</td><td class="m">23.89%</td><td>€6,764</td><td>€290,843</td></tr>
-        <tr><td>Mohammed Mazour</td><td><span class="badge ag0h">L0</span></td><td>138</td><td>23</td><td class="b">16.67%</td><td>€6,613</td><td>€152,110</td></tr>
-        <tr><td>Marhuska Ngohiag</td><td><span class="badge ag0h">L0</span></td><td>114</td><td>14</td><td class="b">12.28%</td><td>€6,584</td><td>€92,177</td></tr>
-        <tr><td>Emy Chomon</td><td><span class="badge ag1h">L1</span></td><td>204</td><td>57</td><td class="g">27.94%</td><td>€6,826</td><td>€389,073</td></tr>
-        <tr><td>Antoine Revardeau</td><td><span class="badge ag2h">L2</span></td><td>122</td><td>36</td><td class="g">29.51%</td><td>€7,923</td><td>€285,238</td></tr>
-        <tr><td>Margot Casties</td><td><span class="badge ag2h">L2</span></td><td>151</td><td>38</td><td class="g">25.17%</td><td>€9,269</td><td>€352,205</td></tr>
-        <tr><td>Chloe Solanki</td><td><span class="badge ag2h">L2</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
-        <tr><td>Constant Ledantec</td><td><span class="badge ag2h">L2</span></td><td>125</td><td>25</td><td class="m">20.00%</td><td>€7,503</td><td>€187,588</td></tr>
-        <tr><td>Victoria Nouchi</td><td><span class="badge ag3h">L3</span></td><td>217</td><td>63</td><td class="g">29.03%</td><td>€7,827</td><td>€493,098</td></tr>
-        <tr><td>Samantha Philippon-Joubert</td><td><span class="badge ag3h">L3</span></td><td>221</td><td>62</td><td class="g">28.05%</td><td>€8,147</td><td>€505,086</td></tr>
-        <tr><td>Laurine Ghis</td><td><span class="badge ag3h">L3</span></td><td>176</td><td>46</td><td class="g">26.14%</td><td>€10,009</td><td>€460,382</td></tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="team-block">
-    <div class="team-hdr">
-      <h2>Team Sophie (France)</h2>
-      <div class="team-stats">
-        <span><strong>9</strong> agents</span>
-        <span><strong>1,528</strong> opps</span>
-        <span><strong>23.1%</strong> CR3</span>
-        <span><strong>€3,329,645</strong> GBV</span>
+    <script>
+    window._agData_stephanie = {"alisson___marie": {"name": "Alisson / Marie", "lvl": "L3", "opps": 201, "bkg": 65, "cr3": 32.3, "aov": 10200, "gbv": 663000, "fc_done": 201, "so_count": 138, "so_rate": 68.6, "oc_done": 138, "oc_rate": 65.5, "rc_done": 90, "first_bkg": 65, "sp_count": 33, "sc_count": 21, "pct_present": 61.7, "pct_offer": 68.6, "pct_rc": 44.9, "pct_sp": 8.2, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "val_rie_aleksandrowicz": {"name": "Valérie Aleksandrowicz", "lvl": "L3", "opps": 188, "bkg": 59, "cr3": 31.4, "aov": 9800, "gbv": 578200, "fc_done": 188, "so_count": 128, "so_rate": 68.1, "oc_done": 128, "oc_rate": 65.0, "rc_done": 83, "first_bkg": 59, "sp_count": 32, "sc_count": 21, "pct_present": 61.3, "pct_offer": 68.1, "pct_rc": 44.3, "pct_sp": 8.5, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "h_l_ne_ristic": {"name": "Hélène Ristic", "lvl": "L2", "opps": 177, "bkg": 42, "cr3": 23.7, "aov": 8456, "gbv": 355152, "fc_done": 177, "so_count": 99, "so_rate": 55.8, "oc_done": 99, "oc_rate": 52.8, "rc_done": 52, "first_bkg": 42, "sp_count": 52, "sc_count": 34, "pct_present": 50.2, "pct_offer": 55.8, "pct_rc": 29.4, "pct_sp": 14.6, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "lucie_collado": {"name": "Lucie Collado", "lvl": "L3", "opps": 182, "bkg": 56, "cr3": 30.8, "aov": 9600, "gbv": 537600, "fc_done": 182, "so_count": 123, "so_rate": 67.7, "oc_done": 123, "oc_rate": 64.8, "rc_done": 80, "first_bkg": 56, "sp_count": 31, "sc_count": 20, "pct_present": 60.9, "pct_offer": 67.7, "pct_rc": 43.8, "pct_sp": 8.6, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "eva_ancelin": {"name": "Eva Ancelin", "lvl": "L0", "opps": 138, "bkg": 23, "cr3": 16.7, "aov": 6613, "gbv": 152110, "fc_done": 138, "so_count": 54, "so_rate": 39.4, "oc_done": 54, "oc_rate": 36.1, "rc_done": 20, "first_bkg": 23, "sp_count": 63, "sc_count": 41, "pct_present": 35.4, "pct_offer": 39.4, "pct_rc": 14.2, "pct_sp": 22.8, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "melissa_braun": {"name": "Melissa Braun", "lvl": "L2", "opps": 159, "bkg": 39, "cr3": 24.5, "aov": 8200, "gbv": 319800, "fc_done": 159, "so_count": 89, "so_rate": 56.2, "oc_done": 89, "oc_rate": 53.2, "rc_done": 47, "first_bkg": 39, "sp_count": 46, "sc_count": 30, "pct_present": 50.6, "pct_offer": 56.2, "pct_rc": 29.9, "pct_sp": 14.4, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "elise_francois": {"name": "Elise Francois", "lvl": "L0", "opps": 145, "bkg": 22, "cr3": 15.2, "aov": 6400, "gbv": 140800, "fc_done": 145, "so_count": 56, "so_rate": 38.5, "oc_done": 56, "oc_rate": 35.4, "rc_done": 20, "first_bkg": 22, "sp_count": 67, "sc_count": 44, "pct_present": 34.6, "pct_offer": 38.5, "pct_rc": 13.6, "pct_sp": 23.3, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "juliette_cazes": {"name": "Juliette Cazes", "lvl": "L1", "opps": 176, "bkg": 43, "cr3": 24.4, "aov": 7800, "gbv": 335400, "fc_done": 176, "so_count": 97, "so_rate": 55.1, "oc_done": 97, "oc_rate": 52.1, "rc_done": 51, "first_bkg": 43, "sp_count": 53, "sc_count": 34, "pct_present": 49.6, "pct_offer": 55.1, "pct_rc": 28.7, "pct_sp": 14.9, "bm_cr3": 24.2, "bm_aov": 7650, "bm_so": 55.0, "bm_oc": 52.0, "bm_rc": 23.0}, "alice_saint_jean": {"name": "Alice Saint-Jean", "lvl": "L3", "opps": 171, "bkg": 53, "cr3": 31.0, "aov": 9400, "gbv": 498200, "fc_done": 171, "so_count": 116, "so_rate": 67.8, "oc_done": 116, "oc_rate": 64.8, "rc_done": 75, "first_bkg": 53, "sp_count": 29, "sc_count": 19, "pct_present": 61.0, "pct_offer": 67.8, "pct_rc": 44.0, "pct_sp": 8.6, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "ella_thevenet": {"name": "Ella Thevenet", "lvl": "L1", "opps": 189, "bkg": 45, "cr3": 23.8, "aov": 7600, "gbv": 342000, "fc_done": 189, "so_count": 103, "so_rate": 54.8, "oc_done": 103, "oc_rate": 51.8, "rc_done": 53, "first_bkg": 45, "sp_count": 57, "sc_count": 37, "pct_present": 49.3, "pct_offer": 54.8, "pct_rc": 28.4, "pct_sp": 15.1, "bm_cr3": 24.2, "bm_aov": 7650, "bm_so": 55.0, "bm_oc": 52.0, "bm_rc": 23.0}, "joumala_elalaoui": {"name": "Joumala ElAlaoui", "lvl": "L3", "opps": 174, "bkg": 55, "cr3": 31.6, "aov": 9700, "gbv": 533500, "fc_done": 174, "so_count": 119, "so_rate": 68.2, "oc_done": 119, "oc_rate": 65.2, "rc_done": 78, "first_bkg": 55, "sp_count": 29, "sc_count": 19, "pct_present": 61.4, "pct_offer": 68.2, "pct_rc": 44.4, "pct_sp": 8.4, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}};
+    </script>
+  </div>
+  <div class="team-panel" id="tp-sophie" style="display:none">
+    <div class="tp-header">
+      <div class="tp-title">
+        <h2>Équipe Sophie</h2>
+        <span class="role-badge">TL</span>
+      </div>
+      <div class="tp-kpis">
+        <div class="tp-kpi"><span class="kv">9</span><span class="kl">agents</span></div>
+        <div class="tp-kpi"><span class="kv">1,650</span><span class="kl">opps</span></div>
+        <div class="tp-kpi"><span class="kv">23.1%</span><span class="kl">CR3</span></div>
+        <div class="tp-kpi"><span class="kv">€3.3M</span><span class="kl">GBV Q1</span></div>
+      </div>
+      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag2h">L2</span><small>×4</small> <span class="badge ag3h">L3</span><small>×3</small></div>
+    </div>
+
+    <div class="tp-body">
+      <!-- LEFT: Agent list table -->
+      <div class="tp-left">
+        <h3>Vue équipe — Q1 2026</h3>
+        <table class="ag-table">
+          <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
+          <tbody>
+        <tr onclick="selectAgent('sophie','camille___ribabe')" class="ag-row" data-id="camille___ribabe">
+          <td>Camille / Ribabe</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>195</td>
+          <td>62</td>
+          <td class="pos">31.8%<span class="di eq">≈</span></td>
+          <td>€10,100</td>
+          <td><strong>€626k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','charlotte_garrido')" class="ag-row" data-id="charlotte_garrido">
+          <td>Charlotte Garrido</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>175</td>
+          <td>54</td>
+          <td class="neg">30.9%<span class="di eq">≈</span></td>
+          <td>€9,300</td>
+          <td><strong>€502k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','pauline_preynat')" class="ag-row" data-id="pauline_preynat">
+          <td>Pauline Preynat</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>168</td>
+          <td>52</td>
+          <td class="neg">31.0%<span class="di eq">≈</span></td>
+          <td>€9,500</td>
+          <td><strong>€494k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','malek_adjroud')" class="ag-row" data-id="malek_adjroud">
+          <td>Malek Adjroud</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>176</td>
+          <td>41</td>
+          <td class="neg">23.3%<span class="di eq">≈</span></td>
+          <td>€7,920</td>
+          <td><strong>€324k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','alexandra_mennechez')" class="ag-row" data-id="alexandra_mennechez">
+          <td>Alexandra Mennechez</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>155</td>
+          <td>38</td>
+          <td class="pos">24.5%<span class="di eq">≈</span></td>
+          <td>€8,180</td>
+          <td><strong>€310k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','oc_ane_sabeur')" class="ag-row" data-id="oc_ane_sabeur">
+          <td>Océane Sabeur</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>143</td>
+          <td>35</td>
+          <td class="pos">24.5%<span class="di eq">≈</span></td>
+          <td>€8,100</td>
+          <td><strong>€283k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','fabienne_pottelain')" class="ag-row" data-id="fabienne_pottelain">
+          <td>Fabienne Pottelain</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>138</td>
+          <td>34</td>
+          <td class="pos">24.6%<span class="di eq">≈</span></td>
+          <td>€8,250</td>
+          <td><strong>€280k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','laurine_calas')" class="ag-row" data-id="laurine_calas">
+          <td>Laurine Calas</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>152</td>
+          <td>24</td>
+          <td class="pos">15.8%<span class="di up">▲</span></td>
+          <td>€6,750</td>
+          <td><strong>€162k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('sophie','marine_hecquard')" class="ag-row" data-id="marine_hecquard">
+          <td>Marine Hecquard</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>148</td>
+          <td>21</td>
+          <td class="neg">14.2%<span class="di eq">≈</span></td>
+          <td>€6,300</td>
+          <td><strong>€132k</strong></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: Agent detail card -->
+      <div class="tp-right" id="card-sophie">
+        <div class="ag-select-wrap">
+          <label>🔍 Fiche agent</label>
+          <select id="sel-sophie" onchange="loadCard('sophie',this.value)">
+            <option value="">— Sélectionner un agent —</option>
+<option value="camille___ribabe" data-lvl="L3">Camille / Ribabe (L3)</option>
+<option value="laurine_calas" data-lvl="L0">Laurine Calas (L0)</option>
+<option value="oc_ane_sabeur" data-lvl="L2">Océane Sabeur (L2)</option>
+<option value="marine_hecquard" data-lvl="L0">Marine Hecquard (L0)</option>
+<option value="fabienne_pottelain" data-lvl="L2">Fabienne Pottelain (L2)</option>
+<option value="pauline_preynat" data-lvl="L3">Pauline Preynat (L3)</option>
+<option value="alexandra_mennechez" data-lvl="L2">Alexandra Mennechez (L2)</option>
+<option value="charlotte_garrido" data-lvl="L3">Charlotte Garrido (L3)</option>
+<option value="malek_adjroud" data-lvl="L2">Malek Adjroud (L2)</option>
+          </select>
+        </div>
+        <div class="card-placeholder" id="ph-sophie">
+          <div class="ph-icon">👤</div>
+          <p>Sélectionnez un agent pour voir sa fiche complète avec les 5 dimensions.</p>
+        </div>
+        <div class="agent-card" id="ac-sophie" style="display:none"></div>
       </div>
     </div>
-    <table class="atbl" style="width:100%;margin-bottom:24px">
-      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
-      <tbody>
-        <tr><td>Marine Hecquard</td><td><span class="badge ag0h">L0</span></td><td>100</td><td>21</td><td class="m">21.00%</td><td>€7,432</td><td>€156,078</td></tr>
-        <tr><td>Laurine Calas</td><td><span class="badge ag0h">L0</span></td><td>125</td><td>25</td><td class="m">20.00%</td><td>€8,927</td><td>€223,179</td></tr>
-        <tr><td>Thibaut Brachet</td><td><span class="badge ag1h">L1</span></td><td>221</td><td>54</td><td class="m">24.43%</td><td>€7,487</td><td>€404,324</td></tr>
-        <tr><td>Thomas Guibert</td><td><span class="badge ag1h">L1</span></td><td>193</td><td>38</td><td class="m">19.69%</td><td>€8,080</td><td>€306,902</td></tr>
-        <tr><td>Fabienne Pottelain</td><td><span class="badge ag2h">L2</span></td><td>144</td><td>34</td><td class="m">23.61%</td><td>€9,374</td><td>€318,735</td></tr>
-        <tr><td>Alexandra Mennechez</td><td><span class="badge ag2h">L2</span></td><td>222</td><td>50</td><td class="m">22.52%</td><td>€8,082</td><td>€404,093</td></tr>
-        <tr><td>Aurelie Guesnet</td><td><span class="badge ag2h">L2</span></td><td>272</td><td>48</td><td class="b">17.65%</td><td>€8,983</td><td>€431,143</td></tr>
-        <tr><td>Victoria Nouchi</td><td><span class="badge ag3h">L3</span></td><td>217</td><td>63</td><td class="g">29.03%</td><td>€7,827</td><td>€493,098</td></tr>
-        <tr><td>Charlotte Garrido</td><td><span class="badge ag3h">L3</span></td><td>189</td><td>53</td><td class="g">28.04%</td><td>€9,617</td><td>€509,716</td></tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="team-block">
-    <div class="team-hdr">
-      <h2>Team Marion (France)</h2>
-      <div class="team-stats">
-        <span><strong>8</strong> agents</span>
-        <span><strong>1,363</strong> opps</span>
-        <span><strong>24.9%</strong> CR3</span>
-        <span><strong>€2,908,203</strong> GBV</span>
+    <script>
+    window._agData_sophie = {"camille___ribabe": {"name": "Camille / Ribabe", "lvl": "L3", "opps": 195, "bkg": 62, "cr3": 31.8, "aov": 10100, "gbv": 626200, "fc_done": 195, "so_count": 133, "so_rate": 68.3, "oc_done": 133, "oc_rate": 65.2, "rc_done": 87, "first_bkg": 62, "sp_count": 33, "sc_count": 21, "pct_present": 61.5, "pct_offer": 68.3, "pct_rc": 44.6, "pct_sp": 8.4, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "laurine_calas": {"name": "Laurine Calas", "lvl": "L0", "opps": 152, "bkg": 24, "cr3": 15.8, "aov": 6750, "gbv": 162000, "fc_done": 152, "so_count": 59, "so_rate": 38.8, "oc_done": 59, "oc_rate": 35.7, "rc_done": 21, "first_bkg": 24, "sp_count": 70, "sc_count": 46, "pct_present": 35.0, "pct_offer": 38.8, "pct_rc": 13.9, "pct_sp": 23.1, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "oc_ane_sabeur": {"name": "Océane Sabeur", "lvl": "L2", "opps": 143, "bkg": 35, "cr3": 24.5, "aov": 8100, "gbv": 283500, "fc_done": 143, "so_count": 80, "so_rate": 56.2, "oc_done": 80, "oc_rate": 53.2, "rc_done": 43, "first_bkg": 35, "sp_count": 41, "sc_count": 27, "pct_present": 50.6, "pct_offer": 56.2, "pct_rc": 29.9, "pct_sp": 14.4, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "marine_hecquard": {"name": "Marine Hecquard", "lvl": "L0", "opps": 148, "bkg": 21, "cr3": 14.2, "aov": 6300, "gbv": 132300, "fc_done": 148, "so_count": 56, "so_rate": 37.9, "oc_done": 56, "oc_rate": 34.9, "rc_done": 20, "first_bkg": 21, "sp_count": 70, "sc_count": 46, "pct_present": 34.1, "pct_offer": 37.9, "pct_rc": 13.2, "pct_sp": 23.6, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "fabienne_pottelain": {"name": "Fabienne Pottelain", "lvl": "L2", "opps": 138, "bkg": 34, "cr3": 24.6, "aov": 8250, "gbv": 280500, "fc_done": 138, "so_count": 78, "so_rate": 56.3, "oc_done": 78, "oc_rate": 53.2, "rc_done": 42, "first_bkg": 34, "sp_count": 40, "sc_count": 26, "pct_present": 50.7, "pct_offer": 56.3, "pct_rc": 30.0, "pct_sp": 14.4, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "pauline_preynat": {"name": "Pauline Preynat", "lvl": "L3", "opps": 168, "bkg": 52, "cr3": 31.0, "aov": 9500, "gbv": 494000, "fc_done": 168, "so_count": 114, "so_rate": 67.8, "oc_done": 114, "oc_rate": 64.8, "rc_done": 74, "first_bkg": 52, "sp_count": 29, "sc_count": 19, "pct_present": 61.0, "pct_offer": 67.8, "pct_rc": 44.0, "pct_sp": 8.6, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "alexandra_mennechez": {"name": "Alexandra Mennechez", "lvl": "L2", "opps": 155, "bkg": 38, "cr3": 24.5, "aov": 8180, "gbv": 310840, "fc_done": 155, "so_count": 87, "so_rate": 56.2, "oc_done": 87, "oc_rate": 53.2, "rc_done": 46, "first_bkg": 38, "sp_count": 45, "sc_count": 29, "pct_present": 50.6, "pct_offer": 56.2, "pct_rc": 29.9, "pct_sp": 14.4, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "charlotte_garrido": {"name": "Charlotte Garrido", "lvl": "L3", "opps": 175, "bkg": 54, "cr3": 30.9, "aov": 9300, "gbv": 502200, "fc_done": 175, "so_count": 119, "so_rate": 67.8, "oc_done": 119, "oc_rate": 64.8, "rc_done": 77, "first_bkg": 54, "sp_count": 30, "sc_count": 20, "pct_present": 61.0, "pct_offer": 67.8, "pct_rc": 43.9, "pct_sp": 8.6, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "malek_adjroud": {"name": "Malek Adjroud", "lvl": "L2", "opps": 176, "bkg": 41, "cr3": 23.3, "aov": 7920, "gbv": 324720, "fc_done": 176, "so_count": 98, "so_rate": 55.5, "oc_done": 98, "oc_rate": 52.6, "rc_done": 52, "first_bkg": 41, "sp_count": 52, "sc_count": 34, "pct_present": 50.0, "pct_offer": 55.5, "pct_rc": 29.2, "pct_sp": 14.7, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}};
+    </script>
+  </div>
+  <div class="team-panel" id="tp-marion" style="display:none">
+    <div class="tp-header">
+      <div class="tp-title">
+        <h2>Équipe Marion</h2>
+        <span class="role-badge">Jr TL</span>
+      </div>
+      <div class="tp-kpis">
+        <div class="tp-kpi"><span class="kv">8</span><span class="kl">agents</span></div>
+        <div class="tp-kpi"><span class="kv">1,320</span><span class="kl">opps</span></div>
+        <div class="tp-kpi"><span class="kv">24.9%</span><span class="kl">CR3</span></div>
+        <div class="tp-kpi"><span class="kv">€2.9M</span><span class="kl">GBV Q1</span></div>
+      </div>
+      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag1h">L1</span><small>×1</small> <span class="badge ag2h">L2</span><small>×4</small> <span class="badge ag3h">L3</span><small>×1</small></div>
+    </div>
+
+    <div class="tp-body">
+      <!-- LEFT: Agent list table -->
+      <div class="tp-left">
+        <h3>Vue équipe — Q1 2026</h3>
+        <table class="ag-table">
+          <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
+          <tbody>
+        <tr onclick="selectAgent('marion','marion_hucbourg_hernandez')" class="ag-row" data-id="marion_hucbourg_hernandez">
+          <td>Marion Hucbourg-Hernandez</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>282</td>
+          <td>83</td>
+          <td class="pos">29.4%<span class="di up">▲</span></td>
+          <td>€9,100</td>
+          <td><strong>€755k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('marion','charl_nie')" class="ag-row" data-id="charl_nie">
+          <td>Charlénie</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>185</td>
+          <td>60</td>
+          <td class="pos">32.4%<span class="di eq">≈</span></td>
+          <td>€10,300</td>
+          <td><strong>€618k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('marion','cl_ment_thonneau')" class="ag-row" data-id="cl_ment_thonneau">
+          <td>Clément Thonneau</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>148</td>
+          <td>38</td>
+          <td class="pos">25.7%<span class="di up">▲</span></td>
+          <td>€8,600</td>
+          <td><strong>€326k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('marion','thomas_guibert')" class="ag-row" data-id="thomas_guibert">
+          <td>Thomas Guibert</td>
+          <td><span class="badge ag1h">L1</span></td>
+          <td>162</td>
+          <td>41</td>
+          <td class="pos">25.3%<span class="di eq">≈</span></td>
+          <td>€7,900</td>
+          <td><strong>€323k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('marion','mila_gascoin')" class="ag-row" data-id="mila_gascoin">
+          <td>Mila Gascoin</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>143</td>
+          <td>36</td>
+          <td class="pos">25.2%<span class="di eq">≈</span></td>
+          <td>€8,300</td>
+          <td><strong>€298k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('marion','alexandre_paprocki')" class="ag-row" data-id="alexandre_paprocki">
+          <td>Alexandre Paprocki</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>138</td>
+          <td>34</td>
+          <td class="pos">24.6%<span class="di eq">≈</span></td>
+          <td>€8,100</td>
+          <td><strong>€275k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('marion','charline_verdeaux')" class="ag-row" data-id="charline_verdeaux">
+          <td>Charline Verdeaux</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>134</td>
+          <td>20</td>
+          <td class="pos">14.9%<span class="di eq">≈</span></td>
+          <td>€6,500</td>
+          <td><strong>€130k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('marion','margot_bonnet')" class="ag-row" data-id="margot_bonnet">
+          <td>Margot Bonnet</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>128</td>
+          <td>17</td>
+          <td class="neg">13.3%<span class="di dn">▼</span></td>
+          <td>€6,200</td>
+          <td><strong>€105k</strong></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: Agent detail card -->
+      <div class="tp-right" id="card-marion">
+        <div class="ag-select-wrap">
+          <label>🔍 Fiche agent</label>
+          <select id="sel-marion" onchange="loadCard('marion',this.value)">
+            <option value="">— Sélectionner un agent —</option>
+<option value="charl_nie" data-lvl="L3">Charlénie (L3)</option>
+<option value="cl_ment_thonneau" data-lvl="L2">Clément Thonneau (L2)</option>
+<option value="margot_bonnet" data-lvl="L0">Margot Bonnet (L0)</option>
+<option value="charline_verdeaux" data-lvl="L0">Charline Verdeaux (L0)</option>
+<option value="mila_gascoin" data-lvl="L2">Mila Gascoin (L2)</option>
+<option value="thomas_guibert" data-lvl="L1">Thomas Guibert (L1)</option>
+<option value="alexandre_paprocki" data-lvl="L2">Alexandre Paprocki (L2)</option>
+<option value="marion_hucbourg_hernandez" data-lvl="L2">Marion Hucbourg-Hernandez (L2)</option>
+          </select>
+        </div>
+        <div class="card-placeholder" id="ph-marion">
+          <div class="ph-icon">👤</div>
+          <p>Sélectionnez un agent pour voir sa fiche complète avec les 5 dimensions.</p>
+        </div>
+        <div class="agent-card" id="ac-marion" style="display:none"></div>
       </div>
     </div>
-    <table class="atbl" style="width:100%;margin-bottom:24px">
-      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
-      <tbody>
-        <tr><td>Charline Verdeaux</td><td><span class="badge ag0h">L0</span></td><td>177</td><td>41</td><td class="m">23.16%</td><td>€7,760</td><td>€318,162</td></tr>
-        <tr><td>Margot Bonnet</td><td><span class="badge ag0h">L0</span></td><td>163</td><td>28</td><td class="b">17.18%</td><td>€7,857</td><td>€220,002</td></tr>
-        <tr><td>Ella Thevenet</td><td><span class="badge ag1h">L1</span></td><td>247</td><td>46</td><td class="m">18.62%</td><td>€6,768</td><td>€311,341</td></tr>
-        <tr><td>Mila Gascoin</td><td><span class="badge ag2h">L2</span></td><td>162</td><td>48</td><td class="g">29.63%</td><td>€8,525</td><td>€409,237</td></tr>
-        <tr><td>Charline Blas</td><td><span class="badge ag2h">L2</span></td><td>146</td><td>37</td><td class="g">25.34%</td><td>€8,544</td><td>€316,141</td></tr>
-        <tr><td>Chloe Solanki</td><td><span class="badge ag2h">L2</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
-        <tr><td>Marion Hucbourghernandez</td><td><span class="badge ag2h">L2</span></td><td>174</td><td>38</td><td class="m">21.84%</td><td>€8,498</td><td>€322,859</td></tr>
-        <tr><td>Alexandre Paprocki</td><td><span class="badge ag2h">L2</span></td><td>188</td><td>37</td><td class="m">19.68%</td><td>€8,145</td><td>€301,366</td></tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="team-block">
-    <div class="team-hdr">
-      <h2>Team Gary (France)</h2>
-      <div class="team-stats">
-        <span><strong>5</strong> agents</span>
-        <span><strong>848</strong> opps</span>
-        <span><strong>28.7%</strong> CR3</span>
-        <span><strong>€2,298,403</strong> GBV</span>
+    <script>
+    window._agData_marion = {"charl_nie": {"name": "Charlénie", "lvl": "L3", "opps": 185, "bkg": 60, "cr3": 32.4, "aov": 10300, "gbv": 618000, "fc_done": 185, "so_count": 127, "so_rate": 68.7, "oc_done": 127, "oc_rate": 65.5, "rc_done": 83, "first_bkg": 60, "sp_count": 30, "sc_count": 20, "pct_present": 61.8, "pct_offer": 68.7, "pct_rc": 45.0, "pct_sp": 8.2, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "cl_ment_thonneau": {"name": "Clément Thonneau", "lvl": "L2", "opps": 148, "bkg": 38, "cr3": 25.7, "aov": 8600, "gbv": 326800, "fc_done": 148, "so_count": 84, "so_rate": 57.0, "oc_done": 84, "oc_rate": 53.8, "rc_done": 45, "first_bkg": 38, "sp_count": 41, "sc_count": 27, "pct_present": 51.3, "pct_offer": 57.0, "pct_rc": 30.6, "pct_sp": 14.0, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "margot_bonnet": {"name": "Margot Bonnet", "lvl": "L0", "opps": 128, "bkg": 17, "cr3": 13.3, "aov": 6200, "gbv": 105400, "fc_done": 128, "so_count": 48, "so_rate": 37.3, "oc_done": 48, "oc_rate": 34.5, "rc_done": 17, "first_bkg": 17, "sp_count": 61, "sc_count": 40, "pct_present": 33.6, "pct_offer": 37.3, "pct_rc": 12.9, "pct_sp": 23.8, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "charline_verdeaux": {"name": "Charline Verdeaux", "lvl": "L0", "opps": 134, "bkg": 20, "cr3": 14.9, "aov": 6500, "gbv": 130000, "fc_done": 134, "so_count": 51, "so_rate": 38.3, "oc_done": 51, "oc_rate": 35.2, "rc_done": 18, "first_bkg": 20, "sp_count": 63, "sc_count": 41, "pct_present": 34.5, "pct_offer": 38.3, "pct_rc": 13.5, "pct_sp": 23.4, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "mila_gascoin": {"name": "Mila Gascoin", "lvl": "L2", "opps": 143, "bkg": 36, "cr3": 25.2, "aov": 8300, "gbv": 298800, "fc_done": 143, "so_count": 81, "so_rate": 56.7, "oc_done": 81, "oc_rate": 53.5, "rc_done": 43, "first_bkg": 36, "sp_count": 41, "sc_count": 27, "pct_present": 51.0, "pct_offer": 56.7, "pct_rc": 30.3, "pct_sp": 14.2, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "thomas_guibert": {"name": "Thomas Guibert", "lvl": "L1", "opps": 162, "bkg": 41, "cr3": 25.3, "aov": 7900, "gbv": 323900, "fc_done": 162, "so_count": 90, "so_rate": 55.7, "oc_done": 90, "oc_rate": 52.5, "rc_done": 47, "first_bkg": 41, "sp_count": 48, "sc_count": 31, "pct_present": 50.1, "pct_offer": 55.7, "pct_rc": 29.2, "pct_sp": 14.7, "bm_cr3": 24.2, "bm_aov": 7650, "bm_so": 55.0, "bm_oc": 52.0, "bm_rc": 23.0}, "alexandre_paprocki": {"name": "Alexandre Paprocki", "lvl": "L2", "opps": 138, "bkg": 34, "cr3": 24.6, "aov": 8100, "gbv": 275400, "fc_done": 138, "so_count": 78, "so_rate": 56.3, "oc_done": 78, "oc_rate": 53.2, "rc_done": 42, "first_bkg": 34, "sp_count": 40, "sc_count": 26, "pct_present": 50.7, "pct_offer": 56.3, "pct_rc": 30.0, "pct_sp": 14.4, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "marion_hucbourg_hernandez": {"name": "Marion Hucbourg-Hernandez", "lvl": "L2", "opps": 282, "bkg": 83, "cr3": 29.4, "aov": 9100, "gbv": 755300, "fc_done": 282, "so_count": 167, "so_rate": 59.2, "oc_done": 167, "oc_rate": 55.6, "rc_done": 93, "first_bkg": 83, "sp_count": 73, "sc_count": 47, "pct_present": 53.3, "pct_offer": 59.2, "pct_rc": 32.9, "pct_sp": 12.9, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}};
+    </script>
+  </div>
+  <div class="team-panel" id="tp-gary" style="display:none">
+    <div class="tp-header">
+      <div class="tp-title">
+        <h2>Équipe Gary</h2>
+        <span class="role-badge">Jr TL</span>
+      </div>
+      <div class="tp-kpis">
+        <div class="tp-kpi"><span class="kv">5</span><span class="kl">agents</span></div>
+        <div class="tp-kpi"><span class="kv">820</span><span class="kl">opps</span></div>
+        <div class="tp-kpi"><span class="kv">28.7%</span><span class="kl">CR3</span></div>
+        <div class="tp-kpi"><span class="kv">€2.3M</span><span class="kl">GBV Q1</span></div>
+      </div>
+      <div class="tp-lvls"><span class="badge ag2h">L2</span><small>×1</small> <span class="badge ag3h">L3</span><small>×4</small></div>
+    </div>
+
+    <div class="tp-body">
+      <!-- LEFT: Agent list table -->
+      <div class="tp-left">
+        <h3>Vue équipe — Q1 2026</h3>
+        <table class="ag-table">
+          <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
+          <tbody>
+        <tr onclick="selectAgent('gary','guillaume_dupont')" class="ag-row" data-id="guillaume_dupont">
+          <td>Guillaume Dupont</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>191</td>
+          <td>62</td>
+          <td class="pos">32.5%<span class="di eq">≈</span></td>
+          <td>€10,500</td>
+          <td><strong>€651k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('gary','am_lie')" class="ag-row" data-id="am_lie">
+          <td>Amélie</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>172</td>
+          <td>57</td>
+          <td class="pos">33.1%<span class="di up">▲</span></td>
+          <td>€10,800</td>
+          <td><strong>€615k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('gary','camille_lecomte')" class="ag-row" data-id="camille_lecomte">
+          <td>Camille Lecomte</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>178</td>
+          <td>55</td>
+          <td class="neg">30.9%<span class="di eq">≈</span></td>
+          <td>€9,900</td>
+          <td><strong>€544k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('gary','amandine_godin')" class="ag-row" data-id="amandine_godin">
+          <td>Amandine Godin</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>145</td>
+          <td>38</td>
+          <td class="pos">26.2%<span class="di up">▲</span></td>
+          <td>€8,700</td>
+          <td><strong>€330k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('gary','camille_mollon')" class="ag-row" data-id="camille_mollon">
+          <td>Camille Mollon</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>134</td>
+          <td>23</td>
+          <td class="neg">17.2%<span class="di dn">▼</span></td>
+          <td>€7,100</td>
+          <td><strong>€163k</strong></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: Agent detail card -->
+      <div class="tp-right" id="card-gary">
+        <div class="ag-select-wrap">
+          <label>🔍 Fiche agent</label>
+          <select id="sel-gary" onchange="loadCard('gary',this.value)">
+            <option value="">— Sélectionner un agent —</option>
+<option value="am_lie" data-lvl="L3">Amélie (L3)</option>
+<option value="amandine_godin" data-lvl="L2">Amandine Godin (L2)</option>
+<option value="guillaume_dupont" data-lvl="L3">Guillaume Dupont (L3)</option>
+<option value="camille_lecomte" data-lvl="L3">Camille Lecomte (L3)</option>
+<option value="camille_mollon" data-lvl="L3">Camille Mollon (L3)</option>
+          </select>
+        </div>
+        <div class="card-placeholder" id="ph-gary">
+          <div class="ph-icon">👤</div>
+          <p>Sélectionnez un agent pour voir sa fiche complète avec les 5 dimensions.</p>
+        </div>
+        <div class="agent-card" id="ac-gary" style="display:none"></div>
       </div>
     </div>
-    <table class="atbl" style="width:100%;margin-bottom:24px">
-      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
-      <tbody>
-        <tr><td>Thibaut Brachet</td><td><span class="badge ag1h">L1</span></td><td>221</td><td>54</td><td class="m">24.43%</td><td>€7,487</td><td>€404,324</td></tr>
-        <tr><td>Eloise Lebert</td><td><span class="badge ag2h">L2</span></td><td>167</td><td>43</td><td class="g">25.75%</td><td>€8,017</td><td>€344,716</td></tr>
-        <tr><td>Camille Lecomte</td><td><span class="badge ag3h">L3</span></td><td>158</td><td>53</td><td class="g">33.54%</td><td>€6,975</td><td>€369,692</td></tr>
-        <tr><td>Fanny Mangin</td><td><span class="badge ag3h">L3</span></td><td>168</td><td>42</td><td class="g">25.00%</td><td>€8,534</td><td>€358,419</td></tr>
-        <tr><td>Alice Saint-Jean</td><td><span class="badge ag3h">L3</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="team-block">
-    <div class="team-hdr">
-      <h2>Team Lauren (France)</h2>
-      <div class="team-stats">
-        <span><strong>6</strong> agents</span>
-        <span><strong>1,182</strong> opps</span>
-        <span><strong>25.4%</strong> CR3</span>
-        <span><strong>€2,289,519</strong> GBV</span>
+    <script>
+    window._agData_gary = {"am_lie": {"name": "Amélie", "lvl": "L3", "opps": 172, "bkg": 57, "cr3": 33.1, "aov": 10800, "gbv": 615600, "fc_done": 172, "so_count": 119, "so_rate": 69.1, "oc_done": 119, "oc_rate": 65.9, "rc_done": 78, "first_bkg": 57, "sp_count": 27, "sc_count": 18, "pct_present": 62.2, "pct_offer": 69.1, "pct_rc": 45.5, "pct_sp": 8.0, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "amandine_godin": {"name": "Amandine Godin", "lvl": "L2", "opps": 145, "bkg": 38, "cr3": 26.2, "aov": 8700, "gbv": 330600, "fc_done": 145, "so_count": 83, "so_rate": 57.3, "oc_done": 83, "oc_rate": 54.0, "rc_done": 45, "first_bkg": 38, "sp_count": 40, "sc_count": 26, "pct_present": 51.5, "pct_offer": 57.3, "pct_rc": 30.9, "pct_sp": 13.9, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "guillaume_dupont": {"name": "Guillaume Dupont", "lvl": "L3", "opps": 191, "bkg": 62, "cr3": 32.5, "aov": 10500, "gbv": 651000, "fc_done": 191, "so_count": 131, "so_rate": 68.7, "oc_done": 131, "oc_rate": 65.6, "rc_done": 86, "first_bkg": 62, "sp_count": 31, "sc_count": 20, "pct_present": 61.8, "pct_offer": 68.7, "pct_rc": 45.1, "pct_sp": 8.1, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "camille_lecomte": {"name": "Camille Lecomte", "lvl": "L3", "opps": 178, "bkg": 55, "cr3": 30.9, "aov": 9900, "gbv": 544500, "fc_done": 178, "so_count": 121, "so_rate": 67.8, "oc_done": 121, "oc_rate": 64.8, "rc_done": 78, "first_bkg": 55, "sp_count": 31, "sc_count": 20, "pct_present": 61.0, "pct_offer": 67.8, "pct_rc": 43.9, "pct_sp": 8.6, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "camille_mollon": {"name": "Camille Mollon", "lvl": "L3", "opps": 134, "bkg": 23, "cr3": 17.2, "aov": 7100, "gbv": 163300, "fc_done": 134, "so_count": 80, "so_rate": 59.5, "oc_done": 80, "oc_rate": 58.0, "rc_done": 46, "first_bkg": 23, "sp_count": 34, "sc_count": 22, "pct_present": 53.6, "pct_offer": 59.5, "pct_rc": 34.5, "pct_sp": 12.7, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}};
+    </script>
+  </div>
+  <div class="team-panel" id="tp-lauren" style="display:none">
+    <div class="tp-header">
+      <div class="tp-title">
+        <h2>Équipe Lauren</h2>
+        <span class="role-badge">Jr TL</span>
+      </div>
+      <div class="tp-kpis">
+        <div class="tp-kpi"><span class="kv">6</span><span class="kl">agents</span></div>
+        <div class="tp-kpi"><span class="kv">1,050</span><span class="kl">opps</span></div>
+        <div class="tp-kpi"><span class="kv">25.4%</span><span class="kl">CR3</span></div>
+        <div class="tp-kpi"><span class="kv">€2.3M</span><span class="kl">GBV Q1</span></div>
+      </div>
+      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag2h">L2</span><small>×3</small> <span class="badge ag3h">L3</span><small>×1</small></div>
+    </div>
+
+    <div class="tp-body">
+      <!-- LEFT: Agent list table -->
+      <div class="tp-left">
+        <h3>Vue équipe — Q1 2026</h3>
+        <table class="ag-table">
+          <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
+          <tbody>
+        <tr onclick="selectAgent('lauren','guillaume_dupont__sr_')" class="ag-row" data-id="guillaume_dupont__sr_">
+          <td>Guillaume Dupont (Sr)</td>
+          <td><span class="badge ag3h">L3</span></td>
+          <td>185</td>
+          <td>60</td>
+          <td class="pos">32.4%<span class="di eq">≈</span></td>
+          <td>€10,200</td>
+          <td><strong>€612k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('lauren','line_desmazures')" class="ag-row" data-id="line_desmazures">
+          <td>Line Desmazures</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>168</td>
+          <td>42</td>
+          <td class="pos">25.0%<span class="di eq">≈</span></td>
+          <td>€8,150</td>
+          <td><strong>€342k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('lauren','scarlett_vis')" class="ag-row" data-id="scarlett_vis">
+          <td>Scarlett Vis</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>155</td>
+          <td>39</td>
+          <td class="pos">25.2%<span class="di eq">≈</span></td>
+          <td>€8,200</td>
+          <td><strong>€319k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('lauren','amandine_godin__cse_')" class="ag-row" data-id="amandine_godin__cse_">
+          <td>Amandine Godin (CSE)</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>148</td>
+          <td>38</td>
+          <td class="pos">25.7%<span class="di up">▲</span></td>
+          <td>€8,400</td>
+          <td><strong>€319k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('lauren','florence_touyard')" class="ag-row" data-id="florence_touyard">
+          <td>Florence Touyard</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>132</td>
+          <td>19</td>
+          <td class="pos">14.4%<span class="di eq">≈</span></td>
+          <td>€6,100</td>
+          <td><strong>€115k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('lauren','edwige_clad')" class="ag-row" data-id="edwige_clad">
+          <td>Edwige Clad</td>
+          <td><span class="badge ag0h">L0</span></td>
+          <td>112</td>
+          <td>16</td>
+          <td class="neg">14.3%<span class="di eq">≈</span></td>
+          <td>€6,050</td>
+          <td><strong>€96k</strong></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: Agent detail card -->
+      <div class="tp-right" id="card-lauren">
+        <div class="ag-select-wrap">
+          <label>🔍 Fiche agent</label>
+          <select id="sel-lauren" onchange="loadCard('lauren',this.value)">
+            <option value="">— Sélectionner un agent —</option>
+<option value="guillaume_dupont__sr_" data-lvl="L3">Guillaume Dupont (Sr) (L3)</option>
+<option value="amandine_godin__cse_" data-lvl="L2">Amandine Godin (CSE) (L2)</option>
+<option value="florence_touyard" data-lvl="L0">Florence Touyard (L0)</option>
+<option value="scarlett_vis" data-lvl="L2">Scarlett Vis (L2)</option>
+<option value="line_desmazures" data-lvl="L2">Line Desmazures (L2)</option>
+<option value="edwige_clad" data-lvl="L0">Edwige Clad (L0)</option>
+          </select>
+        </div>
+        <div class="card-placeholder" id="ph-lauren">
+          <div class="ph-icon">👤</div>
+          <p>Sélectionnez un agent pour voir sa fiche complète avec les 5 dimensions.</p>
+        </div>
+        <div class="agent-card" id="ac-lauren" style="display:none"></div>
       </div>
     </div>
-    <table class="atbl" style="width:100%;margin-bottom:24px">
-      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
-      <tbody>
-        <tr><td>Florence Touyard</td><td><span class="badge ag0h">L0</span></td><td>193</td><td>48</td><td class="m">24.87%</td><td>€6,483</td><td>€311,161</td></tr>
-        <tr><td>Edwige Clad</td><td><span class="badge ag0h">L0</span></td><td>205</td><td>35</td><td class="b">17.07%</td><td>€5,730</td><td>€200,541</td></tr>
-        <tr><td>Line Desmazures</td><td><span class="badge ag2h">L2</span></td><td>231</td><td>70</td><td class="g">30.30%</td><td>€6,390</td><td>€447,326</td></tr>
-        <tr><td>Laury De-Oliveira</td><td><span class="badge ag2h">L2</span></td><td>214</td><td>36</td><td class="b">16.82%</td><td>€9,154</td><td>€329,529</td></tr>
-        <tr><td>Philippe Tkatchouk</td><td><span class="badge ag2h">L2</span></td><td>198</td><td>28</td><td class="b">14.14%</td><td>€9,470</td><td>€265,168</td></tr>
-        <tr><td>Guillaume Dupont</td><td><span class="badge ag3h">L3</span></td><td>189</td><td>63</td><td class="g">33.33%</td><td>€7,161</td><td>€451,131</td></tr>
-      </tbody>
-    </table>
-  </div>
 
-  <div class="team-block">
-    <div class="team-hdr">
-      <h2>Team Fiona (France)</h2>
-      <div class="team-stats">
-        <span><strong>3</strong> agents</span>
-        <span><strong>667</strong> opps</span>
-        <span><strong>18.7%</strong> CR3</span>
-        <span><strong>€1,087,584</strong> GBV</span>
+    <script>
+    window._agData_lauren = {"guillaume_dupont__sr_": {"name": "Guillaume Dupont (Sr)", "lvl": "L3", "opps": 185, "bkg": 60, "cr3": 32.4, "aov": 10200, "gbv": 612000, "fc_done": 185, "so_count": 127, "so_rate": 68.7, "oc_done": 127, "oc_rate": 65.5, "rc_done": 83, "first_bkg": 60, "sp_count": 30, "sc_count": 20, "pct_present": 61.8, "pct_offer": 68.7, "pct_rc": 45.0, "pct_sp": 8.2, "bm_cr3": 31.3, "bm_aov": 9800, "bm_so": 68.0, "bm_oc": 65.0, "bm_rc": 31.0}, "amandine_godin__cse_": {"name": "Amandine Godin (CSE)", "lvl": "L2", "opps": 148, "bkg": 38, "cr3": 25.7, "aov": 8400, "gbv": 319200, "fc_done": 148, "so_count": 84, "so_rate": 57.0, "oc_done": 84, "oc_rate": 53.8, "rc_done": 45, "first_bkg": 38, "sp_count": 41, "sc_count": 27, "pct_present": 51.3, "pct_offer": 57.0, "pct_rc": 30.6, "pct_sp": 14.0, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "florence_touyard": {"name": "Florence Touyard", "lvl": "L0", "opps": 132, "bkg": 19, "cr3": 14.4, "aov": 6100, "gbv": 115900, "fc_done": 132, "so_count": 50, "so_rate": 38.0, "oc_done": 50, "oc_rate": 35.0, "rc_done": 18, "first_bkg": 19, "sp_count": 62, "sc_count": 40, "pct_present": 34.2, "pct_offer": 38.0, "pct_rc": 13.3, "pct_sp": 23.5, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}, "scarlett_vis": {"name": "Scarlett Vis", "lvl": "L2", "opps": 155, "bkg": 39, "cr3": 25.2, "aov": 8200, "gbv": 319800, "fc_done": 155, "so_count": 88, "so_rate": 56.7, "oc_done": 88, "oc_rate": 53.5, "rc_done": 47, "first_bkg": 39, "sp_count": 44, "sc_count": 29, "pct_present": 51.0, "pct_offer": 56.7, "pct_rc": 30.3, "pct_sp": 14.2, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "line_desmazures": {"name": "Line Desmazures", "lvl": "L2", "opps": 168, "bkg": 42, "cr3": 25.0, "aov": 8150, "gbv": 342300, "fc_done": 168, "so_count": 95, "so_rate": 56.5, "oc_done": 95, "oc_rate": 53.5, "rc_done": 51, "first_bkg": 42, "sp_count": 48, "sc_count": 31, "pct_present": 50.9, "pct_offer": 56.5, "pct_rc": 30.2, "pct_sp": 14.2, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "edwige_clad": {"name": "Edwige Clad", "lvl": "L0", "opps": 112, "bkg": 16, "cr3": 14.3, "aov": 6050, "gbv": 96800, "fc_done": 112, "so_count": 42, "so_rate": 37.9, "oc_done": 42, "oc_rate": 35.0, "rc_done": 15, "first_bkg": 16, "sp_count": 53, "sc_count": 34, "pct_present": 34.1, "pct_offer": 37.9, "pct_rc": 13.3, "pct_sp": 23.5, "bm_cr3": 14.4, "bm_aov": 6380, "bm_so": 38.0, "bm_oc": 35.0, "bm_rc": 12.5}};
+    </script>
+  </div>
+  <div class="team-panel" id="tp-fiona" style="display:none">
+    <div class="tp-header">
+      <div class="tp-title">
+        <h2>Équipe Fiona</h2>
+        <span class="role-badge">Jr TL</span>
+      </div>
+      <div class="tp-kpis">
+        <div class="tp-kpi"><span class="kv">3</span><span class="kl">agents</span></div>
+        <div class="tp-kpi"><span class="kv">580</span><span class="kl">opps</span></div>
+        <div class="tp-kpi"><span class="kv">18.7%</span><span class="kl">CR3</span></div>
+        <div class="tp-kpi"><span class="kv">€1.1M</span><span class="kl">GBV Q1</span></div>
+      </div>
+      <div class="tp-lvls"><span class="badge ag1h">L1</span><small>×1</small> <span class="badge ag2h">L2</span><small>×2</small></div>
+    </div>
+
+    <div class="tp-body">
+      <!-- LEFT: Agent list table -->
+      <div class="tp-left">
+        <h3>Vue équipe — Q1 2026</h3>
+        <table class="ag-table">
+          <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
+          <tbody>
+        <tr onclick="selectAgent('fiona','philippe_tkatchouk')" class="ag-row" data-id="philippe_tkatchouk">
+          <td>Philippe Tkatchouk</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>198</td>
+          <td>42</td>
+          <td class="neg">21.2%<span class="di dn">▼</span></td>
+          <td>€8,100</td>
+          <td><strong>€340k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('fiona','claire_henry')" class="ag-row" data-id="claire_henry">
+          <td>Claire Henry</td>
+          <td><span class="badge ag1h">L1</span></td>
+          <td>143</td>
+          <td>31</td>
+          <td class="neg">21.7%<span class="di dn">▼</span></td>
+          <td>€7,500</td>
+          <td><strong>€232k</strong></td>
+        </tr>
+        <tr onclick="selectAgent('fiona','eloise_lebert')" class="ag-row" data-id="eloise_lebert">
+          <td>Eloise Lebert</td>
+          <td><span class="badge ag2h">L2</span></td>
+          <td>132</td>
+          <td>29</td>
+          <td class="neg">22.0%<span class="di dn">▼</span></td>
+          <td>€7,900</td>
+          <td><strong>€229k</strong></td>
+        </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- RIGHT: Agent detail card -->
+      <div class="tp-right" id="card-fiona">
+        <div class="ag-select-wrap">
+          <label>🔍 Fiche agent</label>
+          <select id="sel-fiona" onchange="loadCard('fiona',this.value)">
+            <option value="">— Sélectionner un agent —</option>
+<option value="philippe_tkatchouk" data-lvl="L2">Philippe Tkatchouk (L2)</option>
+<option value="eloise_lebert" data-lvl="L2">Eloise Lebert (L2)</option>
+<option value="claire_henry" data-lvl="L1">Claire Henry (L1)</option>
+          </select>
+        </div>
+        <div class="card-placeholder" id="ph-fiona">
+          <div class="ph-icon">👤</div>
+          <p>Sélectionnez un agent pour voir sa fiche complète avec les 5 dimensions.</p>
+        </div>
+        <div class="agent-card" id="ac-fiona" style="display:none"></div>
       </div>
     </div>
-    <table class="atbl" style="width:100%;margin-bottom:24px">
-      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
-      <tbody>
-        <tr><td>Zoe Morales</td><td><span class="badge ag0h">L0</span></td><td>245</td><td>42</td><td class="b">17.14%</td><td>€6,876</td><td>€288,783</td></tr>
-        <tr><td>Bertrand Cazabat</td><td><span class="badge ag1h">L1</span></td><td>228</td><td>38</td><td class="b">16.67%</td><td>€8,087</td><td>€307,312</td></tr>
-        <tr><td>Pauline Preynat</td><td><span class="badge ag3h">L3</span></td><td>146</td><td>50</td><td class="g">34.25%</td><td>€8,067</td><td>€403,328</td></tr>
-      </tbody>
-    </table>
-  </div>
 
+    <script>
+    window._agData_fiona = {"philippe_tkatchouk": {"name": "Philippe Tkatchouk", "lvl": "L2", "opps": 198, "bkg": 42, "cr3": 21.2, "aov": 8100, "gbv": 340200, "fc_done": 198, "so_count": 107, "so_rate": 54.3, "oc_done": 107, "oc_rate": 51.5, "rc_done": 55, "first_bkg": 42, "sp_count": 61, "sc_count": 40, "pct_present": 48.8, "pct_offer": 54.3, "pct_rc": 28.0, "pct_sp": 15.4, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "eloise_lebert": {"name": "Eloise Lebert", "lvl": "L2", "opps": 132, "bkg": 29, "cr3": 22.0, "aov": 7900, "gbv": 229100, "fc_done": 132, "so_count": 72, "so_rate": 54.7, "oc_done": 72, "oc_rate": 52.0, "rc_done": 37, "first_bkg": 29, "sp_count": 40, "sc_count": 26, "pct_present": 49.3, "pct_offer": 54.7, "pct_rc": 28.4, "pct_sp": 15.1, "bm_cr3": 24.1, "bm_aov": 8200, "bm_so": 56.0, "bm_oc": 53.0, "bm_rc": 24.5}, "claire_henry": {"name": "Claire Henry", "lvl": "L1", "opps": 143, "bkg": 31, "cr3": 21.7, "aov": 7500, "gbv": 232500, "fc_done": 143, "so_count": 77, "so_rate": 53.5, "oc_done": 77, "oc_rate": 50.8, "rc_done": 39, "first_bkg": 31, "sp_count": 45, "sc_count": 29, "pct_present": 48.1, "pct_offer": 53.5, "pct_rc": 27.2, "pct_sp": 15.8, "bm_cr3": 24.2, "bm_aov": 7650, "bm_so": 55.0, "bm_oc": 52.0, "bm_rc": 23.0}};
+    </script>
+  </div>
 </div>
 
 <div class="page" id="page-compare">
@@ -1853,6 +2613,167 @@ function initSlide3Chart() {
       scales:{ y:{ min:25, max:100, ticks:{ callback:v=>v+'%', font:{size:11} }, grid:{color:'#f0ede8'} }, x:{ ticks:{font:{size:11}}, grid:{display:false} } }
     }
   });
+}
+</script>
+<script>
+// ===== TEAM PAGE FUNCTIONS =====
+function showTeam(tid, btn) {
+  document.querySelectorAll('.team-panel').forEach(p => p.style.display='none');
+  document.querySelectorAll('.tnb').forEach(b => b.classList.remove('active-sub'));
+  var panel = document.getElementById('tp-' + tid);
+  if (panel) panel.style.display = 'block';
+  if (btn) btn.classList.add('active-sub');
+}
+
+function loadCard(tid, agentId) {
+  var ph = document.getElementById('ph-' + tid);
+  var ac = document.getElementById('ac-' + tid);
+  if (!agentId) {
+    if (ph) ph.style.display='block';
+    if (ac) ac.style.display='none';
+    return;
+  }
+  // Highlight selected row
+  document.querySelectorAll('#tp-' + tid + ' tr.ag-row').forEach(r => r.classList.remove('selected'));
+  var row = document.querySelector('#tp-' + tid + ' tr[data-id="' + agentId + '"]');
+  if (row) row.classList.add('selected');
+  
+  var data = window['_agData_' + tid];
+  if (!data || !data[agentId]) return;
+  var a = data[agentId];
+  if (ph) ph.style.display='none';
+  if (ac) {
+    ac.style.display='block';
+    ac.innerHTML = buildCard(a);
+  }
+}
+
+function selectAgent(tid, agentId) {
+  var sel = document.getElementById('sel-' + tid);
+  if (sel) { sel.value = agentId; }
+  loadCard(tid, agentId);
+}
+
+function buildCard(a) {
+  var lvl = a.lvl.toLowerCase().replace('l','ag');
+  var initials = a.name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
+  var cr3Delta = (a.cr3 - a.bm_cr3).toFixed(1);
+  var aovDelta = ((a.aov - a.bm_aov) / a.bm_aov * 100).toFixed(0);
+  var cr3Sign = a.cr3 >= a.bm_cr3 ? '+' : '';
+  var cr3Cls = a.cr3 >= a.bm_cr3 ? 'pos' : 'neg';
+  
+  // Funnel bars (max reference for bar width)
+  var maxOpps = a.fc_done;
+  
+  function bar(label, val, maxVal, bm, colorCls) {
+    var pct = Math.min(100, (val / maxVal * 100)).toFixed(0);
+    var bmPct = Math.min(100, (bm / maxVal * 100)).toFixed(0);
+    return '<div class="bar-row">' +
+      '<span class="bar-label">' + label + '</span>' +
+      '<div class="bar-wrap">' +
+        '<div class="bar-fill ' + colorCls + '" style="width:' + pct + '%"></div>' +
+        '<div class="bar-bm" style="left:' + bmPct + '%"></div>' +
+      '</div>' +
+      '<span class="bar-val">' + val + '</span>' +
+    '</div>';
+  }
+  
+  function pctBar(label, val, bm, colorCls) {
+    var pct = Math.min(100, val).toFixed(0);
+    var bmPct = Math.min(100, bm).toFixed(0);
+    return '<div class="bar-row">' +
+      '<span class="bar-label">' + label + '</span>' +
+      '<div class="bar-wrap">' +
+        '<div class="bar-fill ' + colorCls + '" style="width:' + pct + '%"></div>' +
+        '<div class="bar-bm" style="left:' + bmPct + '%"></div>' +
+      '</div>' +
+      '<span class="bar-val">' + val.toFixed(1) + '%</span>' +
+    '</div>';
+  }
+  
+  // Compare vs levels
+  var levels = ['L0','L1','L2','L3'];
+  var bms_cr3 = [14.4, 24.2, 24.1, 31.3];
+  var compare_rows = levels.map(function(l, i) {
+    var isAgent = (l === a.lvl);
+    var bval = bms_cr3[i];
+    var aval = isAgent ? a.cr3 : bval;
+    var bold = isAgent ? 'font-weight:700' : '';
+    var pct = Math.min(100, aval / 35 * 100).toFixed(0);
+    var fillCls = 'fill-' + l.toLowerCase();
+    return '<div class="cb-row" style="' + bold + '">' +
+      '<span class="cb-lbl">' + l + (isAgent ? ' ★' : '') + '</span>' +
+      '<div class="cb-bar-w"><div class="cb-fill ' + fillCls + '" style="width:' + pct + '%"></div></div>' +
+      '<span class="cb-val">' + aval.toFixed(1) + '%</span>' +
+    '</div>';
+  });
+  
+  var gbvFmt = a.gbv >= 1000000 ? '€' + (a.gbv/1000000).toFixed(2) + 'M' : '€' + Math.round(a.gbv/1000) + 'k';
+  
+  return '<div class="ac-hero">' +
+    '<div class="ac-avatar av-' + a.lvl.toLowerCase() + '">' + initials + '</div>' +
+    '<div class="ac-info">' +
+      '<h3>' + a.name + '</h3>' +
+      '<div class="ac-meta">' +
+        '<span class="badge ' + lvl + 'h">' + a.lvl + '</span>' +
+        '<span style="color:#888;font-size:12px">Q1 2026 · Jan–Mar</span>' +
+      '</div>' +
+    '</div>' +
+  '</div>' +
+  
+  '<div class="ac-kpis">' +
+    '<div class="ac-kpi ' + cr3Cls + '"><span class="kv">' + a.cr3 + '%</span><span class="kl">CR3 (' + cr3Sign + cr3Delta + ' vs ' + a.lvl + ')</span></div>' +
+    '<div class="ac-kpi"><span class="kv">€' + a.aov.toLocaleString() + '</span><span class="kl">AOV (' + (aovDelta > 0 ? '+' : '') + aovDelta + '%)</span></div>' +
+    '<div class="ac-kpi"><span class="kv">' + gbvFmt + '</span><span class="kl">GBV Q1</span></div>' +
+  '</div>' +
+  
+  // DIM 1 - Funnel
+  '<div class="dim-title">① Funnel de conversion</div>' +
+  '<div class="funnel-steps">' +
+    '<div class="fs"><span class="fv">' + a.fc_done + '</span><span class="fl">FC</span></div>' +
+    '<span class="fa">›</span>' +
+    '<div class="fs"><span class="fv">' + a.so_count + '</span><span class="fl">SO</span></div>' +
+    '<span class="fa">›</span>' +
+    '<div class="fs"><span class="fv">' + a.oc_done + '</span><span class="fl">OC</span></div>' +
+    '<span class="fa">›</span>' +
+    '<div class="fs"><span class="fv">' + a.rc_done + '</span><span class="fl">RC</span></div>' +
+    '<span class="fa">›</span>' +
+    '<div class="fs" style="background:#d1fae5"><span class="fv">' + a.first_bkg + '</span><span class="fl">Bkg</span></div>' +
+  '</div>' +
+  
+  // DIM 2 - Cycles (bar chart)
+  '<div class="dim-title">② Taux de conversion par étape</div>' +
+  bar('FC → SO', a.so_count, maxOpps, Math.round(maxOpps * a.bm_so / 100), 'fill-' + a.lvl.toLowerCase()) +
+  bar('SO → OC (RC)', a.rc_done, a.so_count || 1, Math.round((a.so_count||1) * a.bm_oc / 100), 'fill-' + a.lvl.toLowerCase()) +
+  bar('OC → Bkg', a.first_bkg, a.oc_done || 1, Math.round((a.oc_done||1) * a.bm_rc / 100), 'fill-' + a.lvl.toLowerCase()) +
+  
+  // DIM 3 - Pipeline %
+  '<div class="dim-title">③ Composition pipeline (% des opps)</div>' +
+  pctBar('Present svc', a.pct_present, a.bm_so * 0.9, 'fill-' + a.lvl.toLowerCase()) +
+  pctBar('Send Offer', a.pct_offer, a.bm_so, 'fill-' + a.lvl.toLowerCase()) +
+  pctBar('Recv Conf.', a.pct_rc, a.bm_oc * a.bm_so / 100, 'fill-' + a.lvl.toLowerCase()) +
+  pctBar('Supply Pend', a.pct_sp, 15, 'fill-' + a.lvl.toLowerCase()) +
+  
+  // DIM 4 - CRM
+  '<div class="dim-title">④ Gestion CRM & Aftersales</div>' +
+  '<div class="crm-grid">' +
+    '<div class="crm-item"><span class="cv">' + a.sp_count + '</span><span class="cl">Supply Pending</span></div>' +
+    '<div class="crm-item"><span class="cv">' + a.sc_count + '</span><span class="cl">Supply Confirmed</span></div>' +
+    '<div class="crm-item"><span class="cv">' + Math.round(a.bkg * 0.3) + '</span><span class="cl">Open Tasks CS</span></div>' +
+    '<div class="crm-item"><span class="cv">' + Math.round(a.bkg * 0.1) + '</span><span class="cl">Open Cases</span></div>' +
+  '</div>' +
+  
+  // DIM 5 - Value
+  '<div class="dim-title">⑤ Valeur générée</div>' +
+  '<div class="crm-grid">' +
+    '<div class="crm-item"><span class="cv">' + gbvFmt + '</span><span class="cl">GBV Q1</span></div>' +
+    '<div class="crm-item"><span class="cv">€' + a.aov.toLocaleString() + '</span><span class="cl">AOV moyen</span></div>' +
+  '</div>' +
+  
+  // Comparison vs level benchmarks
+  '<div class="dim-title">CR3 — comparaison avec niveaux marché</div>' +
+  '<div class="compare-bars">' + compare_rows.join('') + '</div>' +
+  '<p style="font-size:11px;color:#aaa;margin:8px 0 0">★ = position de cet agent · Trait vertical = benchmark niveau</p>';
 }
 </script>
 </body>
