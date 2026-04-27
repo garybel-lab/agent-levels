@@ -294,6 +294,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 .snstep{background:var(--lgray);border:1px solid var(--bdr);border-radius:10px;padding:12px;text-align:center}
 .snstep-n{font-size:20px;font-weight:800;color:var(--blk);margin-bottom:3px}
 .snstep-l{font-size:10px;color:var(--gray);line-height:1.4}
+
+/* Team page styles */
+.team-block { background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 24px; }
+.team-hdr { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; gap: 16px; flex-wrap: wrap; }
+.team-hdr h2 { font-size: 16px; font-weight: 700; margin: 0; }
+.team-stats { display: flex; gap: 20px; font-size: 13px; color: var(--text-secondary); flex-wrap: wrap; }
+.team-stats span strong { color: var(--text-primary); }
+.badge { display: inline-block; padding: 1px 7px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+.badge.ag0h { background: var(--c0); color: #fff; }
+.badge.ag1h { background: var(--c1); color: #fff; }
+.badge.ag2h { background: var(--c2); color: #fff; }
+.badge.ag3h { background: var(--c3); color: #fff; }
 </style>
 </head>
 <body>
@@ -330,6 +342,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
   <button class="nb na2" onclick="show('l2',this)">L2 — Low GBV / High ROI</button>
   <button class="nb na3" onclick="show('l3',this)">L3 — High GBV / High ROI</button>
   <button class="nb" onclick="show('agents',this)">Agents par level</button>
+    <button class="nb" onclick="show('teams',this)">Par équipe</button>
   <button class="nb" onclick="show('compare',this)">Comparaison</button>
   <button class="nb" class="active" onclick="show('slides',this)">Slides de présentation</button>
 </div>
@@ -906,6 +919,212 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
       </tbody></table>
     </div>
   </div>
+</div>
+
+<!-- ========================= TEAMS ========================= -->
+<div class="page" id="page-teams">
+  <div class="phdr">
+    <h1>Vue par équipe — Q1 2026</h1>
+    <p>Récapitulatif des performances par team lead. Période : 1er jan – 31 mars 2026 · 54 agents analysés (minimum 100 opportunités).</p>
+  </div>
+
+  <!-- Tableau récapitulatif des équipes -->
+  <div class="sec">Vue d'ensemble par équipe</div>
+  <table class="atbl" style="width:100%;margin-bottom:32px">
+    <thead><tr>
+      <th>Team Lead</th>
+      <th>Agents</th>
+      <th>Total Opps</th>
+      <th>Bookings</th>
+      <th>CR3</th>
+      <th>GBV Total</th>
+      <th>Distribution levels</th>
+    </tr></thead>
+    <tbody>
+      <tr><td><strong>Team Stephanie</strong></td><td>11</td><td>2,035</td><td>467</td><td class="m">22.9%</td><td>€4,603,511</td><td style="font-size:12px">2×L0 / 2×L1 / 2×L2 / 5×L3</td></tr>
+      <tr><td><strong>Team Vincent</strong></td><td>12</td><td>1,969</td><td>467</td><td class="m">23.7%</td><td>€4,084,077</td><td style="font-size:12px">4×L0 / 1×L1 / 4×L2 / 3×L3</td></tr>
+      <tr><td><strong>Team Sophie</strong></td><td>9</td><td>1,528</td><td>353</td><td class="m">23.1%</td><td>€3,329,645</td><td style="font-size:12px">2×L0 / 2×L1 / 3×L2 / 2×L3</td></tr>
+      <tr><td><strong>Team Marion</strong></td><td>8</td><td>1,363</td><td>340</td><td class="m">24.9%</td><td>€2,908,203</td><td style="font-size:12px">2×L0 / 1×L1 / 5×L2</td></tr>
+      <tr><td><strong>Team Gary</strong></td><td>5</td><td>848</td><td>243</td><td class="g">28.7%</td><td>€2,298,403</td><td style="font-size:12px">1×L1 / 1×L2 / 3×L3</td></tr>
+      <tr><td><strong>Team Lauren</strong></td><td>6</td><td>1,182</td><td>300</td><td class="g">25.4%</td><td>€2,289,519</td><td style="font-size:12px">2×L0 / 3×L2 / 1×L3</td></tr>
+      <tr><td><strong>Team Fiona</strong></td><td>3</td><td>667</td><td>125</td><td class="m">18.7%</td><td>€1,087,584</td><td style="font-size:12px">1×L0 / 1×L1 / 1×L2</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Détail par équipe -->
+  <div class="team-block">
+    <div class="team-hdr">
+      <h2>Team Stephanie (France)</h2>
+      <div class="team-stats">
+        <span><strong>11</strong> agents</span>
+        <span><strong>2,035</strong> opps</span>
+        <span><strong>22.9%</strong> CR3</span>
+        <span><strong>€4,603,511</strong> GBV</span>
+      </div>
+    </div>
+    <table class="atbl" style="width:100%;margin-bottom:24px">
+      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
+      <tbody>
+        <tr><td>Elise Francois</td><td><span class="badge ag0h">L0</span></td><td>168</td><td>42</td><td class="g">25.00%</td><td>€7,164</td><td>€300,875</td></tr>
+        <tr><td>Eva Ancelin</td><td><span class="badge ag0h">L0</span></td><td>139</td><td>23</td><td class="b">16.55%</td><td>€10,584</td><td>€243,432</td></tr>
+        <tr><td>Ella Thevenet</td><td><span class="badge ag1h">L1</span></td><td>247</td><td>46</td><td class="m">18.62%</td><td>€6,768</td><td>€311,341</td></tr>
+        <tr><td>Juliette Cazes</td><td><span class="badge ag1h">L1</span></td><td>224</td><td>40</td><td class="b">17.86%</td><td>€8,041</td><td>€321,634</td></tr>
+        <tr><td>Helene Ristic</td><td><span class="badge ag2h">L2</span></td><td>129</td><td>34</td><td class="g">26.36%</td><td>€9,280</td><td>€315,512</td></tr>
+        <tr><td>Melissa Braun</td><td><span class="badge ag2h">L2</span></td><td>150</td><td>39</td><td class="g">26.00%</td><td>€7,268</td><td>€283,460</td></tr>
+        <tr><td>Valerie Aleksandrowicz</td><td><span class="badge ag3h">L3</span></td><td>199</td><td>60</td><td class="g">30.15%</td><td>€7,699</td><td>€461,917</td></tr>
+        <tr><td>Lucie Collado</td><td><span class="badge ag3h">L3</span></td><td>171</td><td>51</td><td class="g">29.82%</td><td>€6,929</td><td>€353,347</td></tr>
+        <tr><td>Yann Magueur</td><td><span class="badge ag3h">L3</span></td><td>165</td><td>43</td><td class="g">26.06%</td><td>€7,972</td><td>€342,809</td></tr>
+        <tr><td>Joumala Elalaoui</td><td><span class="badge ag3h">L3</span></td><td>163</td><td>40</td><td class="m">24.54%</td><td>€10,679</td><td>€427,153</td></tr>
+        <tr><td>Alice Saint-Jean</td><td><span class="badge ag3h">L3</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="team-block">
+    <div class="team-hdr">
+      <h2>Team Vincent (France)</h2>
+      <div class="team-stats">
+        <span><strong>12</strong> agents</span>
+        <span><strong>1,969</strong> opps</span>
+        <span><strong>23.7%</strong> CR3</span>
+        <span><strong>€4,084,077</strong> GBV</span>
+      </div>
+    </div>
+    <table class="atbl" style="width:100%;margin-bottom:24px">
+      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
+      <tbody>
+        <tr><td>Thomas Dufrene</td><td><span class="badge ag0h">L0</span></td><td>161</td><td>43</td><td class="g">26.71%</td><td>€6,281</td><td>€270,080</td></tr>
+        <tr><td>Claire Lardenois</td><td><span class="badge ag0h">L0</span></td><td>180</td><td>43</td><td class="m">23.89%</td><td>€6,764</td><td>€290,843</td></tr>
+        <tr><td>Mohammed Mazour</td><td><span class="badge ag0h">L0</span></td><td>138</td><td>23</td><td class="b">16.67%</td><td>€6,613</td><td>€152,110</td></tr>
+        <tr><td>Marhuska Ngohiag</td><td><span class="badge ag0h">L0</span></td><td>114</td><td>14</td><td class="b">12.28%</td><td>€6,584</td><td>€92,177</td></tr>
+        <tr><td>Emy Chomon</td><td><span class="badge ag1h">L1</span></td><td>204</td><td>57</td><td class="g">27.94%</td><td>€6,826</td><td>€389,073</td></tr>
+        <tr><td>Antoine Revardeau</td><td><span class="badge ag2h">L2</span></td><td>122</td><td>36</td><td class="g">29.51%</td><td>€7,923</td><td>€285,238</td></tr>
+        <tr><td>Margot Casties</td><td><span class="badge ag2h">L2</span></td><td>151</td><td>38</td><td class="g">25.17%</td><td>€9,269</td><td>€352,205</td></tr>
+        <tr><td>Chloe Solanki</td><td><span class="badge ag2h">L2</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
+        <tr><td>Constant Ledantec</td><td><span class="badge ag2h">L2</span></td><td>125</td><td>25</td><td class="m">20.00%</td><td>€7,503</td><td>€187,588</td></tr>
+        <tr><td>Victoria Nouchi</td><td><span class="badge ag3h">L3</span></td><td>217</td><td>63</td><td class="g">29.03%</td><td>€7,827</td><td>€493,098</td></tr>
+        <tr><td>Samantha Philippon-Joubert</td><td><span class="badge ag3h">L3</span></td><td>221</td><td>62</td><td class="g">28.05%</td><td>€8,147</td><td>€505,086</td></tr>
+        <tr><td>Laurine Ghis</td><td><span class="badge ag3h">L3</span></td><td>176</td><td>46</td><td class="g">26.14%</td><td>€10,009</td><td>€460,382</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="team-block">
+    <div class="team-hdr">
+      <h2>Team Sophie (France)</h2>
+      <div class="team-stats">
+        <span><strong>9</strong> agents</span>
+        <span><strong>1,528</strong> opps</span>
+        <span><strong>23.1%</strong> CR3</span>
+        <span><strong>€3,329,645</strong> GBV</span>
+      </div>
+    </div>
+    <table class="atbl" style="width:100%;margin-bottom:24px">
+      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
+      <tbody>
+        <tr><td>Marine Hecquard</td><td><span class="badge ag0h">L0</span></td><td>100</td><td>21</td><td class="m">21.00%</td><td>€7,432</td><td>€156,078</td></tr>
+        <tr><td>Laurine Calas</td><td><span class="badge ag0h">L0</span></td><td>125</td><td>25</td><td class="m">20.00%</td><td>€8,927</td><td>€223,179</td></tr>
+        <tr><td>Thibaut Brachet</td><td><span class="badge ag1h">L1</span></td><td>221</td><td>54</td><td class="m">24.43%</td><td>€7,487</td><td>€404,324</td></tr>
+        <tr><td>Thomas Guibert</td><td><span class="badge ag1h">L1</span></td><td>193</td><td>38</td><td class="m">19.69%</td><td>€8,080</td><td>€306,902</td></tr>
+        <tr><td>Fabienne Pottelain</td><td><span class="badge ag2h">L2</span></td><td>144</td><td>34</td><td class="m">23.61%</td><td>€9,374</td><td>€318,735</td></tr>
+        <tr><td>Alexandra Mennechez</td><td><span class="badge ag2h">L2</span></td><td>222</td><td>50</td><td class="m">22.52%</td><td>€8,082</td><td>€404,093</td></tr>
+        <tr><td>Aurelie Guesnet</td><td><span class="badge ag2h">L2</span></td><td>272</td><td>48</td><td class="b">17.65%</td><td>€8,983</td><td>€431,143</td></tr>
+        <tr><td>Victoria Nouchi</td><td><span class="badge ag3h">L3</span></td><td>217</td><td>63</td><td class="g">29.03%</td><td>€7,827</td><td>€493,098</td></tr>
+        <tr><td>Charlotte Garrido</td><td><span class="badge ag3h">L3</span></td><td>189</td><td>53</td><td class="g">28.04%</td><td>€9,617</td><td>€509,716</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="team-block">
+    <div class="team-hdr">
+      <h2>Team Marion (France)</h2>
+      <div class="team-stats">
+        <span><strong>8</strong> agents</span>
+        <span><strong>1,363</strong> opps</span>
+        <span><strong>24.9%</strong> CR3</span>
+        <span><strong>€2,908,203</strong> GBV</span>
+      </div>
+    </div>
+    <table class="atbl" style="width:100%;margin-bottom:24px">
+      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
+      <tbody>
+        <tr><td>Charline Verdeaux</td><td><span class="badge ag0h">L0</span></td><td>177</td><td>41</td><td class="m">23.16%</td><td>€7,760</td><td>€318,162</td></tr>
+        <tr><td>Margot Bonnet</td><td><span class="badge ag0h">L0</span></td><td>163</td><td>28</td><td class="b">17.18%</td><td>€7,857</td><td>€220,002</td></tr>
+        <tr><td>Ella Thevenet</td><td><span class="badge ag1h">L1</span></td><td>247</td><td>46</td><td class="m">18.62%</td><td>€6,768</td><td>€311,341</td></tr>
+        <tr><td>Mila Gascoin</td><td><span class="badge ag2h">L2</span></td><td>162</td><td>48</td><td class="g">29.63%</td><td>€8,525</td><td>€409,237</td></tr>
+        <tr><td>Charline Blas</td><td><span class="badge ag2h">L2</span></td><td>146</td><td>37</td><td class="g">25.34%</td><td>€8,544</td><td>€316,141</td></tr>
+        <tr><td>Chloe Solanki</td><td><span class="badge ag2h">L2</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
+        <tr><td>Marion Hucbourghernandez</td><td><span class="badge ag2h">L2</span></td><td>174</td><td>38</td><td class="m">21.84%</td><td>€8,498</td><td>€322,859</td></tr>
+        <tr><td>Alexandre Paprocki</td><td><span class="badge ag2h">L2</span></td><td>188</td><td>37</td><td class="m">19.68%</td><td>€8,145</td><td>€301,366</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="team-block">
+    <div class="team-hdr">
+      <h2>Team Gary (France)</h2>
+      <div class="team-stats">
+        <span><strong>5</strong> agents</span>
+        <span><strong>848</strong> opps</span>
+        <span><strong>28.7%</strong> CR3</span>
+        <span><strong>€2,298,403</strong> GBV</span>
+      </div>
+    </div>
+    <table class="atbl" style="width:100%;margin-bottom:24px">
+      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
+      <tbody>
+        <tr><td>Thibaut Brachet</td><td><span class="badge ag1h">L1</span></td><td>221</td><td>54</td><td class="m">24.43%</td><td>€7,487</td><td>€404,324</td></tr>
+        <tr><td>Eloise Lebert</td><td><span class="badge ag2h">L2</span></td><td>167</td><td>43</td><td class="g">25.75%</td><td>€8,017</td><td>€344,716</td></tr>
+        <tr><td>Camille Lecomte</td><td><span class="badge ag3h">L3</span></td><td>158</td><td>53</td><td class="g">33.54%</td><td>€6,975</td><td>€369,692</td></tr>
+        <tr><td>Fanny Mangin</td><td><span class="badge ag3h">L3</span></td><td>168</td><td>42</td><td class="g">25.00%</td><td>€8,534</td><td>€358,419</td></tr>
+        <tr><td>Alice Saint-Jean</td><td><span class="badge ag3h">L3</span></td><td>211</td><td>50</td><td class="m">23.70%</td><td>€7,963</td><td>€398,148</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="team-block">
+    <div class="team-hdr">
+      <h2>Team Lauren (France)</h2>
+      <div class="team-stats">
+        <span><strong>6</strong> agents</span>
+        <span><strong>1,182</strong> opps</span>
+        <span><strong>25.4%</strong> CR3</span>
+        <span><strong>€2,289,519</strong> GBV</span>
+      </div>
+    </div>
+    <table class="atbl" style="width:100%;margin-bottom:24px">
+      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
+      <tbody>
+        <tr><td>Florence Touyard</td><td><span class="badge ag0h">L0</span></td><td>193</td><td>48</td><td class="m">24.87%</td><td>€6,483</td><td>€311,161</td></tr>
+        <tr><td>Edwige Clad</td><td><span class="badge ag0h">L0</span></td><td>205</td><td>35</td><td class="b">17.07%</td><td>€5,730</td><td>€200,541</td></tr>
+        <tr><td>Line Desmazures</td><td><span class="badge ag2h">L2</span></td><td>231</td><td>70</td><td class="g">30.30%</td><td>€6,390</td><td>€447,326</td></tr>
+        <tr><td>Laury De-Oliveira</td><td><span class="badge ag2h">L2</span></td><td>214</td><td>36</td><td class="b">16.82%</td><td>€9,154</td><td>€329,529</td></tr>
+        <tr><td>Philippe Tkatchouk</td><td><span class="badge ag2h">L2</span></td><td>198</td><td>28</td><td class="b">14.14%</td><td>€9,470</td><td>€265,168</td></tr>
+        <tr><td>Guillaume Dupont</td><td><span class="badge ag3h">L3</span></td><td>189</td><td>63</td><td class="g">33.33%</td><td>€7,161</td><td>€451,131</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="team-block">
+    <div class="team-hdr">
+      <h2>Team Fiona (France)</h2>
+      <div class="team-stats">
+        <span><strong>3</strong> agents</span>
+        <span><strong>667</strong> opps</span>
+        <span><strong>18.7%</strong> CR3</span>
+        <span><strong>€1,087,584</strong> GBV</span>
+      </div>
+    </div>
+    <table class="atbl" style="width:100%;margin-bottom:24px">
+      <thead><tr><th>Agent</th><th>Level</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>ACV</th><th>GBV</th></tr></thead>
+      <tbody>
+        <tr><td>Zoe Morales</td><td><span class="badge ag0h">L0</span></td><td>245</td><td>42</td><td class="b">17.14%</td><td>€6,876</td><td>€288,783</td></tr>
+        <tr><td>Bertrand Cazabat</td><td><span class="badge ag1h">L1</span></td><td>228</td><td>38</td><td class="b">16.67%</td><td>€8,087</td><td>€307,312</td></tr>
+        <tr><td>Pauline Preynat</td><td><span class="badge ag3h">L3</span></td><td>146</td><td>50</td><td class="g">34.25%</td><td>€8,067</td><td>€403,328</td></tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 
 <div class="page" id="page-compare">
