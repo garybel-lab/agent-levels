@@ -1045,115 +1045,133 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <table class="ag-table">
           <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
           <tbody>
-        <tr onclick="selectAgent('vincent','samantha_philippon_joubert')" class="ag-row" data-id="samantha_philippon_joubert">
-          <td>Samantha Philippon-Joubert</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>195</td>
-          <td>62</td>
-          <td class="pos">31.8%<span class="di eq">≈</span></td>
-          <td>€10,500</td>
-          <td><strong>€651k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','corentin___meggan')" class="ag-row" data-id="corentin___meggan">
-          <td>Corentin / Meggan</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>189</td>
-          <td>58</td>
-          <td class="neg">30.7%<span class="di eq">≈</span></td>
-          <td>€9,500</td>
-          <td><strong>€551k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','laurine_ghis')" class="ag-row" data-id="laurine_ghis">
-          <td>Laurine Ghis</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>178</td>
-          <td>55</td>
-          <td class="neg">30.9%<span class="di eq">≈</span></td>
-          <td>€9,200</td>
-          <td><strong>€506k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','camille_bouvier')" class="ag-row" data-id="camille_bouvier">
-          <td>Camille Bouvier</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>168</td>
-          <td>51</td>
-          <td class="neg">30.4%<span class="di eq">≈</span></td>
-          <td>€8,800</td>
-          <td><strong>€449k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','victoria_nouchi')" class="ag-row" data-id="victoria_nouchi">
-          <td>Victoria Nouchi</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>162</td>
-          <td>48</td>
-          <td class="neg">29.6%<span class="di dn">▼</span></td>
-          <td>€8,700</td>
-          <td><strong>€417k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','chlo__solanki')" class="ag-row" data-id="chlo__solanki">
-          <td>Chloé Solanki</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>211</td>
-          <td>50</td>
-          <td class="neg">23.7%<span class="di eq">≈</span></td>
-          <td>€7,963</td>
-          <td><strong>€398k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','margot_casties')" class="ag-row" data-id="margot_casties">
-          <td>Margot Casties</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>151</td>
-          <td>38</td>
-          <td class="pos">25.2%<span class="di eq">≈</span></td>
-          <td>€9,269</td>
-          <td><strong>€352k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','fanny_mangin')" class="ag-row" data-id="fanny_mangin">
-          <td>Fanny Mangin</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>165</td>
-          <td>37</td>
-          <td class="neg">22.4%<span class="di dn">▼</span></td>
-          <td>€8,150</td>
-          <td><strong>€301k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','antoine_revardeau')" class="ag-row" data-id="antoine_revardeau">
-          <td>Antoine Revardeau</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>122</td>
-          <td>36</td>
-          <td class="pos">29.5%<span class="di up">▲</span></td>
-          <td>€7,923</td>
-          <td><strong>€285k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','constant_le_dantec')" class="ag-row" data-id="constant_le_dantec">
-          <td>Constant Le Dantec</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>125</td>
-          <td>25</td>
-          <td class="neg">20.0%<span class="di dn">▼</span></td>
-          <td>€7,503</td>
-          <td><strong>€187k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','zoe_morales')" class="ag-row" data-id="zoe_morales">
-          <td>Zoe Morales</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>142</td>
-          <td>21</td>
-          <td class="pos">14.8%<span class="di eq">≈</span></td>
-          <td>€6,800</td>
-          <td><strong>€142k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('vincent','claire_lardenois')" class="ag-row" data-id="claire_lardenois">
-          <td>Claire Lardenois</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>142</td>
-          <td>18</td>
-          <td class="neg">12.7%<span class="di dn">▼</span></td>
-          <td>€6,200</td>
-          <td><strong>€111k</strong></td>
-        </tr>
-          </tbody>
+            <tr onclick="selectAgent('vincent','victoria_nouchi')" class="ag-row" data-id="victoria_nouchi">
+              <td>Victoria Nouchi</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>229</td>
+              <td>62</td>
+              <td class="pos">27.1%<span class="d1 eq">≈</span></td>
+              <td>€8.700</td>
+              <td><strong>€539k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','samantha_philippon_joubert')" class="ag-row" data-id="samantha_philippon_joubert">
+              <td>Samantha Philippon-Joubert</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>208</td>
+              <td>60</td>
+              <td class="pos">28.9%<span class="d1 eq">≈</span></td>
+              <td>€10.500</td>
+              <td><strong>€630k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','emy_chomon')" class="ag-row" data-id="emy_chomon">
+              <td>Emy Chomon</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>222</td>
+              <td>55</td>
+              <td class="pos">24.8%<span class="d1 eq">≈</span></td>
+              <td>€8.200</td>
+              <td><strong>€451k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','zoe_morales')" class="ag-row" data-id="zoe_morales">
+              <td>Zoe Morales</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>234</td>
+              <td>43</td>
+              <td class="pos">18.4%<span class="d1 dn">▼</span></td>
+              <td>€6.800</td>
+              <td><strong>€292k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','claire_lardenois')" class="ag-row" data-id="claire_lardenois">
+              <td>Claire Lardenois</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>185</td>
+              <td>44</td>
+              <td class="pos">23.8%<span class="d1 up">▲</span></td>
+              <td>€6.200</td>
+              <td><strong>€273k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','laurine_ghis')" class="ag-row" data-id="laurine_ghis">
+              <td>Laurine Ghis</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>160</td>
+              <td>43</td>
+              <td class="pos">26.9%<span class="d1 dn">▼</span></td>
+              <td>€9.200</td>
+              <td><strong>€396k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','margot_casties')" class="ag-row" data-id="margot_casties">
+              <td>Margot Casties</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>162</td>
+              <td>39</td>
+              <td class="pos">24.1%<span class="d1 eq">≈</span></td>
+              <td>€9.269</td>
+              <td><strong>€361k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','fanny_mangin')" class="ag-row" data-id="fanny_mangin">
+              <td>Fanny Mangin</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>142</td>
+              <td>42</td>
+              <td class="pos">29.6%<span class="d1 up">▲</span></td>
+              <td>€8.150</td>
+              <td><strong>€342k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','chloe_solanki')" class="ag-row" data-id="chloe_solanki">
+              <td>Chloé Solanki</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>178</td>
+              <td>32</td>
+              <td class="pos">18.0%<span class="d1 dn">▼</span></td>
+              <td>€7.963</td>
+              <td><strong>€255k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','thomas_dufrene')" class="ag-row" data-id="thomas_dufrene">
+              <td>Thomas Dufrene</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>162</td>
+              <td>30</td>
+              <td class="pos">18.5%<span class="d1 dn">▼</span></td>
+              <td>€7.000</td>
+              <td><strong>€210k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','antoine_revardeau')" class="ag-row" data-id="antoine_revardeau">
+              <td>Antoine Revardeau</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>110</td>
+              <td>35</td>
+              <td class="pos">31.8%<span class="d1 up">▲</span></td>
+              <td>€7.923</td>
+              <td><strong>€277k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','constant_le_dantec')" class="ag-row" data-id="constant_le_dantec">
+              <td>Constant Le Dantec</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>113</td>
+              <td>25</td>
+              <td class="pos">22.1%<span class="d1 dn">▼</span></td>
+              <td>€7.503</td>
+              <td><strong>€188k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','fiona_tandar')" class="ag-row" data-id="fiona_tandar">
+              <td>Fiona Tandar</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>61</td>
+              <td>17</td>
+              <td class="pos">27.9%<span class="d1 up">▲</span></td>
+              <td>€8.000</td>
+              <td><strong>€136k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('vincent','camille_bouvier')" class="ag-row" data-id="camille_bouvier">
+              <td>Camille Bouvier</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>30</td>
+              <td>7</td>
+              <td class="pos">23.3%<span class="d1 dn">▼</span></td>
+              <td>€8.800</td>
+              <td><strong>€62k</strong></td>
+            </tr>
+            </tbody>
         </table>
       </div>
 
@@ -1162,20 +1180,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <div class="ag-select-wrap">
           <label>🔍 Fiche agent</label>
           <select id="sel-vincent" onchange="loadCard('vincent',this.value)">
-            <option value="">— Sélectionner un agent —</option>
-<option value="corentin___meggan" data-lvl="L3">Corentin / Meggan (L3)</option>
-<option value="camille_bouvier" data-lvl="L3">Camille Bouvier (L3)</option>
-<option value="constant_le_dantec" data-lvl="L2">Constant Le Dantec (L2)</option>
-<option value="antoine_revardeau" data-lvl="L2">Antoine Revardeau (L2)</option>
-<option value="chlo__solanki" data-lvl="L2">Chloé Solanki (L2)</option>
-<option value="samantha_philippon_joubert" data-lvl="L3">Samantha Philippon-Joubert (L3)</option>
-<option value="laurine_ghis" data-lvl="L3">Laurine Ghis (L3)</option>
-<option value="victoria_nouchi" data-lvl="L3">Victoria Nouchi (L3)</option>
-<option value="claire_lardenois" data-lvl="L0">Claire Lardenois (L0)</option>
-<option value="margot_casties" data-lvl="L2">Margot Casties (L2)</option>
-<option value="fanny_mangin" data-lvl="L2">Fanny Mangin (L2)</option>
-<option value="zoe_morales" data-lvl="L0">Zoe Morales (L0)</option>
-          </select>
+              <option value="">— Sélectionner un agent —</option>
+              <option value="victoria_nouchi" data-lvl="L3">Victoria Nouchi (L3)</option>
+              <option value="samantha_philippon_joubert" data-lvl="L3">Samantha Philippon-Joubert (L3)</option>
+              <option value="emy_chomon" data-lvl="L2">Emy Chomon (L2)</option>
+              <option value="zoe_morales" data-lvl="L1">Zoe Morales (L1)</option>
+              <option value="claire_lardenois" data-lvl="L1">Claire Lardenois (L1)</option>
+              <option value="laurine_ghis" data-lvl="L3">Laurine Ghis (L3)</option>
+              <option value="margot_casties" data-lvl="L2">Margot Casties (L2)</option>
+              <option value="fanny_mangin" data-lvl="L2">Fanny Mangin (L2)</option>
+              <option value="chloe_solanki" data-lvl="L2">Chloé Solanki (L2)</option>
+              <option value="thomas_dufrene" data-lvl="L1">Thomas Dufrene (L1)</option>
+              <option value="antoine_revardeau" data-lvl="L2">Antoine Revardeau (L2)</option>
+              <option value="constant_le_dantec" data-lvl="L2">Constant Le Dantec (L2)</option>
+              <option value="fiona_tandar" data-lvl="L2">Fiona Tandar (L2)</option>
+              <option value="camille_bouvier" data-lvl="L3">Camille Bouvier (L3)</option>
+            </select>
         </div>
         <div class="card-placeholder" id="ph-vincent">
           <div class="ph-icon">👤</div>
@@ -1211,106 +1231,124 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <table class="ag-table">
           <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
           <tbody>
-        <tr onclick="selectAgent('stephanie','alisson___marie')" class="ag-row" data-id="alisson___marie">
-          <td>Alisson / Marie</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>201</td>
-          <td>65</td>
-          <td class="pos">32.3%<span class="di eq">≈</span></td>
-          <td>€10,200</td>
-          <td><strong>€663k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','val_rie_aleksandrowicz')" class="ag-row" data-id="val_rie_aleksandrowicz">
-          <td>Valérie Aleksandrowicz</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>188</td>
-          <td>59</td>
-          <td class="pos">31.4%<span class="di eq">≈</span></td>
-          <td>€9,800</td>
-          <td><strong>€578k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','lucie_collado')" class="ag-row" data-id="lucie_collado">
-          <td>Lucie Collado</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>182</td>
-          <td>56</td>
-          <td class="neg">30.8%<span class="di eq">≈</span></td>
-          <td>€9,600</td>
-          <td><strong>€537k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','joumala_elalaoui')" class="ag-row" data-id="joumala_elalaoui">
-          <td>Joumala ElAlaoui</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>174</td>
-          <td>55</td>
-          <td class="pos">31.6%<span class="di eq">≈</span></td>
-          <td>€9,700</td>
-          <td><strong>€533k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','alice_saint_jean')" class="ag-row" data-id="alice_saint_jean">
-          <td>Alice Saint-Jean</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>171</td>
-          <td>53</td>
-          <td class="neg">31.0%<span class="di eq">≈</span></td>
-          <td>€9,400</td>
-          <td><strong>€498k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','h_l_ne_ristic')" class="ag-row" data-id="h_l_ne_ristic">
-          <td>Hélène Ristic</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>177</td>
-          <td>42</td>
-          <td class="neg">23.7%<span class="di eq">≈</span></td>
-          <td>€8,456</td>
-          <td><strong>€355k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','ella_thevenet')" class="ag-row" data-id="ella_thevenet">
-          <td>Ella Thevenet</td>
-          <td><span class="badge ag1h">L1</span></td>
-          <td>189</td>
-          <td>45</td>
-          <td class="neg">23.8%<span class="di eq">≈</span></td>
-          <td>€7,600</td>
-          <td><strong>€342k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','juliette_cazes')" class="ag-row" data-id="juliette_cazes">
-          <td>Juliette Cazes</td>
-          <td><span class="badge ag1h">L1</span></td>
-          <td>176</td>
-          <td>43</td>
-          <td class="pos">24.4%<span class="di eq">≈</span></td>
-          <td>€7,800</td>
-          <td><strong>€335k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','melissa_braun')" class="ag-row" data-id="melissa_braun">
-          <td>Melissa Braun</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>159</td>
-          <td>39</td>
-          <td class="pos">24.5%<span class="di eq">≈</span></td>
-          <td>€8,200</td>
-          <td><strong>€319k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','eva_ancelin')" class="ag-row" data-id="eva_ancelin">
-          <td>Eva Ancelin</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>138</td>
-          <td>23</td>
-          <td class="pos">16.7%<span class="di up">▲</span></td>
-          <td>€6,613</td>
-          <td><strong>€152k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('stephanie','elise_francois')" class="ag-row" data-id="elise_francois">
-          <td>Elise Francois</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>145</td>
-          <td>22</td>
-          <td class="pos">15.2%<span class="di up">▲</span></td>
-          <td>€6,400</td>
-          <td><strong>€140k</strong></td>
-        </tr>
-          </tbody>
+            <tr onclick="selectAgent('stephanie','yann_magueur')" class="ag-row" data-id="yann_magueur">
+              <td>Yann Magueur</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>210</td>
+              <td>59</td>
+              <td class="pos">28.1%<span class="d1 eq">≈</span></td>
+              <td>€9.500</td>
+              <td><strong>€560k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','thibaut_brachet')" class="ag-row" data-id="thibaut_brachet">
+              <td>Thibaut Brachet</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>207</td>
+              <td>55</td>
+              <td class="pos">26.6%<span class="d1 dn">▼</span></td>
+              <td>€9.300</td>
+              <td><strong>€512k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','ella_thevenet')" class="ag-row" data-id="ella_thevenet">
+              <td>Ella Thevenet</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>225</td>
+              <td>44</td>
+              <td class="pos">19.6%<span class="d1 dn">▼</span></td>
+              <td>€7.600</td>
+              <td><strong>€334k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','alice_saint_jean')" class="ag-row" data-id="alice_saint_jean">
+              <td>Alice Saint-Jean</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>213</td>
+              <td>46</td>
+              <td class="pos">21.6%<span class="d1 dn">▼</span></td>
+              <td>€9.400</td>
+              <td><strong>€432k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','valerie_aleksandrowicz')" class="ag-row" data-id="valerie_aleksandrowicz">
+              <td>Valérie Aleksandrowicz</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>216</td>
+              <td>44</td>
+              <td class="pos">20.4%<span class="d1 dn">▼</span></td>
+              <td>€9.800</td>
+              <td><strong>€431k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','juliette_cazes')" class="ag-row" data-id="juliette_cazes">
+              <td>Juliette Cazes</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>209</td>
+              <td>37</td>
+              <td class="pos">17.7%<span class="d1 dn">▼</span></td>
+              <td>€7.800</td>
+              <td><strong>€289k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','lucie_collado')" class="ag-row" data-id="lucie_collado">
+              <td>Lucie Collado</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>163</td>
+              <td>43</td>
+              <td class="pos">26.4%<span class="d1 dn">▼</span></td>
+              <td>€9.600</td>
+              <td><strong>€413k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','laury_de_oliveira')" class="ag-row" data-id="laury_de_oliveira">
+              <td>Laury De-Oliveira</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>195</td>
+              <td>35</td>
+              <td class="pos">17.9%<span class="d1 dn">▼</span></td>
+              <td>€7.200</td>
+              <td><strong>€252k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','elise_francois')" class="ag-row" data-id="elise_francois">
+              <td>Elise François</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>159</td>
+              <td>39</td>
+              <td class="pos">24.5%<span class="d1 up">▲</span></td>
+              <td>€6.400</td>
+              <td><strong>€250k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','joumala_elalaoui')" class="ag-row" data-id="joumala_elalaoui">
+              <td>Joumala ElAlaoui</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>164</td>
+              <td>36</td>
+              <td class="pos">21.9%<span class="d1 dn">▼</span></td>
+              <td>€9.700</td>
+              <td><strong>€349k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','melissa_braun')" class="ag-row" data-id="melissa_braun">
+              <td>Melissa Braun</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>134</td>
+              <td>38</td>
+              <td class="pos">28.4%<span class="d1 up">▲</span></td>
+              <td>€8.200</td>
+              <td><strong>€312k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','helene_ristic')" class="ag-row" data-id="helene_ristic">
+              <td>Hélène Ristic</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>118</td>
+              <td>30</td>
+              <td class="pos">25.4%<span class="d1 eq">≈</span></td>
+              <td>€8.456</td>
+              <td><strong>€254k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('stephanie','eva_ancelin')" class="ag-row" data-id="eva_ancelin">
+              <td>Eva Ancelin</td>
+              <td><span class="badge ag0l">L0</span></td>
+              <td>130</td>
+              <td>18</td>
+              <td class="pos">13.8%<span class="d1 dn">▼</span></td>
+              <td>€6.613</td>
+              <td><strong>€119k</strong></td>
+            </tr>
+            </tbody>
         </table>
       </div>
 
@@ -1319,19 +1357,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <div class="ag-select-wrap">
           <label>🔍 Fiche agent</label>
           <select id="sel-stephanie" onchange="loadCard('stephanie',this.value)">
-            <option value="">— Sélectionner un agent —</option>
-<option value="alisson___marie" data-lvl="L3">Alisson / Marie (L3)</option>
-<option value="val_rie_aleksandrowicz" data-lvl="L3">Valérie Aleksandrowicz (L3)</option>
-<option value="h_l_ne_ristic" data-lvl="L2">Hélène Ristic (L2)</option>
-<option value="lucie_collado" data-lvl="L3">Lucie Collado (L3)</option>
-<option value="eva_ancelin" data-lvl="L0">Eva Ancelin (L0)</option>
-<option value="melissa_braun" data-lvl="L2">Melissa Braun (L2)</option>
-<option value="elise_francois" data-lvl="L0">Elise Francois (L0)</option>
-<option value="juliette_cazes" data-lvl="L1">Juliette Cazes (L1)</option>
-<option value="alice_saint_jean" data-lvl="L3">Alice Saint-Jean (L3)</option>
-<option value="ella_thevenet" data-lvl="L1">Ella Thevenet (L1)</option>
-<option value="joumala_elalaoui" data-lvl="L3">Joumala ElAlaoui (L3)</option>
-          </select>
+              <option value="">— Sélectionner un agent —</option>
+              <option value="yann_magueur" data-lvl="L3">Yann Magueur (L3)</option>
+              <option value="thibaut_brachet" data-lvl="L3">Thibaut Brachet (L3)</option>
+              <option value="ella_thevenet" data-lvl="L1">Ella Thevenet (L1)</option>
+              <option value="alice_saint_jean" data-lvl="L3">Alice Saint-Jean (L3)</option>
+              <option value="valerie_aleksandrowicz" data-lvl="L3">Valérie Aleksandrowicz (L3)</option>
+              <option value="juliette_cazes" data-lvl="L1">Juliette Cazes (L1)</option>
+              <option value="lucie_collado" data-lvl="L3">Lucie Collado (L3)</option>
+              <option value="laury_de_oliveira" data-lvl="L1">Laury De-Oliveira (L1)</option>
+              <option value="elise_francois" data-lvl="L1">Elise François (L1)</option>
+              <option value="joumala_elalaoui" data-lvl="L3">Joumala ElAlaoui (L3)</option>
+              <option value="melissa_braun" data-lvl="L2">Melissa Braun (L2)</option>
+              <option value="helene_ristic" data-lvl="L2">Hélène Ristic (L2)</option>
+              <option value="eva_ancelin" data-lvl="L0">Eva Ancelin (L0)</option>
+            </select>
         </div>
         <div class="card-placeholder" id="ph-stephanie">
           <div class="ph-icon">👤</div>
@@ -1367,88 +1407,106 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <table class="ag-table">
           <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
           <tbody>
-        <tr onclick="selectAgent('sophie','camille___ribabe')" class="ag-row" data-id="camille___ribabe">
-          <td>Camille / Ribabe</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>195</td>
-          <td>62</td>
-          <td class="pos">31.8%<span class="di eq">≈</span></td>
-          <td>€10,100</td>
-          <td><strong>€626k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','charlotte_garrido')" class="ag-row" data-id="charlotte_garrido">
-          <td>Charlotte Garrido</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>175</td>
-          <td>54</td>
-          <td class="neg">30.9%<span class="di eq">≈</span></td>
-          <td>€9,300</td>
-          <td><strong>€502k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','pauline_preynat')" class="ag-row" data-id="pauline_preynat">
-          <td>Pauline Preynat</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>168</td>
-          <td>52</td>
-          <td class="neg">31.0%<span class="di eq">≈</span></td>
-          <td>€9,500</td>
-          <td><strong>€494k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','malek_adjroud')" class="ag-row" data-id="malek_adjroud">
-          <td>Malek Adjroud</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>176</td>
-          <td>41</td>
-          <td class="neg">23.3%<span class="di eq">≈</span></td>
-          <td>€7,920</td>
-          <td><strong>€324k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','alexandra_mennechez')" class="ag-row" data-id="alexandra_mennechez">
-          <td>Alexandra Mennechez</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>155</td>
-          <td>38</td>
-          <td class="pos">24.5%<span class="di eq">≈</span></td>
-          <td>€8,180</td>
-          <td><strong>€310k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','oc_ane_sabeur')" class="ag-row" data-id="oc_ane_sabeur">
-          <td>Océane Sabeur</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>143</td>
-          <td>35</td>
-          <td class="pos">24.5%<span class="di eq">≈</span></td>
-          <td>€8,100</td>
-          <td><strong>€283k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','fabienne_pottelain')" class="ag-row" data-id="fabienne_pottelain">
-          <td>Fabienne Pottelain</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>138</td>
-          <td>34</td>
-          <td class="pos">24.6%<span class="di eq">≈</span></td>
-          <td>€8,250</td>
-          <td><strong>€280k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','laurine_calas')" class="ag-row" data-id="laurine_calas">
-          <td>Laurine Calas</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>152</td>
-          <td>24</td>
-          <td class="pos">15.8%<span class="di up">▲</span></td>
-          <td>€6,750</td>
-          <td><strong>€162k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('sophie','marine_hecquard')" class="ag-row" data-id="marine_hecquard">
-          <td>Marine Hecquard</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>148</td>
-          <td>21</td>
-          <td class="neg">14.2%<span class="di eq">≈</span></td>
-          <td>€6,300</td>
-          <td><strong>€132k</strong></td>
-        </tr>
-          </tbody>
+            <tr onclick="selectAgent('sophie','marceau_cattin')" class="ag-row" data-id="marceau_cattin">
+              <td>Marceau Cattin</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>205</td>
+              <td>58</td>
+              <td class="pos">28.3%<span class="d1 eq">≈</span></td>
+              <td>€9.200</td>
+              <td><strong>€534k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','alexandra_mennechez')" class="ag-row" data-id="alexandra_mennechez">
+              <td>Alexandra Mennechez</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>203</td>
+              <td>47</td>
+              <td class="pos">23.1%<span class="d1 dn">▼</span></td>
+              <td>€8.180</td>
+              <td><strong>€384k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','charlotte_garrido')" class="ag-row" data-id="charlotte_garrido">
+              <td>Charlotte Garrido</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>191</td>
+              <td>49</td>
+              <td class="pos">25.6%<span class="d1 dn">▼</span></td>
+              <td>€9.300</td>
+              <td><strong>€456k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','emilie_belguise')" class="ag-row" data-id="emilie_belguise">
+              <td>Emilie Belguise</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>204</td>
+              <td>43</td>
+              <td class="pos">21.1%<span class="d1 dn">▼</span></td>
+              <td>€8.100</td>
+              <td><strong>€348k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','bertrand_cazabat')" class="ag-row" data-id="bertrand_cazabat">
+              <td>Bertrand Cazabat</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>223</td>
+              <td>34</td>
+              <td class="pos">15.2%<span class="d1 dn">▼</span></td>
+              <td>€7.200</td>
+              <td><strong>€245k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','pauline_preynat')" class="ag-row" data-id="pauline_preynat">
+              <td>Pauline Preynat</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>186</td>
+              <td>40</td>
+              <td class="pos">21.5%<span class="d1 dn">▼</span></td>
+              <td>€9.500</td>
+              <td><strong>€380k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','malek_adjroud')" class="ag-row" data-id="malek_adjroud">
+              <td>Malek Adjroud</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>145</td>
+              <td>46</td>
+              <td class="pos">31.7%<span class="d1 up">▲</span></td>
+              <td>€7.920</td>
+              <td><strong>€364k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','fabienne_pottelain')" class="ag-row" data-id="fabienne_pottelain">
+              <td>Fabienne Pottelain</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>130</td>
+              <td>36</td>
+              <td class="pos">27.7%<span class="d1 up">▲</span></td>
+              <td>€8.250</td>
+              <td><strong>€297k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','laurine_calas')" class="ag-row" data-id="laurine_calas">
+              <td>Laurine Calas</td>
+              <td><span class="badge ag0l">L0</span></td>
+              <td>116</td>
+              <td>23</td>
+              <td class="pos">19.8%<span class="d1 up">▲</span></td>
+              <td>€6.750</td>
+              <td><strong>€155k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','marine_hecquard')" class="ag-row" data-id="marine_hecquard">
+              <td>Marine Hecquard</td>
+              <td><span class="badge ag0l">L0</span></td>
+              <td>122</td>
+              <td>21</td>
+              <td class="pos">17.2%<span class="d1 eq">≈</span></td>
+              <td>€6.300</td>
+              <td><strong>€132k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('sophie','solene_billon')" class="ag-row" data-id="solene_billon">
+              <td>Solène Billon</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>80</td>
+              <td>20</td>
+              <td class="pos">25.0%<span class="d1 eq">≈</span></td>
+              <td>€8.300</td>
+              <td><strong>€166k</strong></td>
+            </tr>
+            </tbody>
         </table>
       </div>
 
@@ -1457,17 +1515,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <div class="ag-select-wrap">
           <label>🔍 Fiche agent</label>
           <select id="sel-sophie" onchange="loadCard('sophie',this.value)">
-            <option value="">— Sélectionner un agent —</option>
-<option value="camille___ribabe" data-lvl="L3">Camille / Ribabe (L3)</option>
-<option value="laurine_calas" data-lvl="L0">Laurine Calas (L0)</option>
-<option value="oc_ane_sabeur" data-lvl="L2">Océane Sabeur (L2)</option>
-<option value="marine_hecquard" data-lvl="L0">Marine Hecquard (L0)</option>
-<option value="fabienne_pottelain" data-lvl="L2">Fabienne Pottelain (L2)</option>
-<option value="pauline_preynat" data-lvl="L3">Pauline Preynat (L3)</option>
-<option value="alexandra_mennechez" data-lvl="L2">Alexandra Mennechez (L2)</option>
-<option value="charlotte_garrido" data-lvl="L3">Charlotte Garrido (L3)</option>
-<option value="malek_adjroud" data-lvl="L2">Malek Adjroud (L2)</option>
-          </select>
+              <option value="">— Sélectionner un agent —</option>
+              <option value="marceau_cattin" data-lvl="L3">Marceau Cattin (L3)</option>
+              <option value="alexandra_mennechez" data-lvl="L2">Alexandra Mennechez (L2)</option>
+              <option value="charlotte_garrido" data-lvl="L3">Charlotte Garrido (L3)</option>
+              <option value="emilie_belguise" data-lvl="L2">Emilie Belguise (L2)</option>
+              <option value="bertrand_cazabat" data-lvl="L1">Bertrand Cazabat (L1)</option>
+              <option value="pauline_preynat" data-lvl="L3">Pauline Preynat (L3)</option>
+              <option value="malek_adjroud" data-lvl="L2">Malek Adjroud (L2)</option>
+              <option value="fabienne_pottelain" data-lvl="L2">Fabienne Pottelain (L2)</option>
+              <option value="laurine_calas" data-lvl="L0">Laurine Calas (L0)</option>
+              <option value="marine_hecquard" data-lvl="L0">Marine Hecquard (L0)</option>
+              <option value="solene_billon" data-lvl="L2">Solène Billon (L2)</option>
+            </select>
         </div>
         <div class="card-placeholder" id="ph-sophie">
           <div class="ph-icon">👤</div>
@@ -1503,79 +1563,97 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <table class="ag-table">
           <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
           <tbody>
-        <tr onclick="selectAgent('marion','marion_hucbourg_hernandez')" class="ag-row" data-id="marion_hucbourg_hernandez">
-          <td>Marion Hucbourg-Hernandez</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>282</td>
-          <td>83</td>
-          <td class="pos">29.4%<span class="di up">▲</span></td>
-          <td>€9,100</td>
-          <td><strong>€755k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('marion','charl_nie')" class="ag-row" data-id="charl_nie">
-          <td>Charlénie</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>185</td>
-          <td>60</td>
-          <td class="pos">32.4%<span class="di eq">≈</span></td>
-          <td>€10,300</td>
-          <td><strong>€618k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('marion','cl_ment_thonneau')" class="ag-row" data-id="cl_ment_thonneau">
-          <td>Clément Thonneau</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>148</td>
-          <td>38</td>
-          <td class="pos">25.7%<span class="di up">▲</span></td>
-          <td>€8,600</td>
-          <td><strong>€326k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('marion','thomas_guibert')" class="ag-row" data-id="thomas_guibert">
-          <td>Thomas Guibert</td>
-          <td><span class="badge ag1h">L1</span></td>
-          <td>162</td>
-          <td>41</td>
-          <td class="pos">25.3%<span class="di eq">≈</span></td>
-          <td>€7,900</td>
-          <td><strong>€323k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('marion','mila_gascoin')" class="ag-row" data-id="mila_gascoin">
-          <td>Mila Gascoin</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>143</td>
-          <td>36</td>
-          <td class="pos">25.2%<span class="di eq">≈</span></td>
-          <td>€8,300</td>
-          <td><strong>€298k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('marion','alexandre_paprocki')" class="ag-row" data-id="alexandre_paprocki">
-          <td>Alexandre Paprocki</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>138</td>
-          <td>34</td>
-          <td class="pos">24.6%<span class="di eq">≈</span></td>
-          <td>€8,100</td>
-          <td><strong>€275k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('marion','charline_verdeaux')" class="ag-row" data-id="charline_verdeaux">
-          <td>Charline Verdeaux</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>134</td>
-          <td>20</td>
-          <td class="pos">14.9%<span class="di eq">≈</span></td>
-          <td>€6,500</td>
-          <td><strong>€130k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('marion','margot_bonnet')" class="ag-row" data-id="margot_bonnet">
-          <td>Margot Bonnet</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>128</td>
-          <td>17</td>
-          <td class="neg">13.3%<span class="di dn">▼</span></td>
-          <td>€6,200</td>
-          <td><strong>€105k</strong></td>
-        </tr>
-          </tbody>
+            <tr onclick="selectAgent('marion','camille_mollon')" class="ag-row" data-id="camille_mollon">
+              <td>Camille Mollon</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>171</td>
+              <td>59</td>
+              <td class="pos">34.5%<span class="d1 up">▲</span></td>
+              <td>€9.400</td>
+              <td><strong>€555k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','marion_hucbourg_hernandez')" class="ag-row" data-id="marion_hucbourg_hernandez">
+              <td>Marion Hucbourg-Hernandez</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>191</td>
+              <td>46</td>
+              <td class="pos">24.1%<span class="d1 eq">≈</span></td>
+              <td>€9.100</td>
+              <td><strong>€419k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','aurelie_guesnet')" class="ag-row" data-id="aurelie_guesnet">
+              <td>Aurélie Guesnet</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>177</td>
+              <td>46</td>
+              <td class="pos">26.0%<span class="d1 eq">≈</span></td>
+              <td>€8.200</td>
+              <td><strong>€377k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','mila_gascoin')" class="ag-row" data-id="mila_gascoin">
+              <td>Mila Gascoin</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>160</td>
+              <td>48</td>
+              <td class="pos">30.0%<span class="d1 up">▲</span></td>
+              <td>€8.300</td>
+              <td><strong>€398k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','alexandre_paprocki')" class="ag-row" data-id="alexandre_paprocki">
+              <td>Alexandre Paprocki</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>177</td>
+              <td>41</td>
+              <td class="pos">23.2%<span class="d1 dn">▼</span></td>
+              <td>€8.100</td>
+              <td><strong>€332k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','charline_verdeaux')" class="ag-row" data-id="charline_verdeaux">
+              <td>Charline Verdeaux</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>177</td>
+              <td>40</td>
+              <td class="pos">22.6%<span class="d1 eq">≈</span></td>
+              <td>€6.500</td>
+              <td><strong>€260k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','charline_blas')" class="ag-row" data-id="charline_blas">
+              <td>Charline Blas</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>155</td>
+              <td>41</td>
+              <td class="pos">26.4%<span class="d1 up">▲</span></td>
+              <td>€8.000</td>
+              <td><strong>€328k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','thomas_guibert')" class="ag-row" data-id="thomas_guibert">
+              <td>Thomas Guibert</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>172</td>
+              <td>35</td>
+              <td class="pos">20.4%<span class="d1 dn">▼</span></td>
+              <td>€7.900</td>
+              <td><strong>€276k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','margot_bonnet')" class="ag-row" data-id="margot_bonnet">
+              <td>Margot Bonnet</td>
+              <td><span class="badge ag0l">L0</span></td>
+              <td>168</td>
+              <td>31</td>
+              <td class="pos">18.4%<span class="d1 eq">≈</span></td>
+              <td>€6.200</td>
+              <td><strong>€192k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('marion','marion_ambroisine_quinard')" class="ag-row" data-id="marion_ambroisine_quinard">
+              <td>Marion-Ambroisine Quinard</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>40</td>
+              <td>12</td>
+              <td class="pos">30.0%<span class="d1 up">▲</span></td>
+              <td>€8.200</td>
+              <td><strong>€98k</strong></td>
+            </tr>
+            </tbody>
         </table>
       </div>
 
@@ -1584,16 +1662,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <div class="ag-select-wrap">
           <label>🔍 Fiche agent</label>
           <select id="sel-marion" onchange="loadCard('marion',this.value)">
-            <option value="">— Sélectionner un agent —</option>
-<option value="charl_nie" data-lvl="L3">Charlénie (L3)</option>
-<option value="cl_ment_thonneau" data-lvl="L2">Clément Thonneau (L2)</option>
-<option value="margot_bonnet" data-lvl="L0">Margot Bonnet (L0)</option>
-<option value="charline_verdeaux" data-lvl="L0">Charline Verdeaux (L0)</option>
-<option value="mila_gascoin" data-lvl="L2">Mila Gascoin (L2)</option>
-<option value="thomas_guibert" data-lvl="L1">Thomas Guibert (L1)</option>
-<option value="alexandre_paprocki" data-lvl="L2">Alexandre Paprocki (L2)</option>
-<option value="marion_hucbourg_hernandez" data-lvl="L2">Marion Hucbourg-Hernandez (L2)</option>
-          </select>
+              <option value="">— Sélectionner un agent —</option>
+              <option value="camille_mollon" data-lvl="L3">Camille Mollon (L3)</option>
+              <option value="marion_hucbourg_hernandez" data-lvl="L2">Marion Hucbourg-Hernandez (L2)</option>
+              <option value="aurelie_guesnet" data-lvl="L2">Aurélie Guesnet (L2)</option>
+              <option value="mila_gascoin" data-lvl="L2">Mila Gascoin (L2)</option>
+              <option value="alexandre_paprocki" data-lvl="L2">Alexandre Paprocki (L2)</option>
+              <option value="charline_verdeaux" data-lvl="L1">Charline Verdeaux (L1)</option>
+              <option value="charline_blas" data-lvl="L2">Charline Blas (L2)</option>
+              <option value="thomas_guibert" data-lvl="L1">Thomas Guibert (L1)</option>
+              <option value="margot_bonnet" data-lvl="L0">Margot Bonnet (L0)</option>
+              <option value="marion_ambroisine_quinard" data-lvl="L2">Marion-Ambroisine Quinard (L2)</option>
+            </select>
         </div>
         <div class="card-placeholder" id="ph-marion">
           <div class="ph-icon">👤</div>
@@ -1725,61 +1805,88 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <table class="ag-table">
           <thead><tr><th>Agent</th><th>Niv.</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead>
           <tbody>
-        <tr onclick="selectAgent('lauren','guillaume_dupont__sr_')" class="ag-row" data-id="guillaume_dupont__sr_">
-          <td>Guillaume Dupont (Sr)</td>
-          <td><span class="badge ag3h">L3</span></td>
-          <td>185</td>
-          <td>60</td>
-          <td class="pos">32.4%<span class="di eq">≈</span></td>
-          <td>€10,200</td>
-          <td><strong>€612k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('lauren','line_desmazures')" class="ag-row" data-id="line_desmazures">
-          <td>Line Desmazures</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>168</td>
-          <td>42</td>
-          <td class="pos">25.0%<span class="di eq">≈</span></td>
-          <td>€8,150</td>
-          <td><strong>€342k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('lauren','scarlett_vis')" class="ag-row" data-id="scarlett_vis">
-          <td>Scarlett Vis</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>155</td>
-          <td>39</td>
-          <td class="pos">25.2%<span class="di eq">≈</span></td>
-          <td>€8,200</td>
-          <td><strong>€319k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('lauren','amandine_godin__cse_')" class="ag-row" data-id="amandine_godin__cse_">
-          <td>Amandine Godin (CSE)</td>
-          <td><span class="badge ag2h">L2</span></td>
-          <td>148</td>
-          <td>38</td>
-          <td class="pos">25.7%<span class="di up">▲</span></td>
-          <td>€8,400</td>
-          <td><strong>€319k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('lauren','florence_touyard')" class="ag-row" data-id="florence_touyard">
-          <td>Florence Touyard</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>132</td>
-          <td>19</td>
-          <td class="pos">14.4%<span class="di eq">≈</span></td>
-          <td>€6,100</td>
-          <td><strong>€115k</strong></td>
-        </tr>
-        <tr onclick="selectAgent('lauren','edwige_clad')" class="ag-row" data-id="edwige_clad">
-          <td>Edwige Clad</td>
-          <td><span class="badge ag0h">L0</span></td>
-          <td>112</td>
-          <td>16</td>
-          <td class="neg">14.3%<span class="di eq">≈</span></td>
-          <td>€6,050</td>
-          <td><strong>€96k</strong></td>
-        </tr>
-          </tbody>
+            <tr onclick="selectAgent('lauren','line_desmazures')" class="ag-row" data-id="line_desmazures">
+              <td>Line Desmazures</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>206</td>
+              <td>63</td>
+              <td class="pos">30.6%<span class="d1 up">▲</span></td>
+              <td>€8.150</td>
+              <td><strong>€513k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','guillaume_dupont')" class="ag-row" data-id="guillaume_dupont">
+              <td>Guillaume Dupont</td>
+              <td><span class="badge ag3h">L3</span></td>
+              <td>194</td>
+              <td>55</td>
+              <td class="pos">28.4%<span class="d1 eq">≈</span></td>
+              <td>€10.200</td>
+              <td><strong>€561k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','claire_henry')" class="ag-row" data-id="claire_henry">
+              <td>Claire Henry</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>223</td>
+              <td>47</td>
+              <td class="pos">21.1%<span class="d1 dn">▼</span></td>
+              <td>€8.000</td>
+              <td><strong>€376k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','camille_lecomte')" class="ag-row" data-id="camille_lecomte">
+              <td>Camille Lecomte</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>188</td>
+              <td>45</td>
+              <td class="pos">23.9%<span class="d1 dn">▼</span></td>
+              <td>€8.200</td>
+              <td><strong>€369k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','florence_touyard')" class="ag-row" data-id="florence_touyard">
+              <td>Florence Touyard</td>
+              <td><span class="badge ag1">L1</span></td>
+              <td>189</td>
+              <td>43</td>
+              <td class="pos">22.8%<span class="d1 eq">≈</span></td>
+              <td>€6.100</td>
+              <td><strong>€262k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','philippe_tkatchouk')" class="ag-row" data-id="philippe_tkatchouk">
+              <td>Philippe Tkatchouk</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>185</td>
+              <td>43</td>
+              <td class="pos">23.2%<span class="d1 dn">▼</span></td>
+              <td>€8.100</td>
+              <td><strong>€348k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','amandine_godin')" class="ag-row" data-id="amandine_godin">
+              <td>Amandine Godin</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>161</td>
+              <td>45</td>
+              <td class="pos">27.9%<span class="d1 up">▲</span></td>
+              <td>€8.400</td>
+              <td><strong>€378k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','eloise_lebert')" class="ag-row" data-id="eloise_lebert">
+              <td>Eloïse Lebert</td>
+              <td><span class="badge ag2h">L2</span></td>
+              <td>169</td>
+              <td>42</td>
+              <td class="pos">24.9%<span class="d1 eq">≈</span></td>
+              <td>€8.000</td>
+              <td><strong>€336k</strong></td>
+            </tr>
+            <tr onclick="selectAgent('lauren','edwige_clad')" class="ag-row" data-id="edwige_clad">
+              <td>Edwige Clad</td>
+              <td><span class="badge ag0l">L0</span></td>
+              <td>198</td>
+              <td>34</td>
+              <td class="pos">17.2%<span class="d1 eq">≈</span></td>
+              <td>€6.050</td>
+              <td><strong>€206k</strong></td>
+            </tr>
+            </tbody>
         </table>
       </div>
 
@@ -1788,14 +1895,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <div class="ag-select-wrap">
           <label>🔍 Fiche agent</label>
           <select id="sel-lauren" onchange="loadCard('lauren',this.value)">
-            <option value="">— Sélectionner un agent —</option>
-<option value="guillaume_dupont__sr_" data-lvl="L3">Guillaume Dupont (Sr) (L3)</option>
-<option value="amandine_godin__cse_" data-lvl="L2">Amandine Godin (CSE) (L2)</option>
-<option value="florence_touyard" data-lvl="L0">Florence Touyard (L0)</option>
-<option value="scarlett_vis" data-lvl="L2">Scarlett Vis (L2)</option>
-<option value="line_desmazures" data-lvl="L2">Line Desmazures (L2)</option>
-<option value="edwige_clad" data-lvl="L0">Edwige Clad (L0)</option>
-          </select>
+              <option value="">— Sélectionner un agent —</option>
+              <option value="line_desmazures" data-lvl="L2">Line Desmazures (L2)</option>
+              <option value="guillaume_dupont" data-lvl="L3">Guillaume Dupont (L3)</option>
+              <option value="claire_henry" data-lvl="L2">Claire Henry (L2)</option>
+              <option value="camille_lecomte" data-lvl="L2">Camille Lecomte (L2)</option>
+              <option value="florence_touyard" data-lvl="L1">Florence Touyard (L1)</option>
+              <option value="philippe_tkatchouk" data-lvl="L2">Philippe Tkatchouk (L2)</option>
+              <option value="amandine_godin" data-lvl="L2">Amandine Godin (L2)</option>
+              <option value="eloise_lebert" data-lvl="L2">Eloïse Lebert (L2)</option>
+              <option value="edwige_clad" data-lvl="L0">Edwige Clad (L0)</option>
+            </select>
         </div>
         <div class="card-placeholder" id="ph-lauren">
           <div class="ph-icon">👤</div>
