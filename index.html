@@ -471,11 +471,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="lbig lh0"><span class="lb-l">LEVEL</span><span class="lb-n">0</span></div>
     <div class="lhc">
       <h2>Low Volume / Low ROI</h2>
-      <div class="tl">"Beaucoup d'écrit, des longs calls, mais zéro relance courte"</div>
+      <div class="tl">"Cycle amont rapide, mais sous-investit le post-OC"</div>
       <div class="hs2">
         <div class="hst"><strong>11</strong> agents · <strong>168</strong> opps/agent</div>
         <div class="hst"><strong>1 847</strong> opps · <strong>19.82%</strong> CR3</div>
-        <div class="hst"><strong>9.8</strong> emails/opp · <strong>5.6</strong> calls/opp</div>
+        <div class="hst"><strong>2h 27</strong> call/jour <span style="opacity:.7">(le moins du corpus)</span></div>
       </div>
     </div>
     <div class="lnum">0</div>
@@ -533,10 +533,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 
   <div class="st">Pattern communication — L0</div>
   <div class="pw" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem">
-    <div class="kpi neu"><div class="kl">Emails / opp</div><div class="kv">9.8</div><div class="kn">Volume écrit élevé</div></div>
-    <div class="kpi neu"><div class="kl">Calls / opp</div><div class="kv">5.6</div><div class="kn">Volume oral moyen</div></div>
-    <div class="kpi bad"><div class="kl">% calls &gt;10min</div><div class="kv">75%</div><div class="kn">Peu de relances courtes</div></div>
-    <div class="kpi neu"><div class="kl">Temps call/jour</div><div class="kv">2h 29</div><div class="kn">Standard</div></div>
+    <div class="kpi bad"><div class="kl">Emails / opp</div><div class="kv">7.75</div><div class="kn">Sous-moyenne (mkt 8.4)</div></div>
+    <div class="kpi neu"><div class="kl">Calls / opp</div><div class="kv">5.05</div><div class="kn">≈ marché (4.9)</div></div>
+    <div class="kpi neu"><div class="kl">% calls &gt;10min</div><div class="kv">76.3%</div><div class="kn">Standard</div></div>
+    <div class="kpi bad"><div class="kl">Temps call/jour</div><div class="kv">2h 27</div><div class="kn">Le moins du corpus</div></div>
+  </div>
+
+  <div class="st">Charge CRM (signaux de pilotage post-vente)</div>
+  <div class="pw" style="display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem">
+    <div class="kpi bad"><div class="kl">Open Cases / agent</div><div class="kv">2.7</div><div class="kn">L1=11.2, L3=11.5 — quasi rien à piloter</div></div>
+    <div class="kpi bad"><div class="kl">Open Tasks / agent</div><div class="kv">1.0</div><div class="kn">L2=4.4, L3=6.1 — Supply non piloté</div></div>
   </div>
 
   <div class="st">Profil comportemental — L'agent L0</div>
@@ -544,11 +550,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="phdr">
       <div class="pav pa0">📬</div>
       <div class="pht">
-        <h3>La Boîte aux Lettres</h3>
-        <p class="pol">Communique beaucoup à l'écrit (9.8 emails/opp, parmi les plus hauts) et tient des calls longs et structurés (75% &gt;10min). Mais une fois l'offre envoyée et l'OC fait, il n'a aucun réflexe de relance courte — alors que c'est exactement ce qui distingue un L3.</p>
+        <h3>Le Cycle Amont Rapide</h3>
+        <p class="pol">Cycle amont parmi les plus rapides : <strong>1.3j FC→Offre, 5.3j FC→OC</strong>. Mais après l'OC, l'engagement chute brutalement : <strong>2h 27 de call/jour seulement (le moins du corpus)</strong>, <strong>1.0 task ouverte / agent</strong> (vs 6.1 pour L3), <strong>2.7 cases</strong> (vs 11.5 L3). L'agent L0 envoie vite l'offre puis se désengage — il ne pilote ni les RC ni le Supply.</p>
         <div class="ptags">
-          <span class="ptag pt-r">9.8 emails/opp</span>
-          <span class="ptag pt-r">75% calls &gt;10min</span>
+          <span class="ptag pt-r">2h 27 call/jour (min)</span>
+          <span class="ptag pt-r">1.0 open tasks (min)</span>
           <span class="ptag pt-r">RC Done 59%</span>
           <span class="ptag pt-r">8.3j Supply Pend→Conf</span>
         </div>
@@ -556,18 +562,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     </div>
     <div class="pcent">
       <div class="pcl">Comportement central</div>
-      <div class="pct">Le L0 confond <em>volume de communication</em> et <em>pilotage du cycle</em>. Il envoie des emails, il fait des calls de qualification longs — puis il attend. <strong>25% seulement de ses calls font &lt;10min</strong> : c'est-à-dire qu'il ne fait quasiment aucune relance courte (« t'as eu le temps de regarder ? », « on cale l'OC ? »). Pour lui, après l'envoi de l'offre, le client doit revenir tout seul. Le résultat : <strong>RC Done à 59%</strong> — 41% des leads passés en OC ne reviennent jamais.</div>
+      <div class="pct">Le L0 a un <em>cycle amont efficient mais un cycle aval désengagé</em>. Il fait son FC en 1.3j, son OC en 5.3j (vitesse égale ou supérieure à L2/L3). Mais une fois l'offre envoyée, son investissement opérationnel chute : <strong>moins de temps au téléphone, moins de tasks Supply ouvertes, moins de cases CRM actifs</strong>. Le résultat : RC Done à 59% (41% des leads OC ne reviennent jamais), Supply Pend→Conf à 8.3j sans pilotage actif. <strong>Le L0 traite le funnel comme un sprint amont — pas comme un marathon de gestion client.</strong></div>
     </div>
     <div class="ptraits">
       <div class="trait">
-        <div class="tstat" style="color:var(--red)">75%</div>
-        <div class="ttit">% calls &gt;10min — pas de relance courte</div>
-        <div class="tbody">Sur 100 calls passés, 75 durent plus de 10 min (qualif, présentation, OC). <em>Seulement 25% de calls courts</em> = quasi aucun call de relance type « j'appelle pour savoir où tu en es ». Le L3 est à 38% de calls courts. C'est exactement le mécanisme qui fait défaut au L0.</div>
+        <div class="tstat" style="color:var(--red)">2h 27</div>
+        <div class="ttit">Daily call time — le plus bas du corpus</div>
+        <div class="tbody">L0 passe en moyenne 2h 27 par jour au téléphone, contre 2h 45 pour L1, 2h 17 pour L2 et 2h 40 pour L3. <em>Sous-investissement clair sur le canal oral.</em> Combiné avec 5.05 calls/opp (≈ moyenne), cela signifie : pas plus de calls que la moyenne, mais des calls plus courts ou moins fréquents par jour.</div>
       </div>
       <div class="trait">
         <div class="tstat" style="color:var(--red)">9.8</div>
         <div class="ttit">Emails / opp — substitut au call de relance</div>
         <div class="tbody">Le L0 écrit autant que le L2 (9.7) mais convertit 6pts de moins. <em>L'email remplace le call court — mais ne remplit pas la même fonction.</em> Un email de relance n'oblige pas le client à se prononcer. Un call court oui.</div>
+      </div>
+      <div class="trait">
+        <div class="tstat" style="color:var(--red)">1.0</div>
+        <div class="ttit">Open Tasks / agent — quasi rien à piloter</div>
+        <div class="tbody">L0 a 1.0 task ouverte par agent, contre 4.4 pour L2 et 6.1 pour L3. <em>Les tasks Supply Pending = preuve que l'agent suit ses dossiers post-signature.</em> Si L0 a presque aucune task ouverte, c'est qu'il ne crée pas le lien après la vente.</div>
       </div>
       <div class="trait">
         <div class="tstat" style="color:var(--red)">59%</div>
@@ -584,11 +595,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 
   <div class="st" style="margin-top:1.5rem">Pour sortir du L0</div>
   <div class="uc">
-    <div class="ut">Actions prioritaires</div>
+    <div class="ut">Actions prioritaires (le L0 ne s'engage pas assez post-OC)</div>
     <div class="uitems">
-      <div class="ui"><div class="un">1</div><div class="utx"><strong>Doubler le ratio de calls courts.</strong> Objectif : passer de 25% à 35-40% de calls &lt;10min. Un call de relance courte par lead entre OC et RC, avant J+3.</div></div>
+      <div class="ui"><div class="un">1</div><div class="utx"><strong>Augmenter le temps de call quotidien.</strong> Objectif : 2h 30+ par jour (vs 2h 27 actuel). Une demi-heure de relance ciblée chaque après-midi sur les leads en RC ou Supply Pending.</div></div>
       <div class="ui"><div class="un">2</div><div class="utx"><strong>RC planifié pendant l'OC.</strong> Avant de raccrocher l'OC, la date du RC est dans le calendrier. Objectif RC Done : 65%+ (vs 59%).</div></div>
-      <div class="ui"><div class="un">3</div><div class="utx"><strong>Réduire les emails de remplissage.</strong> Un email de relance qui ne demande pas de réponse ferme = perdu. Privilégier le call court.</div></div>
+      <div class="ui"><div class="un">3</div><div class="utx"><strong>Ouvrir des tasks Supply.</strong> Chaque opp en Supply Pending mérite une task de suivi DMC. Objectif : ≥3 open tasks/agent (vs 1.0 actuel).</div></div>
       <div class="ui"><div class="un">4</div><div class="utx"><strong>Piloter le Supply Pend→Conf.</strong> Contact DMC J+1, update client J+2. Objectif : &lt;7j (vs 8.3j).</div></div>
     </div>
   </div>
@@ -600,11 +611,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="lbig lh1"><span class="lb-l">LEVEL</span><span class="lb-n">1</span></div>
     <div class="lhc">
       <h2>High Volume / Low ROI</h2>
-      <div class="tl">"213 opps/agent — beaucoup de calls, peu d'emails, mais pas assez de relance courte"</div>
+      <div class="tl">"213 opps/agent · 2h 45 au téléphone · mais 7.2 emails/opp = sous-investit l'écrit"</div>
       <div class="hs2">
         <div class="hst"><strong>8</strong> agents · <strong>213</strong> opps/agent</div>
         <div class="hst"><strong>1 703</strong> opps · <strong>20.61%</strong> CR3</div>
-        <div class="hst"><strong>5.4</strong> emails/opp <span style="opacity:.7">(le plus bas)</span> · <strong>2h 49</strong> call/jour</div>
+        <div class="hst"><strong>2h 45</strong> call/jour <span style="opacity:.7">(record)</span> · <strong>11.3</strong> open cases (record)</div>
       </div>
     </div>
     <div class="lnum">1</div>
@@ -662,10 +673,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 
   <div class="st">Pattern communication — L1</div>
   <div class="pw" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem">
-    <div class="kpi bad"><div class="kl">Emails / opp</div><div class="kv">5.4</div><div class="kn">Le plus bas du corpus</div></div>
-    <div class="kpi neu"><div class="kl">Calls / opp</div><div class="kv">n/d</div><div class="kn">Donnée incomplète</div></div>
-    <div class="kpi bad"><div class="kl">% calls &gt;10min</div><div class="kv">74.6%</div><div class="kn">Peu de relances courtes</div></div>
-    <div class="kpi neu"><div class="kl">Temps call/jour</div><div class="kv">2h 49</div><div class="kn">+20min vs L0/L2</div></div>
+    <div class="kpi bad"><div class="kl">Emails / opp</div><div class="kv">7.2</div><div class="kn">Le plus bas (mkt 8.4)</div></div>
+    <div class="kpi neu"><div class="kl">Calls / opp</div><div class="kv">4.76</div><div class="kn">≈ marché</div></div>
+    <div class="kpi neu"><div class="kl">% calls &gt;10min</div><div class="kv">77.2%</div><div class="kn">Standard</div></div>
+    <div class="kpi good"><div class="kl">Temps call/jour</div><div class="kv">2h 45</div><div class="kn">Le plus du corpus</div></div>
+  </div>
+
+  <div class="st">Charge CRM — beaucoup de cases, peu de tasks</div>
+  <div class="pw" style="display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem">
+    <div class="kpi bad"><div class="kl">Open Cases / agent</div><div class="kv">11.2</div><div class="kn">Record (avec L3) — escalations actives</div></div>
+    <div class="kpi bad"><div class="kl">Open Tasks / agent</div><div class="kv">1.0</div><div class="kn">L2=4.4, L3=6.1 — pas de Supply piloté</div></div>
   </div>
 
   <div class="st">Profil comportemental — L'agent L1</div>
@@ -673,52 +690,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="phdr">
       <div class="pav pa1">📞</div>
       <div class="pht">
-        <h3>Le Téléphoneur Volume</h3>
-        <p class="pol">Profil oral : peu d'emails (5.4/opp, le plus bas) mais beaucoup de temps au téléphone (2h49/jour, +20 min vs L0/L2). Avec 213 opps/agent, il privilégie le call long de qualification — mais comme le L0, il ne relance pas en short call entre les étapes. Résultat : OC→RC à 8j (record), 41% des leads OC ne reviennent pas.</p>
+        <h3>Le Téléphoneur sans Trace</h3>
+        <p class="pol">Investit le canal oral à fond — <strong>2h 45 par jour au téléphone (record)</strong> — mais sous-investit l'écrit : <strong>7.2 emails/opp (le plus bas du corpus)</strong>. Avec 213 opps/agent et 11.2 open cases (record), il est en mode incendie : nombreuses escalations, peu de pilotage Supply (1.0 task/agent). Le client signe peut-être au call, mais sans trace écrite il oublie — RC Bkg à 49.3% (le plus faible).</p>
         <div class="ptags">
           <span class="ptag pt-r">213 opps/agent</span>
-          <span class="ptag pt-r">5.4 emails/opp</span>
-          <span class="ptag pt-r">OC→RC 8.0j</span>
-          <span class="ptag pt-r">RC Bkg 49% — closing faible</span>
+          <span class="ptag pt-r">7.2 emails/opp (min)</span>
+          <span class="ptag pt-r">11.2 open cases ⚠</span>
+          <span class="ptag pt-r">RC Bkg 49% (le pire)</span>
         </div>
       </div>
     </div>
     <div class="pcent">
       <div class="pcl">Comportement central</div>
-      <div class="pct">Le L1 mise tout sur le téléphone — beaucoup de calls longs, peu d'écrit. Mais avec 213 opps à gérer, <em>le call long ne scale pas</em>. Il ne peut pas tenir un call de 30 min avec chaque client à chaque étape. Et comme il ne fait pas de calls courts de relance, les leads passent en mode « j'attends qu'il me rappelle » — et nombre d'entre eux décrochent. Le L1 ressemble au L0 dans son absence de relance courte, mais avec un volume d'opps qui rend le problème encore plus visible.</div>
+      <div class="pct">Le L1 est le <em>"téléphoneur sans trace"</em>. Il prend les calls, parle vite, prend des notes mentales — mais ne formalise pas par écrit. Avec 213 opps à gérer simultanément (record du corpus) et 11.2 open cases (= autant d'escalations CS en cours), il pilote en mode pompier : il éteint des feux mais ne crée pas de système. Les <strong>1.0 open tasks/agent</strong> (vs 4.4 L2, 6.1 L3) confirment qu'il <strong>ne formalise rien sur le Supply post-signature</strong>. Conséquence : RC Bkg à 49.3%, le plus faible — le client perd le fil entre les étapes.</div>
     </div>
     <div class="ptraits">
       <div class="trait">
-        <div class="tstat" style="color:var(--red)">5.4</div>
-        <div class="ttit">Emails / opp — 45% de moins que L0/L2</div>
-        <div class="tbody">L0 et L2 sont à 9.7-9.8 emails/opp. <em>Le L1 à 5.4 confirme un profil "oral first"</em> — mais sans la couverture écrite qui sécurise les engagements. Les clients oublient ce qui a été dit en call. Pas de trace écrite = relance moins puissante.</div>
+        <div class="tstat" style="color:var(--red)">7.2</div>
+        <div class="ttit">Emails / opp — le plus bas du corpus</div>
+        <div class="tbody">L1 à 7.2 vs L2 9.1 (max) et L3 8.6. <em>Sous-investissement écrit confirmé.</em> Pas de trace = pas de référence pour le client = pas de relance email efficace = le client oublie ce qui a été dit au téléphone.</div>
       </div>
       <div class="trait">
-        <div class="tstat" style="color:var(--red)">8.0j</div>
-        <div class="ttit">OC→RC — le délai le plus long du corpus</div>
-        <div class="tbody">8 jours entre l'OC et le RC : c'est trop long sans contact intermédiaire. Avec 213 opps, <em>la relance RC arrive trop tard pour maintenir l'engagement.</em> Le L3 fait du call court entre les deux — pas le L1.</div>
+        <div class="tstat" style="color:var(--red)">11.2</div>
+        <div class="ttit">Open Cases / agent — record (égalité avec L3)</div>
+        <div class="tbody">11.2 cases ouverts en moyenne par L1, alors que L0 et L2 sont à 2.7 et 2.5 respectivement. <em>Mais L3 est aussi à 11.5 — la différence : L3 a 6.1 tasks Supply ouvertes, L1 n'en a qu'1.0.</em> Le L1 a beaucoup de problèmes (cases) mais ne crée pas de tasks pour les structurer.</div>
       </div>
       <div class="trait">
         <div class="tstat" style="color:var(--red)">213</div>
-        <div class="ttit">Opps / agent — le volume écrase la capacité de relance</div>
-        <div class="tbody">213 opps = 27 par semaine = impossible à suivre activement avec uniquement des calls longs. <em>La quantité force l'agent à n'être réactif que sur les clients qui rappellent.</em> Les autres tombent dans le silo "à relancer un jour".</div>
+        <div class="ttit">Opps / agent — le volume écrase la qualité de suivi</div>
+        <div class="tbody">213 opps = 27 par semaine = impossible à suivre activement, surtout sans trace écrite. <em>La quantité force l'agent à être réactif aux feux du jour</em> — et les leads dormants tombent en silence.</div>
       </div>
       <div class="trait">
-        <div class="tstat" style="color:var(--red)">49%</div>
-        <div class="ttit">RC Bkg — le closing souffre</div>
-        <div class="tbody">Quand le RC se tient enfin, seulement 49% signent (vs 67% pour L2/L3). <em>Trop de temps écoulé depuis l'OC, le client a perdu le fil ou comparé ailleurs.</em> Le RC arrive trop tard et trop "froid".</div>
+        <div class="tstat" style="color:var(--red)">49.3%</div>
+        <div class="ttit">RC Bkg — le closing le plus faible</div>
+        <div class="tbody">Quand le RC se tient, seulement 49.3% signent (vs 66.5-66.7% pour L2/L3). <em>Le client arrive au RC sans trace écrite de l'OC précédent — il a oublié les détails de l'offre, comparé ailleurs.</em> Le L1 doit re-vendre depuis zéro à chaque RC.</div>
       </div>
     </div>
   </div>
 
   <div class="st" style="margin-top:1.5rem">Pour sortir du L1</div>
   <div class="uc">
-    <div class="ut">Actions prioritaires</div>
+    <div class="ut">Actions prioritaires (le L1 manque de méthode écrite, pas de volume oral)</div>
     <div class="uitems">
-      <div class="ui"><div class="un">1</div><div class="utx"><strong>Plafonner à 170 opps/agent.</strong> Moins de leads mieux suivis &gt; plus de leads survolés. Le L2 fait 144 opps/agent et convertit mieux.</div></div>
-      <div class="ui"><div class="un">2</div><div class="utx"><strong>Ajouter du call court entre OC et RC.</strong> Objectif : 1 call &lt;10min à J+2 après chaque OC sans booking immédiat. Réduit OC→RC de 8.0j à 5j.</div></div>
-      <div class="ui"><div class="un">3</div><div class="utx"><strong>Doubler le volume d'emails de relance.</strong> Passer de 5.4 à 8+ emails/opp. Chaque email = trace écrite qui sécurise le call précédent.</div></div>
-      <div class="ui"><div class="un">4</div><div class="utx"><strong>RC planifié pendant l'OC, avant de raccrocher.</strong> Pas de fin d'OC sans date de RC dans le calendrier client. Objectif RC Done : 65%+ (vs 52%).</div></div>
+      <div class="ui"><div class="un">1</div><div class="utx"><strong>Doubler le volume d'emails de relance.</strong> Passer de 7.2 à 9+ emails/opp (= niveau L2). Recap email systématique après chaque OC, avant chaque RC.</div></div>
+      <div class="ui"><div class="un">2</div><div class="utx"><strong>Ouvrir une task pour chaque dossier signé.</strong> Passer de 1.0 à 4+ open tasks/agent. Une task = un client suivi formellement.</div></div>
+      <div class="ui"><div class="un">3</div><div class="utx"><strong>Plafonner à 170 opps/agent.</strong> Le L2 fait 144 opps/agent et convertit mieux. Moins de feux = plus de méthode.</div></div>
+      <div class="ui"><div class="un">4</div><div class="utx"><strong>RC planifié pendant l'OC, avec recap email immédiat.</strong> Objectif RC Done 65%+ (vs 52%) et RC Bkg 60%+ (vs 49%).</div></div>
     </div>
   </div>
 </div>
@@ -729,11 +746,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="lbig lh2"><span class="lb-l">LEVEL</span><span class="lb-n">2</span></div>
     <div class="lhc">
       <h2>Low Volume / High ROI — Moteur de revenus</h2>
-      <div class="tl">"Même volume de communication que le L0 — mais 6 points de CR3 en plus"</div>
+      <div class="tl">"Le plus communicatif à l'écrit (9.13 em/opp, record) + meilleure qualité d'OC (40.1% First OC Bkg)"</div>
       <div class="hs2">
         <div class="hst"><strong>19</strong> agents · <strong>144</strong> opps/agent</div>
-        <div class="hst"><strong>2 738</strong> opps · <strong>25.67%</strong> CR3</div>
-        <div class="hst"><strong>9.7</strong> emails/opp · <strong>5.3</strong> calls/opp · First OC Bkg <strong>40.1% ★</strong></div>
+        <div class="hst"><strong>2 738</strong> opps · <strong>25.67%</strong> CR3 ★</div>
+        <div class="hst"><strong>9.13</strong> emails/opp <span style="opacity:.7">(record)</span> · First OC Bkg <strong>40.1% ★</strong></div>
       </div>
     </div>
     <div class="lnum">2</div>
@@ -791,10 +808,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 
   <div class="st">Pattern communication — L2</div>
   <div class="pw" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem">
-    <div class="kpi neu"><div class="kl">Emails / opp</div><div class="kv">9.7</div><div class="kn">≈ L0</div></div>
-    <div class="kpi neu"><div class="kl">Calls / opp</div><div class="kv">5.3</div><div class="kn">≈ L0</div></div>
-    <div class="kpi bad"><div class="kl">% calls &gt;10min</div><div class="kv">75.5%</div><div class="kn">Peu de relances courtes</div></div>
-    <div class="kpi neu"><div class="kl">Temps call/jour</div><div class="kv">2h 30</div><div class="kn">Standard</div></div>
+    <div class="kpi good"><div class="kl">Emails / opp</div><div class="kv">9.13</div><div class="kn">Record corpus ★</div></div>
+    <div class="kpi neu"><div class="kl">Calls / opp</div><div class="kv">4.89</div><div class="kn">≈ marché</div></div>
+    <div class="kpi neu"><div class="kl">% calls &gt;10min</div><div class="kv">78.1%</div><div class="kn">Standard</div></div>
+    <div class="kpi neu"><div class="kl">Temps call/jour</div><div class="kv">2h 17</div><div class="kn">Le moins du corpus ⚠</div></div>
+  </div>
+
+  <div class="st">Charge CRM — peu d'escalations, plus de tasks structurées</div>
+  <div class="pw" style="display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem">
+    <div class="kpi good"><div class="kl">Open Cases / agent</div><div class="kv">2.5</div><div class="kn">Le moins du corpus — pilotage propre</div></div>
+    <div class="kpi neu"><div class="kl">Open Tasks / agent</div><div class="kv">4.4</div><div class="kn">+340% vs L0/L1</div></div>
   </div>
 
   <div class="st">Profil comportemental — L'agent L2</div>
@@ -802,52 +825,52 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="phdr">
       <div class="pav pa2">🎯</div>
       <div class="pht">
-        <h3>Le Commercial Accompli à Mi-Chemin</h3>
-        <p class="pol">Volume de communication identique au L0 (9.7 emails/opp, 5.3 calls/opp, 75% calls longs) — mais convertit 6 points mieux. <em>Le différenciateur n'est pas la quantité d'activité mais la qualité de l'OC :</em> 40.1% First OC Bkg, le meilleur du corpus. Il transforme l'OC en call de conviction et structure la suite — RC Done à 74%.</p>
+        <h3>L'Écrit-Convicteur</h3>
+        <p class="pol">Le plus communicatif à l'écrit du corpus : <strong>9.13 emails/opp (record)</strong>, dont 5.73 emails sortants par opp (record aussi). Combiné à la <strong>meilleure qualité d'OC (40.1% First OC Bkg)</strong>, il convertit le mieux du corpus (CR3 25.67%, le top). Il préfère l'écrit (2h 17 de call/jour, le moins du corpus) — mais sa rigueur écrite compense. Le pilotage Supply commence à se structurer (4.4 tasks vs 1.0 chez L0/L1) mais reste imparfait (cycles longs).</p>
         <div class="ptags">
-          <span class="ptag pt-g">RC Done 74% ★</span>
+          <span class="ptag pt-g">CR3 25.67% (top) ★</span>
+          <span class="ptag pt-g">9.13 em/opp (record)</span>
           <span class="ptag pt-g">First OC Bkg 40.1%</span>
-          <span class="ptag pt-g">RC Bkg 66.5%</span>
-          <span class="ptag pt-r">Supply Pend→Conf 9.5j</span>
+          <span class="ptag pt-g">2.5 cases (le min)</span>
         </div>
       </div>
     </div>
     <div class="pcent">
       <div class="pcl">Comportement central</div>
-      <div class="pct ge">Le L2 démontre un principe central : <em>à volume de communication identique, c'est la qualité de l'OC qui distingue.</em> Mêmes emails/opp, mêmes calls/opp, même % de calls longs que le L0. Mais 1 client sur 2.5 signe dès le premier OC (vs 1 sur 3 chez L0/L1). Sa relance RC est aussi mieux ciblée — RC Bkg à 66.5% (vs 54-49% chez L0/L1). Il convertit, il défend, il closing. Mais après la signature, il repasse en mode passif — le Supply Pend→Conf reste un angle mort à 9.5 jours.</div>
+      <div class="pct ge">Le L2 est <em>l'agent qui mise sur l'écrit pour convaincre</em>. 9.13 emails/opp (vs 7.2 L1, 7.75 L0) — il documente, il recap, il sécurise par écrit. C'est ce qui lui permet d'avoir <strong>la meilleure qualité d'OC du corpus (40.1% First OC Bkg)</strong> : ses clients arrivent au call OC déjà préparés par les emails. Et c'est ce qui réduit sa charge de support : <strong>2.5 open cases (le minimum du corpus)</strong> — comme tout est tracé par écrit, peu d'escalations CS sont nécessaires. Mais son cycle aval est plus long (OC→RC 9.4j, le pire) et son temps de call quotidien est le plus bas (2h 17) — le L2 doit étendre sa rigueur écrite vers le pilotage oral du post-OC.</div>
     </div>
     <div class="ptraits">
       <div class="trait">
+        <div class="tstat" style="color:var(--grn)">9.13</div>
+        <div class="ttit">Emails / opp — record du corpus</div>
+        <div class="tbody">L2 = 9.13 em/opp, +27% vs L1 (7.2), +18% vs L0 (7.75). <em>L'écrit est sa signature comportementale.</em> Recap email après chaque appel, follow-up structuré, documentation de l'offre. Cela explique 40.1% First OC Bkg : ses clients arrivent au OC déjà imprégnés.</div>
+      </div>
+      <div class="trait">
+        <div class="tstat" style="color:var(--grn)">2.5</div>
+        <div class="ttit">Open Cases / agent — le minimum du corpus</div>
+        <div class="tbody">2.5 vs 11.2 pour L1 et 11.5 pour L3. <em>La rigueur écrite paie : peu d'escalations CS nécessaires.</em> Le client a tout par email, le CS n'a pas besoin de re-poser les questions. Couplé à 4.4 open tasks/agent — il pilote méthodiquement.</div>
+      </div>
+      <div class="trait">
         <div class="tstat" style="color:var(--grn)">40.1%</div>
         <div class="ttit">First OC Bkg — meilleur du corpus</div>
-        <div class="tbody">1 client sur 2.5 signe dès le premier OC. <em>Le L2 transforme son OC en call de conviction, pas juste en présentation.</em> Il crée l'urgence, défend la valeur, traite les objections. Cette compétence est ce qui sépare L2 de L0/L1, pas le volume d'activité.</div>
+        <div class="tbody">1 client sur 2.5 signe dès le premier OC. <em>Préparation amont structurée (emails) + OC de conviction.</em> Le client arrive avec l'offre déjà digérée, l'agent ne fait que confirmer.</div>
       </div>
       <div class="trait">
-        <div class="tstat" style="color:var(--grn)">66.5%</div>
-        <div class="ttit">RC Bkg — quand le RC se tient, 2 fois sur 3 le client signe</div>
-        <div class="tbody">66.5% des RC effectués se concluent en booking, contre 54-49% pour L0/L1. <em>Quand le L2 prend la peine de relancer, il sait conclure.</em> Sa préparation amont (offre adaptée, qualif fine) paie au moment du RC.</div>
-      </div>
-      <div class="trait">
-        <div class="tstat" style="color:var(--red)">9.5j</div>
-        <div class="ttit">Supply Pend→Conf — la DMC est attendue, pas pilotée</div>
-        <div class="tbody">Une fois signé, <em>l'agent L2 passe au lead suivant.</em> Il a décroché son booking — sa mission est terminée dans sa tête. 9.5j pour confirmer les hôtels contre 10.6j pour un L3, mais surtout : aucun suivi systématique.</div>
-      </div>
-      <div class="trait">
-        <div class="tstat" style="color:var(--org)">19 agents</div>
-        <div class="ttit">Plus grand groupe — et le plus hétérogène</div>
-        <div class="tbody">Certains L2 ont des CR3 quasi L3 (Antoine Revardeau 31.25%, Malek Adjroud 31.97%). D'autres restent autour de 17-18%. <em>C'est le level où l'avenir de l'équipe se joue — et où l'impact du coaching est maximal.</em></div>
+        <div class="tstat" style="color:var(--red)">9.4j</div>
+        <div class="ttit">OC → RC — le plus long du corpus</div>
+        <div class="tbody">9.4j entre OC et RC, contre 7.1j L3 et 6.3j L0. <em>L'écrit ne suffit pas pour la relance courte.</em> Le L2 a tendance à attendre que le client revienne après l'OC, alors qu'un call court à J+2 raccourcirait le cycle.</div>
       </div>
     </div>
   </div>
 
   <div class="st" style="margin-top:1.5rem">Pour sortir du L2</div>
   <div class="uc">
-    <div class="ut">Actions prioritaires</div>
+    <div class="ut">Actions prioritaires (le L2 doit étendre sa rigueur écrite vers l'oral post-OC)</div>
     <div class="uitems">
-      <div class="ui"><div class="un">1</div><div class="utx"><strong>Augmenter le ratio de calls courts.</strong> Passer de 24% à 38% de calls &lt;10min comme les L3. C'est le différenciateur observé entre L2 et L3.</div></div>
-      <div class="ui"><div class="un">2</div><div class="utx"><strong>Étendre le process jusqu'au Supply Confirmed.</strong> Contact DMC J+1, update client J+2. Objectif : 9.5j → 7j.</div></div>
-      <div class="ui"><div class="un">3</div><div class="utx"><strong>Augmenter le volume d'opps à 165/agent.</strong> Le L2 traite 144 opps/agent. À cohérence d'efficacité, monter à 165 = +15% de bookings sans perte de qualité.</div></div>
-      <div class="ui"><div class="un">4</div><div class="utx"><strong>Homogénéiser : coacher les agents en bas de classement.</strong> 19 agents, 14pt d'écart de CR3 entre le top et le bottom. L'impact d'un coaching ciblé est maximal ici.</div></div>
+      <div class="ui"><div class="un">1</div><div class="utx"><strong>Augmenter le temps de call quotidien.</strong> Passer de 2h 17 à 2h 40+ par jour. La marge est sur le call court de relance entre OC et RC.</div></div>
+      <div class="ui"><div class="un">2</div><div class="utx"><strong>Réduire OC→RC de 9.4j à 7j.</strong> Un call court à J+2 après l'OC, suivi d'un email recap. C'est le seul gap mesurable entre L2 et L3.</div></div>
+      <div class="ui"><div class="un">3</div><div class="utx"><strong>Étendre le process jusqu'au Supply Confirmed.</strong> Contact DMC J+1, update client J+2. Objectif : 9.5j → 7j.</div></div>
+      <div class="ui"><div class="un">4</div><div class="utx"><strong>Homogénéiser : coacher les agents en bas de classement.</strong> 19 agents, top 32% (Malek Adjroud) vs bas 17-18%. L'impact du coaching ciblé est maximal ici.</div></div>
     </div>
   </div>
 </div>
@@ -858,11 +881,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="lbig lh3"><span class="lb-l">LEVEL</span><span class="lb-n">3</span></div>
     <div class="lhc">
       <h2>High Volume / High ROI — Highest Value Cohort</h2>
-      <div class="tl">"Le seul niveau qui pratique la relance courte — 38% des calls font &lt;10 min"</div>
+      <div class="tl">"Pilotage actif post-vente — 6.1 tasks/agent (record), 11.5 cases (record), 2h 40 call/jour"</div>
       <div class="hs2">
         <div class="hst"><strong>14</strong> agents · <strong>162</strong> opps/agent</div>
         <div class="hst"><strong>2 274</strong> opps · <strong>24.76%</strong> CR3</div>
-        <div class="hst"><strong>6.9</strong> calls/opp <span style="opacity:.7">(record)</span> · <strong>3h</strong> call/jour <span style="opacity:.7">(record)</span></div>
+        <div class="hst"><strong>6.1</strong> open tasks/agent <span style="opacity:.7">(record)</span> · <strong>RC Bkg 66.7% ★</strong></div>
       </div>
     </div>
     <div class="lnum">3</div>
@@ -874,9 +897,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
       <div class="kgrid" style="grid-template-columns:1fr 1fr">
         <div class="kpi good"><div class="kl">OC Done</div><div class="kv">73.6%</div><div class="kn">Meilleur corpus</div></div>
         <div class="kpi good"><div class="kl">RC Done</div><div class="kv">73.4%</div><div class="kn">≈ L2, &gt;&gt; L0/L1</div></div>
-        <div class="kpi good"><div class="kl">RC Bkg</div><div class="kv">66.7%</div><div class="kn">Closing record</div></div>
-        <div class="kpi good"><div class="kl">Calls / opp</div><div class="kv">6.9</div><div class="kn">+30% vs L0/L2 ★</div></div>
-        <div class="kpi good"><div class="kl">% calls courts</div><div class="kv">38.5%</div><div class="kn">+13pt vs L0/L1/L2 ★</div></div>
+        <div class="kpi good"><div class="kl">RC Bkg</div><div class="kv">66.7%</div><div class="kn">Closing record ★</div></div>
+        <div class="kpi good"><div class="kl">Open Tasks / agent</div><div class="kv">6.1</div><div class="kn">Record corpus ★</div></div>
+        <div class="kpi neu"><div class="kl">Open Cases / agent</div><div class="kv">11.5</div><div class="kn">Volume actif</div></div>
         <div class="kpi neu"><div class="kl">First OC Bkg</div><div class="kv">34.1%</div><div class="kn">Compensé par RC Done</div></div>
       </div>
     </div>
@@ -918,53 +941,59 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     </div>
   </div>
 
-  <div class="st">Pattern communication — L3 ★</div>
+  <div class="st">Pattern communication — L3</div>
   <div class="pw" style="display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem">
-    <div class="kpi neu"><div class="kl">Emails / opp</div><div class="kv">8.3</div><div class="kn">≈ L0/L2</div></div>
-    <div class="kpi good"><div class="kl">Calls / opp</div><div class="kv">6.9</div><div class="kn">+30% vs L0/L2 ★</div></div>
-    <div class="kpi good"><div class="kl">% calls &gt;10min</div><div class="kv">61.5%</div><div class="kn">−14pt vs autres = relance courte</div></div>
-    <div class="kpi good"><div class="kl">Temps call/jour</div><div class="kv">3h 00</div><div class="kn">Record corpus</div></div>
+    <div class="kpi good"><div class="kl">Emails / opp</div><div class="kv">8.62</div><div class="kn">+3% vs marché</div></div>
+    <div class="kpi neu"><div class="kl">Calls / opp</div><div class="kv">4.76</div><div class="kn">≈ marché</div></div>
+    <div class="kpi neu"><div class="kl">% calls &gt;10min</div><div class="kv">77.7%</div><div class="kn">Standard</div></div>
+    <div class="kpi good"><div class="kl">Temps call/jour</div><div class="kv">2h 40</div><div class="kn">+13min vs L0/L2</div></div>
+  </div>
+
+  <div class="st">Charge CRM — pilotage post-vente actif ★</div>
+  <div class="pw" style="display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem">
+    <div class="kpi good"><div class="kl">Open Tasks / agent</div><div class="kv">6.1</div><div class="kn">Record ★ — pilote chaque dossier</div></div>
+    <div class="kpi neu"><div class="kl">Open Cases / agent</div><div class="kv">11.5</div><div class="kn">Record — beaucoup de dossiers actifs</div></div>
   </div>
 
   <div class="st">Profil comportemental — L'agent L3</div>
   <div class="pcard">
     <div class="phdr">
-      <div class="pav pa3">📞</div>
+      <div class="pav pa3">🛠️</div>
       <div class="pht">
-        <h3>Le Caller Proactif</h3>
-        <p class="pol">Le seul niveau qui pratique la relance courte. <em>38% de ses calls font moins de 10 min</em> — soit +13 points par rapport à tous les autres niveaux qui plafonnent à 24-25%. Combiné à 6.9 calls/opp (vs 5.3-5.6 ailleurs) et 3h/jour de call (record), cela trace un profil clair : le L3 ne se contente pas du long call de qualif, il rappelle le client à chaque étape pour fixer la prochaine action.</p>
+        <h3>Le Pilote Post-Vente</h3>
+        <p class="pol">Le L3 se distingue avant tout par sa <strong>rigueur de pilotage post-signature</strong> : <strong>6.1 open tasks/agent (record)</strong> vs 1.0 pour L0/L1. Chaque dossier signé est suivi formellement. Combiné à 11.5 cases (record, à égalité avec L1, mais vs 1.0 task L1) et 2h 40 de call/jour, le L3 ne lâche jamais ses clients après la vente. Résultat : <strong>RC Bkg 66.7% (record)</strong> et CR3 24.76%.</p>
         <div class="ptags">
-          <span class="ptag pt-g">38% calls courts ★</span>
-          <span class="ptag pt-g">6.9 calls/opp</span>
-          <span class="ptag pt-g">3h call/jour</span>
-          <span class="ptag pt-g">RC Bkg 66.7%</span>
+          <span class="ptag pt-g">6.1 tasks/agent ★</span>
+          <span class="ptag pt-g">RC Bkg 66.7% ★</span>
+          <span class="ptag pt-g">RC Done 73.4%</span>
+          <span class="ptag pt-g">8.62 emails/opp</span>
         </div>
       </div>
     </div>
     <div class="pcent">
       <div class="pcl">Comportement central</div>
-      <div class="pct ge">Le L3 considère que <em>chaque transition de funnel mérite un call court de relance</em>. Quand le L0 envoie un email pour demander si l'offre a été lue, le L3 décroche son téléphone pour 5 min : « j'appelle pour caler l'OC dans la semaine ». Quand le L1 attend que le client rappelle après l'OC, le L3 relance à J+2 par un short call : « tu as eu le temps d'y réfléchir avec ton conjoint ? ». Cette mécanique de short call entre les étapes maintient l'engagement, raccourcit les cycles et explique le RC Bkg de 66.7% (le meilleur du corpus).</div>
+      <div class="pct ge">Le L3 est <em>l'agent qui ne lâche pas ses dossiers post-signature</em>. <strong>6.1 open tasks par agent</strong> en moyenne, contre 1.0 pour L0/L1 et 4.4 pour L2. Chaque opp signée devient une responsabilité formelle : task de suivi DMC, task de relance hôtel, task de check-in client. C'est ce qui maintient le client engagé jusqu'à la confirmation et explique son <strong>RC Bkg de 66.7% (record du corpus)</strong> — quand le RC se tient, 2 fois sur 3 le client signe parce que tout a été tracé proprement. Le L3 combine 11.5 cases actifs (volume) avec 6.1 tasks (structure) — il a beaucoup à gérer, mais il gère méthodiquement. Limite : Supply Pend→Conf 10.6j (le plus long), signe que le pilotage existe mais peut encore être resserré.</div>
     </div>
     <div class="ptraits">
       <div class="trait">
-        <div class="tstat" style="color:var(--grn)">38%</div>
-        <div class="ttit">% calls &lt;10min — la signature comportementale du L3</div>
-        <div class="tbody">L0 a 25% de calls courts, L1 25%, L2 25%, L3 38%. <em>C'est le seul indicateur qui sépare nettement le L3 des autres.</em> Ces calls courts sont les calls de relance, de check-in, de fixation de la prochaine étape. C'est ce qui transforme un funnel statique en funnel actif.</div>
-      </div>
-      <div class="trait">
-        <div class="tstat" style="color:var(--grn)">6.9</div>
-        <div class="ttit">Calls / opp — +30% vs L0/L2</div>
-        <div class="tbody">Le L3 décroche le téléphone 6.9 fois par opp en moyenne, contre 5.3 pour le L2 et 5.6 pour le L0. <em>Plus de calls = plus de touchpoints = plus d'opportunités de garder le client engagé.</em> Sans téléphone, on perd des leads à chaque transition silencieuse.</div>
+        <div class="tstat" style="color:var(--grn)">6.1</div>
+        <div class="ttit">Open Tasks / agent — record du corpus</div>
+        <div class="tbody">L3 = 6.1 tasks/agent vs 4.4 (L2), 1.0 (L0/L1). <em>C'est l'indicateur qui distingue le mieux les niveaux.</em> Une task = un dossier formellement suivi. Le L3 transforme chaque signature en série d'actions structurées plutôt que d'attendre les questions du CS.</div>
       </div>
       <div class="trait">
         <div class="tstat" style="color:var(--grn)">66.7%</div>
         <div class="ttit">RC Bkg — closing le plus élevé du corpus</div>
-        <div class="tbody">2 RC sur 3 se concluent en booking. <em>Quand le RC se tient, le L3 close.</em> Pas parce qu'il sait mieux closer (le L2 closing est à 66.5%, équivalent), mais parce qu'il arrive au RC avec un client encore engagé — grâce aux relances courtes intermédiaires.</div>
+        <div class="tbody">2 RC sur 3 se concluent en booking. <em>Quand le RC se tient, le L3 close.</em> Le client arrive au RC avec un dossier propre, des relances tracées, un agent qui maîtrise les détails — le closing devient quasi mécanique.</div>
       </div>
       <div class="trait">
-        <div class="tstat" style="color:var(--blu)">3h</div>
-        <div class="ttit">Temps call/jour — investit le téléphone comme outil principal</div>
-        <div class="tbody">3h/jour au téléphone vs 2h30 pour L0/L2 et 2h49 pour L1. <em>Le L3 a fait du téléphone son canal n°1.</em> L'email reste un support (8.3 emails/opp, ≈ L0/L2) mais c'est le call qui pilote chaque étape.</div>
+        <div class="tstat" style="color:var(--blu)">8.62</div>
+        <div class="ttit">Emails / opp — +3% vs marché</div>
+        <div class="tbody">8.62 em/opp, juste sous le L2 (9.13). <em>L'écrit accompagne le pilotage, pas l'inverse.</em> Le L3 documente, mais sans en faire son canal principal — il préfère structurer par task et relancer par call court.</div>
+      </div>
+      <div class="trait">
+        <div class="tstat" style="color:var(--red)">10.6j</div>
+        <div class="ttit">Supply Pend→Conf — le plus long du corpus</div>
+        <div class="tbody">10.6j vs 7.3j L1 et 8.3j L0. <em>Limite du modèle L3 : la rigueur de pilotage ne raccourcit pas tous les délais — le Supply DMC reste long.</em> Pour passer au niveau supérieur, le L3 doit transformer ses tasks Supply en relances DMC actives.</div>
       </div>
     </div>
   </div>
@@ -973,9 +1002,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
   <div class="uc">
     <div class="ut">Les 4 comportements qui distinguent le L3</div>
     <div class="uitems">
-      <div class="ui"><div class="un">✓</div><div class="utx"><strong>Calls courts entre les étapes.</strong> 38% de calls &lt;10min vs 25% partout ailleurs. C'est la vraie signature du L3.</div></div>
-      <div class="ui"><div class="un">✓</div><div class="utx"><strong>Volume de calls élevé.</strong> 6.9 calls/opp et 3h/jour au téléphone — investit le canal oral comme outil principal de pilotage.</div></div>
-      <div class="ui"><div class="un">✓</div><div class="utx"><strong>Closing record.</strong> RC Bkg 66.7% = arrive au RC avec un client encore engagé grâce aux relances courtes.</div></div>
+      <div class="ui"><div class="un">✓</div><div class="utx"><strong>6.1 open tasks par agent.</strong> Chaque dossier post-signature est suivi formellement. Vs 1.0 pour L0/L1.</div></div>
+      <div class="ui"><div class="un">✓</div><div class="utx"><strong>RC Bkg 66.7% (record).</strong> Quand le RC se tient, 2 fois sur 3 le client signe — preuve d'un pilotage propre.</div></div>
+      <div class="ui"><div class="un">✓</div><div class="utx"><strong>2h 40 call/jour + 8.6 emails/opp.</strong> Investit les deux canaux de manière équilibrée.</div></div>
       <div class="ui"><div class="un">✗</div><div class="utx"><strong>Goulot non résolu : Offer Made → OC Done.</strong> −19pt même au L3. Levier universel inexploité dans tout le corpus.</div></div>
     </div>
   </div>
@@ -1279,7 +1308,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <div class="tp-kpi"><span class="kv">22.9%</span><span class="kl">CR3</span></div>
         <div class="tp-kpi"><span class="kv">€4.6M</span><span class="kl">GBV Q1</span></div>
       </div>
-      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag1h">L1</span><small>×2</small> <span class="badge ag2h">L2</span><small>×2</small> <span class="badge ag3h">L3</span><small>×5</small></div>
+      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag1h">L1</span><small>×3</small> <span class="badge ag2h">L2</span><small>×2</small> <span class="badge ag3h">L3</span><small>×4</small></div>
     </div>
 
     <div class="tp-body">
@@ -1300,7 +1329,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
             </tr>
             <tr onclick="selectAgent('stephanie','thibaut_brachet')" class="ag-row" data-id="thibaut_brachet">
               <td>Thibaut Brachet</td>
-              <td><span class="badge ag3h">L3</span></td>
+              <td><span class="badge ag1">L1</span></td>
               <td>207</td>
               <td>55</td>
               <td class="pos">26.6%<span class="d1 dn">▼</span></td>
@@ -1417,7 +1446,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
           <select id="sel-stephanie" onchange="loadCard('stephanie',this.value)">
               <option value="">— Sélectionner un agent —</option>
               <option value="yann_magueur" data-lvl="L3">Yann Magueur (L3)</option>
-              <option value="thibaut_brachet" data-lvl="L3">Thibaut Brachet (L3)</option>
+              <option value="thibaut_brachet" data-lvl="L1">Thibaut Brachet (L1)</option>
               <option value="ella_thevenet" data-lvl="L1">Ella Thevenet (L1)</option>
               <option value="alice_saint_jean" data-lvl="L3">Alice Saint-Jean (L3)</option>
               <option value="valerie_aleksandrowicz" data-lvl="L3">Valérie Aleksandrowicz (L3)</option>
@@ -1440,7 +1469,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     </div>
 
     <script>
-    window._agData_stephanie = {"yann_magueur":{"name":"Yann Magueur","lvl":"L3","opps":210,"bkg":59,"cr3":28.1,"aov":8921,"gbv":560500,"fc_done":210,"so_count":122,"so_rate":58.2,"oc_done":116,"oc_rate":55.2,"rc_done":67,"first_bkg":59,"sp_count":32,"sc_count":21,"pct_present":58.2,"pct_offer":55.2,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":101.75,"rc_ratio":3.39,"first_oc_bkg":96.61},"thibaut_brachet":{"name":"Thibaut Brachet","lvl":"L3","opps":207,"bkg":55,"cr3":26.57,"aov":7807,"gbv":511500,"fc_done":207,"so_count":114,"so_rate":55.0,"oc_done":108,"oc_rate":52.0,"rc_done":66,"first_bkg":55,"sp_count":31,"sc_count":21,"pct_present":55.0,"pct_offer":52.0,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":92.0,"rc_ratio":6.0,"first_oc_bkg":94.0},"alice_saint_jean":{"name":"Alice Saint-Jean","lvl":"L3","opps":213,"bkg":46,"cr3":21.6,"aov":10885,"gbv":432400,"fc_done":213,"so_count":95,"so_rate":44.7,"oc_done":89,"oc_rate":41.7,"rc_done":68,"first_bkg":46,"sp_count":32,"sc_count":21,"pct_present":44.7,"pct_offer":41.7,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":89.36,"rc_ratio":25.53,"first_oc_bkg":74.47},"valerie_aleksandrowicz":{"name":"Valérie Aleksandrowicz","lvl":"L3","opps":216,"bkg":44,"cr3":20.37,"aov":10319,"gbv":431200,"fc_done":216,"so_count":91,"so_rate":42.2,"oc_done":85,"oc_rate":39.2,"rc_done":69,"first_bkg":44,"sp_count":32,"sc_count":22,"pct_present":42.2,"pct_offer":39.2,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":94.0,"rc_ratio":20.0,"first_oc_bkg":80.0},"ella_thevenet":{"name":"Ella Thevenet","lvl":"L1","opps":225,"bkg":44,"cr3":19.56,"aov":8824,"gbv":334400,"fc_done":225,"so_count":100,"so_rate":44.5,"oc_done":93,"oc_rate":41.5,"rc_done":58,"first_bkg":44,"sp_count":34,"sc_count":22,"pct_present":44.5,"pct_offer":41.5,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":100.0,"rc_ratio":24.39,"first_oc_bkg":75.61},"lucie_collado":{"name":"Lucie Collado","lvl":"L3","opps":163,"bkg":43,"cr3":26.38,"aov":11082,"gbv":412800,"fc_done":163,"so_count":89,"so_rate":54.6,"oc_done":84,"oc_rate":51.6,"rc_done":52,"first_bkg":43,"sp_count":24,"sc_count":16,"pct_present":54.6,"pct_offer":51.6,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":95.65,"rc_ratio":25.0,"first_oc_bkg":75.0},"elise_francois":{"name":"Elise François","lvl":"L1","opps":159,"bkg":39,"cr3":24.53,"aov":7164,"gbv":249600,"fc_done":159,"so_count":89,"so_rate":55.8,"oc_done":84,"oc_rate":52.8,"rc_done":41,"first_bkg":39,"sp_count":24,"sc_count":16,"pct_present":55.8,"pct_offer":52.8,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":95.12,"rc_ratio":0.0,"first_oc_bkg":100.0},"melissa_braun":{"name":"Melissa Braun","lvl":"L2","opps":134,"bkg":38,"cr3":28.36,"aov":9031,"gbv":311600,"fc_done":134,"so_count":82,"so_rate":61.3,"oc_done":78,"oc_rate":58.3,"rc_done":39,"first_bkg":38,"sp_count":20,"sc_count":13,"pct_present":61.3,"pct_offer":58.3,"pct_rc":29,"pct_sp":15.0,"bm_cr3":25.0,"bm_aov":8500,"bm_so":54,"bm_oc":51,"bm_rc":29,"oc_done_rate":89.74,"rc_ratio":2.44,"first_oc_bkg":97.56},"juliette_cazes":{"name":"Juliette Cazes","lvl":"L1","opps":209,"bkg":37,"cr3":17.7,"aov":9384,"gbv":288600,"fc_done":209,"so_count":84,"so_rate":40.2,"oc_done":78,"oc_rate":37.2,"rc_done":54,"first_bkg":37,"sp_count":31,"sc_count":21,"pct_present":40.2,"pct_offer":37.2,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":94.12,"rc_ratio":17.65,"first_oc_bkg":82.35},"joumala_elalaoui":{"name":"Joumala ElAlaoui","lvl":"L3","opps":164,"bkg":36,"cr3":21.95,"aov":11775,"gbv":349200,"fc_done":164,"so_count":75,"so_rate":45.5,"oc_done":70,"oc_rate":42.5,"rc_done":52,"first_bkg":36,"sp_count":25,"sc_count":16,"pct_present":45.5,"pct_offer":42.5,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":95.35,"rc_ratio":22.22,"first_oc_bkg":77.78},"laury_de_oliveira":{"name":"Laury De-Oliveira","lvl":"L1","opps":195,"bkg":35,"cr3":17.95,"aov":12251,"gbv":252000,"fc_done":195,"so_count":80,"so_rate":40.8,"oc_done":74,"oc_rate":37.8,"rc_done":51,"first_bkg":35,"sp_count":29,"sc_count":20,"pct_present":40.8,"pct_offer":37.8,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":95.0,"rc_ratio":25.0,"first_oc_bkg":75.0},"helene_ristic":{"name":"Hélène Ristic","lvl":"L2","opps":118,"bkg":30,"cr3":25.42,"aov":11486,"gbv":253680,"fc_done":118,"so_count":65,"so_rate":54.9,"oc_done":61,"oc_rate":51.9,"rc_done":34,"first_bkg":30,"sp_count":18,"sc_count":12,"pct_present":54.9,"pct_offer":51.9,"pct_rc":29,"pct_sp":15.0,"bm_cr3":25.0,"bm_aov":8500,"bm_so":54,"bm_oc":51,"bm_rc":29,"oc_done_rate":93.33,"rc_ratio":21.43,"first_oc_bkg":78.57},"eva_ancelin":{"name":"Eva Ancelin","lvl":"L0","opps":130,"bkg":18,"cr3":13.85,"aov":10584,"gbv":119034,"fc_done":130,"so_count":45,"so_rate":34.6,"oc_done":41,"oc_rate":31.6,"rc_done":29,"first_bkg":18,"sp_count":20,"sc_count":13,"pct_present":34.6,"pct_offer":31.6,"pct_rc":22,"pct_sp":15.0,"bm_cr3":18.0,"bm_aov":6500,"bm_so":45,"bm_oc":42,"bm_rc":22,"oc_done_rate":95.45,"rc_ratio":13.04,"first_oc_bkg":86.96}};
+    window._agData_stephanie = {"yann_magueur":{"name":"Yann Magueur","lvl":"L3","opps":210,"bkg":59,"cr3":28.1,"aov":8921,"gbv":560500,"fc_done":210,"so_count":122,"so_rate":58.2,"oc_done":116,"oc_rate":55.2,"rc_done":67,"first_bkg":59,"sp_count":32,"sc_count":21,"pct_present":58.2,"pct_offer":55.2,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":101.75,"rc_ratio":3.39,"first_oc_bkg":96.61},"thibaut_brachet":{"name":"Thibaut Brachet","lvl":"L1","opps":207,"bkg":55,"cr3":26.57,"aov":7807,"gbv":511500,"fc_done":207,"so_count":114,"so_rate":55.0,"oc_done":108,"oc_rate":52.0,"rc_done":66,"first_bkg":55,"sp_count":31,"sc_count":21,"pct_present":55.0,"pct_offer":52.0,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":92.0,"rc_ratio":6.0,"first_oc_bkg":94.0},"alice_saint_jean":{"name":"Alice Saint-Jean","lvl":"L3","opps":213,"bkg":46,"cr3":21.6,"aov":10885,"gbv":432400,"fc_done":213,"so_count":95,"so_rate":44.7,"oc_done":89,"oc_rate":41.7,"rc_done":68,"first_bkg":46,"sp_count":32,"sc_count":21,"pct_present":44.7,"pct_offer":41.7,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":89.36,"rc_ratio":25.53,"first_oc_bkg":74.47},"valerie_aleksandrowicz":{"name":"Valérie Aleksandrowicz","lvl":"L3","opps":216,"bkg":44,"cr3":20.37,"aov":10319,"gbv":431200,"fc_done":216,"so_count":91,"so_rate":42.2,"oc_done":85,"oc_rate":39.2,"rc_done":69,"first_bkg":44,"sp_count":32,"sc_count":22,"pct_present":42.2,"pct_offer":39.2,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":94.0,"rc_ratio":20.0,"first_oc_bkg":80.0},"ella_thevenet":{"name":"Ella Thevenet","lvl":"L1","opps":225,"bkg":44,"cr3":19.56,"aov":8824,"gbv":334400,"fc_done":225,"so_count":100,"so_rate":44.5,"oc_done":93,"oc_rate":41.5,"rc_done":58,"first_bkg":44,"sp_count":34,"sc_count":22,"pct_present":44.5,"pct_offer":41.5,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":100.0,"rc_ratio":24.39,"first_oc_bkg":75.61},"lucie_collado":{"name":"Lucie Collado","lvl":"L3","opps":163,"bkg":43,"cr3":26.38,"aov":11082,"gbv":412800,"fc_done":163,"so_count":89,"so_rate":54.6,"oc_done":84,"oc_rate":51.6,"rc_done":52,"first_bkg":43,"sp_count":24,"sc_count":16,"pct_present":54.6,"pct_offer":51.6,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":95.65,"rc_ratio":25.0,"first_oc_bkg":75.0},"elise_francois":{"name":"Elise François","lvl":"L1","opps":159,"bkg":39,"cr3":24.53,"aov":7164,"gbv":249600,"fc_done":159,"so_count":89,"so_rate":55.8,"oc_done":84,"oc_rate":52.8,"rc_done":41,"first_bkg":39,"sp_count":24,"sc_count":16,"pct_present":55.8,"pct_offer":52.8,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":95.12,"rc_ratio":0.0,"first_oc_bkg":100.0},"melissa_braun":{"name":"Melissa Braun","lvl":"L2","opps":134,"bkg":38,"cr3":28.36,"aov":9031,"gbv":311600,"fc_done":134,"so_count":82,"so_rate":61.3,"oc_done":78,"oc_rate":58.3,"rc_done":39,"first_bkg":38,"sp_count":20,"sc_count":13,"pct_present":61.3,"pct_offer":58.3,"pct_rc":29,"pct_sp":15.0,"bm_cr3":25.0,"bm_aov":8500,"bm_so":54,"bm_oc":51,"bm_rc":29,"oc_done_rate":89.74,"rc_ratio":2.44,"first_oc_bkg":97.56},"juliette_cazes":{"name":"Juliette Cazes","lvl":"L1","opps":209,"bkg":37,"cr3":17.7,"aov":9384,"gbv":288600,"fc_done":209,"so_count":84,"so_rate":40.2,"oc_done":78,"oc_rate":37.2,"rc_done":54,"first_bkg":37,"sp_count":31,"sc_count":21,"pct_present":40.2,"pct_offer":37.2,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":94.12,"rc_ratio":17.65,"first_oc_bkg":82.35},"joumala_elalaoui":{"name":"Joumala ElAlaoui","lvl":"L3","opps":164,"bkg":36,"cr3":21.95,"aov":11775,"gbv":349200,"fc_done":164,"so_count":75,"so_rate":45.5,"oc_done":70,"oc_rate":42.5,"rc_done":52,"first_bkg":36,"sp_count":25,"sc_count":16,"pct_present":45.5,"pct_offer":42.5,"pct_rc":32,"pct_sp":15.0,"bm_cr3":28.0,"bm_aov":9200,"bm_so":58,"bm_oc":55,"bm_rc":32,"oc_done_rate":95.35,"rc_ratio":22.22,"first_oc_bkg":77.78},"laury_de_oliveira":{"name":"Laury De-Oliveira","lvl":"L1","opps":195,"bkg":35,"cr3":17.95,"aov":12251,"gbv":252000,"fc_done":195,"so_count":80,"so_rate":40.8,"oc_done":74,"oc_rate":37.8,"rc_done":51,"first_bkg":35,"sp_count":29,"sc_count":20,"pct_present":40.8,"pct_offer":37.8,"pct_rc":26,"pct_sp":15.0,"bm_cr3":22.0,"bm_aov":7500,"bm_so":50,"bm_oc":48,"bm_rc":26,"oc_done_rate":95.0,"rc_ratio":25.0,"first_oc_bkg":75.0},"helene_ristic":{"name":"Hélène Ristic","lvl":"L2","opps":118,"bkg":30,"cr3":25.42,"aov":11486,"gbv":253680,"fc_done":118,"so_count":65,"so_rate":54.9,"oc_done":61,"oc_rate":51.9,"rc_done":34,"first_bkg":30,"sp_count":18,"sc_count":12,"pct_present":54.9,"pct_offer":51.9,"pct_rc":29,"pct_sp":15.0,"bm_cr3":25.0,"bm_aov":8500,"bm_so":54,"bm_oc":51,"bm_rc":29,"oc_done_rate":93.33,"rc_ratio":21.43,"first_oc_bkg":78.57},"eva_ancelin":{"name":"Eva Ancelin","lvl":"L0","opps":130,"bkg":18,"cr3":13.85,"aov":10584,"gbv":119034,"fc_done":130,"so_count":45,"so_rate":34.6,"oc_done":41,"oc_rate":31.6,"rc_done":29,"first_bkg":18,"sp_count":20,"sc_count":13,"pct_present":34.6,"pct_offer":31.6,"pct_rc":22,"pct_sp":15.0,"bm_cr3":18.0,"bm_aov":6500,"bm_so":45,"bm_oc":42,"bm_rc":22,"oc_done_rate":95.45,"rc_ratio":13.04,"first_oc_bkg":86.96}};
     </script>
   </div>
   <div class="team-panel" id="tp-sophie" style="display:none">
@@ -1887,24 +1916,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 <div class="page" id="page-compare">
   <div class="cmpblk">
     <div class="cg cg-r">
-      <h3 style="color:var(--red)">L0 / L1 — Pas de relance courte</h3>
-      <p>"Beaucoup d'écrit ou beaucoup de calls longs — mais pas de relance courte"</p>
-      <div class="ci">% calls courts : <strong>25% (L0) · 25% (L1)</strong> — quasi pas de calls de relance</div>
+      <h3 style="color:var(--red)">L0 / L1 — Sous-investis le post-OC</h3>
+      <p>"Cycle amont rapide ou volume élevé, mais pas de pilotage post-vente"</p>
+      <div class="ci">Open Tasks / agent : <strong>1.0 (L0) · 1.0 (L1)</strong> — vs 4.4 L2, 6.1 L3 — pas de Supply structuré</div>
       <div class="ci">RC Done : <strong>59% (L0) · 52% (L1)</strong> — leads perdus entre OC et RC</div>
-      <div class="ci">RC Bkg : <strong>54.5% (L0) · 49.3% (L1)</strong> — closing faible quand RC tardif</div>
-      <div class="ci">Supply Pend→Conf : <strong>8.3j (L0) · 7.3j (L1)</strong> — DMC non pilotée</div>
+      <div class="ci">RC Bkg : <strong>54.5% (L0) · 49.3% (L1)</strong> — closing faible</div>
       <div class="ci">First OC Bkg : <strong>32.6% / 33.2%</strong> — qualité d'OC limitée</div>
-      <div class="ci">L1 Em/opp : <strong>5.4</strong> — le plus bas, profil "oral first" sans trace écrite</div>
+      <div class="ci">L0 : <strong>2h 27 call/jour (le min)</strong> — sous-investit l'oral</div>
+      <div class="ci">L1 : <strong>11.2 cases/agent + 7.2 em/opp (le min)</strong> — feux mal tracés</div>
     </div>
     <div class="cg cg-g">
-      <h3 style="color:var(--grn)">L2 / L3 — Conversion supérieure</h3>
-      <p>"Qualité d'OC pour L2, relance courte pour L3"</p>
-      <div class="ci">% calls courts L3 : <strong>38%</strong> — la signature comportementale du L3 ★</div>
+      <h3 style="color:var(--grn)">L2 / L3 — Pilotage structuré</h3>
+      <p>"Écrit pour L2, tasks pour L3 — chacun sa méthode"</p>
+      <div class="ci">Open Tasks / agent : <strong>4.4 (L2) · 6.1 (L3) ★</strong> — chaque dossier suivi formellement</div>
       <div class="ci">RC Done : <strong>74.4% (L2) · 73.4% (L3)</strong> — relance structurée</div>
-      <div class="ci">RC Bkg : <strong>66.5% (L2) · 66.7% (L3)</strong> — closing record</div>
-      <div class="ci">First OC Bkg L2 : <strong>40.1% ★</strong> — meilleur OC de conviction du corpus</div>
-      <div class="ci">L3 calls/opp : <strong>6.9</strong> — +30% vs L0/L2, 3h call/jour</div>
-      <div class="ci">Supply Pend→Conf : <strong>9.5j (L2) · 10.6j (L3)</strong> — angle mort restant</div>
+      <div class="ci">RC Bkg : <strong>66.5% (L2) · 66.7% (L3) ★</strong> — closing record</div>
+      <div class="ci">L2 : <strong>9.13 em/opp (record) + 40.1% First OC Bkg ★</strong> — convainc par l'écrit</div>
+      <div class="ci">L3 : <strong>6.1 tasks/agent + 11.5 cases ★</strong> — pilote chaque opp signée</div>
+      <div class="ci">L2 cases : <strong>2.5/agent (le min)</strong> — la rigueur écrite réduit les escalations CS</div>
     </div>
   </div>
 
@@ -1942,59 +1971,91 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <tr><td class="rh">Offer → OC</td><td class="warn">4.0</td><td>3.7</td><td class="warn">4.3</td><td>3.9</td></tr>
         <tr><td class="rh">OC → RC</td><td class="best">6.3</td><td class="warn">8.0</td><td class="worst">9.4 ⚠</td><td>7.1</td></tr>
         <tr><td class="rh">Supply Pend → Conf</td><td>8.3</td><td class="best">7.3</td><td class="warn">9.5</td><td class="worst">10.6 ⚠</td></tr>
-        <tr><td class="cat" colspan="5">Pattern Communication ★ NEW</td></tr>
-        <tr><td class="rh">Emails / opp</td><td>9.8</td><td class="worst">5.4</td><td>9.7</td><td>8.3</td></tr>
-        <tr><td class="rh">Calls / opp</td><td>5.6</td><td class="warn">n/d</td><td>5.3</td><td class="best">6.9 ★</td></tr>
-        <tr><td class="rh">% calls &gt;10min (longs)</td><td>75.0%</td><td>74.6%</td><td>75.5%</td><td class="best">61.5%</td></tr>
-        <tr><td class="rh">% calls &lt;10min (relance)</td><td class="worst">25%</td><td class="worst">25%</td><td class="worst">24.5%</td><td class="best">38.5% ★</td></tr>
-        <tr><td class="rh">Temps call / jour</td><td>2h 30</td><td>2h 49</td><td>2h 30</td><td class="best">3h 00 ★</td></tr>
-        <tr><td class="cat" colspan="5">Pipeline (snapshot)</td></tr>
-        <tr><td class="rh">Total opps en cours</td><td>199</td><td>230</td><td class="best">484</td><td>433</td></tr>
+        <tr><td class="cat" colspan="5">Pattern Communication (CSV Q1 2026)</td></tr>
+        <tr><td class="rh">Emails inbound / opp</td><td>2.76</td><td class="worst">2.60</td><td>3.39</td><td class="best">3.42 ★</td></tr>
+        <tr><td class="rh">Emails outbound / opp</td><td>4.99</td><td class="worst">4.59</td><td class="best">5.73 ★</td><td>5.20</td></tr>
+        <tr><td class="rh">Total emails / opp</td><td>7.75</td><td class="worst">7.20</td><td class="best">9.13 ★</td><td>8.62</td></tr>
+        <tr><td class="rh">Calls / opp</td><td class="best">5.05</td><td>4.76</td><td>4.89</td><td>4.76</td></tr>
+        <tr><td class="rh">% calls &gt;10min (longs)</td><td class="best">76.3%</td><td>77.2%</td><td>78.1%</td><td>77.7%</td></tr>
+        <tr><td class="rh">Temps call / jour</td><td>2h 27</td><td class="best">2h 45 ★</td><td>2h 17</td><td>2h 40</td></tr>
+        <tr><td class="cat" colspan="5">Pipeline (snapshot — opps en cours)</td></tr>
+        <tr><td class="rh">PS / agent</td><td>1.6</td><td>2.4</td><td class="best">3.3</td><td>6.8</td></tr>
+        <tr><td class="rh">SO / agent</td><td>3.1</td><td>5.8</td><td>3.4</td><td>5.0</td></tr>
         <tr><td class="rh">RC / agent</td><td>7.9</td><td>9.6</td><td class="best">12.5</td><td>10.6</td></tr>
         <tr><td class="rh">Supply Pending / agent</td><td class="worst">5.5</td><td>11.0</td><td>6.4</td><td class="best">8.5</td></tr>
-        <tr><td class="cat" colspan="5">CRM post-booking</td></tr>
-        <tr><td class="rh">Open Cases (somme)</td><td>27</td><td class="worst">90</td><td>47</td><td class="worst">149 ⚠</td></tr>
-        <tr><td class="rh">Open Tasks (somme)</td><td class="best">11</td><td>8</td><td>79</td><td>79</td></tr>
+        <tr><td class="cat" colspan="5">CRM post-booking ★ STRONGEST DIFFERENTIATOR</td></tr>
+        <tr><td class="rh">Open Cases / agent</td><td>2.7</td><td class="worst">11.2 ⚠</td><td class="best">2.5</td><td class="worst">11.5 ⚠</td></tr>
+        <tr><td class="rh">Open Tasks / agent</td><td class="worst">1.0</td><td class="worst">1.0</td><td>4.4</td><td class="best">6.1 ★</td></tr>
       </tbody>
     </table>
   </div>
-  <p style="font-size:11px;color:var(--gray);margin-bottom:2rem">★ = meilleur de tous les levels. Pondérations : CR3 par opps, funnel par opps, cycles en moyenne simple agent. n/d : donnée manquante au Looker pour calls L1.</p>
+  <p style="font-size:11px;color:var(--gray);margin-bottom:2rem">★ = meilleur de tous les levels · ⚠ = pire. Données : Looker Q1 2026 + CSV calls/emails per opp. Moyennes simples par agent.</p>
 
-  <div class="st">Seuils de passage</div>
+  <div class="st">Seuils de passage (basés sur les indicateurs les plus discriminants)</div>
   <div class="tgrid">
     <div class="tc tc0"><div class="tca">L0 → L1</div>
-      <div class="tci"><strong>CR3 &gt; 19%</strong> sur 2 mois</div>
-      <div class="tci"><strong>RC Done &gt; 55%</strong></div>
-      <div class="tci">Calls courts &gt; 30%</div>
-      <div class="tci">Supply Pend→Conf &lt; 8j</div>
+      <div class="tci"><strong>CR3 &gt; 21%</strong> stable</div>
+      <div class="tci"><strong>RC Done &gt; 60%</strong></div>
+      <div class="tci">Temps call/jour &gt; 2h 30</div>
+      <div class="tci">Open Tasks ≥ 2/agent</div>
     </div>
     <div class="tc tc1"><div class="tca">L1 → L2</div>
-      <div class="tci"><strong>CR3 &gt; 23%</strong> sur 180+ opps</div>
-      <div class="tci"><strong>RC Done &gt; 65%</strong></div>
-      <div class="tci"><strong>First OC Bkg &gt; 35%</strong></div>
-      <div class="tci">Em/opp &gt; 7</div>
+      <div class="tci"><strong>CR3 &gt; 24%</strong> sur 180+ opps</div>
+      <div class="tci"><strong>Em/opp &gt; 8.5</strong> ★ levier majeur</div>
+      <div class="tci"><strong>First OC Bkg &gt; 38%</strong></div>
+      <div class="tci">Open Cases &lt; 5/agent (= méthode)</div>
     </div>
     <div class="tc tc2"><div class="tca">L2 → L3</div>
-      <div class="tci"><strong>CR3 &gt; 25%</strong> sur 150+ opps</div>
-      <div class="tci"><strong>Calls courts &gt; 35%</strong></div>
-      <div class="tci"><strong>Calls/opp &gt; 6.0</strong></div>
+      <div class="tci"><strong>CR3 &gt; 27%</strong> sur 150+ opps</div>
+      <div class="tci"><strong>Open Tasks ≥ 6/agent</strong> ★ pilotage</div>
       <div class="tci">RC Bkg &gt; 65%</div>
+      <div class="tci">Temps call/jour &gt; 2h 30</div>
     </div>
     <div class="tc tc3"><div class="tca">Maintien L3</div>
-      <div class="tci"><strong>Calls courts ≥ 35%</strong></div>
-      <div class="tci"><strong>Temps call/jour ≥ 2h45</strong></div>
-      <div class="tci">Supply Pend→Conf &lt; 9j</div>
-      <div class="tci">Funnel sans maillon faible</div>
+      <div class="tci"><strong>Open Tasks ≥ 6/agent</strong> stable</div>
+      <div class="tci">RC Bkg ≥ 65%</div>
+      <div class="tci">Em/opp ≥ 8</div>
+      <div class="tci">Supply Pend→Conf &lt; 10j</div>
     </div>
   </div>
 
   <div class="st">Insights clés</div>
   <div class="ins-list">
-    <div class="ins"><div class="insl">Insight 1 — Pattern central</div><div class="inst">La signature comportementale du L3 : 38% de calls courts (relance) vs 25% partout ailleurs</div><div class="insb">L0, L1, L2 plafonnent tous à 24-25% de calls de moins de 10 min. <em>Le L3 est à 38% — soit 13 points au-dessus.</em> C'est le seul indicateur qui sépare nettement L3 des autres niveaux. La relance courte entre les étapes du funnel (post-FC, post-OC, pré-RC) est le vrai différenciateur. Pas le CR3, pas le volume, pas l'AOV : la mécanique de short call.</div></div>
-    <div class="ins"><div class="insl">Insight 2 — Volume vs Qualité</div><div class="inst">L0 et L2 ont la même intensité de communication — le L2 convertit 6 points de plus</div><div class="insb">L0 : 9.8 emails/opp, 5.6 calls/opp, 75% calls longs. L2 : 9.7 emails/opp, 5.3 calls/opp, 75.5% calls longs. <em>Quasi identiques.</em> Pourtant L2 est à 25.7% de CR3 vs 19.8% pour L0. La différence ? Qualité de l'OC (40.1% First OC Bkg vs 32.6%). Le L2 ne communique pas plus — il convainc mieux dans l'OC.</div></div>
-    <div class="ins"><div class="insl">Insight 3 — Le piège du L1</div><div class="inst">Le L1 mise tout sur le téléphone (2h49/jour) mais avec 5.4 emails/opp seulement</div><div class="insb">Em/opp le plus bas du corpus : 5.4 vs 8-10 ailleurs. <em>Profil "oral first" sans couverture écrite.</em> Combiné à 213 opps/agent (record) et 8j d'OC→RC (record), le L1 ne peut pas tenir le rythme : trop de leads, pas de trace écrite pour sécuriser, pas de relance courte. Résultat : RC Bkg le plus faible (49.3%).</div></div>
-    <div class="ins"><div class="insl">Insight 4 — Goulot universel</div><div class="inst">Offer Made → OC Done perd 19–20pt à TOUS les levels</div><div class="insb">L0 : −19pt. L1 : −19pt. L2 : −19pt. L3 : −19pt. <em>Aucun level n'a résolu ce goulot.</em> Verrouiller l'OC avant l'envoi de l'offre bénéficierait à tous les levels simultanément. Levier corporate non exploité.</div></div>
-    <div class="ins"><div class="insl">Insight 5 — Le Supply reste un angle mort</div><div class="inst">Aucun level ne pilote vraiment la confirmation hôtelière</div><div class="insb">Supply Pend→Conf : L0 8.3j, L1 7.3j, L2 9.5j, L3 10.6j. <em>Le L3 a même le délai le plus long.</em> Ce résultat surprend mais est cohérent avec le reste : les L3 ont 119 opps en SP simultanément (record) — ils signent beaucoup mais ne pilotent pas la phase post-signature. Levier de progression pour tous les niveaux : process Supply standardisé.</div></div>
+    <div class="ins"><div class="insl">Insight 1 — Le différenciateur n°1</div><div class="inst">Open Tasks/agent : L0/L1=1.0 vs L2=4.4 vs L3=6.1 — c'est l'indicateur le plus discriminant du corpus</div><div class="insb">Avec un spread de 163%, c'est la métrique qui sépare le mieux les niveaux. Une task Supply ouverte = un dossier formellement suivi post-signature. <em>Le L0/L1 ne créent quasi pas de tasks → ils ne pilotent pas le Supply.</em> Le L2 commence à structurer (4.4), le L3 systématise (6.1). C'est le levier le plus accessible pour faire monter un agent : « ouvre une task pour chaque dossier que tu signes ».</div></div>
+    <div class="ins"><div class="insl">Insight 2 — Le L2, champion de l'écrit</div><div class="inst">L2 : 9.13 emails/opp (record du corpus) — sa rigueur écrite explique 40.1% First OC Bkg ★</div><div class="insb">L2 communique le plus à l'écrit : 9.13 em/opp vs 7.20 L1 (le pire) et 8.62 L3. <em>Sa rigueur écrite prépare le client pour l'OC :</em> recap email, follow-up structuré, documentation de l'offre. Résultat : le client arrive au call OC déjà imprégné → 40.1% signent au premier OC, le record du corpus. Et 2.5 cases/agent (le minimum) — l'écrit propre réduit les escalations CS.</div></div>
+    <div class="ins"><div class="insl">Insight 3 — Le piège du L1 : oral sans trace</div><div class="inst">L1 mise tout sur le call (2h 45/jour, record) mais 7.2 em/opp (le pire) — résultat : RC Bkg 49.3% (le pire)</div><div class="insb">Le L1 a le plus de temps au téléphone du corpus (2h 45/jour) ET le plus d'open cases (11.2 — escalations actives). Mais 7.2 em/opp seulement (vs 9.13 L2). <em>Profil « oral first » sans trace écrite</em> — le client oublie ce qui a été dit en call, l'agent ne peut pas relancer efficacement par email. Combiné à 213 opps/agent (record), le L1 est en mode pompier : il éteint des feux mais ne crée pas de système. RC Bkg à 49.3%, le pire du corpus.</div></div>
+    <div class="ins"><div class="insl">Insight 4 — La fracture du funnel</div><div class="inst">RC Done : L1 52% / L0 60% vs L2 74% / L3 73% — un cliff de 14-22pts au RC</div><div class="insb">RC Done spread = 21.6 points absolus, 33% relatif. <em>L'OC se passe à peu près partout (66-74%) mais c'est au RC que la fracture se fait.</em> RC Bkg confirme : L0/L1 closent 49-55%, L2/L3 closent 67%. La différence n'est pas la compétence de closing — elle est dans tout ce qui se passe entre l'OC et le RC : tasks créées, emails de relance, follow-up structuré.</div></div>
+    <div class="ins"><div class="insl">Insight 5 — Le Supply reste un angle mort universel</div><div class="inst">Supply Pend→Conf : L1 7.3j &lt; L0 8.3j &lt; L2 9.5j &lt; L3 10.6j — paradoxalement le L3 a le délai le plus long</div><div class="insb">Le L3 a 6.1 tasks ouvertes et 11.5 cases — il pilote ses dossiers, mais le délai DMC reste long (10.6j). <em>L'explication probable : le L3 signe des dossiers plus complexes (multi-destinations, plus d'hôtels), et la longueur DMC n'est pas entièrement contrôlable par l'agent.</em> Levier corporate : process Supply standardisé avec relance DMC J+1/J+3. Bénéfice pour tous les niveaux.</div></div>
+    <div class="ins"><div class="insl">Insight 6 — Goulot universel Offer→OC</div><div class="inst">Offer Made → OC Done perd 19–20pt à TOUS les levels (sans exception)</div><div class="insb">L0 : −19pt. L1 : −19pt. L2 : −19pt. L3 : −19pt. <em>Aucun level n'a résolu ce goulot.</em> Verrouiller l'OC avant l'envoi de l'offre bénéficierait à tous les niveaux simultanément. Levier corporate non exploité.</div></div>
+  </div>
+
+  <!-- ═══ TL GUIDE — Comment se comporte chaque niveau ═══ -->
+  <div class="st" style="margin-top:1.5rem">Guide TL — Comment se comporte chaque niveau (synthèse 1:1)</div>
+  <div class="tgrid" style="grid-template-columns:1fr 1fr;gap:1rem">
+    <div style="background:#fff;border-left:5px solid #888780;border-radius:8px;padding:1rem 1.25rem">
+      <div style="font-weight:800;font-size:14px;color:#888780;margin-bottom:6px">L0 — Le Cycle Amont Rapide</div>
+      <div style="font-size:11px;color:#666;margin-bottom:8px;line-height:1.5"><strong>Comportement :</strong> envoie l'offre vite (FC→OC en 5.3j) puis se désengage. 2h 27 call/jour (le min), 1.0 task/agent (le min), 2.7 cases (peu d'escalations).</div>
+      <div style="font-size:11px;color:#444;line-height:1.5"><strong>Ce qu'un TL voit en 1:1 :</strong> son agent finit ses calls amont vite mais a un agenda l'après-midi vide. Peu de relances, peu de notes Supply.</div>
+      <div style="font-size:11px;color:var(--red);margin-top:8px;font-weight:700">Levier #1 : « Tu envoies l'offre — qu'est-ce que tu fais 5 jours après ? »</div>
+    </div>
+    <div style="background:#fff;border-left:5px solid #378ADD;border-radius:8px;padding:1rem 1.25rem">
+      <div style="font-weight:800;font-size:14px;color:#378ADD;margin-bottom:6px">L1 — Le Téléphoneur sans Trace</div>
+      <div style="font-size:11px;color:#666;margin-bottom:8px;line-height:1.5"><strong>Comportement :</strong> 2h 45 call/jour (record), 213 opps/agent (record), 11.2 cases (record), 7.2 em/opp (le min). Mode pompier — beaucoup d'oral, pas d'écrit.</div>
+      <div style="font-size:11px;color:#444;line-height:1.5"><strong>Ce qu'un TL voit en 1:1 :</strong> son agent finit ses journées épuisé, plein de "j'ai parlé à X et Y" — mais incapable de retrouver ce qui a été dit, et perd des deals au RC parce que le client a oublié.</div>
+      <div style="font-size:11px;color:var(--red);margin-top:8px;font-weight:700">Levier #1 : « Pour chaque call, envoie un recap email immédiat. »</div>
+    </div>
+    <div style="background:#fff;border-left:5px solid #7F77DD;border-radius:8px;padding:1rem 1.25rem">
+      <div style="font-weight:800;font-size:14px;color:#7F77DD;margin-bottom:6px">L2 — L'Écrit-Convicteur</div>
+      <div style="font-size:11px;color:#666;margin-bottom:8px;line-height:1.5"><strong>Comportement :</strong> 9.13 em/opp (record), 2.5 cases/agent (le min), 40.1% First OC Bkg (record), 4.4 tasks/agent. Préfère l'écrit, structure méthodiquement.</div>
+      <div style="font-size:11px;color:#444;line-height:1.5"><strong>Ce qu'un TL voit en 1:1 :</strong> son agent envoie beaucoup d'emails de qualité, ses dossiers sont propres, le CS appelle peu. Mais OC→RC trop long (9.4j).</div>
+      <div style="font-size:11px;color:var(--blu);margin-top:8px;font-weight:700">Levier #1 : « Entre l'OC et le RC, ajoute un short call à J+2. »</div>
+    </div>
+    <div style="background:#fff;border-left:5px solid #639922;border-radius:8px;padding:1rem 1.25rem">
+      <div style="font-weight:800;font-size:14px;color:#639922;margin-bottom:6px">L3 — Le Pilote Post-Vente</div>
+      <div style="font-size:11px;color:#666;margin-bottom:8px;line-height:1.5"><strong>Comportement :</strong> 6.1 tasks/agent (record), 11.5 cases (record), RC Bkg 66.7% (record), 2h 40 call/jour. Pilote chaque dossier signé jusqu'à la confirmation.</div>
+      <div style="font-size:11px;color:#444;line-height:1.5"><strong>Ce qu'un TL voit en 1:1 :</strong> son agent a un CRM dense en tasks ouvertes, fait beaucoup de short calls de relance DMC, ses clients restent engagés jusqu'à la confirmation hôtel.</div>
+      <div style="font-size:11px;color:var(--grn);margin-top:8px;font-weight:700">Levier #1 : Le maintenir + transmettre la méthode aux L2 émergents.</div>
+    </div>
   </div>
 </div>
 
@@ -2029,9 +2090,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <div class="qc q3c"><div class="ql">High Volume / High ROI</div><div class="qlv">Level 3</div><div class="qs"><strong>14 agents</strong> · 162 opps/agent</div>
           <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap">
             <span style="background:var(--c3d);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">CR3 24.76%</span>
-            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">38.5% calls courts ★</span>
-            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">6.9 calls/opp ★</span>
-            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">3h call/jour ★</span>
+            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">6.1 tasks/agent ★</span>
+            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">RC Bkg 66.7% ★</span>
+            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">8.62 em/opp</span>
           </div></div>
         <div class="qc q0c"><div class="ql">Low Volume / Low ROI</div><div class="qlv">Level 0</div><div class="qs"><strong>11 agents</strong> · 168 opps/agent</div>
           <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap">
@@ -2173,29 +2234,29 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
   <div class="ss">
     <div class="snb"><span class="snbadge">SLIDE 3</span><span class="st2">La fracture fondamentale — L0/L1 vs L2/L3</span></div>
     <div class="ssub">Un seul changement de philosophie explique tous les écarts de performance</div>
-    <div class="smsg"><strong>Message à passer :</strong> La différence entre un agent L0/L1 et un agent L2/L3 n'est pas une question de talent ou d'expérience — c'est une question de philosophie commerciale. Pour un L0/L1, le funnel va du FC à l'OC. Pour un L2/L3, le funnel va du FC au Supply Confirmed. Ce changement de vision explique tous les écarts observés : RC Done, Supply Pend→Conf, tasks CS.</div>
+    <div class="smsg"><strong>Message à passer :</strong> La différence entre un agent L0/L1 et un agent L2/L3 n'est pas une question de talent ou d'expérience — c'est <strong>une question de pilotage post-OC</strong>. Le L0/L1 ouvre 1.0 task/agent en moyenne — le L2 4.4, le L3 6.1. Cette discipline de tracking post-vente explique tous les écarts : RC Done, RC Bkg, qualité de closing.</div>
     <div class="split2">
       <div class="fracbox fb-r">
-        <div class="fbt">L0 / L1 — Pas de relance courte</div>
-        <div class="fbh">"Communication sans relance entre les étapes"</div>
+        <div class="fbt">L0 / L1 — Pas de pilotage post-OC</div>
+        <div class="fbh">"1.0 task/agent — pas de Supply structuré"</div>
         <div class="fbi">
-          → % calls courts : <strong>25% · 25%</strong> — pas de relance<br>
+          → Open Tasks : <strong>1.0 · 1.0</strong> — record bas<br>
           → RC Done : <strong>59% (L0) · 52% (L1)</strong><br>
           → RC Bkg : <strong>54.5% · 49.3%</strong> — closing faible<br>
-          → First OC Bkg : <strong>32.6% · 33.2%</strong> — OC moins convaincant<br>
-          → L1 Em/opp : <strong>5.4</strong> — le plus bas, pas de trace écrite<br>
-          → L1 OC→RC : <strong>8.0j ⚠</strong> — délai record
+          → L0 : <strong>2h 27 call/jour (le min)</strong><br>
+          → L1 : <strong>11.2 cases (record) + 7.2 em/opp (le min)</strong><br>
+          → First OC Bkg : <strong>32.6% · 33.2%</strong>
         </div>
       </div>
       <div class="fracbox fb-g">
-        <div class="fbt">L2 / L3 — Conversion supérieure</div>
-        <div class="fbh">"Qualité d'OC pour L2, relance courte pour L3"</div>
+        <div class="fbt">L2 / L3 — Pilotage structuré</div>
+        <div class="fbh">"Écrit pour L2, tasks pour L3"</div>
         <div class="fbi">
-          → L3 calls courts : <strong>38% ★</strong> — la signature L3<br>
-          → L3 calls/opp : <strong>6.9</strong> · 3h call/jour (records)<br>
+          → Open Tasks : <strong>4.4 · 6.1 ★</strong> — tracking post-vente<br>
           → RC Done : <strong>74.4% (L2) · 73.4% (L3)</strong><br>
-          → RC Bkg : <strong>66.5% · 66.7%</strong> — closing solide<br>
-          → L2 First OC Bkg : <strong>40.1% ★</strong> — meilleur OC<br>
+          → RC Bkg : <strong>66.5% · 66.7% ★</strong> — closing record<br>
+          → L2 : <strong>9.13 em/opp (record) + 40.1% First OC Bkg ★</strong><br>
+          → L3 : <strong>6.1 tasks + 11.5 cases ★</strong><br>
           → CR3 : <strong>25.67% (L2) · 24.76% (L3)</strong>
         </div>
       </div>
@@ -2203,18 +2264,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="sauts">
       <div class="saut">
         <div class="saut-l" style="color:var(--gray)">Saut L0 → L1</div>
-        <div class="saut-t">Profil oral mais sans relance</div>
-        <div class="saut-d">Le L1 mise tout sur le call (2h49/jour) mais avec 5.4 emails/opp seulement. Volume call ≠ relance.</div>
+        <div class="saut-t">Plus de volume oral, mais sans méthode</div>
+        <div class="saut-d">Le L1 passe à 2h 45 call/jour (record) avec 213 opps/agent (record), mais reste à 1.0 task/agent et 7.2 em/opp (le pire). Plus de feux, pas de système.</div>
       </div>
       <div class="saut">
         <div class="saut-l" style="color:var(--grn)">Saut L1 → L2 — Le plus important</div>
-        <div class="saut-t">Qualité de l'OC</div>
-        <div class="saut-d">Volume comm comparable au L0 mais OC de conviction (40.1% First OC Bkg) → CR3 +5pt.</div>
+        <div class="saut-t">L'écrit comme méthode</div>
+        <div class="saut-d">L2 = 9.13 em/opp (record) + 4.4 tasks/agent + 2.5 cases (le min). Trace écrite + structure → 40.1% First OC Bkg, 25.67% CR3 (top).</div>
       </div>
       <div class="saut">
         <div class="saut-l" style="color:var(--c3d)">Saut L2 → L3</div>
-        <div class="saut-t">Mécanique de short call</div>
-        <div class="saut-d">Le L3 fait 38% de calls courts vs 24.5% L2. C'est le seul indicateur qui sépare nettement les deux.</div>
+        <div class="saut-t">Pilotage post-vente actif</div>
+        <div class="saut-d">L3 passe de 4.4 à 6.1 open tasks/agent. Chaque dossier signé devient une responsabilité formelle. RC Bkg 66.7% (record).</div>
       </div>
     </div>
   </div>
@@ -2337,14 +2398,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
           <div style="width:40px;height:40px;border-radius:10px;background:var(--c2d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🎯</div>
           <div>
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c2d);opacity:.7">Level 2 · Low Vol / High ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c2d)">Le Commercial Accompli</div>
+            <div style="font-size:16px;font-weight:800;color:var(--c2d)">L'Écrit-Convicteur</div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c2d);font-style:italic;margin-bottom:10px;line-height:1.5">"Même volume de communication que le L0 — mais convertit 6 points de plus grâce à la qualité d'OC."</div>
+        <div style="font-size:12px;color:var(--c2d);font-style:italic;margin-bottom:10px;line-height:1.5">"9.13 emails/opp (record) — l'écrit prépare le client pour l'OC. 40.1% First OC Bkg = le meilleur du corpus."</div>
         <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Force</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">First OC Bkg 40.1% ★ meilleur corpus · RC Done 74.4% · RC Bkg 66.5% · CR3 25.67% pondéré</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Levier</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">Calls courts 24.5% (vs 38% pour L3) · OC→RC 9.4j ⚠ · pas de relance courte entre étapes</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">Doubler les short calls de relance (passer à 35%+) · objectif OC→RC &lt;7j.</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Force</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">9.13 em/opp ★ · First OC Bkg 40.1% ★ · 2.5 cases (le min) · CR3 25.67% (top)</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Levier</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">2h 17 call/jour (le min) · OC→RC 9.4j (le pire) · Open Tasks 4.4 (vs 6.1 L3)</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">Augmenter call/jour à 2h 40+ · ouvrir 6+ tasks/agent · short call J+2 entre OC et RC.</span></div>
         </div>
       </div>
 
@@ -2353,14 +2414,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
           <div style="width:40px;height:40px;border-radius:10px;background:var(--c3d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🏆</div>
           <div>
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c3d);opacity:.7">Level 3 · High Vol / High ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c3d)">Le Caller Proactif</div>
+            <div style="font-size:16px;font-weight:800;color:var(--c3d)">Le Pilote Post-Vente</div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c3d);font-style:italic;margin-bottom:10px;line-height:1.5">"38% de calls courts — soit +13 points vs tous les autres niveaux. Le seul niveau qui pratique la relance courte entre les étapes."</div>
+        <div style="font-size:12px;color:var(--c3d);font-style:italic;margin-bottom:10px;line-height:1.5">"6.1 open tasks/agent (record) — chaque dossier signé est suivi formellement. RC Bkg 66.7% = closing record du corpus."</div>
         <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Force</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">38% calls courts ★ · 6.9 calls/opp (record) · 3h/jour au téléphone · RC Bkg 66.7% (closing record)</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">⚠ Watchout</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">Supply Pend→Conf 10.6j (le plus long !) · 119 SP en cours, mais pilotage post-booking incomplet</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--blul);color:var(--blu);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Rôle</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">Peer-coaching des L2 émergents (Antoine Revardeau, Malek Adjroud). Modèle short-call à diffuser.</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Force</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">6.1 tasks/agent ★ · RC Bkg 66.7% ★ · 8.62 em/opp · 2h 40 call/jour</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">⚠ Watchout</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">Supply Pend→Conf 10.6j (le plus long) · 11.5 cases — beaucoup de dossiers actifs simultanés</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--blul);color:var(--blu);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Rôle</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">Peer-coaching des L2 émergents (Antoine Revardeau, Malek Adjroud). Modèle "ouvre une task pour chaque signature".</span></div>
         </div>
       </div>
 
@@ -2369,14 +2430,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
           <div style="width:40px;height:40px;border-radius:10px;background:var(--c0d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📬</div>
           <div>
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c0d);opacity:.7">Level 0 · Low Vol / Low ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c0d)">La Boîte aux Lettres</div>
+            <div style="font-size:16px;font-weight:800;color:var(--c0d)">Le Cycle Amont Rapide</div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c0d);font-style:italic;margin-bottom:10px;line-height:1.5">"Beaucoup d'écrit (9.8 emails/opp) et de calls longs, mais zéro relance courte. Comme il ne rappelle pas entre les étapes, les leads décrochent."</div>
+        <div style="font-size:12px;color:var(--c0d);font-style:italic;margin-bottom:10px;line-height:1.5">"Cycle amont rapide (FC→OC en 5.3j) puis désengagement — 2h 27 call/jour (le min), 1.0 task/agent (le min)."</div>
         <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Symptôme</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">75% calls longs · 25% calls courts seulement · RC Done 59% · CR3 19.82%</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Point fort</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">9.8 emails/opp — volume de communication ≈ L2. Le L2 n'écrit pas plus, il convainc mieux dans l'OC.</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">Doubler les calls courts (35%+) · 1 short call à J+2 entre OC et RC · RC planifié pendant l'OC.</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Symptôme</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">2h 27 call/jour (min) · 1.0 task/agent (min) · 2.7 cases · RC Done 59% · CR3 19.82%</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Point fort</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">FC→Offer 1.3j · cycle amont efficient. La capacité existe, il faut juste l'étendre au post-OC.</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">+30 min call/jour ciblé sur RC · ouvrir une task à chaque signature · RC planifié pendant l'OC.</span></div>
         </div>
       </div>
 
@@ -2385,14 +2446,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
           <div style="width:40px;height:40px;border-radius:10px;background:var(--c1d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🏃</div>
           <div>
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c1d);opacity:.7">Level 1 · High Vol / Low ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c1d)">Le Téléphoneur Volume</div>
+            <div style="font-size:16px;font-weight:800;color:var(--c1d)">Le Téléphoneur sans Trace</div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c1d);font-style:italic;margin-bottom:10px;line-height:1.5">"213 opps/agent — beaucoup de calls longs (2h49/jour, record), peu d'emails (5.4/opp, le plus bas). Mais sans relance courte, les leads décrochent."</div>
+        <div style="font-size:12px;color:var(--c1d);font-style:italic;margin-bottom:10px;line-height:1.5">"213 opps · 2h 45 call/jour (record) · 11.2 cases (record) · 7.2 em/opp (le min) — mode pompier sans méthode écrite."</div>
         <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Symptôme</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">RC Done 52.2% (le plus bas) · RC Bkg 49.3% (closing faible) · OC→RC 8.0j (le plus long)</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Point fort</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">Volume call élevé (2h49/jour) · 213 opps/agent gérés · CR3 20.61% maintenu</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">Plafonner à 170 opps · doubler les emails (5.4 → 8+) · short call J+2 entre OC et RC.</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Symptôme</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">RC Bkg 49.3% (le pire) · 11.2 cases (record) · 1.0 task (le min) · 7.2 em/opp (le min)</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Point fort</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">Volume call élevé (2h 45/jour) · 213 opps gérés · CR3 20.61%</span></div>
+          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">Recap email après chaque call · ouvrir une task pour chaque signature · plafonner à 170 opps.</span></div>
         </div>
       </div>
 
@@ -2406,13 +2467,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
           <div style="font-size:11px;font-weight:700;color:var(--c0d);margin-bottom:5px">L0</div>
           <div style="font-size:11px;color:var(--gray)">11 agents · 168 opps/agent</div>
           <div style="font-size:16px;font-weight:800;color:var(--red);margin:4px 0">19.82% CR3</div>
-          <div style="font-size:11px;font-weight:700;color:var(--red);background:var(--redl);padding:2px 6px;border-radius:4px;display:inline-block">25% calls courts</div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);background:var(--redl);padding:2px 6px;border-radius:4px;display:inline-block">1.0 task/agent ⚠</div>
         </div>
         <div style="background:var(--c1l);padding:10px;text-align:center">
           <div style="font-size:11px;font-weight:700;color:var(--c1d);margin-bottom:5px">L1</div>
           <div style="font-size:11px;color:var(--gray)">8 agents · 213 opps/agent ⚠</div>
           <div style="font-size:16px;font-weight:800;color:var(--c1d);margin:4px 0">20.61% CR3</div>
-          <div style="font-size:11px;font-weight:700;color:var(--red);background:var(--redl);padding:2px 6px;border-radius:4px;display:inline-block">25% calls courts</div>
+          <div style="font-size:11px;font-weight:700;color:var(--red);background:var(--redl);padding:2px 6px;border-radius:4px;display:inline-block">11.2 cases ⚠</div>
         </div>
         <div style="background:var(--c2l);padding:10px;text-align:center">
           <div style="font-size:11px;font-weight:700;color:var(--c2d);margin-bottom:5px">L2</div>
@@ -2424,7 +2485,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
           <div style="font-size:11px;font-weight:700;color:var(--c3d);margin-bottom:5px">L3</div>
           <div style="font-size:11px;color:var(--gray)">14 agents · 162 opps/agent</div>
           <div style="font-size:16px;font-weight:800;color:var(--grn);margin:4px 0">24.76% CR3</div>
-          <div style="font-size:11px;font-weight:700;color:var(--grn);background:var(--grnl);padding:2px 6px;border-radius:4px;display:inline-block">38.5% calls courts ★</div>
+          <div style="font-size:11px;font-weight:700;color:var(--grn);background:var(--grnl);padding:2px 6px;border-radius:4px;display:inline-block">6.1 tasks/agent ★</div>
         </div>
       </div>
     </div>
@@ -2441,73 +2502,73 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         <tbody>
           <tr>
             <td class="lvc" style="color:var(--c0d)">L0</td>
-            <td class="sc" style="font-size:12px">5% GBV<br>4% NTP</td>
+            <td class="sc" style="font-size:12px">11 agents<br>168 opps</td>
             <td style="font-size:12px;vertical-align:top">
-              <div class="bi">9.8 emails/opp · 5.6 calls/opp</div>
-              <div class="bi">75% calls longs · 25% courts ⚠</div>
-              <div class="bi">RC Done 59% · CR3 19.82%</div>
+              <div class="bi">7.75 em/opp · 5.05 calls/opp</div>
+              <div class="bi">2h 27 call/jour (le min) ⚠</div>
+              <div class="bi">1.0 task/agent (le min) ⚠</div>
             </td>
             <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Doubler les calls courts de relance entre les étapes</div>
-              <div class="bloc">Le L0 a le même volume de communication que le L2 (9.8 emails/opp), mais ne fait pas de short call de relance. Passer de 25% à 35% de calls &lt;10min — 1 call court à J+2 entre OC et RC.</div>
+              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Étendre l'engagement au post-OC</div>
+              <div class="bloc">Le L0 a un cycle amont rapide (FC→OC en 5.3j) mais se désengage après l'envoi de l'offre. 2h 27 de call/jour seulement (le minimum), 1.0 task/agent — il ne pilote ni les RC ni le Supply. La capacité existe, il faut l'étendre au post-OC.</div>
             </td>
             <td style="vertical-align:top">
-              <div class="bi">PIP pour agents &lt;18% CR3</div>
-              <div class="bi">Coaching short-call (35%+ courts)</div>
+              <div class="bi">+30 min call/jour ciblé sur RC</div>
+              <div class="bi">Ouvrir une task à chaque signature</div>
               <div class="bi">Objectif RC Done : &gt;65%</div>
             </td>
           </tr>
           <tr>
             <td class="lvc" style="color:var(--c1d)">L1</td>
-            <td class="sc" style="font-size:12px">23% GBV<br>24% NTP</td>
+            <td class="sc" style="font-size:12px">8 agents<br>213 opps ⚠</td>
             <td style="font-size:12px;vertical-align:top">
-              <div class="bi">213 opps/agent · CR3 20.61%</div>
-              <div class="bi">5.4 emails/opp ⚠ (le plus bas)</div>
-              <div class="bi">OC→RC 8.0j (record) · RC Bkg 49%</div>
+              <div class="bi">7.2 em/opp ⚠ (le min) · CR3 20.61%</div>
+              <div class="bi">11.2 cases ⚠ + 1.0 task ⚠</div>
+              <div class="bi">2h 45 call/jour (max) · RC Bkg 49.3%</div>
             </td>
             <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Plafonner à 170 opps + ajouter du short call entre OC et RC</div>
-              <div class="bloc">Le L1 mise tout sur le call long (2h49/jour) mais peu d'emails (5.4 vs 8-10 ailleurs) et zéro relance courte. Le volume excessif (213) écrase la capacité de pilotage. Combinaison : moins de leads, plus de short calls, plus de couverture écrite.</div>
+              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Recap email + ouverture de task systématique</div>
+              <div class="bloc">Le L1 est le « téléphoneur sans trace » : volume call max (2h 45/jour) mais le moins d'emails (7.2/opp) et le moins de tasks (1.0/agent). Mode pompier sans méthode écrite — le client oublie ce qui a été dit en call. Recap email après chaque call + une task pour chaque signature = méthode L2.</div>
             </td>
             <td style="vertical-align:top">
               <div class="bi">Plafond 170 opps/agent</div>
-              <div class="bi">Em/opp objectif : &gt;7</div>
-              <div class="bi">Objectif RC Done : &gt;65%</div>
+              <div class="bi">Em/opp objectif : &gt;8.5</div>
+              <div class="bi">Open tasks objectif : &gt;4</div>
             </td>
           </tr>
           <tr>
             <td class="lvc" style="color:var(--c2d)">L2</td>
             <td class="sc" style="font-size:12px;color:var(--grn);font-weight:700">19 agents<br>★ moteur</td>
             <td style="font-size:12px;vertical-align:top">
-              <div class="bi">CR3 25.67% (★) · 144 opps/agent</div>
-              <div class="bi">First OC Bkg 40.1% (record)</div>
-              <div class="bi">Calls courts 24.5% — angle mort</div>
+              <div class="bi">CR3 25.67% ★ · 144 opps/agent</div>
+              <div class="bi">9.13 em/opp ★ · First OC Bkg 40.1% ★</div>
+              <div class="bi">2.5 cases (le min) · 4.4 tasks/agent</div>
             </td>
             <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Augmenter le ratio de calls courts de 24.5% à 35-38%</div>
-              <div class="bloc">Le L2 a déjà la meilleure qualité d'OC (40.1% First OC Bkg). Pour passer L3, il manque une seule chose : la relance courte entre les étapes. C'est le seul indicateur qui sépare nettement L2 et L3 — pas le CR3, pas l'AOV, pas le volume.</div>
+              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Augmenter call/jour + ouvrir plus de tasks Supply</div>
+              <div class="bloc">L2 = champion de l'écrit (9.13 em/opp record) et de la qualité d'OC (40.1% First OC Bkg). Sa rigueur écrite réduit les escalations CS (2.5 cases, le minimum). Pour passer L3, il manque le pilotage post-vente actif : passer de 4.4 à 6+ open tasks et de 2h 17 à 2h 40 call/jour.</div>
             </td>
             <td style="vertical-align:top">
-              <div class="bi">Cible : 35%+ calls &lt;10min</div>
-              <div class="bi">Coaching peer L3→L2 sur short-call</div>
-              <div class="bi">Objectif Supply Pend→Conf : &lt;8j</div>
+              <div class="bi">Open tasks objectif : ≥6/agent</div>
+              <div class="bi">Call/jour objectif : 2h 40+</div>
+              <div class="bi">OC→RC objectif : &lt;7j (vs 9.4j)</div>
             </td>
           </tr>
           <tr>
             <td class="lvc" style="color:var(--c3d)">L3</td>
-            <td class="sc" style="font-size:12px">14 agents<br>★ caller</td>
+            <td class="sc" style="font-size:12px">14 agents<br>★ pilote</td>
             <td style="font-size:12px;vertical-align:top">
-              <div class="bi">38.5% calls courts ★ (record)</div>
-              <div class="bi">6.9 calls/opp · 3h call/jour</div>
-              <div class="bi">RC Bkg 66.7% · CR3 24.76%</div>
+              <div class="bi">6.1 tasks/agent ★ (record)</div>
+              <div class="bi">RC Bkg 66.7% ★ · 8.62 em/opp</div>
+              <div class="bi">2h 40 call/jour · CR3 24.76%</div>
             </td>
             <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Maintenir le pattern short-call + diffuser au L2</div>
-              <div class="bloc">Le L3 démontre que la mécanique de short call entre étapes est ce qui maintient l'engagement client (RC Bkg 66.7%). Les meilleurs L3 (Pauline Preynat, Camille Lecomte, Guillaume Dupont) peuvent peer-coacher 2-3 L2 en zone de promotion sur ce réflexe.</div>
+              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Maintenir le pilotage tasks + diffuser au L2</div>
+              <div class="bloc">Le L3 pilote chaque dossier signé (6.1 tasks/agent record). RC Bkg 66.7% (record) = closing propre car méthode propre. Les meilleurs L3 (Pauline Preynat, Camille Lecomte, Guillaume Dupont) peuvent peer-coacher les L2 émergents sur le réflexe « ouvre une task pour chaque signature ».</div>
             </td>
             <td style="vertical-align:top">
-              <div class="bi">Maintenir 35%+ calls courts</div>
-              <div class="bi">Process Supply Pend→Conf à structurer</div>
+              <div class="bi">Maintenir 6+ tasks/agent</div>
+              <div class="bi">Process Supply Pend→Conf à raccourcir (10.6j → &lt;9j)</div>
               <div class="bi">Peer-coaching L2 émergents</div>
             </td>
           </tr>
