@@ -729,6 +729,49 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .dlpipe-leg .lrc::before{background:#A9CDEC}.dlpipe-leg .lsp::before{background:#B6D695}
 .dlpipe-leg span strong{color:var(--ink);font-weight:700}
 
+/* After-sales cell with mini histogram of outliers */
+.dlb-cell .outlier{display:inline-block;font-size:9.5px;background:rgba(0,0,0,.07);color:var(--ink);padding:1px 6px;border-radius:3px;margin-left:6px;font-weight:600;font-variant-numeric:tabular-nums}
+.dlb-cell .outlier.warn{background:rgba(155,45,45,.14);color:var(--dk-red)}
+
+/* Aftersales mini-block at bottom of behavior column */
+.dlafter{margin-top:1rem;padding:14px 16px;background:#FAF7F1;border:1px solid var(--rule);border-radius:10px}
+.dlafter-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:8px}
+.dlafter-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dlaf{display:flex;flex-direction:column;gap:2px}
+.dlaf .l{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+.dlaf .v{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.dlaf .d{font-size:10.5px;color:var(--mute);margin-top:1px}
+.dlaf .d em{font-style:italic;color:var(--ink);font-weight:600}
+.dlaf .d.dn{color:var(--dk-red);font-weight:600}
+.dlaf .d.up{color:var(--accent);font-weight:600}
+
+/* ── EDITORIAL polish for detail pages (page-l0/l1/l2/l3) ── */
+[id^="page-l"]:not(#page-l):not(#page-loop) .st{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;color:#6F6B62;border:none;margin-top:1.5rem}
+[id^="page-l"] .st::after{background:linear-gradient(90deg,#D8D3C8,transparent)}
+[id^="page-l"] .lhc h2{font-family:'Instrument Serif',serif!important;font-weight:400!important;font-size:32px!important;letter-spacing:-.4px;color:#1A1A1A!important}
+[id^="page-l"] .lhc .tl{font-family:'Instrument Serif',serif;font-style:italic;font-size:16px!important;color:#1A1A1A;opacity:.85}
+[id^="page-l"] .pcent{background:#FAF7F1;border-left:3px solid #1F5F3F;border-radius:0 12px 12px 0;padding:1.25rem 1.5rem}
+[id^="page-l"] .pcent .pcl{font-family:'Inter',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#6F6B62;margin-bottom:8px}
+[id^="page-l"] .pcent .pct{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.55;font-style:italic;color:#1A1A1A;font-weight:400}
+[id^="page-l"] .pcent .pct strong{font-style:normal;font-weight:700}
+
+/* Tasks/cases section — added at bottom of each level page */
+.crm-block{background:#fff;border:1px solid #D8D3C8;border-radius:14px;padding:1.5rem 1.75rem;margin:1.25rem 0}
+.crm-block .cb-tt{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#6F6B62;margin-bottom:1rem}
+.crm-grid2{display:grid;grid-template-columns:1.1fr 1fr;gap:1.25rem}
+.crm-stat{background:#FAF7F1;border-radius:10px;padding:14px 18px}
+.crm-stat .l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6F6B62;margin-bottom:5px}
+.crm-stat .v{font-family:'Instrument Serif',serif;font-size:34px;font-weight:400;color:#1A1A1A;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.crm-stat .v small{font-size:14px;color:#6F6B62;margin-left:8px;font-family:'Inter',sans-serif}
+.crm-stat .d{font-size:11.5px;color:#6F6B62;margin-top:6px;line-height:1.5}
+.crm-stat .d em{font-style:italic;color:#1A1A1A;font-weight:600}
+.crm-outliers{background:#FAF7F1;border-radius:10px;padding:14px 18px;font-size:12px;line-height:1.6;color:#444}
+.crm-outliers .ol-h{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#6F6B62;margin-bottom:7px}
+.crm-outliers .ol-row{display:flex;justify-content:space-between;border-bottom:1px dashed #E0DCD0;padding:5px 0;font-variant-numeric:tabular-nums}
+.crm-outliers .ol-row:last-child{border-bottom:none}
+.crm-outliers .ol-row .nm{color:#1A1A1A;font-weight:500}
+.crm-outliers .ol-row .vl{font-weight:700;color:#9B2D2D}
+
 /* Verdict box */
 .dlverdict{padding:1.25rem 1.75rem;border-radius:14px;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center}
 .dlverdict.bad{background:var(--dk-redbg)}
@@ -946,7 +989,23 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
     </div>
   </div>
 
-  <div class="st" style="margin-top:1.5rem">Pour sortir du L0</div>
+    <div class="st">Gestion CRM & after-sales — L0</div>
+  <div class="crm-block">
+    <div class="cb-tt">Open Tasks · Open Cases · moyennes / agent (n=11)</div>
+    <div class="crm-grid2">
+      <div class="crm-stat">
+        <div class="l">Open Tasks / agent</div>
+        <div class="v">1,0 <small>médiane 1 · max 3</small></div>
+        <div class="d">CRM <em>léger</em> — peu de tickets ouverts. Conséquence d'un faible volume de signatures à suivre, pas d'une discipline particulière.</div>
+      </div>
+      <div class="crm-stat">
+        <div class="l">Open Cases / agent</div>
+        <div class="v">3,8 <small>médiane 2 · max 12</small></div>
+        <div class="d">Cases bien contenus. <em>Le L0 ne signe pas assez pour générer du backlog post-vente.</em></div>
+      </div>
+    </div>
+  </div>
+<div class="st" style="margin-top:1.5rem">Pour sortir du L0</div>
   <div class="uc">
     <div class="ut">Actions prioritaires (le L0 ne s'engage pas assez post-OC)</div>
     <div class="uitems">
@@ -1075,7 +1134,28 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
     </div>
   </div>
 
-  <div class="st" style="margin-top:1.5rem">Pour sortir du L1</div>
+    <div class="st">Gestion CRM & after-sales — L1</div>
+  <div class="crm-block">
+    <div class="cb-tt">Open Tasks · Open Cases · moyennes / agent (n=8)</div>
+    <div class="crm-grid2">
+      <div class="crm-stat">
+        <div class="l">Open Tasks / agent</div>
+        <div class="v">1,1 <small>médiane 1 · max 4</small></div>
+        <div class="d">Tasks faibles — <em>pas de système écrit</em>. Cohérent avec 7,2 em/opp (le min) : le L1 ne formalise pas son suivi.</div>
+      </div>
+      <div class="crm-stat">
+        <div class="l">Open Cases / agent</div>
+        <div class="v">7,0 <small>médiane 2 · max 58</small></div>
+        <div class="d">1 outlier ⚠ <em>Bertrand Cazabat (58 cases)</em>. Hors lui, la moyenne tombe à ~2 — niveau corpus.</div>
+      </div>
+    </div>
+    <div class="crm-outliers" style="margin-top:14px">
+      <div class="ol-h">Outliers tasks (top du L1)</div>
+      <div class="ol-row"><span class="nm">Florence Touyard</span><span class="vl">4 tasks</span></div>
+      <div class="ol-row"><span class="nm">Thibaut Brachet</span><span class="vl">2 tasks</span></div>
+    </div>
+  </div>
+<div class="st" style="margin-top:1.5rem">Pour sortir du L1</div>
   <div class="uc">
     <div class="ut">Actions prioritaires (le L1 manque de méthode écrite, pas de volume oral)</div>
     <div class="uitems">
@@ -1204,7 +1284,29 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
     </div>
   </div>
 
-  <div class="st" style="margin-top:1.5rem">Pour sortir du L2</div>
+    <div class="st">Gestion CRM & after-sales — L2</div>
+  <div class="crm-block">
+    <div class="cb-tt">Open Tasks · Open Cases · moyennes / agent (n=19)</div>
+    <div class="crm-grid2">
+      <div class="crm-stat">
+        <div class="l">Open Tasks / agent</div>
+        <div class="v">4,8 <small>médiane 2 · max 25</small></div>
+        <div class="d">Moyenne tirée par 2 outliers : <em>Camille Lecomte (25), Mila Gascoin (22)</em>. Médiane à 2 : la majorité du L2 reste légère sur les tasks.</div>
+      </div>
+      <div class="crm-stat">
+        <div class="l">Open Cases / agent</div>
+        <div class="v">2,9 <small>médiane 2 · max 13</small></div>
+        <div class="d">Cases bien gérés — <em>2,9 / agent en moyenne</em>. Le L2 close vite et clôt les cases.</div>
+      </div>
+    </div>
+    <div class="crm-outliers" style="margin-top:14px">
+      <div class="ol-h">Outliers tasks (top du L2)</div>
+      <div class="ol-row"><span class="nm">Camille Lecomte</span><span class="vl">25 tasks</span></div>
+      <div class="ol-row"><span class="nm">Mila Gascoin</span><span class="vl">22 tasks</span></div>
+      <div class="ol-row"><span class="nm">Amandine Godin</span><span class="vl">15 tasks</span></div>
+    </div>
+  </div>
+<div class="st" style="margin-top:1.5rem">Pour sortir du L2</div>
   <div class="uc">
     <div class="ut">Actions prioritaires (le L2 doit étendre sa rigueur écrite vers l'oral post-OC)</div>
     <div class="uitems">
@@ -1330,6 +1432,29 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="ttit">Supply Pend→Conf — le plus long du corpus</div>
         <div class="tbody">10.6j vs 7.3j L1 et 8.3j L0. <em>Conséquence probable : dossiers plus complexes signés par le L3</em> (multi-destinations, plus d'hôtels par booking). Le pilotage existe mais le délai DMC reste un angle mort à raccourcir.</div>
       </div>
+    </div>
+  </div>
+
+  <div class="st">Gestion CRM & after-sales — L3</div>
+  <div class="crm-block">
+    <div class="cb-tt">Open Tasks · Open Cases · moyennes / agent (n=14)</div>
+    <div class="crm-grid2">
+      <div class="crm-stat">
+        <div class="l">Open Tasks / agent</div>
+        <div class="v">4,5 <small>médiane 3 · max 12</small></div>
+        <div class="d">Tasks <em>suivies activement</em> (médiane 3 vs 1 chez L0/L1). Le L3 documente son post-vente — preuve d'un pilotage discipliné.</div>
+      </div>
+      <div class="crm-stat">
+        <div class="l">Open Cases / agent</div>
+        <div class="v">13,5 <small>médiane 6 · max 77</small></div>
+        <div class="d">Le plus haut du corpus. <em>Cohérent avec des dossiers complexes signés</em> (multi-destinations) — pas un signe de mauvaise gestion mais de portefeuille post-vente lourd.</div>
+      </div>
+    </div>
+    <div class="crm-outliers" style="margin-top:14px">
+      <div class="ol-h">Outliers cases (top du L3 — dossiers en suivi)</div>
+      <div class="ol-row"><span class="nm">Guillaume Dupont</span><span class="vl">77 cases</span></div>
+      <div class="ol-row"><span class="nm">Pauline Preynat</span><span class="vl">33 cases</span></div>
+      <div class="ol-row"><span class="nm">Victoria Nouchi</span><span class="vl">9 cases</span></div>
     </div>
   </div>
 
@@ -2442,8 +2567,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
                 <h4>L'Écrit-Convicteur</h4>
                 <ul>
                   <li><span>Emails / opp</span><strong>9,1 ★</strong></li>
-                  <li><span>First OC Bkg</span><strong>40,1 % ★</strong></li>
-                  <li><span>RC Done</span><strong>74,4 %</strong></li>
+                  <li><span>First OC Bkg</span><strong>39,4 % ★</strong></li>
+                  <li><span>RC Done</span><strong>72,8 %</strong></li>
                   <li><span>CR3</span><strong>25,7 % ★</strong></li>
                   <li><span>Opps / agent</span><strong>144</strong></li>
                 </ul>
@@ -2458,10 +2583,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
                 <h4>Le Pilote Post-Vente</h4>
                 <ul>
                   <li><span>RC Bkg</span><strong>66,7 % ★</strong></li>
-                  <li><span>OC Done</span><strong>73,6 % ★</strong></li>
-                  <li><span>Offer Made</span><strong>92,8 % ★</strong></li>
-                  <li><span>Call / jour</span><strong>2h40</strong></li>
-                  <li><span>Opps / agent</span><strong>191</strong></li>
+                  <li><span>OC Done</span><strong>75,2 % ★</strong></li>
+                  <li><span>Offer Made</span><strong>93,0 % ★</strong></li>
+                  <li><span>OC → RC</span><strong>7,1 j (court)</strong></li>
+                  <li><span>Opps / agent</span><strong>162</strong></li>
                 </ul>
               </div>
             </div>
@@ -2659,8 +2784,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
               <div class="fr"><span class="lbl">RC Done</span><span class="val">73 – 74 %</span><span class="tag">★ référence</span></div>
               <div class="fr"><span class="lbl">RC Bkg (closing)</span><span class="val">66 – 67 %</span><span class="tag">closing record</span></div>
               <div class="fr"><span class="lbl">L2 · emails par opp</span><span class="val">9,1</span><span class="tag">le record</span></div>
-              <div class="fr"><span class="lbl">L2 · First OC Bkg</span><span class="val">40,1 %</span><span class="tag">le record</span></div>
-              <div class="fr"><span class="lbl">L3 · OC Done</span><span class="val">73,6 %</span><span class="tag">le record</span></div>
+              <div class="fr"><span class="lbl">L2 · First OC Bkg</span><span class="val">39,4 %</span><span class="tag">le record</span></div>
+              <div class="fr"><span class="lbl">L3 · OC Done</span><span class="val">75,2 %</span><span class="tag">le record</span></div>
             </div>
           </div>
         </div>
@@ -2700,7 +2825,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </div>
             <div class="dperc-q">« 9,1 emails / opp — l'écrit prépare le client pour l'OC. 40 % de First OC Bkg, le meilleur du corpus. »</div>
             <div class="dperc-rows">
-              <div class="pr"><span class="ptg force">Force</span><span class="pcnt">9,1 em/opp ★ · First OC Bkg 40,1 % ★ · CR3 25,7 % top · RC Done 74,4 %</span></div>
+              <div class="pr"><span class="ptg force">Force</span><span class="pcnt">9,1 em/opp ★ · First OC Bkg 39,4 % ★ · CR3 25,7 % top · RC Done 72,8 %</span></div>
               <div class="pr"><span class="ptg lever">Levier</span><span class="pcnt">2h17 call/jour (le min) · OC → RC 9,4 j (le pire) · Supply Pending → Conf 9,5 j</span></div>
               <div class="pr"><span class="ptg action">Action</span><span class="pcnt">Augmenter call/jour à 2h40+ · short call J+2 entre OC et RC</span></div>
             </div>
@@ -2716,7 +2841,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </div>
             <div class="dperc-q">« Solide à toutes les étapes — RC Bkg 66,7 % record, OC Done 73,6 % record, Offer Made 92,8 % record. »</div>
             <div class="dperc-rows">
-              <div class="pr"><span class="ptg force">Force</span><span class="pcnt">RC Bkg 66,7 % ★ · OC Done 73,6 % ★ · Offer Made 92,8 % ★ · 2h40 call/jour</span></div>
+              <div class="pr"><span class="ptg force">Force</span><span class="pcnt">RC Bkg 66,7 % ★ · OC Done 75,2 % ★ · Offer Made 93,0 % ★ · OC → RC 7,1 j (court)</span></div>
               <div class="pr"><span class="ptg watch">Watch</span><span class="pcnt">Supply Pending → Conf 10,6 j (le plus long) · probablement dossiers complexes</span></div>
               <div class="pr"><span class="ptg role">Rôle</span><span class="pcnt">Peer-coach des L2 émergents · modèle « ouvre une task pour chaque signature »</span></div>
             </div>
@@ -2768,7 +2893,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlevel-hero h0 dr-up d1">
           <div>
             <h2 class="dh1 compact">Cycle amont rapide,<br><em>désengagement post-OC.</em></h2>
-            <p class="dlede">Le L0 envoie l'offre vite (FC → Offer en 1,3 j), mais la conversion s'effondre après l'OC. <strong>RC Done 59 % vs 73-74 % chez L2/L3</strong> — le client n'est pas accroché entre les étapes.</p>
+            <p class="dlede">Le L0 envoie l'offre vite (FC → Offer en 1,3 j) mais la conversion s'effondre après l'OC. <strong>RC Done 59,8 % vs 73-74 % chez L2/L3</strong> — le client n'est pas accroché entre les étapes.</p>
             <div class="dlevel-id">
         <div class="dlid"><div class="v">11</div><div class="l">Agents</div></div>
         <div class="dlid"><div class="v">168</div><div class="l">Opps / agent</div></div>
@@ -2782,11 +2907,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlevel-body dr-up d3">
           <div class="dlfn l0">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
-      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:90.6%">90,6 %</div></div><span class="delta">+1,5 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:88.3%">88,3 %</div></div><span class="delta dn">−1,2 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:69.0%">69,0 %</div></div><span class="delta dn">−2,5 vs mkt</span></div>
-      <div class="dlfn-row rupture"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:32.6%">32,6 %</div></div><span class="delta dn">−3,9 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:59.0%">59,0 %</div></div><span class="delta dn">−7,3 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:90.5%">90,5 %</div></div><span class="delta">+1,5 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:88.4%">88,4 %</div></div><span class="delta dn">−1,0 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:69.2%">69,2 %</div></div><span class="delta dn">−2,3 vs mkt</span></div>
+      <div class="dlfn-row rupture"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:32.5%">32,5 %</div></div><span class="delta dn">−4,0 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:59.8%">59,8 %</div></div><span class="delta dn">−7,3 vs mkt</span></div>
       <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:54.5%">54,5 %</div></div><span class="delta dn">−6,8 vs mkt</span></div>
           </div>
 
@@ -2795,10 +2920,25 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             <div class="dlbeh-grid">
         <div class="dlb-cell bad"><div class="l">Emails / opp</div><div class="v">7,75</div><div class="d dn">−8 % vs mkt 8,4</div></div>
         <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">5,05</div><div class="d">≈ marché 4,9</div></div>
-        <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 27</div><div class="d dn">le min · −10 %</div></div>
+        <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 27</div><div class="d dn">−2 % vs mkt</div></div>
         <div class="dlb-cell good"><div class="l">FC → Offer</div><div class="v">1,3 j</div><div class="d up">rapide vs mkt 1,5</div></div>
-        <div class="dlb-cell"><div class="l">OC → RC</div><div class="v">6,3 j</div><div class="d">≈ marché 7,9</div></div>
-        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">10,0 j</div><div class="d">≈ marché</div></div>
+        <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">6,3 j</div><div class="d up">le plus court ★</div></div>
+        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">8,3 j</div><div class="d">−0,9j vs mkt 9,2</div></div>
+            </div>
+            <div class="dlafter">
+              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
+              <div class="dlafter-grid">
+                <div class="dlaf">
+                  <div class="l">Open Tasks / agent</div>
+                  <div class="v">1,0 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 1 · max 3</span></div>
+                  <div class="d">CRM léger — peu de signatures à suivre</div>
+                </div>
+                <div class="dlaf">
+                  <div class="l">Open Cases / agent</div>
+                  <div class="v">3,8 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 12</span></div>
+                  <div class="d">Few cases · faible portefeuille post-vente</div>
+                </div>
+              </div>
             </div>
             <div class="dlpipe">
               <div class="dlpipe-tt">Composition pipeline · 199 opps en cours</div>
@@ -2820,7 +2960,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
         <div class="dlverdict bad dr-up d4">
           <div class="vd-l">Verdict</div>
-          <div class="vd-t">L'<strong>amont sans l'aval</strong>. La capacité existe (cycle FC → Offer record) mais l'engagement post-OC fait défaut : <strong>2h 27 de call/jour (le min) + 7,75 em/opp (sous-moyenne)</strong>. <em>Levier : étendre l'engagement après l'envoi de l'offre.</em></div>
+          <div class="vd-t">L'<strong>amont sans l'aval</strong>. Le cycle FC → Offer est rapide (1,3 j) et l'OC → RC est même <strong>le plus court du corpus (6,3 j)</strong>, mais le RC ne tient pas : <strong>RC Done 59,8 % vs 73 % L2/L3</strong>. <em>Levier : densifier la relance entre OC et RC (calls + emails).</em></div>
         </div>
 
         <div class="dpg-foot">
@@ -2841,7 +2981,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlevel-hero h1 dr-up d1">
           <div>
             <h2 class="dh1 compact">Volume oral maximum,<br><em>trace écrite minimum.</em></h2>
-            <p class="dlede">2h 45 de call/jour (le record du corpus), mais 7,2 emails/opp (le plus bas). Le client perd le fil entre les étapes — <strong>RC Done 52 % et RC Bkg 49 % sont les pires de tous les levels</strong>.</p>
+            <p class="dlede">2h 45 de call/jour (le record du corpus), mais 7,2 emails/opp (le plus bas). <strong>RC Done 52,3 % et RC Bkg 49,3 % — les pires de tous les levels</strong>. Le client perd le fil entre les étapes.</p>
             <div class="dlevel-id">
         <div class="dlid"><div class="v">8</div><div class="l">Agents</div></div>
         <div class="dlid"><div class="v">213</div><div class="l">Opps / agent ⚠</div></div>
@@ -2856,11 +2996,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <div class="dlfn l1">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
       <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:91.3%">91,3 %</div></div><span class="delta up">+2,3 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:84.6%">84,6 %</div></div><span class="delta dn">−4,9 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:65.9%">65,9 %</div></div><span class="delta dn">−5,6 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:33.2%">33,2 %</div></div><span class="delta dn">−3,3 vs mkt</span></div>
-      <div class="dlfn-row rupture"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:52.2%">52,2 %</div></div><span class="delta dn">−14,8 le pire</span></div>
-      <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:49.3%">49,3 %</div></div><span class="delta dn">−12 le pire</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:84.6%">84,6 %</div></div><span class="delta dn">−4,8 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:66.0%">66,0 %</div></div><span class="delta dn">−5,5 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:33.4%">33,4 %</div></div><span class="delta dn">−3,1 vs mkt</span></div>
+      <div class="dlfn-row rupture"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:52.3%">52,3 %</div></div><span class="delta dn">−14,7 le pire</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:49.3%">49,3 %</div></div><span class="delta dn">−12,0 le pire</span></div>
           </div>
 
           <div class="dlbeh">
@@ -2869,9 +3009,24 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlb-cell bad"><div class="l">Emails / opp</div><div class="v">7,2</div><div class="d dn">le min du corpus</div></div>
         <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div><div class="d">≈ marché</div></div>
         <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 45</div><div class="d up">le record ★</div></div>
-        <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,2 j</div><div class="d">rapide</div></div>
-        <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">8,0 j</div><div class="d dn">le plus long</div></div>
-        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">9,3 j</div><div class="d">≈ marché</div></div>
+        <div class="dlb-cell good"><div class="l">FC → Offer</div><div class="v">1,2 j</div><div class="d up">le plus rapide ★</div></div>
+        <div class="dlb-cell"><div class="l">OC → RC</div><div class="v">8,0 j</div><div class="d">≈ marché 7,9</div></div>
+        <div class="dlb-cell good"><div class="l">SP → Conf</div><div class="v">7,3 j</div><div class="d up">le plus court ★</div></div>
+            </div>
+            <div class="dlafter">
+              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
+              <div class="dlafter-grid">
+                <div class="dlaf">
+                  <div class="l">Open Tasks / agent</div>
+                  <div class="v">1,1 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 1 · max 4</span></div>
+                  <div class="d">Tasks faibles · pas de système écrit</div>
+                </div>
+                <div class="dlaf">
+                  <div class="l">Open Cases / agent</div>
+                  <div class="v">7,0 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 58</span></div>
+                  <div class="d">1 outlier ⚠ Bertrand Cazabat (58)</div>
+                </div>
+              </div>
             </div>
             <div class="dlpipe">
               <div class="dlpipe-tt">Composition pipeline · 1 703 opps gérés (record corpus)</div>
@@ -2893,7 +3048,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
         <div class="dlverdict bad dr-up d4">
           <div class="vd-l">Verdict</div>
-          <div class="vd-t">Le <strong>volume sans méthode</strong>. Le L1 prend tous les calls (2h 45/jour, le record), mais ne formalise pas par écrit (7,2 em/opp, le pire). Avec 213 opps simultanés, il pilote en mode pompier — <em>le client arrive au RC sans recap, sans relance, et signe 1 fois sur 2 seulement.</em></div>
+          <div class="vd-t">Le <strong>volume sans méthode</strong>. Le L1 prend tous les calls (2h 45/jour record) mais ne formalise pas (7,2 em/opp, le pire). Avec 213 opps simultanées, il pilote en mode pompier — <em>le client arrive au RC sans recap, et signe 1 fois sur 2 seulement.</em></div>
         </div>
 
         <div class="dpg-foot">
@@ -2914,7 +3069,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlevel-hero h2 dr-up d1">
           <div>
             <h2 class="dh1 compact">Champion de l'écrit,<br><em>champion de la conversion.</em></h2>
-            <p class="dlede">9,1 emails/opp (record du corpus) + meilleure qualité d'OC (40,1 % de First OC Bkg). Résultat : <strong>CR3 25,7 % — record corpus, 37 % du GBV total</strong>. Le L2 mise sur la rigueur écrite plutôt que sur le volume oral.</p>
+            <p class="dlede">9,1 emails/opp (record corpus) + meilleure qualité d'OC (39,4 % de First OC Bkg). Résultat : <strong>CR3 25,7 %, 37 % du GBV total</strong>. Le L2 mise sur la rigueur écrite plutôt que sur le volume oral.</p>
             <div class="dlevel-id">
         <div class="dlid"><div class="v">19</div><div class="l">Agents</div></div>
         <div class="dlid"><div class="v">144</div><div class="l">Opps / agent</div></div>
@@ -2928,11 +3083,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlevel-body dr-up d3">
           <div class="dlfn l2">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
-      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:93.0%">93,0 %</div></div><span class="delta up">+4 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:89.9%">89,9 %</div></div><span class="delta">+0,5 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:70.7%">70,7 %</div></div><span class="delta">−0,8 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:40.1%">40,1 %</div></div><span class="delta star">le record ★</span></div>
-      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:74.4%">74,4 %</div></div><span class="delta up">+7,4 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:88.2%">88,2 %</div></div><span class="delta dn">−0,8 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:89.7%">89,7 %</div></div><span class="delta">+0,2 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:72.6%">72,6 %</div></div><span class="delta up">+1,1 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:39.4%">39,4 %</div></div><span class="delta star">le record ★</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:72.8%">72,8 %</div></div><span class="delta up">+5,7 vs mkt</span></div>
       <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:66.5%">66,5 %</div></div><span class="delta up">+5,2 vs mkt</span></div>
           </div>
 
@@ -2944,7 +3099,22 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 17</div><div class="d dn">le min ⚠</div></div>
         <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
         <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">9,4 j</div><div class="d dn">le plus long ⚠</div></div>
-        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">11,2 j</div><div class="d dn">léger retard</div></div>
+        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">9,5 j</div><div class="d">+0,4j vs mkt 9,2</div></div>
+            </div>
+            <div class="dlafter">
+              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
+              <div class="dlafter-grid">
+                <div class="dlaf">
+                  <div class="l">Open Tasks / agent</div>
+                  <div class="v">4,8 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 25</span></div>
+                  <div class="d">Tasks moyens · 2 outliers ⚠ Camille Lecomte (25) · Mila Gascoin (22)</div>
+                </div>
+                <div class="dlaf">
+                  <div class="l">Open Cases / agent</div>
+                  <div class="v">2,9 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 13</span></div>
+                  <div class="d">Cases bien gérés · 2,9 cases/agent</div>
+                </div>
+              </div>
             </div>
             <div class="dlpipe">
               <div class="dlpipe-tt">Composition pipeline · 2 738 opps gérés (37 % du GBV total)</div>
@@ -2966,7 +3136,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
         <div class="dlverdict good dr-up d4">
           <div class="vd-l">Verdict</div>
-          <div class="vd-t"><strong>L'écrit comme méthode</strong>. 9,1 em/opp record + First OC Bkg 40,1 % record → conversion top corpus. <em>Pour passer L3 : raccourcir OC → RC (9,4 j → 7 j) avec un short call de relance, et augmenter le call/jour à 2h 40+.</em></div>
+          <div class="vd-t"><strong>L'écrit comme méthode</strong>. 9,1 em/opp record + First OC Bkg 39,4 % record → conversion top corpus. <em>Pour passer L3 : raccourcir OC → RC (9,4 j → 7 j) avec un short call de relance, et augmenter le call/jour à 2h 40+.</em></div>
         </div>
 
         <div class="dpg-foot">
@@ -2987,7 +3157,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlevel-hero h3 dr-up d1">
           <div>
             <h2 class="dh1 compact">Solide à toutes les étapes —<br><em>un funnel maîtrisé end-to-end.</em></h2>
-            <p class="dlede">Pas de signature unique comme le L2 ; une régularité. <strong>FC Done 93,8 %, Offer Made 92,8 %, OC Done 73,6 %, RC Bkg 66,7 %</strong> — quatre records corpus. Le L3 est le modèle à diffuser.</p>
+            <p class="dlede">3 records corpus simultanés : <strong>Offer Made 93 %, OC Done 75,2 %, RC Bkg 66,7 %</strong>. OC → RC court (7,1 j vs 9,4 j L2). Limite assumée : portefeuille post-vente plus complexe (13 cases/agent en moyenne).</p>
             <div class="dlevel-id">
         <div class="dlid"><div class="v">14</div><div class="l">Agents</div></div>
         <div class="dlid"><div class="v">162</div><div class="l">Opps / agent</div></div>
@@ -3001,11 +3171,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlevel-body dr-up d3">
           <div class="dlfn l3">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
-      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:93.8%">93,8 %</div></div><span class="delta star">le record ★</span></div>
-      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:92.8%">92,8 %</div></div><span class="delta star">le record ★</span></div>
-      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:73.6%">73,6 %</div></div><span class="delta star">le record ★</span></div>
-      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:34.1%">34,1 %</div></div><span class="delta dn">−2,4 vs mkt</span></div>
-      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:73.4%">73,4 %</div></div><span class="delta up">+6,4 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:87.6%">87,6 %</div></div><span class="delta dn">−1,5 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:93.0%">93,0 %</div></div><span class="delta star">le record ★</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:75.2%">75,2 %</div></div><span class="delta star">le record ★</span></div>
+      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:37.8%">37,8 %</div></div><span class="delta up">+1,2 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:74.0%">74,0 %</div></div><span class="delta up">+6,9 vs mkt</span></div>
       <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:66.7%">66,7 %</div></div><span class="delta star">le record ★</span></div>
           </div>
 
@@ -3016,8 +3186,23 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div><div class="d">≈ marché</div></div>
         <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 40</div><div class="d up">+13 min vs L2</div></div>
         <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
-        <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">7,1 j</div><div class="d up">rapide vs L2</div></div>
-        <div class="dlb-cell bad"><div class="l">SP → Conf</div><div class="v">11,1 j</div><div class="d dn">le plus long ⚠</div></div>
+        <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">7,1 j</div><div class="d up">court vs L2 (9,4 j)</div></div>
+        <div class="dlb-cell bad"><div class="l">SP → Conf</div><div class="v">10,6 j</div><div class="d dn">le plus long · dossiers complexes</div></div>
+            </div>
+            <div class="dlafter">
+              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
+              <div class="dlafter-grid">
+                <div class="dlaf">
+                  <div class="l">Open Tasks / agent</div>
+                  <div class="v">4,5 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 3 · max 12</span></div>
+                  <div class="d">Tasks suivis activement (médiane 3)</div>
+                </div>
+                <div class="dlaf">
+                  <div class="l">Open Cases / agent</div>
+                  <div class="v">13,5 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 6 · max 77</span></div>
+                  <div class="d">13,5 cases/agent · dossiers complexes signés</div>
+                </div>
+              </div>
             </div>
             <div class="dlpipe">
               <div class="dlpipe-tt">Composition pipeline · 2 274 opps gérés (34 % du GBV total)</div>
@@ -3039,7 +3224,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
         <div class="dlverdict good dr-up d4">
           <div class="vd-l">Verdict</div>
-          <div class="vd-t"><strong>Solide partout sur le funnel</strong>. 4 records corpus simultanés (FC, Offer Made, OC Done, RC Bkg) — pas de point faible, juste de la rigueur end-to-end. <em>Limite : Supply Pending → Conf 11,1 j (dossiers complexes signés). Rôle : peer-coach des L2 émergents.</em></div>
+          <div class="vd-t"><strong>Solide partout sur le funnel</strong>. 3 records corpus (Offer Made 93 %, OC Done 75 %, RC Bkg 67 %) + <strong>OC → RC le plus court vs L2 (7,1 j vs 9,4 j)</strong>. <em>Contrepartie : SP → Conf 10,6 j (le plus long) et 13,5 open cases/agent — conséquence des dossiers plus complexes signés.</em></div>
         </div>
 
         <div class="dpg-foot">
@@ -3047,6 +3232,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <span>Tourlane FR · Q1 2026</span>
         </div>
       </div>
+
       <!-- ════════ SLIDE 10 — PLAN D'ACTION Q2 ════════ -->
       <div class="deck-slide" data-slide="10">
         <div class="dpg-eyebrow">
@@ -3242,10 +3428,10 @@ function initSlide3Chart() {
   canvas._s3chart = new Chart(ctx, {
     type:'line',
     data:{ labels:stages, datasets:[
-      { label:'L0', data:[90.6,88.3,69.0,32.6,59.0,54.5], borderColor:'#888780', backgroundColor:'rgba(136,135,128,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#888780', fill:true, tension:0.3 },
-      { label:'L1', data:[91.3,84.6,65.9,33.2,52.2,49.3], borderColor:'#378ADD', backgroundColor:'rgba(55,138,221,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#378ADD', fill:true, tension:0.3 },
-      { label:'L2', data:[93.0,89.9,70.7,40.1,74.4,66.5], borderColor:'#7F77DD', backgroundColor:'rgba(127,119,221,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#7F77DD', fill:true, tension:0.3 },
-      { label:'L3', data:[93.8,92.8,73.6,34.1,73.4,66.7], borderColor:'#639922', backgroundColor:'rgba(99,153,34,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#639922', fill:true, tension:0.3 },
+      { label:'L0', data:[90.5,88.4,69.2,32.5,59.8,54.5], borderColor:'#888780', backgroundColor:'rgba(136,135,128,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#888780', fill:true, tension:0.3 },
+      { label:'L1', data:[91.3,84.6,66.0,33.4,52.3,49.3], borderColor:'#378ADD', backgroundColor:'rgba(55,138,221,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#378ADD', fill:true, tension:0.3 },
+      { label:'L2', data:[88.2,89.7,72.6,39.4,72.8,66.5], borderColor:'#7F77DD', backgroundColor:'rgba(127,119,221,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#7F77DD', fill:true, tension:0.3 },
+      { label:'L3', data:[87.6,93.0,75.2,37.8,74.0,66.7], borderColor:'#639922', backgroundColor:'rgba(99,153,34,0.1)', borderWidth:2.5, pointRadius:5, pointBackgroundColor:'#639922', fill:true, tension:0.3 },
     ]},
     options:{
       responsive:false,
@@ -3667,10 +3853,10 @@ function buildCard(a, agentId) {
     deckChart = new Chart(canvas.getContext('2d'),{
       type:'line',
       data:{ labels:stages, datasets:[
-        { label:'L0', data:[90.6,88.3,69.0,32.6,59.0,54.5], borderColor:'#3A352B', backgroundColor:'rgba(58,53,43,.08)', borderWidth:2, pointRadius:4, pointHoverRadius:7, pointBackgroundColor:'#3A352B', fill:true, tension:.32 },
-        { label:'L1', data:[91.3,84.6,65.9,33.2,52.2,49.3], borderColor:'#7A3A14', backgroundColor:'rgba(122,58,20,.08)', borderWidth:2, pointRadius:4, pointHoverRadius:7, pointBackgroundColor:'#7A3A14', fill:true, tension:.32 },
-        { label:'L2', data:[93.0,89.9,70.7,40.1,74.4,66.5], borderColor:'#0F3866', backgroundColor:'rgba(15,56,102,.08)', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, pointBackgroundColor:'#0F3866', fill:true, tension:.32 },
-        { label:'L3', data:[93.8,92.8,73.6,34.1,73.4,66.7], borderColor:'#1F5F3F', backgroundColor:'rgba(31,95,63,.10)', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, pointBackgroundColor:'#1F5F3F', fill:true, tension:.32 },
+        { label:'L0', data:[90.5,88.4,69.2,32.5,59.8,54.5], borderColor:'#3A352B', backgroundColor:'rgba(58,53,43,.08)', borderWidth:2, pointRadius:4, pointHoverRadius:7, pointBackgroundColor:'#3A352B', fill:true, tension:.32 },
+        { label:'L1', data:[91.3,84.6,66.0,33.4,52.3,49.3], borderColor:'#7A3A14', backgroundColor:'rgba(122,58,20,.08)', borderWidth:2, pointRadius:4, pointHoverRadius:7, pointBackgroundColor:'#7A3A14', fill:true, tension:.32 },
+        { label:'L2', data:[88.2,89.7,72.6,39.4,72.8,66.5], borderColor:'#0F3866', backgroundColor:'rgba(15,56,102,.08)', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, pointBackgroundColor:'#0F3866', fill:true, tension:.32 },
+        { label:'L3', data:[87.6,93.0,75.2,37.8,74.0,66.7], borderColor:'#1F5F3F', backgroundColor:'rgba(31,95,63,.10)', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, pointBackgroundColor:'#1F5F3F', fill:true, tension:.32 },
       ]},
       options:{
         responsive:true, maintainAspectRatio:false,
