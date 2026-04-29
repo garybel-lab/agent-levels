@@ -3698,11 +3698,14 @@ function buildCard(a, agentId) {
   bar('SO → OC (RC)', a.rc_done, a.so_count || 1, Math.round((a.so_count||1) * a.bm_oc / 100), 'fill-' + a.lvl.toLowerCase()) +
   bar('OC → Bkg', a.first_bkg, a.oc_done || 1, Math.round((a.oc_done||1) * a.bm_rc / 100), 'fill-' + a.lvl.toLowerCase()) +
   
-  // DIM 2.5 - Funnel Ratios from Looker
-  '<div class="dim-title">⑧ Ratios Funnel</div>' +
-  funnelRatioRow('OC Done Ratio', a.oc_done_rate) +
-  funnelRatioRow('RC Done Ratio', a.rc_ratio) +
-  funnelRatioRow('1er OC → Bkg', a.first_oc_bkg) +
+  // DIM 2.5 - Funnel Ratios — Looker-authoritative (from _agentEnrichment)
+  '<div class="dim-title">⑧ Ratios Funnel <span style="font-size:10px;color:#888;font-weight:400;text-transform:none;letter-spacing:0">· source Looker</span></div>' +
+  funnelRatioRow('FC Done Ratio',     enr.fc_done_ratio) +
+  funnelRatioRow('Offer Made Ratio',  enr.offer_made_ratio) +
+  funnelRatioRow('OC Done Ratio',     enr.oc_done_ratio) +
+  funnelRatioRow('RC Done Ratio',     enr.rc_done_ratio) +
+  funnelRatioRow('1er OC → Bkg',      enr.oc_booking_ratio) +
+  funnelRatioRow('RC → Bkg',          enr.rc_booking_ratio) +
 
   // DIM 3 - Pipeline %
   '<div class="dim-title">⑨ Composition pipeline (% des opps)</div>' +
@@ -3710,14 +3713,14 @@ function buildCard(a, agentId) {
   pctBar('Send Offer', a.pct_offer, a.bm_so, 'fill-' + a.lvl.toLowerCase()) +
   pctBar('Recv Conf.', a.pct_rc, a.bm_oc * a.bm_so / 100, 'fill-' + a.lvl.toLowerCase()) +
   pctBar('Supply Pend', a.pct_sp, 15, 'fill-' + a.lvl.toLowerCase()) +
-  
-  // DIM 4 - CRM
+
+  // DIM 4 - CRM (real data from enrichment, not fabricated)
   '<div class="dim-title">④ Gestion CRM & Aftersales</div>' +
   '<div class="crm-grid">' +
     '<div class="crm-item"><span class="cv">' + a.sp_count + '</span><span class="cl">Supply Pending</span></div>' +
     '<div class="crm-item"><span class="cv">' + a.sc_count + '</span><span class="cl">Supply Confirmed</span></div>' +
-    '<div class="crm-item"><span class="cv">' + Math.round(a.bkg * 0.3) + '</span><span class="cl">Open Tasks CS</span></div>' +
-    '<div class="crm-item"><span class="cv">' + Math.round(a.bkg * 0.1) + '</span><span class="cl">Open Cases</span></div>' +
+    '<div class="crm-item"><span class="cv">' + (enr.open_tasks != null ? enr.open_tasks : '—') + '</span><span class="cl">Open Tasks</span></div>' +
+    '<div class="crm-item"><span class="cv">' + (enr.open_cases != null ? enr.open_cases : '—') + '</span><span class="cl">Open Cases</span></div>' +
   '</div>' +
   
   // DIM 5 - Value
