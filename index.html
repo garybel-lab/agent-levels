@@ -955,7 +955,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 /* Level radar card (slides 7-10) — compact, fits in right column of level body */
 .dlradar{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:.85rem 1rem;margin:0;display:flex;flex-direction:column}
 .dlradar-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:6px}
-.dlradar-host{position:relative;height:300px;flex:1}
+.dlradar-host{position:relative;height:240px}
 .dlradar-cap{font-size:10.5px;color:var(--mute);margin-top:6px;line-height:1.45}
 .dlradar-cap strong{color:var(--ink)}
 
@@ -3182,15 +3182,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
           <div class="dlbeh">
             <div class="dlradar">
-              <div class="dlradar-tt">Profil L0 · vs marché — chaque axe : 50 = marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-l0"></canvas></div>
-              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L0 · gris pointillé = marché. Plus loin du centre = mieux.</div>
+              <div class="dlradar-tt">Funnel & conversion · L0 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l0"></canvas></div>
+              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
-              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">5,05</div></div>
-              <div class="dlb-cell min"><div class="l">Daily call</div><div class="v">2h 27</div></div>
-              <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">6,3 j</div></div>
-              <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">8,3 j</div></div>
+            <div class="dlradar" style="margin-top:.75rem">
+              <div class="dlradar-tt">Gestion quotidienne · L0 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-quot-l0"></canvas></div>
+              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
             </div>
           </div>
         
@@ -3251,15 +3250,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
           <div class="dlbeh">
             <div class="dlradar">
-              <div class="dlradar-tt">Profil L1 · vs marché — chaque axe : 50 = marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-l1"></canvas></div>
-              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L1 · gris pointillé = marché. Plus loin du centre = mieux.</div>
+              <div class="dlradar-tt">Funnel & conversion · L1 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l1"></canvas></div>
+              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
-              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div></div>
-              <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 45</div></div>
-              <div class="dlb-cell"><div class="l">OC → RC</div><div class="v">8,0 j</div></div>
-              <div class="dlb-cell good"><div class="l">SP → Conf</div><div class="v">7,3 j</div></div>
+            <div class="dlradar" style="margin-top:.75rem">
+              <div class="dlradar-tt">Gestion quotidienne · L1 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-quot-l1"></canvas></div>
+              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
             </div>
           </div>
         
@@ -3320,15 +3318,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
           <div class="dlbeh">
             <div class="dlradar">
-              <div class="dlradar-tt">Profil L2 · vs marché — chaque axe : 50 = marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-l2"></canvas></div>
-              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L2 · gris pointillé = marché. Plus loin du centre = mieux.</div>
+              <div class="dlradar-tt">Funnel & conversion · L2 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l2"></canvas></div>
+              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
-              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,89</div></div>
-              <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 17</div></div>
-              <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">9,4 j</div></div>
-              <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">9,5 j</div></div>
+            <div class="dlradar" style="margin-top:.75rem">
+              <div class="dlradar-tt">Gestion quotidienne · L2 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-quot-l2"></canvas></div>
+              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
             </div>
           </div>
         
@@ -3389,15 +3386,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
           <div class="dlbeh">
             <div class="dlradar">
-              <div class="dlradar-tt">Profil L3 · vs marché — chaque axe : 50 = marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-l3"></canvas></div>
-              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L3 · gris pointillé = marché. Plus loin du centre = mieux.</div>
+              <div class="dlradar-tt">Funnel & conversion · L3 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l3"></canvas></div>
+              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
-              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div></div>
-              <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 40</div></div>
-              <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">7,1 j</div></div>
-              <div class="dlb-cell bad"><div class="l">SP → Conf</div><div class="v">10,6 j</div></div>
+            <div class="dlradar" style="margin-top:.75rem">
+              <div class="dlradar-tt">Gestion quotidienne · L3 vs marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-quot-l3"></canvas></div>
+              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
             </div>
           </div>
         
@@ -4116,11 +4112,11 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
       + '<div class="fc2-k"><div class="l">Opps gérés</div><div class="v">' + a.opps + '</div>'
         + '<div class="d eq">' + a.fc_done + ' FC réalisés</div></div>'
     + '</div>'
-    // Radar chart
+    // Funnel & conversion radar
     + '<div class="fc2-chart-host radar">'
-      + '<h5>Profil de performance · vs marché</h5>'
+      + '<h5>Funnel & conversion · ' + a.name + ' vs marché</h5>'
       + '<div class="canv-wrap"><canvas id="radar-' + cardKey + '"></canvas></div>'
-      + '<p class="legend-note">Chaque axe : <strong>50 = marché</strong>. Polygone <strong>noir</strong> = ' + a.name + ' · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = meilleur (sauf cycles).</p>'
+      + '<p class="legend-note">CR3 · AOV · 5 ratios funnel (FC, Offer, OC, 1<sup>er</sup> OC Bkg, RC Bkg). <strong>Marché = 50</strong>, plus loin du centre = mieux.</p>'
     + '</div>'
     // Action plan
     + '<div class="fc2-action">'
@@ -4173,6 +4169,12 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
       + '<div class="canv-wrap"><canvas id="commbar-' + cardKey + '"></canvas></div>'
       + '<p class="legend-note">Barre <strong>verte</strong> = au-dessus du marché · <strong>rouge</strong> = en-dessous · <strong>0 %</strong> = niveau marché.</p>'
     + '</div>'
+    // Quotidien radar — 7 axes (em out, em in, calls, daily call, % long, OC→RC↓, SP→Conf↓)
+    + '<div class="fc2-chart-host radar">'
+      + '<h5>Profil quotidien · ' + a.name + ' vs marché</h5>'
+      + '<div class="canv-wrap"><canvas id="radar-quot-' + cardKey + '"></canvas></div>'
+      + '<p class="legend-note">Communication (em out, em in, calls/opp, daily call, % calls long) + cycles (OC → RC, SP → Conf inversés : <strong>court = mieux</strong>). Plus loin du centre = mieux.</p>'
+    + '</div>'
     + '<div class="fc2-h">Cycles temporels · plus court = mieux</div>'
     + ggRow('FC → Offer',          enr.cyc_fc_to_offer,    mb.cyc_fc_to_offer,    {unit:' j', higherIsBetter:false})
     + ggRow('FC → OC',             enr.cyc_fc_to_oc,       mb.cyc_fc_to_oc,       {unit:' j', higherIsBetter:false})
@@ -4187,13 +4189,23 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
 
   // Stash chart data on the global registry so the lazy-render JS can find it
   window._fc2Cards = window._fc2Cards || {};
+  // Funnel radar (Performance tab) — 7 axes : CR3, AOV, FC, Offer, OC, 1er OC, RC Bkg (all higher=better)
+  // Quotidien radar (Communication tab) — 7 axes : Em out, Em in, Calls/opp, Daily call, % long, OC→RC↓, SP→Conf↓
   window._fc2Cards[cardKey] = {
     name: a.name,
     isTL: !!isTL,
     perf: {
-      labels: ['CR3','AOV','Em out / opp','FC Done','OC Done','RC Bkg'],
-      agent: [a.cr3, a.aov, enr.emails_out, ratFC, ratOC, ratRCB],
-      market: [mktCR3, mktAOV, mb.emails_out, mb.fc_done_ratio, mb.oc_done_ratio, mb.rc_booking_ratio]
+      axes: [
+        {key:'CR3', hib:true},
+        {key:'AOV', hib:true},
+        {key:'FC Done', hib:true},
+        {key:'Offer Made', hib:true},
+        {key:'OC Done', hib:true},
+        {key:'1er OC Bkg', hib:true},
+        {key:'RC Bkg', hib:true},
+      ],
+      agent: [a.cr3, a.aov, ratFC, ratOM, ratOC, ratOCB, ratRCB],
+      market: [mktCR3, mktAOV, mb.fc_done_ratio, mb.offer_made_ratio, mb.oc_done_ratio, mb.oc_booking_ratio, mb.rc_booking_ratio]
     },
     funnel: {
       ratios: [ratFC, ratOM, ratOC, ratOCB, ratRC, ratRCB],
@@ -4203,6 +4215,19 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
       labels: ['Em out / opp','Em in / opp','Calls / opp','% calls > 10 min','Daily call (min)'],
       agent: [enr.emails_out, enr.emails_in, enr.calls_per_opp, enr.pct_calls_long, enr.daily_call_min],
       market: [mb.emails_out, mb.emails_in, mb.calls_per_opp, mb.pct_calls_long, mb.daily_call_min]
+    },
+    quot: {
+      axes: [
+        {key:'Em out / opp', hib:true},
+        {key:'Em in / opp', hib:true},
+        {key:'Calls / opp', hib:true},
+        {key:'Daily call (min)', hib:true},
+        {key:'% calls > 10 min', hib:true},
+        {key:'OC → RC ↓', hib:false},
+        {key:'SP → Conf ↓', hib:false},
+      ],
+      agent: [enr.emails_out, enr.emails_in, enr.calls_per_opp, enr.daily_call_min, enr.pct_calls_long, enr.cyc_oc_to_rc, enr.cyc_sp_to_sc],
+      market: [mb.emails_out, mb.emails_in, mb.calls_per_opp, mb.daily_call_min, mb.pct_calls_long, mb.cyc_oc_to_rc, mb.cyc_sp_to_sc]
     },
     rendered: {}
   };
@@ -4260,28 +4285,40 @@ function renderFc2Funnel(canvasId, agentName, ratios, marketRatios, isTL) {
 }
 
 // Radar chart — agent's profile vs market on 6 axes (each scaled so market = 50)
+// Generic radar — accepts axes objects {key, hib} + level/agent values + market values
 function renderFc2Radar(canvasId, agentName, axes, agentVals, marketVals) {
   var canvas = document.getElementById(canvasId);
   if (!canvas || typeof Chart === 'undefined') return;
   if (canvas._chart) try { canvas._chart.destroy(); } catch(e){}
-  // Normalize each axis: market = 50, agent = 50 × (agent / market). Cap at 100.
-  function norm(a, m) {
-    if (a == null || m == null || m === 0) return 0;
-    var s = 50 * (a / m);
-    return Math.max(0, Math.min(100, s));
+  // Support both old API (axes = string[]) and new API (axes = {key,hib}[])
+  var axisObjs = axes.map(function(a){ return (typeof a === 'string') ? {key:a, hib:true} : a; });
+  function norm(val, mkt, hib) {
+    if (val == null || mkt == null || mkt === 0) return 50;
+    var ratio = hib ? (val / mkt) : (mkt / val);
+    return Math.max(0, Math.min(110, 50 * ratio));
   }
-  var agentNorm  = agentVals.map(function(v,i){ return norm(v, marketVals[i]); });
-  var marketNorm = marketVals.map(function(){ return 50; });
+  function fmt(key, v) {
+    if (v == null) return '—';
+    if (key === 'AOV') return '€' + Math.round(v).toLocaleString('fr-FR').replace(/,/g,' ');
+    if (key === 'Daily call (min)') return Math.round(v) + ' min';
+    if (key.indexOf('OC → RC') >= 0 || key.indexOf('SP → Conf') >= 0 || key.indexOf('FC → ') >= 0) return v.toFixed(1) + ' j';
+    if (key.indexOf('/') >= 0 && key.indexOf('%') < 0) return v.toFixed(2);
+    if (key === 'CR3' || key.indexOf('Done') >= 0 || key.indexOf('Made') >= 0 || key.indexOf('Bkg') >= 0 || key.indexOf('%') >= 0) return v.toFixed(1) + ' %';
+    return v.toFixed(1);
+  }
+  var labels    = axisObjs.map(function(a){ return a.key; });
+  var agentNorm = agentVals.map(function(v,i){ return norm(v, marketVals[i], axisObjs[i].hib); });
+  var marketNorm = agentVals.map(function(){ return 50; });
   canvas._chart = new Chart(canvas.getContext('2d'), {
     type: 'radar',
-    data: { labels: axes, datasets: [
+    data: { labels: labels, datasets: [
       { label: agentName, data: agentNorm,
         borderColor:'#1A1A1A', backgroundColor:'rgba(31,95,63,0.18)',
-        borderWidth:2.5, pointRadius:5, pointHoverRadius:7,
+        borderWidth:2.5, pointRadius:4, pointHoverRadius:6,
         pointBackgroundColor:'#1F5F3F', pointBorderColor:'#1A1A1A' },
       { label:'Marché', data: marketNorm,
         borderColor:'#9B968A', backgroundColor:'rgba(155,150,138,0.05)',
-        borderWidth:2, borderDash:[5,4], pointRadius:3,
+        borderWidth:2, borderDash:[5,4], pointRadius:2,
         pointBackgroundColor:'#9B968A' }
     ]},
     options: {
@@ -4295,17 +4332,19 @@ function renderFc2Radar(canvasId, agentName, axes, agentVals, marketVals) {
           titleFont:{family:'Inter',weight:'600'}, bodyFont:{family:'Inter'},
           callbacks:{
             label: function(c) {
-              if (c.dataset.label === 'Marché') return ' Marché · niveau de référence';
+              if (c.dataset.label === 'Marché') return ' Marché · référence (50)';
+              var key = axisObjs[c.dataIndex].key;
               var raw = agentVals[c.dataIndex];
-              if (raw == null) return ' ' + c.dataset.label + ' : —';
-              return ' ' + c.dataset.label + ' : ' + raw.toFixed(1)
-                + ' (' + (c.parsed.r > 50 ? '+' : '') + (c.parsed.r - 50).toFixed(0) + ' vs marché)';
+              var mkt = marketVals[c.dataIndex];
+              var sign = c.parsed.r > 50 ? '+' : '';
+              return ' ' + agentName + ' : ' + fmt(key, raw)
+                + ' (marché ' + fmt(key, mkt) + ', ' + sign + (c.parsed.r - 50).toFixed(0) + ' pts)';
             }
           }
         }
       },
       scales: {
-        r: { min:0, max:100,
+        r: { min:0, max:110,
              ticks:{ display:false, stepSize:25 },
              grid:{ color:'#E8E3D8' },
              angleLines:{ color:'#E8E3D8' },
@@ -4398,11 +4437,14 @@ function fc2RenderTabCharts(cardKey, tab) {
   if (!data) return;
   if (data.rendered[tab]) return;
   if (tab === 'perf') {
-    renderFc2Radar('radar-' + cardKey, data.name, data.perf.labels, data.perf.agent, data.perf.market);
+    // Funnel & conversion radar — 7 axes
+    renderFc2Radar('radar-' + cardKey, data.name, data.perf.axes, data.perf.agent, data.perf.market);
   } else if (tab === 'funnel') {
     renderFc2Funnel('pfunnel-' + cardKey, data.name, data.funnel.ratios, data.funnel.market, data.isTL);
   } else if (tab === 'comm') {
     renderFc2CommBar('commbar-' + cardKey, data.name, data.comm.labels, data.comm.agent, data.comm.market);
+    // Quotidien radar — 7 axes (em out, em in, calls, daily call, % long, OC→RC, SP→Conf)
+    renderFc2Radar('radar-quot-' + cardKey, data.name, data.quot.axes, data.quot.agent, data.quot.market);
   }
   data.rendered[tab] = true;
 }
@@ -4669,67 +4711,83 @@ function loadTLCard(tid) {
     });
   }
 
-  // ── Level radar charts (slides 7-10) ──
-  // 12 axes — full level profile vs market
-  // Conversion (CR3, AOV) + Funnel (FC, Offer, OC, 1er OC Bkg, RC Bkg)
-  // + Communication (Em out, Em in, Calls, Daily call)
-  // + Cycle (OC→RC inverted)
-  var RADAR_AXES = [
-    {key:'CR3',           hib:true},
-    {key:'AOV',           hib:true},
-    {key:'FC Done',       hib:true},
-    {key:'Offer Made',    hib:true},
-    {key:'OC Done',       hib:true},
-    {key:'1er OC Bkg',    hib:true},
-    {key:'RC Bkg',        hib:true},
-    {key:'Em out / opp',  hib:true},
-    {key:'Em in / opp',   hib:true},
-    {key:'Calls / opp',   hib:true},
-    {key:'Daily call',    hib:true},
-    {key:'OC → RC ↓',     hib:false},
+  // ── Level radar charts (slides 7-10) — split into 2 ──
+  // Radar 1 — Funnel & conversion (7 axes)
+  var FUNNEL_AXES = [
+    {key:'CR3',         hib:true},
+    {key:'AOV',         hib:true},
+    {key:'FC Done',     hib:true},
+    {key:'Offer Made',  hib:true},
+    {key:'OC Done',     hib:true},
+    {key:'1er OC Bkg',  hib:true},
+    {key:'RC Bkg',      hib:true},
   ];
-  // Market reference per axis (canonical FR corpus benchmarks)
-  var MKT_RADAR = [24.5, 8254, 89.0, 89.5, 71.5, 36.5, 61.3, 5.26, 3.15, 4.87, 149.92, 7.92];
-  var LEVEL_RADAR = {
-    L0: { values:[19.89, 6425, 90.5, 88.4, 69.2, 32.5, 54.5, 4.99, 2.76, 5.05, 146.6, 6.34],
-          color:'#3A352B', bg:'rgba(58,53,43,.18)' },
-    L1: { values:[20.77, 8089, 91.3, 84.6, 66.0, 33.4, 49.3, 4.59, 2.60, 4.76, 164.8, 7.99],
-          color:'#7A3A14', bg:'rgba(122,58,20,.18)' },
-    L2: { values:[25.35, 8194, 88.2, 89.7, 72.6, 39.4, 66.5, 5.99, 3.50, 4.93, 140.3, 9.39],
-          color:'#0F3866', bg:'rgba(15,56,102,.18)' },
-    L3: { values:[25.92, 9391, 87.6, 93.0, 75.2, 37.8, 66.7, 5.20, 3.45, 4.75, 156.9, 7.11],
-          color:'#1F5F3F', bg:'rgba(31,95,63,.18)' },
+  var FUNNEL_MKT = [24.5, 8254, 89.0, 89.5, 71.5, 36.5, 61.3];
+  var FUNNEL_LEVEL = {
+    L0: [19.89, 6425, 90.5, 88.4, 69.2, 32.5, 54.5],
+    L1: [20.77, 8089, 91.3, 84.6, 66.0, 33.4, 49.3],
+    L2: [25.35, 8194, 88.2, 89.7, 72.6, 39.4, 66.5],
+    L3: [25.92, 9391, 87.6, 93.0, 75.2, 37.8, 66.7],
   };
 
-  var _levelRadarsRendered = {};
-  function ensureLevelRadar(dsSlide) {
-    var lvl = {7:'L0', 8:'L1', 9:'L2', 10:'L3'}[dsSlide];
-    if (!lvl) return;
-    var canvasId = 'lvl-radar-' + lvl.toLowerCase();
-    if (_levelRadarsRendered[canvasId]) return;
+  // Radar 2 — Gestion quotidienne & cycles (7 axes, 2 inversés)
+  var QUOT_AXES = [
+    {key:'Em out / opp',     hib:true},
+    {key:'Em in / opp',      hib:true},
+    {key:'Calls / opp',      hib:true},
+    {key:'Daily call (min)', hib:true},
+    {key:'% calls > 10 min', hib:true},
+    {key:'OC → RC ↓',        hib:false},
+    {key:'SP → Conf ↓',      hib:false},
+  ];
+  var QUOT_MKT = [5.26, 3.15, 4.87, 149.92, 77.47, 7.92, 9.15];
+  var QUOT_LEVEL = {
+    L0: [4.99, 2.76, 5.05, 146.6, 76.25, 6.34, 8.26],
+    L1: [4.59, 2.60, 4.76, 164.8, 77.21, 7.99, 7.30],
+    L2: [5.99, 3.50, 4.93, 140.3, 78.01, 9.39, 9.46],
+    L3: [5.20, 3.45, 4.75, 156.9, 77.97, 7.11, 10.59],
+  };
+
+  var LEVEL_COLOR = {
+    L0:{ color:'#3A352B', bg:'rgba(58,53,43,.18)'  },
+    L1:{ color:'#7A3A14', bg:'rgba(122,58,20,.18)' },
+    L2:{ color:'#0F3866', bg:'rgba(15,56,102,.18)' },
+    L3:{ color:'#1F5F3F', bg:'rgba(31,95,63,.18)' },
+  };
+
+  function _normRadar(val, mkt, hib) {
+    if (val == null || mkt == null || mkt === 0) return 50;
+    var ratio = hib ? (val / mkt) : (mkt / val);
+    return Math.max(0, Math.min(110, 50 * ratio));
+  }
+  function _fmtAxis(key, v) {
+    if (v == null) return '—';
+    if (key === 'AOV') return '€' + Math.round(v).toLocaleString('fr-FR').replace(/,/g,' ');
+    if (key === 'Daily call (min)') return Math.round(v) + ' min';
+    if (key.indexOf('OC → RC') >= 0 || key.indexOf('SP → Conf') >= 0) return v.toFixed(1) + ' j';
+    if (key.indexOf('/') >= 0) return v.toFixed(2);
+    if (key === 'CR3' || key.indexOf('%') >= 0 || key === 'FC Done' || key === 'Offer Made' || key === 'OC Done' || key === 'RC Bkg' || key === '1er OC Bkg') return v.toFixed(1) + ' %';
+    return v.toFixed(1);
+  }
+
+  function renderRadarPanel(canvasId, lvl, axes, levelVals, mktVals) {
     var canvas = document.getElementById(canvasId);
     if (!canvas || typeof Chart === 'undefined') return;
-    var lr = LEVEL_RADAR[lvl];
-    var labels = RADAR_AXES.map(function(a){ return a.key; });
-    // Normalize: market = 50; for higher-is-better axes score = 50 × (val / mkt);
-    // for lower-is-better axes (cycles), score = 50 × (mkt / val) — so faster = higher.
-    function norm(val, mkt, hib) {
-      if (val == null || mkt == null || mkt === 0) return 50;
-      var ratio = hib ? (val / mkt) : (mkt / val);
-      return Math.max(0, Math.min(100, 50 * ratio));
-    }
-    var lvlNorm = lr.values.map(function(v,i){ return norm(v, MKT_RADAR[i], RADAR_AXES[i].hib); });
-    var mktNorm = lr.values.map(function(){ return 50; });
+    if (canvas._chart) try { canvas._chart.destroy(); } catch(e){}
+    var labels  = axes.map(function(a){ return a.key; });
+    var col     = LEVEL_COLOR[lvl] || {color:'#1A1A1A', bg:'rgba(0,0,0,.1)'};
+    var lvlNorm = levelVals.map(function(v,i){ return _normRadar(v, mktVals[i], axes[i].hib); });
+    var mktNorm = levelVals.map(function(){ return 50; });
     canvas._chart = new Chart(canvas.getContext('2d'), {
       type:'radar',
       data:{ labels: labels, datasets:[
         { label: lvl, data: lvlNorm,
-          borderColor: lr.color, backgroundColor: lr.bg,
-          borderWidth: 2.5, pointRadius: 4, pointHoverRadius: 6,
-          pointBackgroundColor: lr.color },
+          borderColor: col.color, backgroundColor: col.bg,
+          borderWidth: 2.5, pointRadius: 5, pointHoverRadius: 7,
+          pointBackgroundColor: col.color },
         { label:'Marché', data: mktNorm,
           borderColor:'#9B968A', backgroundColor:'rgba(155,150,138,0.05)',
-          borderWidth:2, borderDash:[5,4], pointRadius:2,
+          borderWidth:2, borderDash:[5,4], pointRadius:3,
           pointBackgroundColor:'#9B968A' }
       ]},
       options:{
@@ -4737,24 +4795,18 @@ function loadTLCard(tid) {
         animation:{duration:700, easing:'easeOutCubic'},
         plugins:{
           legend:{ position:'top', align:'end',
-                   labels:{ font:{size:11,family:'Inter'}, boxWidth:12, padding:14, color:'#1A1A1A' } },
+                   labels:{ font:{size:11,family:'Inter'}, boxWidth:12, padding:12, color:'#1A1A1A' } },
           tooltip:{
             backgroundColor:'#1A1A1A',
             titleFont:{family:'Inter',weight:'600'}, bodyFont:{family:'Inter'},
             callbacks:{
               label: function(c) {
-                if (c.dataset.label === 'Marché') return ' Marché · niveau de référence';
-                var raw = lr.values[c.dataIndex];
-                var mkt = MKT_RADAR[c.dataIndex];
-                var ax  = RADAR_AXES[c.dataIndex];
-                var fmt = function(v){
-                  if (ax.key === 'AOV') return '€' + Math.round(v).toLocaleString('fr-FR').replace(/,/g,' ');
-                  if (ax.key === 'Daily call') return Math.round(v) + ' min';
-                  if (ax.key.indexOf('OC → RC') >= 0) return v.toFixed(1) + ' j';
-                  return v.toFixed(1) + (ax.hib && ax.key.indexOf('/') < 0 && ax.key !== 'CR3' && ax.key !== 'AOV' ? ' %' : '');
-                };
+                if (c.dataset.label === 'Marché') return ' Marché · référence (50)';
+                var raw = levelVals[c.dataIndex];
+                var mkt = mktVals[c.dataIndex];
+                var key = axes[c.dataIndex].key;
                 var sign = c.parsed.r > 50 ? '+' : '';
-                return ' ' + lvl + ' : ' + fmt(raw) + ' (marché ' + fmt(mkt) + ', ' + sign + (c.parsed.r - 50).toFixed(0) + ' pts)';
+                return ' ' + lvl + ' : ' + _fmtAxis(key, raw) + ' (marché ' + _fmtAxis(key, mkt) + ', ' + sign + (c.parsed.r - 50).toFixed(0) + ' pts)';
               }
             }
           }
@@ -4764,11 +4816,26 @@ function loadTLCard(tid) {
               ticks:{ display:false, stepSize:25 },
               grid:{ color:'#E8E3D8' },
               angleLines:{ color:'#E8E3D8' },
-              pointLabels:{ font:{size:9.5,family:'Inter',weight:'600'}, color:'#1A1A1A' } }
+              pointLabels:{ font:{size:10.5,family:'Inter',weight:'600'}, color:'#1A1A1A' } }
         }
       }
     });
-    _levelRadarsRendered[canvasId] = true;
+  }
+
+  var _levelRadarsRendered = {};
+  function ensureLevelRadar(dsSlide) {
+    var lvl = {7:'L0', 8:'L1', 9:'L2', 10:'L3'}[dsSlide];
+    if (!lvl) return;
+    var keyF = 'lvl-radar-funnel-' + lvl.toLowerCase();
+    var keyQ = 'lvl-radar-quot-'   + lvl.toLowerCase();
+    if (!_levelRadarsRendered[keyF]) {
+      renderRadarPanel(keyF, lvl, FUNNEL_AXES, FUNNEL_LEVEL[lvl], FUNNEL_MKT);
+      _levelRadarsRendered[keyF] = true;
+    }
+    if (!_levelRadarsRendered[keyQ]) {
+      renderRadarPanel(keyQ, lvl, QUOT_AXES, QUOT_LEVEL[lvl], QUOT_MKT);
+      _levelRadarsRendered[keyQ] = true;
+    }
   }
 
   // ── Navigation ──
