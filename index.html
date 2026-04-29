@@ -489,6 +489,36 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .gg-val .d.up{color:#1F5F3F}.gg-val .d.dn{color:#9B2D2D}.gg-val .d.eq{color:#6F6B62}
 .gg-na{padding:4px 10px;font-size:11px;color:#aaa;font-style:italic}
 
+/* TL fiche — team context block (totals + level breakdown) */
+.tl-ctx{margin:1rem 0;display:flex;flex-direction:column;gap:.75rem}
+.tl-totals{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:#FAF7F1;border:1px solid #E0DCD0;border-radius:12px;padding:14px 18px}
+.tl-totals .t .l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6F6B62;margin-bottom:4px}
+.tl-totals .t .v{font-family:'Instrument Serif',serif;font-size:22px;color:#1A1A1A;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+
+.tl-comp{background:#FAF7F1;border:1px solid #E0DCD0;border-radius:12px;padding:14px 18px}
+.tl-comp h5{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#6F6B62;margin:0 0 12px}
+.tl-comp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.lvl-card{border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-height:84px}
+.lvl-card.l0{background:#E8E4DC}
+.lvl-card.l1{background:#FBE6D6}
+.lvl-card.l2{background:#DDE9F7}
+.lvl-card.l3{background:#DEEED1}
+.lvl-card .c-head{display:flex;align-items:baseline;gap:8px}
+.lvl-card .c-num{font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;line-height:1;letter-spacing:-.5px}
+.lvl-card.l0 .c-num{color:#3A352B}
+.lvl-card.l1 .c-num{color:#7A3A14}
+.lvl-card.l2 .c-num{color:#0F3866}
+.lvl-card.l3 .c-num{color:#1F5F3F}
+.lvl-card .c-lvl{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.lvl-card.l0 .c-lvl{color:#3A352B}
+.lvl-card.l1 .c-lvl{color:#7A3A14}
+.lvl-card.l2 .c-lvl{color:#0F3866}
+.lvl-card.l3 .c-lvl{color:#1F5F3F}
+.lvl-card .c-agents{font-size:11px;line-height:1.4;color:#1A1A1A;font-weight:500;opacity:.85}
+.lvl-card .c-empty{font-size:11px;color:#6F6B62;font-style:italic;opacity:.6}
+.tl-ctx-note{font-size:11px;color:#6F6B62;line-height:1.5;padding:0 4px}
+.tl-ctx-note em{font-style:italic;color:#1A1A1A;font-weight:600}
+
 /* Tabs (Performance / Funnel / Communication) */
 .fc2-tabs{display:flex;gap:2px;margin:1rem 0 1.25rem;border-bottom:1px solid #E0DCD0;padding:0}
 .fc2-tab{padding:11px 20px;border:none;background:transparent;color:#6F6B62;
@@ -913,6 +943,13 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .ddaily-takeaway .l{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9DD2A6;flex-shrink:0}
 .ddaily-takeaway em{font-style:italic;color:#9DD2A6}
 .ddaily-takeaway strong{font-weight:700}
+
+/* Level radar card (slides 7-10) */
+.dlradar{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:1.25rem 1.5rem;margin:1rem 0}
+.dlradar-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:8px}
+.dlradar-host{position:relative;height:300px}
+.dlradar-cap{font-size:11px;color:var(--mute);margin-top:8px;line-height:1.5}
+.dlradar-cap strong{color:var(--ink)}
 
 /* Slide 4b inline funnel chart */
 .dchart-card{background:#fff;border-radius:16px;border:1px solid var(--rule);padding:1.5rem 1.75rem;margin-top:1rem}
@@ -3179,6 +3216,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
         </div>
 
+
+        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L0 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l0"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L0 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict bad dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t">L'<strong>amont sans l'aval</strong>. Le cycle FC → Offer est rapide (1,3 j) et l'OC → RC est même <strong>le plus court du corpus (6,3 j)</strong>, mais le RC ne tient pas : <strong>RC Done 59,8 % vs 73 % L2/L3</strong>. <em>Levier : densifier la relance entre OC et RC (calls + emails).</em></div>
@@ -3278,6 +3317,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
         </div>
 
+
+        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L1 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l1"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L1 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict bad dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t">Le <strong>volume sans méthode</strong>. Le L1 prend tous les calls (2h 45/jour record) mais ne formalise pas (7,2 em/opp, le pire). Avec 213 opps simultanées, il pilote en mode pompier — <em>le client arrive au RC sans recap, et signe 1 fois sur 2 seulement.</em></div>
@@ -3377,6 +3418,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
         </div>
 
+
+        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L2 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l2"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L2 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict good dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t"><strong>L'écrit comme méthode</strong>. 9,1 em/opp record + First OC Bkg 39,4 % record → conversion top corpus. <em>Pour passer L3 : raccourcir OC → RC (9,4 j → 7 j) avec un short call de relance, et augmenter le call/jour à 2h 40+.</em></div>
@@ -3476,6 +3519,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
         </div>
 
+
+        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L3 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l3"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L3 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict good dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t"><strong>Solide partout sur le funnel</strong>. 3 records corpus (Offer Made 93 %, OC Done 75 %, RC Bkg 67 %) + <strong>OC → RC le plus court vs L2 (7,1 j vs 9,4 j)</strong>. <em>Contrepartie : SP → Conf 10,6 j (le plus long) et 13,5 open cases/agent — conséquence des dossiers plus complexes signés.</em></div>
@@ -3936,7 +3981,7 @@ function buildActionPlan(metrics) {
   return actionable.slice(0, 4); // top 4 weak spots
 }
 
-function buildCard(a, agentIdOrEnr, isTL) {
+function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
   var initials = a.name.split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase();
   var lvl = a.lvl;
   var lvlClass = isTL ? 'tl' : lvl.toLowerCase();
@@ -4144,6 +4189,7 @@ function buildCard(a, agentIdOrEnr, isTL) {
 
   return '<div class="fc2" data-card-key="' + cardKey + '">'
     + heroHtml
+    + (preTabsHtml || '')
     + tabsHtml
     + perfPanel
     + funnelPanel
@@ -4383,11 +4429,16 @@ function aggregateTeam(tid) {
     if (vals.length) enr[f] = vals.reduce(function(s,v){return s+v;},0) / vals.length;
   });
 
-  // Level distribution
-  var lvlDist = {L0:0,L1:0,L2:0,L3:0};
+  // Level distribution + agent names per level
+  var lvlDist  = {L0:0,L1:0,L2:0,L3:0};
+  var lvlNames = {L0:[],L1:[],L2:[],L3:[]};
   ids.forEach(function(id){
-    var lv = data[id].lvl;
-    if (lvlDist[lv] != null) lvlDist[lv]++;
+    var ag = data[id];
+    var lv = ag.lvl;
+    if (lvlDist[lv] != null) {
+      lvlDist[lv]++;
+      lvlNames[lv].push(ag.name);
+    }
   });
 
   // Synthetic agent record (per-agent average for absolute volumes)
@@ -4411,6 +4462,7 @@ function aggregateTeam(tid) {
     enr: enr,
     n: n,
     lvlDist: lvlDist,
+    lvlNames: lvlNames,
     totals: {opps:sumOpps, bkg:sumBkg, gbv:sumGbv}
   };
 }
@@ -4446,27 +4498,41 @@ function loadTLCard(tid) {
   if (ph) ph.style.display='none';
   if (ac) {
     ac.style.display='block';
-    // Highlight TL button as selected
     document.querySelectorAll('#tp-' + tid + ' tr.ag-row').forEach(function(r){r.classList.remove('selected');});
-    // Build card from synthetic agent + computed enrichment
-    var html = buildCard(agg.fakeAgent, agg.enr, true);
-    // Insert team-totals strip just under the hero
-    var teamStrip = '<div style="background:#FAF7F1;border:1px solid #E0DCD0;border-radius:10px;padding:12px 16px;margin-bottom:1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;font-size:11px">'
-       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">Agents</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">' + agg.n + '</div></div>'
-       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">Opps total Q1</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">' + agg.totals.opps + '</div></div>'
-       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">Bookings total</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">' + agg.totals.bkg + '</div></div>'
-       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">GBV total</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">€' + (agg.totals.gbv/1000000).toFixed(2) + 'M</div></div>'
-       + '</div>'
-       + '<div style="background:#FAF7F1;border:1px solid #E0DCD0;border-radius:10px;padding:12px 16px;margin-bottom:1rem;font-size:12px;color:#6F6B62">'
-       + '<strong style="color:#1A1A1A;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:700">Composition équipe</strong> · '
-       + ['L0','L1','L2','L3'].map(function(l){return agg.lvlDist[l] + ' ' + l;}).join(' · ')
-       + ' · <em>Les valeurs en dessous sont des <strong>moyennes par agent</strong> (volumes) ou des <strong>moyennes des taux</strong> (ratios). Comparaison vs marché global (52 agents FR).</em>'
-       + '</div>';
-    // Insert teamStrip after hero
-    ac.innerHTML = html.replace('</div>', '</div>' + teamStrip);
-    // Highlight TL button
+
+    // ── Build a proper team-context block ──
+    var totalsHtml = '<div class="tl-totals">'
+      + '<div class="t"><div class="l">Agents</div><div class="v">' + agg.n + '</div></div>'
+      + '<div class="t"><div class="l">Opps Q1</div><div class="v">' + agg.totals.opps.toLocaleString('fr-FR').replace(/,/g,' ') + '</div></div>'
+      + '<div class="t"><div class="l">Bookings</div><div class="v">' + agg.totals.bkg + '</div></div>'
+      + '<div class="t"><div class="l">GBV Q1</div><div class="v">€' + (agg.totals.gbv/1000000).toFixed(2) + ' M</div></div>'
+    + '</div>';
+
+    var compHtml = '<div class="tl-comp">'
+      + '<h5>Composition équipe par level</h5>'
+      + '<div class="tl-comp-grid">'
+      + ['L0','L1','L2','L3'].map(function(lv){
+          var cls = lv.toLowerCase();
+          var n = agg.lvlDist[lv] || 0;
+          var names = agg.lvlNames[lv] || [];
+          var content = n === 0
+            ? '<div class="c-empty">aucun agent</div>'
+            : '<div class="c-agents">' + names.join(', ') + '</div>';
+          return '<div class="lvl-card ' + cls + '">'
+            + '<div class="c-head"><span class="c-num">' + n + '</span><span class="c-lvl">' + lv + '</span></div>'
+            + content
+          + '</div>';
+        }).join('')
+      + '</div></div>';
+
+    var noteHtml = '<div class="tl-ctx-note">Les valeurs ci-dessous sont des <em>moyennes par agent</em> (volumes) ou des <em>moyennes des taux</em> (ratios). Comparaison vs marché global FR (52 agents canonique).</div>';
+
+    var teamCtx = '<div class="tl-ctx">' + totalsHtml + compHtml + noteHtml + '</div>';
+
+    // Build card with the team context inserted between hero and tabs
+    ac.innerHTML = buildCard(agg.fakeAgent, agg.enr, true, teamCtx);
+
     document.querySelectorAll('#tp-' + tid + ' .tl-btn').forEach(function(b){b.classList.add('active');});
-    // Initial render of the active (Performance) tab — TL cards use cardKey "tl-<name>"
     var tlKey = 'tl-' + agg.fakeAgent.name.replace(/\s/g,'_');
     setTimeout(function(){ fc2RenderTabCharts(tlKey, 'perf'); }, 50);
   }
@@ -4583,6 +4649,86 @@ function loadTLCard(tid) {
     });
   }
 
+  // ── Level radar charts (slides 7-10) ──
+  // Per-level benchmark values for the 6 axes (CR3, FC Done, Offer Made, OC Done, RC Bkg, Em out/opp)
+  var LEVEL_RADAR = {
+    L0: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[19.89, 90.5, 88.4, 69.2, 54.5, 4.99],
+          color:'#3A352B', bg:'rgba(58,53,43,.18)' },
+    L1: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[20.77, 91.3, 84.6, 66.0, 49.3, 4.59],
+          color:'#7A3A14', bg:'rgba(122,58,20,.18)' },
+    L2: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[25.35, 88.2, 89.7, 72.6, 66.5, 5.99],
+          color:'#0F3866', bg:'rgba(15,56,102,.18)' },
+    L3: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[25.92, 87.6, 93.0, 75.2, 66.7, 5.20],
+          color:'#1F5F3F', bg:'rgba(31,95,63,.18)' },
+  };
+  // Market reference per axis
+  var MKT_RADAR = [24.5, 89.0, 89.5, 71.5, 61.3, 5.26];
+
+  var _levelRadarsRendered = {};
+  function ensureLevelRadar(dsSlide) {
+    var lvl = {7:'L0', 8:'L1', 9:'L2', 10:'L3'}[dsSlide];
+    if (!lvl) return;
+    var canvasId = 'lvl-radar-' + lvl.toLowerCase();
+    if (_levelRadarsRendered[canvasId]) return;
+    var canvas = document.getElementById(canvasId);
+    if (!canvas || typeof Chart === 'undefined') return;
+    var lr = LEVEL_RADAR[lvl];
+    // Normalize each axis: market = 50; level = 50 × (level / market). Cap at 100.
+    function norm(a, m) {
+      if (a == null || m == null || m === 0) return 0;
+      return Math.max(0, Math.min(100, 50 * (a / m)));
+    }
+    var lvlNorm = lr.values.map(function(v,i){ return norm(v, MKT_RADAR[i]); });
+    var mktNorm = lr.values.map(function(){ return 50; });
+    canvas._chart = new Chart(canvas.getContext('2d'), {
+      type:'radar',
+      data:{ labels: lr.axes, datasets:[
+        { label: lvl, data: lvlNorm,
+          borderColor: lr.color, backgroundColor: lr.bg,
+          borderWidth: 2.5, pointRadius: 5, pointHoverRadius: 7,
+          pointBackgroundColor: lr.color },
+        { label:'Marché', data: mktNorm,
+          borderColor:'#9B968A', backgroundColor:'rgba(155,150,138,0.05)',
+          borderWidth:2, borderDash:[5,4], pointRadius:3,
+          pointBackgroundColor:'#9B968A' }
+      ]},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        animation:{duration:700, easing:'easeOutCubic'},
+        plugins:{
+          legend:{ position:'top', align:'end',
+                   labels:{ font:{size:11,family:'Inter'}, boxWidth:12, padding:14, color:'#1A1A1A' } },
+          tooltip:{
+            backgroundColor:'#1A1A1A',
+            titleFont:{family:'Inter',weight:'600'}, bodyFont:{family:'Inter'},
+            callbacks:{
+              label: function(c) {
+                if (c.dataset.label === 'Marché') return ' Marché · niveau de référence';
+                var raw = lr.values[c.dataIndex];
+                var mkt = MKT_RADAR[c.dataIndex];
+                return ' ' + lvl + ' : ' + raw.toFixed(1)
+                  + ' (marché ' + mkt.toFixed(1) + ', '
+                  + (c.parsed.r > 50 ? '+' : '') + (c.parsed.r - 50).toFixed(0) + ')';
+              }
+            }
+          }
+        },
+        scales:{
+          r:{ min:0, max:100,
+              ticks:{ display:false, stepSize:25 },
+              grid:{ color:'#E8E3D8' },
+              angleLines:{ color:'#E8E3D8' },
+              pointLabels:{ font:{size:11,family:'Inter',weight:'600'}, color:'#1A1A1A' } }
+        }
+      }
+    });
+    _levelRadarsRendered[canvasId] = true;
+  }
+
   // ── Navigation ──
   function goTo(n){
     n = Math.max(0, Math.min(total-1, n));
@@ -4599,6 +4745,11 @@ function loadTLCard(tid) {
       animateNumbers(slides[n]);
       replayBars(slides[n]);
       if(slides[n].dataset.slide==='4') setTimeout(ensureDeckChart, 250);
+      // Level deep slides 7-10: render the level radar
+      var ds = slides[n].dataset.slide;
+      if (ds==='7' || ds==='8' || ds==='9' || ds==='10') {
+        setTimeout(function(){ ensureLevelRadar(ds); }, 250);
+      }
     });
   }
   function next(){ goTo(idx+1); }
@@ -4625,6 +4776,8 @@ function loadTLCard(tid) {
   slides.forEach(s => s.classList.add('live'));
   setTimeout(()=>{
     slides.forEach(s => { animateNumbers(s); replayBars(s); });
+    // Render all level radars in scroll mode
+    ['7','8','9','10'].forEach(function(d){ ensureLevelRadar(d); });
     ensureDeckChart();
   }, 200);
 
