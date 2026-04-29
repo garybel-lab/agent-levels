@@ -807,7 +807,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .dlid .v{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
 .dlid .l{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-top:5px;font-weight:600}
 
-.dlevel-body{display:grid;grid-template-columns:1.05fr 1fr;gap:1.75rem;margin-bottom:1.25rem}
+.dlevel-body{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;align-items:start}
 .dlfn-tt,.dlbeh-tt,.dlpipe-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:14px}
 .dlfn-row{display:grid;grid-template-columns:96px 1fr 96px;gap:10px;align-items:center;margin-bottom:8px;font-size:12px;font-variant-numeric:tabular-nums}
 .dlfn-row .lbl{color:var(--ink);font-weight:600;font-size:11.5px}
@@ -955,7 +955,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 /* Level radar card (slides 7-10) — compact, fits in right column of level body */
 .dlradar{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:.85rem 1rem;margin:0;display:flex;flex-direction:column}
 .dlradar-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:6px}
-.dlradar-host{position:relative;height:240px}
+.dlradar-host{position:relative;height:300px}
 .dlradar-cap{font-size:10.5px;color:var(--mute);margin-top:6px;line-height:1.45}
 .dlradar-cap strong{color:var(--ink)}
 
@@ -3180,17 +3180,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
       <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:54.5%">54,5 %</div></div><span class="delta dn">−6,8 vs mkt</span></div>
           </div>
 
-          <div class="dlbeh">
-            <div class="dlradar">
-              <div class="dlradar-tt">Funnel & conversion · L0 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l0"></canvas></div>
-              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
-            </div>
-            <div class="dlradar" style="margin-top:.75rem">
-              <div class="dlradar-tt">Gestion quotidienne · L0 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-quot-l0"></canvas></div>
-              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
-            </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Funnel & conversion · L0 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-funnel-l0"></canvas></div>
+            <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
+          </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Gestion quotidienne · L0 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-quot-l0"></canvas></div>
+            <div class="dlradar-cap">Em, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
           </div>
         
         </div>
@@ -3248,17 +3246,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
       <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:49.3%">49,3 %</div></div><span class="delta dn">−12,0 le pire</span></div>
           </div>
 
-          <div class="dlbeh">
-            <div class="dlradar">
-              <div class="dlradar-tt">Funnel & conversion · L1 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l1"></canvas></div>
-              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
-            </div>
-            <div class="dlradar" style="margin-top:.75rem">
-              <div class="dlradar-tt">Gestion quotidienne · L1 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-quot-l1"></canvas></div>
-              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
-            </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Funnel & conversion · L1 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-funnel-l1"></canvas></div>
+            <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
+          </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Gestion quotidienne · L1 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-quot-l1"></canvas></div>
+            <div class="dlradar-cap">Em, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
           </div>
         
         </div>
@@ -3316,17 +3312,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
       <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:66.5%">66,5 %</div></div><span class="delta up">+5,2 vs mkt</span></div>
           </div>
 
-          <div class="dlbeh">
-            <div class="dlradar">
-              <div class="dlradar-tt">Funnel & conversion · L2 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l2"></canvas></div>
-              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
-            </div>
-            <div class="dlradar" style="margin-top:.75rem">
-              <div class="dlradar-tt">Gestion quotidienne · L2 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-quot-l2"></canvas></div>
-              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
-            </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Funnel & conversion · L2 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-funnel-l2"></canvas></div>
+            <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
+          </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Gestion quotidienne · L2 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-quot-l2"></canvas></div>
+            <div class="dlradar-cap">Em, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
           </div>
         
         </div>
@@ -3384,17 +3378,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
       <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:66.7%">66,7 %</div></div><span class="delta star">le record ★</span></div>
           </div>
 
-          <div class="dlbeh">
-            <div class="dlradar">
-              <div class="dlradar-tt">Funnel & conversion · L3 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-funnel-l3"></canvas></div>
-              <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
-            </div>
-            <div class="dlradar" style="margin-top:.75rem">
-              <div class="dlradar-tt">Gestion quotidienne · L3 vs marché</div>
-              <div class="dlradar-host"><canvas id="lvl-radar-quot-l3"></canvas></div>
-              <div class="dlradar-cap">Emails, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
-            </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Funnel & conversion · L3 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-funnel-l3"></canvas></div>
+            <div class="dlradar-cap">CR3 · AOV · 5 ratios funnel. Plus loin du centre = mieux.</div>
+          </div>
+          <div class="dlradar">
+            <div class="dlradar-tt">Gestion quotidienne · L3 vs marché</div>
+            <div class="dlradar-host"><canvas id="lvl-radar-quot-l3"></canvas></div>
+            <div class="dlradar-cap">Em, calls, daily call, cycles (OC→RC, SP→Conf inversés : court = mieux).</div>
           </div>
         
         </div>
