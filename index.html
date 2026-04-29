@@ -434,6 +434,75 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .pfunnel-wrap canvas { width:100% !important; height:100% !important; }
 
 /* ════════════════════════════════════════════════════════════════
+   FICHE V2 — agent + team-lead unified design (vs market only)
+   ════════════════════════════════════════════════════════════════ */
+.fc2{font-family:'Inter',sans-serif;color:#1A1A1A}
+.fc2-hero{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;padding:18px 22px 14px;border-bottom:1px solid #E0DCD0;margin:-20px -20px 1.25rem;background:linear-gradient(180deg,#FAF7F1,transparent)}
+.fc2-hero .av{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;font-family:'Instrument Serif',serif}
+.fc2-hero .av.l0{background:#3A352B}.fc2-hero .av.l1{background:#7A3A14}
+.fc2-hero .av.l2{background:#0F3866}.fc2-hero .av.l3{background:#1F5F3F}
+.fc2-hero .av.tl{background:#1A1A1A}
+.fc2-hero .info h3{margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;letter-spacing:-.3px;line-height:1.1}
+.fc2-hero .info .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:4px;font-size:11px;color:#6F6B62}
+.fc2-hero .info .meta .b{display:inline-block;padding:2px 8px;border-radius:11px;font-size:10px;font-weight:700;letter-spacing:.05em}
+.fc2-hero .info .meta .b.l0{background:#E8E4DC;color:#3A352B}
+.fc2-hero .info .meta .b.l1{background:#FBE6D6;color:#7A3A14}
+.fc2-hero .info .meta .b.l2{background:#DDE9F7;color:#0F3866}
+.fc2-hero .info .meta .b.l3{background:#DEEED1;color:#1F5F3F}
+.fc2-hero .info .meta .b.tl{background:#1A1A1A;color:#fff}
+
+/* Section heading */
+.fc2-h{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#6F6B62;margin:1.25rem 0 .5rem;display:flex;align-items:center;gap:8px}
+.fc2-h::after{content:'';flex:1;height:1px;background:#E8E3D8}
+
+/* Top KPI row */
+.fc2-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.fc2-k{background:#FAF7F1;border:1px solid #E0DCD0;border-radius:10px;padding:12px 14px}
+.fc2-k .l{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6F6B62;margin-bottom:4px}
+.fc2-k .v{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;color:#1A1A1A;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.fc2-k .d{font-size:10.5px;margin-top:4px;font-weight:600}
+.fc2-k .d.up{color:#1F5F3F}.fc2-k .d.dn{color:#9B2D2D}.fc2-k .d.eq{color:#6F6B62}
+
+/* Funnel — 5 absolute volume tiles */
+.fc2-funnel{display:grid;grid-template-columns:repeat(5,1fr) auto;gap:8px;align-items:stretch}
+.fc2-fstep{background:#FAF7F1;border:1px solid #E0DCD0;border-radius:10px;padding:11px 10px;text-align:center;position:relative}
+.fc2-fstep .l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6F6B62;margin-bottom:3px}
+.fc2-fstep .v{font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;color:#1A1A1A;line-height:1;font-variant-numeric:tabular-nums}
+.fc2-fstep .pct{font-size:10px;color:#6F6B62;margin-top:3px;font-weight:500}
+.fc2-fstep.bkg{background:#DEEED1;border-color:#B6D695}
+.fc2-fstep.bkg .v{color:#1F5F3F;font-weight:700}
+.fc2-fnext{display:flex;align-items:center;justify-content:center;color:#B5AE9D;font-size:18px;padding:0 4px}
+
+/* Visual gauge — agent value with market marker */
+.gg-row{display:grid;grid-template-columns:130px 1fr 90px;gap:12px;align-items:center;padding:7px 0;font-size:12.5px}
+.gg-lbl{color:#1A1A1A;font-weight:600;font-size:12px}
+.gg-track{position:relative;height:22px;background:#EDE7DA;border-radius:11px;overflow:hidden}
+.gg-fill{position:absolute;left:0;top:0;height:100%;border-radius:11px;transition:width .8s cubic-bezier(.2,.7,.2,1);display:flex;align-items:center;padding:0 8px;font-size:11px;font-weight:700;color:#fff}
+.gg-fill.up{background:linear-gradient(90deg,#7BAB52,#1F5F3F)}
+.gg-fill.dn{background:linear-gradient(90deg,#D88A8A,#9B2D2D)}
+.gg-fill.eq{background:linear-gradient(90deg,#B5AE9D,#6F6B62)}
+.gg-mkt{position:absolute;top:-2px;height:26px;width:0;border-left:2px dashed #1A1A1A;opacity:.55;z-index:2}
+.gg-mkt::after{content:'mkt';position:absolute;top:-12px;left:-12px;font-size:8.5px;font-weight:700;color:#1A1A1A;letter-spacing:.04em;opacity:.7;text-transform:uppercase}
+.gg-val{display:flex;flex-direction:column;align-items:flex-end;font-variant-numeric:tabular-nums}
+.gg-val .v{font-size:13px;font-weight:700;color:#1A1A1A;line-height:1.1}
+.gg-val .d{font-size:10.5px;font-weight:600;line-height:1.2;margin-top:1px}
+.gg-val .d.up{color:#1F5F3F}.gg-val .d.dn{color:#9B2D2D}.gg-val .d.eq{color:#6F6B62}
+.gg-na{padding:4px 10px;font-size:11px;color:#aaa;font-style:italic}
+
+/* Action plan section */
+.fc2-action{background:#1A1A1A;color:#fff;border-radius:14px;padding:1.25rem 1.5rem;margin-top:1.25rem}
+.fc2-action h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;margin:0 0 4px;letter-spacing:-.3px}
+.fc2-action h4 em{color:#9DD2A6;font-style:italic}
+.fc2-action .ap-sub{font-size:11px;color:#aaa;margin-bottom:12px;letter-spacing:.04em}
+.fc2-action ol{list-style:none;padding:0;margin:0;counter-reset:ap}
+.fc2-action ol li{counter-increment:ap;padding:9px 0 9px 32px;border-top:1px solid #2C2C2A;position:relative;font-size:13px;line-height:1.5}
+.fc2-action ol li:first-child{border-top:none}
+.fc2-action ol li::before{content:counter(ap);position:absolute;left:0;top:9px;width:22px;height:22px;border-radius:50%;background:#1F5F3F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:'Inter',sans-serif}
+.fc2-action ol li strong{color:#fff;font-weight:700}
+.fc2-action ol li em{color:#9DD2A6;font-style:italic}
+.fc2-action .ap-empty{font-size:13px;color:#9DD2A6;font-style:italic;line-height:1.5;padding:8px 0}
+
+/* ════════════════════════════════════════════════════════════════
    EDITORIAL DECK — slides redesigned to match Tourlane FR Q1 2026
    ════════════════════════════════════════════════════════════════ */
 #page-slides{
@@ -784,6 +853,16 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .dlverdict .vd-t{font-family:'Instrument Serif',serif;font-style:italic;font-size:17.5px;line-height:1.5;color:var(--ink);font-weight:400}
 .dlverdict .vd-t strong{font-style:normal;font-weight:700}
 .dlverdict .vd-t em{font-style:italic;color:var(--accent)}
+
+/* ── Signature stat on level deep-dive slides ── */
+.dlsig{display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:center;background:linear-gradient(95deg, rgba(31,95,63,.06), transparent 70%);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:1rem 1.25rem;margin-bottom:1rem}
+.dlsig .sig-l{font-family:'Instrument Serif',serif;font-size:42px;line-height:1;color:var(--accent);font-weight:400;letter-spacing:-1px;font-variant-numeric:tabular-nums}
+.dlsig .sig-r{font-size:13px;line-height:1.45;color:var(--ink)}
+.dlsig .sig-r .sig-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:3px;display:block}
+.dlsig .sig-r strong{font-weight:700}
+.dlsig.dlsig-bad{background:linear-gradient(95deg, rgba(155,45,45,.06), transparent 70%);border-left-color:var(--dk-red)}
+.dlsig.dlsig-bad .sig-l{color:var(--dk-red)}
+.dlsig.dlsig-bad .sig-tag{color:var(--dk-red)}
 
 /* ── DAILY MANAGEMENT slide (between fracture and personas) ── */
 .ddaily{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:1.5rem 0}
@@ -3022,6 +3101,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <div class="lh-num">L<em>0</em></div>
         </div>
 
+        <div class="dlsig dlsig-bad dr-up d2">
+          <div class="sig-l">−17 pts</div>
+          <div class="sig-r">
+            <span class="sig-tag">Signature L0</span>
+            <strong>FC → OC le plus rapide du corpus (5,3 j)</strong> mais le funnel s'écroule après l'offre : RC Done <strong>59,8 %</strong> vs <strong>74 %</strong> chez L2/L3 — un agent qui sprinte l'amont puis lâche le post-OC.
+          </div>
+        </div>
+
         <div class="dlevel-body dr-up d3">
           <div class="dlfn l0">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
@@ -3042,6 +3129,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlb-cell good"><div class="l">FC → Offer</div><div class="v">1,3 j</div><div class="d up">rapide vs mkt 1,5</div></div>
         <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">6,3 j</div><div class="d up">le plus court ★</div></div>
         <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">8,3 j</div><div class="d">−0,9j vs mkt 9,2</div></div>
+        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">23,8 %</div><div class="d">≈ corpus uniforme</div></div>
+        <div class="dlb-cell"><div class="l">Durée moy. call</div><div class="v">10,3 min</div><div class="d up">la + longue ★</div></div>
             </div>
             <div class="dlafter">
               <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
@@ -3110,6 +3199,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <div class="lh-num">L<em>1</em></div>
         </div>
 
+        <div class="dlsig dlsig-bad dr-up d2">
+          <div class="sig-l">5,68</div>
+          <div class="sig-r">
+            <span class="sig-tag">Signature L1</span>
+            <strong>Volume max sans méthode</strong> : 213 opps / agent (record), 17,6 calls/jour (record), 9,4 min de durée moy. par call (le min). Résultat : <strong>5,68 relances par opp — le min du corpus</strong>. La densité par opp s'écroule.
+          </div>
+        </div>
+
         <div class="dlevel-body dr-up d3">
           <div class="dlfn l1">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
@@ -3130,6 +3227,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlb-cell good"><div class="l">FC → Offer</div><div class="v">1,2 j</div><div class="d up">le plus rapide ★</div></div>
         <div class="dlb-cell"><div class="l">OC → RC</div><div class="v">8,0 j</div><div class="d">≈ marché 7,9</div></div>
         <div class="dlb-cell good"><div class="l">SP → Conf</div><div class="v">7,3 j</div><div class="d up">le plus court ★</div></div>
+        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">22,8 %</div><div class="d">≈ corpus uniforme</div></div>
+        <div class="dlb-cell bad"><div class="l">Durée moy. call</div><div class="v">9,4 min</div><div class="d dn">la + courte ⚠</div></div>
             </div>
             <div class="dlafter">
               <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
@@ -3198,6 +3297,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <div class="lh-num">L<em>2</em></div>
         </div>
 
+        <div class="dlsig dr-up d2">
+          <div class="sig-l">7,09</div>
+          <div class="sig-r">
+            <span class="sig-tag">Signature L2</span>
+            <strong>Email-density championne</strong> : 5,99 em out / opp (record corpus) sur seulement 144 opps. Conséquence directe — <strong>1<sup>er</sup> OC Bkg 39,4 % et CR3 25,7 %, deux records</strong>. Méthode écrite dense, chaque client préparé pour le call.
+          </div>
+        </div>
+
         <div class="dlevel-body dr-up d3">
           <div class="dlfn l2">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
@@ -3218,6 +3325,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
         <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">9,4 j</div><div class="d dn">le plus long ⚠</div></div>
         <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">9,5 j</div><div class="d">+0,4j vs mkt 9,2</div></div>
+        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">22,0 %</div><div class="d">≈ corpus uniforme</div></div>
+        <div class="dlb-cell"><div class="l">Durée moy. call</div><div class="v">10,1 min</div><div class="d">≈ marché</div></div>
             </div>
             <div class="dlafter">
               <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
@@ -3286,6 +3395,14 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <div class="lh-num">L<em>3</em></div>
         </div>
 
+        <div class="dlsig dr-up d2">
+          <div class="sig-l">7,1 j</div>
+          <div class="sig-r">
+            <span class="sig-tag">Signature L3</span>
+            <strong>Phone-volume + speed</strong> : 162 opps gérés (+20 % vs L2), 2h37 call/jour, et surtout <strong>OC → RC en 7,1 j (-2,3 j vs L2)</strong>. Bring-back rapide par téléphone — 3 records funnel à la clé (Offer Made, OC Done, RC Bkg).
+          </div>
+        </div>
+
         <div class="dlevel-body dr-up d3">
           <div class="dlfn l3">
             <div class="dlfn-tt">Funnel — toutes étapes</div>
@@ -3306,6 +3423,8 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
         <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">7,1 j</div><div class="d up">court vs L2 (9,4 j)</div></div>
         <div class="dlb-cell bad"><div class="l">SP → Conf</div><div class="v">10,6 j</div><div class="d dn">le plus long · dossiers complexes</div></div>
+        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">22,0 %</div><div class="d">≈ corpus uniforme</div></div>
+        <div class="dlb-cell"><div class="l">Durée moy. call</div><div class="v">9,7 min</div><div class="d">≈ marché</div></div>
             </div>
             <div class="dlafter">
               <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
@@ -3589,8 +3708,6 @@ function loadCard(tid, agentId) {
   if (ac) {
     ac.style.display='block';
     ac.innerHTML = buildCard(a, agentId);
-    // After DOM injected, render the personal funnel chart
-    setTimeout(function(){ renderPersonalFunnel(agentId, a); }, 30);
   }
 }
 
@@ -3719,176 +3836,359 @@ function renderPersonalFunnel(agentId, a) {
   });
 }
 
-function buildCard(a, agentId) {
-  var lvl = a.lvl.toLowerCase().replace('l','ag');
-  var initials = a.name.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();
-  var cr3Delta = (a.cr3 - a.bm_cr3).toFixed(1);
-  var aovDelta = ((a.aov - a.bm_aov) / a.bm_aov * 100).toFixed(0);
-  var cr3Sign = a.cr3 >= a.bm_cr3 ? '+' : '';
-  var cr3Cls = a.cr3 >= a.bm_cr3 ? 'pos' : 'neg';
-  // === Looker enrichment lookup ===
-  var enr = (window._agentEnrichment && agentId && window._agentEnrichment[agentId]) || {};
-  var lb  = (window._levelBenchmarks && window._levelBenchmarks[a.lvl]) || {};
-  var mb  = (window._levelBenchmarks && window._levelBenchmarks.MARKET) || {};
-  
-  // Funnel bars (max reference for bar width)
-  var maxOpps = a.fc_done;
-  
-  function bar(label, val, maxVal, bm, colorCls) {
-    var pct = Math.min(100, (val / maxVal * 100)).toFixed(0);
-    var bmPct = Math.min(100, (bm / maxVal * 100)).toFixed(0);
-    return '<div class="bar-row">' +
-      '<span class="bar-label">' + label + '</span>' +
-      '<div class="bar-wrap">' +
-        '<div class="bar-fill ' + colorCls + '" style="width:' + pct + '%"></div>' +
-        '<div class="bar-bm" style="left:' + bmPct + '%"></div>' +
-      '</div>' +
-      '<span class="bar-val">' + val + '</span>' +
-    '</div>';
+// ════════════════════════════════════════════════════════════════
+// FICHE V2 — agent + team-lead unified
+//   - Absolute volumes (Looker-style)
+//   - Comparison vs MARKET ONLY
+//   - Visual gauges
+//   - Personalized action plan
+// ════════════════════════════════════════════════════════════════
+
+// Visual gauge: agent value (bar fill) with market marker (vertical dashed line)
+// higherIsBetter=true → green if val > market; false (e.g. cycle days) → green if val < market
+function ggRow(label, val, mkt, opts) {
+  opts = opts || {};
+  if (val == null || isNaN(val)) {
+    return '<div class="gg-row"><span class="gg-lbl">' + label + '</span>'
+         + '<div class="gg-track"></div><span class="gg-na">—</span></div>';
   }
-  
-  function pctBar(label, val, bm, colorCls) {
-    var pct = Math.min(100, val).toFixed(0);
-    var bmPct = Math.min(100, bm).toFixed(0);
-    return '<div class="bar-row">' +
-      '<span class="bar-label">' + label + '</span>' +
-      '<div class="bar-wrap">' +
-        '<div class="bar-fill ' + colorCls + '" style="width:' + pct + '%"></div>' +
-        '<div class="bar-bm" style="left:' + bmPct + '%"></div>' +
-      '</div>' +
-      '<span class="bar-val">' + val.toFixed(1) + '%</span>' +
-    '</div>';
+  var unit = opts.unit || '';
+  var fmt  = opts.fmt  || function(v){ return v.toFixed(opts.decimals!=null?opts.decimals:1); };
+  var hib  = opts.higherIsBetter !== false; // default true
+  // Scale: max(val, mkt) * 1.5 — keeps things readable
+  var scaleMax = Math.max(val, mkt || 0) * 1.5 || 1;
+  if (opts.scaleMax) scaleMax = opts.scaleMax;
+  var pct = Math.min(99, val / scaleMax * 100);
+  var mktPct = mkt != null ? Math.min(99, mkt / scaleMax * 100) : null;
+
+  // Color based on agent vs market
+  var cls = 'eq', delta = '', deltaCls = 'eq';
+  if (mkt != null && mkt > 0) {
+    var diff = val - mkt;
+    var dpct = (diff / mkt) * 100;
+    var thr = opts.threshold || 5; // 5% threshold to call it "different"
+    var isUp = (hib ? diff > 0 : diff < 0);
+    var isDn = (hib ? diff < 0 : diff > 0);
+    var beyondThr = Math.abs(dpct) >= thr;
+    if (beyondThr && isUp) { cls = 'up'; deltaCls = 'up'; }
+    else if (beyondThr && isDn) { cls = 'dn'; deltaCls = 'dn'; }
+    else { cls = 'eq'; deltaCls = 'eq'; }
+    var sign = diff > 0 ? '+' : '';
+    delta = sign + fmt(diff) + unit + ' vs mkt';
   }
-  
-  // Compare vs levels
-  var levels = ['L0','L1','L2','L3'];
-  var bms_cr3 = [14.4, 24.2, 24.1, 31.3];
-  var compare_rows = levels.map(function(l, i) {
-    var isAgent = (l === a.lvl);
-    var bval = bms_cr3[i];
-    var aval = isAgent ? a.cr3 : bval;
-    var bold = isAgent ? 'font-weight:700' : '';
-    var pct = Math.min(100, aval / 35 * 100).toFixed(0);
-    var fillCls = 'fill-' + l.toLowerCase();
-    return '<div class="cb-row" style="' + bold + '">' +
-      '<span class="cb-lbl">' + l + (isAgent ? ' ★' : '') + '</span>' +
-      '<div class="cb-bar-w"><div class="cb-fill ' + fillCls + '" style="width:' + pct + '%"></div></div>' +
-      '<span class="cb-val">' + aval.toFixed(1) + '%</span>' +
-    '</div>';
+
+  var fillTxt = fmt(val) + unit;
+  var fillContent = pct > 28 ? fillTxt : '';
+  return '<div class="gg-row">'
+       + '<span class="gg-lbl">' + label + '</span>'
+       + '<div class="gg-track">'
+         + '<div class="gg-fill ' + cls + '" style="width:' + pct.toFixed(1) + '%">'
+           + fillContent
+         + '</div>'
+         + (mktPct != null ? '<div class="gg-mkt" style="left:' + mktPct.toFixed(1) + '%"></div>' : '')
+       + '</div>'
+       + '<div class="gg-val"><span class="v">' + fillTxt + '</span>'
+         + (delta ? '<span class="d ' + deltaCls + '">' + delta + '</span>' : '')
+       + '</div>'
+       + '</div>';
+}
+
+// Build personalized action plan based on weakest metrics vs market
+function buildActionPlan(metrics) {
+  // metrics: array of {label, val, mkt, hib, advice}
+  // Score each metric: how far below benchmark, weighted by hib direction
+  var actionable = [];
+  metrics.forEach(function(m) {
+    if (m.val == null || m.mkt == null || m.mkt === 0) return;
+    var diffPct = ((m.val - m.mkt) / m.mkt) * 100;
+    var underperform = m.hib ? diffPct < -5 : diffPct > 5;
+    if (underperform) {
+      actionable.push({
+        score: Math.abs(diffPct),
+        label: m.label,
+        val: m.val,
+        mkt: m.mkt,
+        diff: diffPct,
+        advice: m.advice
+      });
+    }
   });
-  
+  actionable.sort(function(a,b){ return b.score - a.score; });
+  return actionable.slice(0, 4); // top 4 weak spots
+}
+
+function buildCard(a, agentIdOrEnr, isTL) {
+  var initials = a.name.split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase();
+  var lvl = a.lvl;
+  var lvlClass = isTL ? 'tl' : lvl.toLowerCase();
+  var enr;
+  if (typeof agentIdOrEnr === 'string') {
+    enr = (window._agentEnrichment && window._agentEnrichment[agentIdOrEnr]) || {};
+  } else {
+    enr = agentIdOrEnr || {};
+  }
+  var mb  = (window._levelBenchmarks && window._levelBenchmarks.MARKET) || {};
+
+  // Format helpers
   var gbvFmt = a.gbv >= 1000000 ? '€' + (a.gbv/1000000).toFixed(2) + 'M' : '€' + Math.round(a.gbv/1000) + 'k';
-  
-  return '<div class="ac-hero">' +
-    '<div class="ac-avatar av-' + a.lvl.toLowerCase() + '">' + initials + '</div>' +
-    '<div class="ac-info">' +
-      '<h3>' + a.name + '</h3>' +
-      '<div class="ac-meta">' +
-        '<span class="badge ' + lvl + 'h">' + a.lvl + '</span>' +
-        '<span style="color:#888;font-size:12px">Q1 2026 · Jan–Mar</span>' +
-      '</div>' +
-    '</div>' +
-  '</div>' +
-  
-  '<div class="ac-kpis">' +
-    '<div class="ac-kpi ' + cr3Cls + '"><span class="kv">' + a.cr3 + '%</span><span class="kl">CR3 (' + cr3Sign + cr3Delta + ' vs ' + a.lvl + ')</span></div>' +
-    '<div class="ac-kpi"><span class="kv">€' + a.aov.toLocaleString() + '</span><span class="kl">AOV (' + (aovDelta > 0 ? '+' : '') + aovDelta + '%)</span></div>' +
-    '<div class="ac-kpi"><span class="kv">' + gbvFmt + '</span><span class="kl">GBV Q1</span></div>' +
-  '</div>' +
-  
-  // DIM 1 - Funnel
-  '<div class="dim-title">① Funnel de conversion</div>' +
-  '<div class="funnel-steps">' +
-    '<div class="fs"><span class="fv">' + a.fc_done + '</span><span class="fl">FC</span></div>' +
-    '<span class="fa">›</span>' +
-    '<div class="fs"><span class="fv">' + a.so_count + '</span><span class="fl">SO</span></div>' +
-    '<span class="fa">›</span>' +
-    '<div class="fs"><span class="fv">' + a.oc_done + '</span><span class="fl">OC</span></div>' +
-    '<span class="fa">›</span>' +
-    '<div class="fs"><span class="fv">' + a.rc_done + '</span><span class="fl">RC</span></div>' +
-    '<span class="fa">›</span>' +
-    '<div class="fs" style="background:#d1fae5"><span class="fv">' + a.first_bkg + '</span><span class="fl">Bkg</span></div>' +
-  '</div>' +
-  
-  // DIM 2 - Cycles (bar chart)
-  '<div class="dim-title">② Taux de conversion par étape</div>' +
-  bar('FC → SO', a.so_count, maxOpps, Math.round(maxOpps * a.bm_so / 100), 'fill-' + a.lvl.toLowerCase()) +
-  bar('SO → OC (RC)', a.rc_done, a.so_count || 1, Math.round((a.so_count||1) * a.bm_oc / 100), 'fill-' + a.lvl.toLowerCase()) +
-  bar('OC → Bkg', a.first_bkg, a.oc_done || 1, Math.round((a.oc_done||1) * a.bm_rc / 100), 'fill-' + a.lvl.toLowerCase()) +
-  
-  // DIM 2.5 - Funnel Ratios — Looker-authoritative (from _agentEnrichment)
-  '<div class="dim-title">⑧ Ratios Funnel <span style="font-size:10px;color:#888;font-weight:400;text-transform:none;letter-spacing:0">· source Looker</span></div>' +
-  funnelRatioRow('FC Done Ratio',     enr.fc_done_ratio) +
-  funnelRatioRow('Offer Made Ratio',  enr.offer_made_ratio) +
-  funnelRatioRow('OC Done Ratio',     enr.oc_done_ratio) +
-  funnelRatioRow('RC Done Ratio',     enr.rc_done_ratio) +
-  funnelRatioRow('1er OC → Bkg',      enr.oc_booking_ratio) +
-  funnelRatioRow('RC → Bkg',          enr.rc_booking_ratio) +
+  function fmtPct(v,d){ return v == null ? '—' : v.toFixed(d||1) + ' %'; }
+  function fmtDay(v,d){ return v == null ? '—' : v.toFixed(d||1).replace('.',',') + ' j'; }
 
-  // DIM 3 - Pipeline %
-  '<div class="dim-title">⑨ Composition pipeline (% des opps)</div>' +
-  pctBar('Present svc', a.pct_present, a.bm_so * 0.9, 'fill-' + a.lvl.toLowerCase()) +
-  pctBar('Send Offer', a.pct_offer, a.bm_so, 'fill-' + a.lvl.toLowerCase()) +
-  pctBar('Recv Conf.', a.pct_rc, a.bm_oc * a.bm_so / 100, 'fill-' + a.lvl.toLowerCase()) +
-  pctBar('Supply Pend', a.pct_sp, 15, 'fill-' + a.lvl.toLowerCase()) +
+  // CR3 vs market
+  var mktCR3 = 24.5; // global CR3 from cover deck
+  var cr3Diff = a.cr3 - mktCR3;
+  var cr3Cls = Math.abs(cr3Diff) < 1 ? 'eq' : (cr3Diff > 0 ? 'up' : 'dn');
 
-  // DIM 4 - CRM (real data from enrichment, not fabricated)
-  '<div class="dim-title">④ Gestion CRM & Aftersales</div>' +
-  '<div class="crm-grid">' +
-    '<div class="crm-item"><span class="cv">' + a.sp_count + '</span><span class="cl">Supply Pending</span></div>' +
-    '<div class="crm-item"><span class="cv">' + a.sc_count + '</span><span class="cl">Supply Confirmed</span></div>' +
-    '<div class="crm-item"><span class="cv">' + (enr.open_tasks != null ? enr.open_tasks : '—') + '</span><span class="cl">Open Tasks</span></div>' +
-    '<div class="crm-item"><span class="cv">' + (enr.open_cases != null ? enr.open_cases : '—') + '</span><span class="cl">Open Cases</span></div>' +
-  '</div>' +
-  
-  // DIM 5 - Value
-  '<div class="dim-title">⑤ Valeur générée</div>' +
-  '<div class="crm-grid">' +
-    '<div class="crm-item"><span class="cv">' + gbvFmt + '</span><span class="cl">GBV Q1</span></div>' +
-    '<div class="crm-item"><span class="cv">€' + a.aov.toLocaleString() + '</span><span class="cl">AOV moyen</span></div>' +
-  '</div>' +
-  
-  // === NEW: Personal funnel chart (agent vs level vs market) ===
-  '<div class="dim-title">⚡ Funnel personnel — vs moyenne ' + a.lvl + ' & marché</div>' +
-  '<div class="pfunnel-wrap"><canvas id="pfunnel-' + agentId + '"></canvas></div>' +
-  '<p class="cmp-help">Ligne noire pleine = ' + a.name + ' · pointillés couleur = moyenne ' + a.lvl + ' · pointillés gris = moyenne marché (52 agents)</p>' +
+  // AOV vs market — approximate market AOV ~8800 (avg across levels)
+  var mktAOV = 8800;
+  var aovDiffPct = (a.aov - mktAOV) / mktAOV * 100;
+  var aovCls = Math.abs(aovDiffPct) < 5 ? 'eq' : (aovDiffPct > 0 ? 'up' : 'dn');
 
-  // === NEW: Cycles temporels (real values, lower = better) ===
-  '<div class="dim-title">⏱ Cycles temporels — combien de jours par étape</div>' +
-  compareLegend() +
-  '<div class="cmp-block">' +
-    compareBar('FC → Offer',          enr.cyc_fc_to_offer,     lb.cyc_fc_to_offer,     mb.cyc_fc_to_offer,     'j', true) +
-    compareBar('FC → OC',             enr.cyc_fc_to_oc,        lb.cyc_fc_to_oc,        mb.cyc_fc_to_oc,        'j', true) +
-    compareBar('OC → RC',             enr.cyc_oc_to_rc,        lb.cyc_oc_to_rc,        mb.cyc_oc_to_rc,        'j', true) +
-    compareBar('OC → Supply Pending', enr.cyc_oc_to_pending,   lb.cyc_oc_to_pending,   mb.cyc_oc_to_pending,   'j', true) +
-    compareBar('Supply Pend → Conf.', enr.cyc_sp_to_sc,        lb.cyc_sp_to_sc,        mb.cyc_sp_to_sc,        'j', true) +
-    compareBar('Pending → Confirmed', enr.cyc_pending_to_conf, lb.cyc_pending_to_conf, mb.cyc_pending_to_conf, 'j', true) +
-  '</div>' +
+  // Funnel step %
+  var fc_pct = (enr.fc_done_ratio || 0).toFixed(1);
+  var so_pct = (enr.offer_made_ratio || 0).toFixed(1);
+  var oc_pct = (enr.oc_done_ratio || 0).toFixed(1);
+  var rc_pct = (enr.rc_done_ratio || 0).toFixed(1);
+  var bkg_pct = (enr.oc_booking_ratio || 0).toFixed(1);
 
-  // === NEW: Communication patterns ===
-  '<div class="dim-title">📞 Patterns de communication</div>' +
-  '<div class="cmp-block">' +
-    compareBar('Emails reçus / opp',     enr.emails_in,       lb.emails_in,       mb.emails_in,       '', false) +
-    compareBar('Emails envoyés / opp',   enr.emails_out,      lb.emails_out,      mb.emails_out,      '', false) +
-    compareBar('Total emails / opp',     enr.emails_per_opp,  lb.emails_per_opp,  mb.emails_per_opp,  '', false) +
-    compareBar('Calls / opp',            enr.calls_per_opp,   lb.calls_per_opp,   mb.calls_per_opp,   '', false) +
-    compareBar('% calls > 10min',        enr.pct_calls_long,  lb.pct_calls_long,  mb.pct_calls_long,  '%', true) +
-    compareBar('Temps call / jour',      enr.daily_call_min,  lb.daily_call_min,  mb.daily_call_min,  'min', false) +
-  '</div>' +
-  '<p class="cmp-help"><strong>Lecture du % calls &gt;10min :</strong> plus c\'est BAS, mieux c\'est. Un % bas signale plus de calls courts de relance entre les étapes.</p>' +
+  // Build personalized action plan
+  var actionMetrics = [
+    { label:'1<sup>er</sup> OC Booking',  val:enr.oc_booking_ratio,  mkt:mb.oc_booking_ratio,  hib:true,
+      advice:'Soigner la qualité du 1<sup>er</sup> OC — recap email post-OC, agenda du RC fixé pendant le call.' },
+    { label:'RC Done',                    val:enr.rc_done_ratio,     mkt:mb.rc_done_ratio,     hib:true,
+      advice:'Bring-back plus rapide entre OC et RC — short call J+2 pour ramener le client à la date prévue.' },
+    { label:'RC Booking',                 val:enr.rc_booking_ratio,  mkt:mb.rc_booking_ratio,  hib:true,
+      advice:'Préparation du RC — relance email 24h avant avec recap offre et points clés à confirmer.' },
+    { label:'Emails out / opp',           val:enr.emails_out,        mkt:mb.emails_out,        hib:true,
+      advice:'Densifier l\'écrit — recap email systématique après chaque call (objectif 6+ em out / opp).' },
+    { label:'OC → RC cycle',              val:enr.cyc_oc_to_rc,      mkt:mb.cyc_oc_to_rc,      hib:false,
+      advice:'Raccourcir OC → RC — date du RC fixée AVANT de raccrocher l\'OC (objectif < 7 jours).' },
+    { label:'Daily call time',            val:enr.daily_call_min,    mkt:mb.daily_call_min,    hib:true,
+      advice:'Augmenter le temps de call quotidien — bloquer 30 min/jour pour relances entre étapes.' },
+    { label:'Supply Pending → Confirmed', val:enr.cyc_sp_to_sc,      mkt:mb.cyc_sp_to_sc,      hib:false,
+      advice:'Piloter le post-signature — contact DMC J+1, update client J+2 (objectif < 8 jours).' },
+  ];
+  var plan = buildActionPlan(actionMetrics);
+  var planHtml = plan.length === 0
+    ? '<div class="ap-empty">Cet agent performe au-dessus du marché sur toutes les métriques clés. Mission : maintenir le rythme et peer-coacher des agents en progression.</div>'
+    : '<ol>' + plan.map(function(p){
+        var sign = p.diff>0?'+':'';
+        return '<li>'
+             + '<strong>' + p.label + '</strong> ' + p.val.toFixed(1) + ' (vs marché ' + p.mkt.toFixed(1) + ', '
+             + sign + p.diff.toFixed(0) + ' %). <em>' + p.advice + '</em>'
+             + '</li>';
+      }).join('') + '</ol>';
 
-  // === CRM open items vs benchmarks (snapshot — interprétation prudente) ===
-  '<div class="dim-title">📋 Charge CRM ouverte (snapshot Looker)</div>' +
-  '<div class="cmp-block">' +
-    compareBar('Open Cases (snapshot)',  enr.open_cases, null, null, '', true, Math.max(20, (enr.open_cases||0) * 1.4)) +
-    compareBar('Open Tasks (snapshot)',  enr.open_tasks, null, null, '', true, Math.max(20, (enr.open_tasks||0) * 1.4)) +
-  '</div>' +
-  '<p class="cmp-help"><em>Note :</em> les open cases / open tasks sont des snapshots Looker à un instant T (pas des cumuls Q1) et reflètent probablement uniquement les éléments CS-flaggés. À interpréter prudemment.</p>' +
+  return '<div class="fc2">'
 
-  // CR3 vs niveaux (existing)
-  '<div class="dim-title">CR3 — positionnement vs niveaux du corpus</div>' +
-  '<div class="compare-bars">' + compare_rows.join('') + '</div>' +
-  '<p style="font-size:11px;color:#aaa;margin:8px 0 0">★ = position de cet agent</p>';
+    // HERO
+    + '<div class="fc2-hero">'
+      + '<div class="av ' + lvlClass + '">' + initials + '</div>'
+      + '<div class="info"><h3>' + a.name + '</h3>'
+        + '<div class="meta">'
+          + '<span class="b ' + lvlClass + '">' + lvl + '</span>'
+          + '<span>Q1 2026 · Jan–Mar</span>'
+        + '</div>'
+      + '</div>'
+    + '</div>'
+
+    // KPIs row
+    + '<div class="fc2-h">Performance globale · vs marché</div>'
+    + '<div class="fc2-kpis">'
+      + '<div class="fc2-k"><div class="l">CR3</div><div class="v">' + a.cr3.toFixed(1) + ' %</div>'
+        + '<div class="d ' + cr3Cls + '">' + (cr3Diff>0?'+':'') + cr3Diff.toFixed(1) + ' pp vs marché ' + mktCR3 + ' %</div></div>'
+      + '<div class="fc2-k"><div class="l">AOV</div><div class="v">€' + a.aov.toLocaleString() + '</div>'
+        + '<div class="d ' + aovCls + '">' + (aovDiffPct>0?'+':'') + aovDiffPct.toFixed(0) + ' % vs marché</div></div>'
+      + '<div class="fc2-k"><div class="l">GBV Q1</div><div class="v">' + gbvFmt + '</div>'
+        + '<div class="d eq">' + a.bkg + ' bookings</div></div>'
+      + '<div class="fc2-k"><div class="l">Opps gérés</div><div class="v">' + a.opps + '</div>'
+        + '<div class="d eq">' + a.fc_done + ' FC réalisés</div></div>'
+    + '</div>'
+
+    // FUNNEL — absolute volumes (Looker-style)
+    + '<div class="fc2-h">Funnel · volumes absolus Q1 2026</div>'
+    + '<div class="fc2-funnel">'
+      + '<div class="fc2-fstep"><div class="l">FC</div><div class="v">' + a.fc_done + '</div><div class="pct">' + fc_pct + ' %</div></div>'
+      + '<div class="fc2-fnext">›</div>'
+      + '<div class="fc2-fstep"><div class="l">SO</div><div class="v">' + a.so_count + '</div><div class="pct">' + so_pct + ' %</div></div>'
+      + '<div class="fc2-fnext">›</div>'
+      + '<div class="fc2-fstep"><div class="l">OC</div><div class="v">' + a.oc_done + '</div><div class="pct">' + oc_pct + ' %</div></div>'
+      + '<div class="fc2-fnext">›</div>'
+      + '<div class="fc2-fstep"><div class="l">RC</div><div class="v">' + a.rc_done + '</div><div class="pct">' + rc_pct + ' %</div></div>'
+      + '<div class="fc2-fnext">›</div>'
+      + '<div class="fc2-fstep bkg"><div class="l">BKG</div><div class="v">' + a.first_bkg + '</div><div class="pct">' + bkg_pct + ' %</div></div>'
+    + '</div>'
+
+    // RATIOS funnel — gauges vs market
+    + '<div class="fc2-h">Ratios funnel · jauges vs marché</div>'
+    + ggRow('FC Done',     enr.fc_done_ratio,     mb.fc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('Offer Made',  enr.offer_made_ratio,  mb.offer_made_ratio,  {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('OC Done',     enr.oc_done_ratio,     mb.oc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('1er OC → Bkg',enr.oc_booking_ratio,  mb.oc_booking_ratio,  {unit:' %', higherIsBetter:true, scaleMax:80})
+    + ggRow('RC Done',     enr.rc_done_ratio,     mb.rc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('RC → Bkg',    enr.rc_booking_ratio,  mb.rc_booking_ratio,  {unit:' %', higherIsBetter:true, scaleMax:100})
+
+    // COMMUNICATION
+    + '<div class="fc2-h">Communication · vs marché</div>'
+    + ggRow('Emails out / opp',  enr.emails_out,      mb.emails_out,     {higherIsBetter:true})
+    + ggRow('Emails in / opp',   enr.emails_in,       mb.emails_in,      {higherIsBetter:true})
+    + ggRow('Calls / opp',       enr.calls_per_opp,   mb.calls_per_opp,  {higherIsBetter:true})
+    + ggRow('% calls > 10 min',  enr.pct_calls_long,  mb.pct_calls_long, {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('Daily call (min)',  enr.daily_call_min,  mb.daily_call_min, {unit:' min', higherIsBetter:true, decimals:0})
+
+    // CYCLES — lower is better
+    + '<div class="fc2-h">Cycles temporels · plus court = mieux</div>'
+    + ggRow('FC → Offer',          enr.cyc_fc_to_offer,    mb.cyc_fc_to_offer,    {unit:' j', higherIsBetter:false})
+    + ggRow('FC → OC',             enr.cyc_fc_to_oc,       mb.cyc_fc_to_oc,       {unit:' j', higherIsBetter:false})
+    + ggRow('OC → RC',             enr.cyc_oc_to_rc,       mb.cyc_oc_to_rc,       {unit:' j', higherIsBetter:false})
+    + ggRow('OC → Supply Pending', enr.cyc_oc_to_pending,  mb.cyc_oc_to_pending,  {unit:' j', higherIsBetter:false})
+    + ggRow('Supply Pend → Conf',  enr.cyc_sp_to_sc,       mb.cyc_sp_to_sc,       {unit:' j', higherIsBetter:false})
+
+    // CRM
+    + '<div class="fc2-h">CRM · charge ouverte (snapshot)</div>'
+    + ggRow('Open Tasks',  enr.open_tasks, 3.5, {higherIsBetter:false, decimals:0})
+    + ggRow('Open Cases',  enr.open_cases, 6.0, {higherIsBetter:false, decimals:0})
+    + ggRow('Supply Pending (volume Q1)', a.sp_count, null, {decimals:0, scaleMax:60})
+
+    // ACTION PLAN — personalized
+    + '<div class="fc2-action">'
+      + '<h4>Plan d\'action <em>personnalisé</em></h4>'
+      + '<div class="ap-sub">Top points faibles vs marché — actions ciblées pour combler l\'écart</div>'
+      + planHtml
+    + '</div>'
+
+    + '</div>'; // end fc2
+}
+
+// ════════════════════════════════════════════════════════════════
+// TEAM-LEAD FICHE — aggregates an entire team into one synthetic card
+// ════════════════════════════════════════════════════════════════
+var TL_NAMES = {vincent:'Vincent', stephanie:'Stéphanie', sophie:'Sophie',
+                marion:'Marion',   lauren:'Lauren'};
+
+function aggregateTeam(tid) {
+  var data = window['_agData_' + tid];
+  if (!data) return null;
+  var ids = Object.keys(data);
+  var n = ids.length;
+  if (!n) return null;
+
+  // Sum absolute volumes
+  var sumOpps=0,sumBkg=0,sumGbv=0,sumFC=0,sumSO=0,sumOC=0,sumRC=0,sumFB=0,sumSP=0,sumSC=0;
+  ids.forEach(function(id){
+    var a = data[id];
+    sumOpps += a.opps||0; sumBkg += a.bkg||0; sumGbv += a.gbv||0;
+    sumFC += a.fc_done||0; sumSO += a.so_count||0; sumOC += a.oc_done||0;
+    sumRC += a.rc_done||0; sumFB += a.first_bkg||0;
+    sumSP += a.sp_count||0; sumSC += a.sc_count||0;
+  });
+  // Team CR3 = total bkg / total opps · Team AOV = total gbv / total bkg
+  var cr3 = sumOpps ? (sumBkg/sumOpps*100) : 0;
+  var aov = sumBkg ? Math.round(sumGbv/sumBkg) : 0;
+
+  // Aggregate enrichment — mean across agents in team
+  var enrFields = ['fc_done_ratio','offer_made_ratio','oc_done_ratio','rc_done_ratio',
+                   'oc_booking_ratio','rc_booking_ratio','emails_in','emails_out',
+                   'emails_per_opp','calls_per_opp','pct_calls_long','daily_call_min',
+                   'cyc_fc_to_offer','cyc_fc_to_oc','cyc_oc_to_pending','cyc_oc_to_rc',
+                   'cyc_pending_to_conf','cyc_sp_to_sc','open_tasks','open_cases'];
+  var enr = {};
+  enrFields.forEach(function(f){
+    var vals = [];
+    ids.forEach(function(id){
+      var e = (window._agentEnrichment||{})[id];
+      if (e && e[f] != null) vals.push(e[f]);
+    });
+    if (vals.length) enr[f] = vals.reduce(function(s,v){return s+v;},0) / vals.length;
+  });
+
+  // Level distribution
+  var lvlDist = {L0:0,L1:0,L2:0,L3:0};
+  ids.forEach(function(id){
+    var lv = data[id].lvl;
+    if (lvlDist[lv] != null) lvlDist[lv]++;
+  });
+
+  // Synthetic agent record (per-agent average for absolute volumes)
+  return {
+    fakeAgent: {
+      name: 'Équipe ' + (TL_NAMES[tid] || tid),
+      lvl: 'TL',
+      opps: Math.round(sumOpps/n),
+      bkg: Math.round(sumBkg/n),
+      cr3: Math.round(cr3*100)/100,
+      aov: aov,
+      gbv: Math.round(sumGbv/n),
+      fc_done: Math.round(sumFC/n),
+      so_count: Math.round(sumSO/n),
+      oc_done: Math.round(sumOC/n),
+      rc_done: Math.round(sumRC/n),
+      first_bkg: Math.round(sumFB/n),
+      sp_count: Math.round(sumSP/n),
+      sc_count: Math.round(sumSC/n),
+    },
+    enr: enr,
+    n: n,
+    lvlDist: lvlDist,
+    totals: {opps:sumOpps, bkg:sumBkg, gbv:sumGbv}
+  };
+}
+
+// Inject "Fiche TL" button into each team's select wrapper
+function injectTLButtons() {
+  Object.keys(TL_NAMES).forEach(function(tid){
+    var wrap = document.querySelector('#tp-' + tid + ' .ag-select-wrap');
+    if (!wrap || wrap.querySelector('.tl-btn')) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tl-btn';
+    btn.textContent = '📊 Voir la fiche TL — ' + TL_NAMES[tid];
+    btn.style.cssText = 'display:block;width:100%;margin-top:10px;padding:10px 14px;'
+      + 'border:1.5px solid #1A1A1A;background:#1A1A1A;color:#fff;border-radius:10px;'
+      + 'font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;'
+      + 'transition:all .15s';
+    btn.onmouseover = function(){ this.style.background='#2C2C2A'; };
+    btn.onmouseout  = function(){ this.style.background='#1A1A1A'; };
+    btn.onclick = function(){ loadTLCard(tid); };
+    wrap.appendChild(btn);
+  });
+}
+// run on DOMContentLoaded (or immediately if already loaded)
+if (document.readyState !== 'loading') injectTLButtons();
+else document.addEventListener('DOMContentLoaded', injectTLButtons);
+
+function loadTLCard(tid) {
+  var agg = aggregateTeam(tid);
+  if (!agg) return;
+  var ph = document.getElementById('ph-' + tid);
+  var ac = document.getElementById('ac-' + tid);
+  if (ph) ph.style.display='none';
+  if (ac) {
+    ac.style.display='block';
+    // Highlight TL button as selected
+    document.querySelectorAll('#tp-' + tid + ' tr.ag-row').forEach(function(r){r.classList.remove('selected');});
+    // Build card from synthetic agent + computed enrichment
+    var html = buildCard(agg.fakeAgent, agg.enr, true);
+    // Insert team-totals strip just under the hero
+    var teamStrip = '<div style="background:#FAF7F1;border:1px solid #E0DCD0;border-radius:10px;padding:12px 16px;margin-bottom:1rem;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;font-size:11px">'
+       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">Agents</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">' + agg.n + '</div></div>'
+       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">Opps total Q1</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">' + agg.totals.opps + '</div></div>'
+       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">Bookings total</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">' + agg.totals.bkg + '</div></div>'
+       + '<div><div style="color:#6F6B62;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em">GBV total</div><div style="font-family:\'Instrument Serif\',serif;font-size:24px;color:#1A1A1A;line-height:1">€' + (agg.totals.gbv/1000000).toFixed(2) + 'M</div></div>'
+       + '</div>'
+       + '<div style="background:#FAF7F1;border:1px solid #E0DCD0;border-radius:10px;padding:12px 16px;margin-bottom:1rem;font-size:12px;color:#6F6B62">'
+       + '<strong style="color:#1A1A1A;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:700">Composition équipe</strong> · '
+       + ['L0','L1','L2','L3'].map(function(l){return agg.lvlDist[l] + ' ' + l;}).join(' · ')
+       + ' · <em>Les valeurs en dessous sont des <strong>moyennes par agent</strong> (volumes) ou des <strong>moyennes des taux</strong> (ratios). Comparaison vs marché global (52 agents FR).</em>'
+       + '</div>';
+    // Insert teamStrip after hero
+    ac.innerHTML = html.replace('</div>', '</div>' + teamStrip);
+    // Highlight TL button
+    document.querySelectorAll('#tp-' + tid + ' .tl-btn').forEach(function(b){b.classList.add('active');});
+  }
+  // Reset agent select
+  var sel = document.getElementById('sel-' + tid);
+  if (sel) sel.value = '';
 }
 </script>
 
