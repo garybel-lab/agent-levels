@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agent Level Analysis — Tourlane FR Q1 2026</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -423,6 +426,283 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 .cmp-help { font-size:11px; color:#777; line-height:1.5; margin:6px 0 12px; padding:6px 10px; background:#f4f4f0; border-left:3px solid #d4d2c8; border-radius:0 6px 6px 0; }
 .pfunnel-wrap { background:#fff; border:1px solid #ebe9e3; border-radius:10px; padding:12px; margin:8px 0; height:280px; }
 .pfunnel-wrap canvas { width:100% !important; height:100% !important; }
+
+/* ════════════════════════════════════════════════════════════════
+   EDITORIAL DECK — slides redesigned to match Tourlane FR Q1 2026
+   ════════════════════════════════════════════════════════════════ */
+#page-slides{
+  --paper:#EDEAE4;--ink:#1A1A1A;--mute:#6F6B62;--rule:#D8D3C8;
+  --accent:#1F5F3F;--accent-soft:#E3EDE5;
+  --dk-l0-bg:#E8E4DC;--dk-l0-ink:#3A352B;
+  --dk-l1-bg:#FBE6D6;--dk-l1-ink:#7A3A14;
+  --dk-l2-bg:#DDE9F7;--dk-l2-ink:#0F3866;
+  --dk-l3-bg:#DEEED1;--dk-l3-ink:#244B17;
+  --dk-red:#9B2D2D;--dk-redbg:#FBE0DE;
+  --dk-grn:#1F5F3F;--dk-grnbg:#DEEED1;
+}
+#page-slides{
+  background:var(--paper);
+  margin:-1.5rem -2rem 0;
+  padding:0;
+  border-radius:0;
+  position:relative;
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--ink);
+  min-height:calc(100vh - 240px);
+}
+.wrap:has(#page-slides.active){padding-bottom:4rem}
+
+/* Presentation mode container */
+.deck{position:relative;max-width:1280px;margin:0 auto;padding:0 1rem}
+.deck-mode-bar{
+  display:flex;align-items:center;gap:14px;justify-content:space-between;
+  padding:14px 1.25rem;margin:0 0 1rem;
+  background:rgba(26,26,26,.04);border-radius:14px;border:1px solid var(--rule);
+  font-family:'Inter',sans-serif;
+}
+.deck-mode-bar .dmb-left{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.deck-mode-bar .dmb-right{display:flex;align-items:center;gap:8px}
+.dmb-toggle{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:20px;
+  background:var(--ink);color:#fff;border:none;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:background .15s}
+.dmb-toggle:hover{background:#000}
+.dmb-toggle.outline{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.dmb-toggle.outline:hover{background:var(--ink);color:#fff}
+.dmb-counter{font-size:12px;color:var(--mute);letter-spacing:.05em;font-weight:500}
+.dmb-counter strong{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+.dmb-thumbs{display:flex;gap:5px}
+.dmb-thumb{width:22px;height:6px;border-radius:3px;background:#D2CDC0;border:none;cursor:pointer;padding:0;transition:all .2s}
+.dmb-thumb:hover{background:#B5AE9D}
+.dmb-thumb.active{background:var(--accent);width:36px}
+.dmb-help{font-size:11px;color:var(--mute);font-style:italic}
+
+/* Slide canvas */
+.slides-stage{position:relative}
+.deck-slide{
+  background:var(--paper);
+  border-radius:18px;
+  border:1px solid var(--rule);
+  padding:3rem 3.25rem 2.5rem;
+  min-height:560px;
+  position:relative;
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  margin-bottom:1.25rem;
+  box-shadow:0 1px 0 rgba(0,0,0,.02);
+  overflow:hidden;
+}
+/* Presentation mode: only one slide visible */
+#page-slides.deck-present .slides-stage{position:relative;min-height:680px}
+#page-slides.deck-present .deck-slide{
+  display:none;margin:0;border-radius:18px;
+  animation:deckIn .55s cubic-bezier(.2,.7,.2,1);
+}
+#page-slides.deck-present .deck-slide.live{display:block}
+@keyframes deckIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* Page header chrome (number, eyebrow, footer) */
+.dpg-eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;color:var(--mute);letter-spacing:.05em;margin-bottom:1.5rem}
+.dpg-eyebrow .pgn{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;font-size:12px}
+.dpg-eyebrow .pgdot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.dpg-eyebrow .pgright{margin-left:auto;color:var(--mute);font-weight:500}
+.dpg-foot{display:flex;justify-content:space-between;align-items:baseline;font-size:10px;color:var(--mute);letter-spacing:.04em;margin-top:auto;padding-top:1.25rem;border-top:1px dashed var(--rule)}
+.dpg-foot strong{color:var(--ink);font-weight:600}
+
+/* Editorial typography */
+.dh1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:64px;line-height:1.04;letter-spacing:-.5px;color:var(--ink);margin-bottom:1.25rem;max-width:14ch}
+.dh1 em{font-style:italic;color:var(--accent)}
+.dh1.compact{font-size:48px;max-width:18ch}
+.dh1.tight{font-size:42px;max-width:22ch}
+.dlede{font-size:14px;color:var(--mute);line-height:1.6;max-width:60ch;margin-bottom:1.5rem}
+.dlede strong{color:var(--ink);font-weight:600}
+.dsmall-caps{font-size:10px;font-weight:700;color:var(--mute);letter-spacing:.12em;text-transform:uppercase}
+
+/* ── SLIDE 1 — cover with quadrant ── */
+.dcover{display:grid;grid-template-columns:1.3fr 1fr;gap:3.5rem;align-items:start}
+.dcover .lhs{padding-top:.5rem}
+.dcover-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+.dcs{padding-right:1rem}.dcs+.dcs{padding-left:1.25rem;border-left:1px solid var(--rule)}
+.dcs .v{font-family:'Instrument Serif',serif;font-size:38px;font-weight:400;color:var(--ink);line-height:1;letter-spacing:-.5px}
+.dcs .l{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-top:6px;font-weight:600}
+
+.dquad{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:14px;position:relative;padding:24px 0 24px 32px}
+.dquad::before{content:'ROI';position:absolute;left:0;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center;font-size:10px;color:var(--mute);letter-spacing:.15em;font-weight:700}
+.dquad::after{content:'GBV →';position:absolute;left:50%;bottom:0;transform:translateX(-50%);font-size:10px;color:var(--mute);letter-spacing:.15em;font-weight:700}
+.dq{border-radius:8px;padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between;min-height:155px;
+    cursor:pointer;transition:all .25s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden}
+.dq:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.dq .qh{display:flex;justify-content:space-between;align-items:flex-start}
+.dq .qtag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.dq .qbig{font-family:'Instrument Serif',serif;font-size:42px;font-weight:400;line-height:1;margin:14px 0 0;letter-spacing:-1px}
+.dq .qfoot{font-size:11px;font-weight:500;line-height:1.4;opacity:.8}
+.dq .qfoot strong{font-weight:700}
+.dq.dq2{background:var(--dk-l2-bg);color:var(--dk-l2-ink)}
+.dq.dq3{background:var(--dk-l3-bg);color:var(--dk-l3-ink)}
+.dq.dq0{background:var(--dk-l0-bg);color:var(--dk-l0-ink)}
+.dq.dq1{background:var(--dk-l1-bg);color:var(--dk-l1-ink)}
+.dq .qbig em{font-style:normal;font-weight:700}
+.dq .qreveal{position:absolute;inset:0;background:rgba(255,255,255,.96);padding:18px 20px;display:flex;flex-direction:column;
+              opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;border-radius:8px}
+.dq.expanded .qreveal{opacity:1;transform:translateY(0);pointer-events:auto}
+.dq .qreveal h4{font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;margin-bottom:8px;color:inherit}
+.dq .qreveal ul{list-style:none;padding:0;margin:0;font-size:11px;line-height:1.7}
+.dq .qreveal li{display:flex;justify-content:space-between;border-bottom:1px dashed rgba(0,0,0,.1);padding:3px 0}
+.dq .qreveal li strong{font-weight:700}
+.dq .qreveal .qx{position:absolute;top:8px;right:10px;font-size:14px;cursor:pointer;color:var(--mute);background:none;border:none}
+
+/* ── SLIDE 2 — performance ── */
+.dperf-hero{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:18px;margin-bottom:1.5rem;padding:1.25rem 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.dphi{padding:6px 0}
+.dphi .l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);margin-bottom:6px}
+.dphi .v{font-family:'Instrument Serif',serif;font-size:40px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.dphi .d{font-size:11px;font-weight:600;margin-top:5px}
+.dphi .d.up{color:var(--accent)}.dphi .d.dn{color:var(--dk-red)}
+.dphi.feat{background:var(--dk-grnbg);border-radius:12px;padding:14px 18px;margin:-6px 0}
+.dphi.feat .v{font-size:46px;color:var(--accent)}.dphi.feat .l{color:var(--accent)}
+
+.dperf-tbl{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+.dperf-tbl th{padding:9px 12px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);text-align:right;border-bottom:1px solid var(--rule)}
+.dperf-tbl th:first-child{text-align:left}
+.dperf-tbl th.l-head{text-align:center;font-weight:700;color:var(--ink);font-size:11px;background:rgba(0,0,0,.02)}
+.dperf-tbl th.l-head.l0h{background:var(--dk-l0-bg);color:var(--dk-l0-ink)}
+.dperf-tbl th.l-head.l1h{background:var(--dk-l1-bg);color:var(--dk-l1-ink)}
+.dperf-tbl th.l-head.l2h{background:var(--dk-l2-bg);color:var(--dk-l2-ink)}
+.dperf-tbl th.l-head.l3h{background:var(--dk-l3-bg);color:var(--dk-l3-ink)}
+.dperf-tbl td{padding:11px 12px;border-bottom:1px solid #E8E3D8;text-align:right;color:var(--ink);font-weight:500}
+.dperf-tbl td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+.dperf-tbl td.delta{font-size:11px;font-weight:600;color:var(--accent)}
+.dperf-tbl td.delta.dn{color:var(--dk-red)}
+.dperf-tbl tr:hover td{background:rgba(31,95,63,.03)}
+
+/* ── SLIDE 3 — methodology cards ── */
+.dmeth{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:1.5rem}
+.dmcard{background:var(--dk-l2-bg);border-radius:14px;padding:1.75rem 1.75rem 2rem;position:relative;color:var(--dk-l2-ink);min-height:280px;display:flex;flex-direction:column;
+        cursor:pointer;transition:transform .25s}
+.dmcard:hover{transform:translateY(-3px)}
+.dmcard.m2{background:var(--dk-l2-bg);color:var(--dk-l2-ink)}
+.dmcard.m3{background:var(--dk-l3-bg);color:var(--dk-l3-ink)}
+.dmcard .mn{font-family:'Instrument Serif',serif;font-size:54px;line-height:1;color:rgba(0,0,0,.25);font-weight:400;margin-bottom:1.5rem}
+.dmcard .mlbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;opacity:.7}
+.dmcard .mh{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;line-height:1.3;margin-bottom:10px}
+.dmcard .mp{font-size:12.5px;line-height:1.6;opacity:.85}
+.dmcard .mp strong{font-weight:700;opacity:1}
+.dmeth-arrow{position:absolute;top:50%;right:-7px;transform:translateY(-50%);width:14px;height:14px;color:var(--mute);font-size:14px;z-index:2}
+.dmeth-foot{margin-top:1.25rem;background:var(--ink);color:#fff;border-radius:14px;padding:14px 22px;display:flex;align-items:baseline;gap:14px;font-size:12.5px}
+.dmeth-foot .mfl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#aaa;flex-shrink:0}
+.dmeth-foot em{font-style:italic;color:#9DD2A6}
+
+/* ── SLIDE 4 — fracture ── */
+.dfrac{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:.5rem}
+.dfrac-box{border-radius:16px;padding:2rem 2.25rem;min-height:340px;display:flex;flex-direction:column}
+.dfrac-box.bad{background:var(--dk-redbg)}
+.dfrac-box.good{background:var(--dk-grnbg)}
+.dfrac-box .fb-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.dfrac-box.bad .fb-tag{color:var(--dk-red)}
+.dfrac-box.good .fb-tag{color:var(--dk-grn)}
+.dfrac-box .fb-q{font-family:'Instrument Serif',serif;font-style:italic;font-size:32px;line-height:1.2;margin-bottom:1.5rem;letter-spacing:-.3px}
+.dfrac-box.bad .fb-q{color:var(--dk-red)}
+.dfrac-box.good .fb-q{color:var(--dk-grn)}
+.dfrac-list{margin-top:auto;display:flex;flex-direction:column;gap:0}
+.dfrac-list .fr{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-top:1px solid rgba(0,0,0,.08);font-size:13px}
+.dfrac-list .fr .lbl{color:var(--ink);font-weight:500;opacity:.85}
+.dfrac-list .fr .val{font-family:'Instrument Serif',serif;font-size:24px;font-weight:400;letter-spacing:-.3px;line-height:1;flex:0 0 auto;margin:0 16px;font-variant-numeric:tabular-nums}
+.dfrac-box.bad .fr .val{color:var(--dk-red)}
+.dfrac-box.good .fr .val{color:var(--dk-grn)}
+.dfrac-list .fr .tag{font-size:10px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;flex:0 0 auto;text-align:right;min-width:90px}
+
+/* ── SLIDE 5 — personas ── */
+.dpers{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.dperc{border-radius:16px;padding:1.75rem 2rem;min-height:280px;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.dperc:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.06)}
+.dperc.p0{background:var(--dk-l0-bg);color:var(--dk-l0-ink)}
+.dperc.p1{background:var(--dk-l1-bg);color:var(--dk-l1-ink)}
+.dperc.p2{background:var(--dk-l2-bg);color:var(--dk-l2-ink)}
+.dperc.p3{background:var(--dk-l3-bg);color:var(--dk-l3-ink)}
+.dperc-h{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.dperc-h .pln{font-family:'Instrument Serif',serif;font-size:38px;line-height:1;font-weight:400;letter-spacing:-.5px}
+.dperc-h .ptag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.dperc-h .ptit{font-family:'Inter',sans-serif;font-size:18px;font-weight:700;line-height:1.2;margin-top:2px}
+.dperc-q{font-family:'Instrument Serif',serif;font-style:italic;font-size:14.5px;line-height:1.5;margin-bottom:1rem;opacity:.9}
+.dperc-rows{margin-top:auto;display:flex;flex-direction:column;gap:7px}
+.dperc-rows .pr{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:start;font-size:12px;line-height:1.5}
+.dperc-rows .pr .ptg{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:4px;text-align:center;height:max-content;flex-shrink:0}
+.dperc-rows .pr .ptg.force{background:rgba(31,95,63,.15);color:var(--accent)}
+.dperc-rows .pr .ptg.lever{background:rgba(155,45,45,.15);color:var(--dk-red)}
+.dperc-rows .pr .ptg.action{background:rgba(133,79,11,.15);color:#854F0B}
+.dperc-rows .pr .ptg.role{background:rgba(15,56,102,.15);color:#0F3866}
+.dperc-rows .pr .ptg.watch{background:rgba(133,79,11,.15);color:#854F0B}
+.dperc-rows .pr .pcnt{opacity:.92}
+
+/* ── SLIDE 6 — action plan ── */
+.dactp{background:#fff;border-radius:16px;border:1px solid var(--rule);overflow:hidden}
+.dact-tbl{width:100%;border-collapse:collapse;font-size:13px}
+.dact-tbl th{padding:14px 18px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);background:#FAF7F1;border-bottom:1px solid var(--rule)}
+.dact-tbl td{padding:18px 18px;vertical-align:top;border-bottom:1px solid #EFEAE0;line-height:1.55}
+.dact-tbl tr:last-child td{border-bottom:none}
+.dact-tbl tr:hover td{background:rgba(31,95,63,.025)}
+.dact-tbl td.lvc{padding-left:22px;width:120px;background:transparent}
+.dact-tbl td.lvc .lcell{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.dact-tbl td.lvc .lvbig{font-family:'Instrument Serif',serif;font-size:46px;line-height:1;font-weight:400;letter-spacing:-1px;padding:8px 16px;border-radius:10px}
+.dact-tbl td.lvc.l0 .lvbig{background:var(--dk-l0-bg);color:var(--dk-l0-ink)}
+.dact-tbl td.lvc.l1 .lvbig{background:var(--dk-l1-bg);color:var(--dk-l1-ink)}
+.dact-tbl td.lvc.l2 .lvbig{background:var(--dk-l2-bg);color:var(--dk-l2-ink)}
+.dact-tbl td.lvc.l3 .lvbig{background:var(--dk-l3-bg);color:var(--dk-l3-ink)}
+.dact-tbl td.lvc .lvsub{font-size:10px;color:var(--mute);font-weight:500;line-height:1.4;padding:0 4px}
+.dact-tbl td.lever{width:30%}
+.dact-tbl td.lever .lvtit{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.35}
+.dact-tbl td.lever .lvdesc{font-size:12px;color:var(--mute);line-height:1.6}
+.dact-tbl td.diag{font-size:12px;color:var(--ink);width:24%}
+.dact-tbl td.diag .dl{display:block;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.dact-tbl td.diag .dl em{font-style:normal;color:var(--accent);font-weight:700}
+.dact-tbl td.objs{font-size:12.5px;width:24%}
+.dact-tbl td.objs .ob{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;color:var(--ink);font-weight:500}
+.dact-tbl td.objs .ob::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0}
+
+/* Slide 4b inline funnel chart */
+.dchart-card{background:#fff;border-radius:16px;border:1px solid var(--rule);padding:1.5rem 1.75rem;margin-top:1rem}
+.dchart-card .ch-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:12px}
+.dchart-host{position:relative;height:280px}
+.dchart-card .ch-cap{font-size:11px;color:var(--mute);margin-top:8px;line-height:1.5}
+.dchart-card .ch-cap strong{color:var(--ink);font-weight:600}
+
+/* Nav buttons / floating pager */
+.deck-pager{position:sticky;bottom:0;display:flex;justify-content:space-between;align-items:center;
+            padding:14px 1.25rem;background:rgba(237,234,228,.9);backdrop-filter:blur(8px);
+            border-top:1px solid var(--rule);margin:0 -1rem;font-family:'Inter',sans-serif;z-index:5}
+.dpg-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:24px;
+        background:#fff;border:1.5px solid var(--rule);font-size:12px;font-weight:600;cursor:pointer;color:var(--ink);font-family:inherit;
+        transition:all .15s}
+.dpg-btn:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+.dpg-btn:disabled{opacity:.35;cursor:not-allowed;pointer-events:none}
+.dpg-progress{flex:1;margin:0 1.25rem;height:3px;background:#D5D0C2;border-radius:2px;overflow:hidden;max-width:380px}
+.dpg-progress-bar{height:100%;background:var(--accent);border-radius:2px;transition:width .35s cubic-bezier(.2,.7,.2,1)}
+.dpg-info{font-size:11px;color:var(--mute);font-weight:500}
+
+/* Hidden in scroll mode */
+#page-slides:not(.deck-present) .deck-pager{display:none}
+#page-slides:not(.deck-present) .dmb-thumbs{display:none}
+
+/* Reveal animations */
+.dr-up{opacity:0;transform:translateY(14px);transition:opacity .55s,transform .55s}
+.deck-slide.live .dr-up{opacity:1;transform:translateY(0)}
+.deck-slide.live .dr-up.d1{transition-delay:.05s}
+.deck-slide.live .dr-up.d2{transition-delay:.15s}
+.deck-slide.live .dr-up.d3{transition-delay:.25s}
+.deck-slide.live .dr-up.d4{transition-delay:.35s}
+.deck-slide.live .dr-up.d5{transition-delay:.45s}
+
+/* Fullscreen mode tweaks */
+#page-slides:fullscreen{background:var(--paper);padding:2rem 0;overflow-y:auto}
+#page-slides:fullscreen .deck{max-width:1320px}
+
+@media(max-width:980px){
+  .dh1{font-size:48px}.dh1.compact{font-size:36px}.dh1.tight{font-size:32px}
+  .dcover{grid-template-columns:1fr}
+  .dperf-hero{grid-template-columns:1fr 1fr}
+  .dmeth{grid-template-columns:1fr}
+  .dfrac{grid-template-columns:1fr}
+  .dpers{grid-template-columns:1fr}
+}
 
 </style>
 </head>
@@ -2033,518 +2313,471 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 <!-- ═══ SLIDES ═══ -->
 <div class="page active" id="page-slides">
 
-  <div class="slidenav">
-    <div class="snn">Structure de présentation recommandée — 5 slides</div>
-    <div class="snsteps">
-      <div class="snstep"><div class="snstep-n">1</div><div class="snstep-l">Contexte &amp; Portfolio Review</div></div>
-      <div class="snstep"><div class="snstep-n">2</div><div class="snstep-l">Performance Q1 26 vs Q1 25</div></div>
-      <div class="snstep"><div class="snstep-n">3</div><div class="snstep-l">La fracture L0/L1 vs L2/L3</div></div>
-      <div class="snstep"><div class="snstep-n">4</div><div class="snstep-l">Agents en zone de promotion</div></div>
-      <div class="snstep"><div class="snstep-n">5</div><div class="snstep-l">Plan d'action Q2</div></div>
-    </div>
-  </div>
+  <div class="deck">
 
-  <!-- SLIDE 1 -->
-  <div class="ss">
-    <div class="snb"><span class="snbadge">SLIDE 1</span><span class="st2">Contexte — Agent Portfolio Review</span></div>
-    <div class="ssub">La matrice Volume × ROI qui structure la vision du portefeuille</div>
-    <div class="smsg"><strong>Message à passer :</strong> Les agents ne sont pas tous équivalents en valeur générée. La matrice GBV × ROI permet de les positionner selon leur volume et leur efficacité commerciale. Cette segmentation guide les priorités de coaching, d'allocation des leads, et d'identification des agents à promouvoir ou à accompagner.</div>
-    <div style="background:#fff;border-radius:16px;border:1px solid var(--bdr);padding:2rem">
-      <div class="qgrid">
-        <div class="qc q2c"><div class="ql">Low Volume / High ROI</div><div class="qlv">Level 2</div><div class="qs"><strong>19 agents</strong> · 144 opps/agent</div>
-          <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap">
-            <span style="background:var(--c2d);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">CR3 25.67% ★</span>
-            <span style="background:rgba(127,119,221,0.15);color:var(--c2d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">First OC Bkg 40.1% ★</span>
-            <span style="background:rgba(127,119,221,0.15);color:var(--c2d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">9.7 emails/opp</span>
-            <span style="background:rgba(127,119,221,0.15);color:var(--c2d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">24.5% calls courts</span>
-          </div></div>
-        <div class="qc q3c"><div class="ql">High Volume / High ROI</div><div class="qlv">Level 3</div><div class="qs"><strong>14 agents</strong> · 162 opps/agent</div>
-          <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap">
-            <span style="background:var(--c3d);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">CR3 24.76%</span>
-            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">RC Bkg 66.7% ★</span>
-            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">OC Done 73.6% ★</span>
-            <span style="background:rgba(99,153,34,0.15);color:var(--c3d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">8.62 em/opp</span>
-          </div></div>
-        <div class="qc q0c"><div class="ql">Low Volume / Low ROI</div><div class="qlv">Level 0</div><div class="qs"><strong>11 agents</strong> · 168 opps/agent</div>
-          <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap">
-            <span style="background:var(--c0d);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">CR3 19.82%</span>
-            <span style="background:rgba(44,44,42,0.1);color:var(--c0d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">9.8 emails/opp</span>
-            <span style="background:rgba(44,44,42,0.1);color:var(--c0d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">25% calls courts ⚠</span>
-            <span style="background:rgba(44,44,42,0.1);color:var(--c0d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">RC Done 59.0%</span>
-          </div></div>
-        <div class="qc q1c"><div class="ql">High Volume / Low ROI</div><div class="qlv">Level 1</div><div class="qs"><strong>8 agents</strong> · 213 opps/agent ⚠</div>
-          <div style="margin-top:8px;display:flex;gap:5px;flex-wrap:wrap">
-            <span style="background:var(--c1d);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">CR3 20.61%</span>
-            <span style="background:rgba(55,138,221,0.15);color:var(--c1d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">5.4 emails/opp ⚠</span>
-            <span style="background:rgba(55,138,221,0.15);color:var(--c1d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">2h49 call/jour</span>
-            <span style="background:rgba(55,138,221,0.15);color:var(--c1d);font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px">RC Done 52.2%</span>
-          </div></div>
+    <!-- Mode bar -->
+    <div class="deck-mode-bar">
+      <div class="dmb-left">
+        <button class="dmb-toggle" id="deck-toggle">▶ Présentation</button>
+        <span class="dmb-counter">Slide <strong id="deck-counter">1</strong> / <strong>6</strong></span>
+        <span class="dmb-help">↑↓ ← → · F plein écran · ESC sortir</span>
       </div>
-      <div class="qaxes"><span>← GBV EURm faible</span><span style="font-size:11px;color:var(--gray)">ROI = CR3 × AOV · GBV = GBV / FTE · L3M</span><span>GBV EURm élevé →</span></div>
-    </div>
-  </div>
-
-  <!-- SLIDE 2 -->
-  <div class="ss">
-    <div class="snb"><span class="snbadge">SLIDE 2</span><span class="st2">Performance Q1 2026 vs Q1 2025</span></div>
-    <div class="ssub">Évolution des métriques clés et poids de chaque level dans le business total</div>
-    <div class="smsg"><strong>Message à passer :</strong> Le L2 est le moteur du business (37% GBV) et celui qui progresse le plus (+1.3pp CR3 YoY). Le L0 explose en volume (+612% opps YoY) grâce aux bootcampers mais reste marginal en revenue. Le L3 maintient sa position de highest-value cohort avec le meilleur CR3 (+3pp vs moyenne). GBV total en hausse de +18% YoY — la croissance est réelle mais inégalement distribuée.</div>
-    <div class="ptbl-w">
-      <table class="ptbl">
-        <thead>
-          <tr><th class="mc">Key Metric</th><th class="c0" colspan="2">Level 0</th><th class="c1" colspan="2">Level 1</th><th class="c2" colspan="2">Level 2</th><th class="c3" colspan="2">Level 3</th><th class="ct" colspan="2">Total</th></tr>
-          <tr><th class="mc"></th><th class="c0">Q1 26</th><th class="c0">Q1 25</th><th class="c1">Q1 26</th><th class="c1">Q1 25</th><th class="c2">Q1 26</th><th class="c2">Q1 25</th><th class="c3">Q1 26</th><th class="c3">Q1 25</th><th class="ct">Q1 26</th><th class="ct">Q1 25</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="mc">Opp per eFTE</td><td>72.6</td><td>10.2</td><td class="hl">159.3</td><td>107.6</td><td class="hl">159.2</td><td>150.6</td><td class="hl">191.4</td><td>167.6</td><td class="hl2">152.5</td><td>115.6</td></tr>
-          <tr><td class="mc">Sales Call Time</td><td>536</td><td>157</td><td>2 152</td><td>1 015</td><td>2 930</td><td>3 187</td><td>2 002</td><td>2 183</td><td>7 620</td><td>6 541</td></tr>
-          <tr><td class="mc">#Calls Done</td><td>1 033</td><td>226</td><td>4 084</td><td>1 700</td><td>5 140</td><td>5 281</td><td>3 930</td><td>3 890</td><td>14 187</td><td>11 097</td></tr>
-          <tr><td class="mc">#First Offers Sent</td><td>556</td><td>113</td><td>2 203</td><td>922</td><td>2 767</td><td>2 884</td><td>2 096</td><td>2 062</td><td>7 622</td><td>5 981</td></tr>
-          <tr><td class="mc sh" colspan="11">Conversion</td></tr>
-          <tr><td class="mc">CR3</td><td>22.6%</td><td>23.6%</td><td>23.4%</td><td>24.2%</td><td>25.1%</td><td>23.8%</td><td>25.3%</td><td>25.0%</td><td class="hl2">24.5%</td><td>24.3%</td></tr>
-          <tr><td class="mc sh" colspan="11">Revenue</td></tr>
-          <tr><td class="mc">GBV</td><td>€1.0M</td><td>€226K</td><td>€4.6M</td><td>€2.1M</td><td>€7.4M</td><td>€7.6M</td><td>€6.8M</td><td>€6.9M</td><td class="hl2">€19.8M</td><td>€16.8M</td></tr>
-          <tr><td class="mc">Net Revenue</td><td>€347K</td><td>€60K</td><td>€1.36M</td><td>€523K</td><td>€2.13M</td><td>€1.83M</td><td>€1.80M</td><td>€1.54M</td><td class="hl2">€5.64M</td><td>€3.96M</td></tr>
-          <tr><td class="mc sh" colspan="11">Share</td></tr>
-          <tr><td class="mc">GBV Share</td><td>5.1%</td><td>1.1%</td><td>23.3%</td><td>10.6%</td><td class="hl">37.4%</td><td>38.2%</td><td>34.1%</td><td>34.8%</td><td>100%</td><td>85%</td></tr>
-          <tr><td class="mc">Net Revenue Share</td><td>6.1%</td><td>1.1%</td><td>24.2%</td><td>9.3%</td><td class="hl">37.7%</td><td>32.5%</td><td class="hl">32.0%</td><td>27.4%</td><td>100%</td><td>70%</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:11px;color:var(--gray);margin-top:6px">*Data retreated from Freelancers &amp; Team Leads</p>
-  </div>
-
-  <!-- SLIDE 2b — TRANSITION -->
-  <div class="ss">
-    <div class="snb"><span class="snbadge">SLIDE 2b</span><span class="st2">Notre démarche — Pourquoi analyser les comportements ?</span></div>
-    <div class="ssub">Le lien entre la performance observée et les leviers d'action</div>
-
-    <!-- Logique 3 étapes -->
-    <div style="background:#fff;border-radius:16px;border:1px solid var(--bdr);padding:2rem;margin-bottom:1rem">
-      <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.25rem">Logique de la présentation</div>
-      <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch">
-
-        <div style="background:var(--c1l);border:1px solid var(--c1b);border-radius:12px;padding:1.25rem 1.5rem;text-align:center">
-          <div style="font-size:26px;margin-bottom:8px">📊</div>
-          <div style="font-size:13px;font-weight:700;color:var(--c1d);margin-bottom:6px">Étape 1 — Matrice de résultats</div>
-          <div style="font-size:12px;color:var(--c1d);line-height:1.5;opacity:.8">On a établi une matrice agents selon deux dimensions : volume GBV et ROI (CR3 × AOV). 4 levels émergent naturellement — chacun avec un profil de performance distinct.</div>
-        </div>
-
-        <div style="display:flex;align-items:center;padding:0 1rem;font-size:22px;color:var(--gray)">→</div>
-
-        <div style="background:var(--c2l);border:1px solid var(--c2b);border-radius:12px;padding:1.25rem 1.5rem;text-align:center">
-          <div style="font-size:26px;margin-bottom:8px">🔍</div>
-          <div style="font-size:13px;font-weight:700;color:var(--c2d);margin-bottom:6px">Étape 2 — Analyse comportementale</div>
-          <div style="font-size:12px;color:var(--c2d);line-height:1.5;opacity:.8">Pour chaque level, on identifie les comportements commerciaux qui expliquent ces résultats — pas juste les chiffres, mais le <strong>pourquoi</strong> derrière chaque écart.</div>
-        </div>
-
-        <div style="display:flex;align-items:center;padding:0 1rem;font-size:22px;color:var(--gray)">→</div>
-
-        <div style="background:var(--c3l);border:1px solid var(--c3b);border-radius:12px;padding:1.25rem 1.5rem;text-align:center">
-          <div style="font-size:26px;margin-bottom:8px">🎯</div>
-          <div style="font-size:13px;font-weight:700;color:var(--c3d);margin-bottom:6px">Étape 3 — Points d'action ciblés</div>
-          <div style="font-size:12px;color:var(--c3d);line-height:1.5;opacity:.8">On dérive des leviers de coaching précis et mesurables — un réflexe à changer, pas une formation générique. Un levier par level.</div>
-        </div>
-
+      <div class="dmb-right">
+        <div class="dmb-thumbs" id="deck-thumbs"></div>
+        <button class="dmb-toggle outline" id="deck-fs">⛶ Plein écran</button>
       </div>
     </div>
 
-    <!-- Pourquoi cette approche -->
-    <div style="background:var(--grnl);border:1px solid var(--grnb);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1rem">
-      <div style="font-size:11px;font-weight:700;color:var(--grn);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Pourquoi cette approche ?</div>
-      <div style="font-size:13px;color:#27500A;line-height:1.7">
-        La matrice Volume × ROI nous dit <strong>quoi</strong> — mais pas <strong>pourquoi</strong> ni <strong>comment agir</strong>. Un agent L1 et un agent L3 ont un CR3 presque identique (~20% vs 24%), mais leurs comportements sont radicalement différents. Sans comprendre ces comportements, tout coaching est générique et peu efficace. L'analyse qui suit identifie pour chaque level <strong>le levier exact qui débloque la progression</strong> — souvent un seul réflexe, pas une compétence entière à reconstruire.
-      </div>
-    </div>
+    <div class="slides-stage">
 
-    <!-- Ce qu'on a analysé -->
-    <div style="background:#fff;border-radius:16px;border:1px solid var(--bdr);padding:1.5rem 2rem">
-      <div style="font-size:10px;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.25rem">Les 5 dimensions analysées pour établir chaque profil</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px">
-
-        <div style="border:1px solid var(--bdr);border-radius:10px;padding:14px;background:var(--lgray)">
-          <div style="font-size:18px;margin-bottom:7px">📉</div>
-          <div style="font-size:12px;font-weight:700;color:var(--blk);margin-bottom:5px">Funnel de conversion</div>
-          <div style="font-size:11px;color:var(--gray);line-height:1.5">FC Done · Offer Made · OC Done · First OC Bkg · RC Done · RC Bkg</div>
-          <div style="font-size:11px;color:var(--blu);margin-top:6px;font-weight:600">→ Où s'arrête le parcours client ?</div>
+      <!-- ════════ SLIDE 1 — COVER ════════ -->
+      <div class="deck-slide live" data-slide="1">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">01</span>
+          <span>AGENT PORTFOLIO REVIEW · Q1 2026</span>
+          <span class="pgright">Tourlane FR</span>
         </div>
-
-        <div style="border:1px solid var(--bdr);border-radius:10px;padding:14px;background:var(--lgray)">
-          <div style="font-size:18px;margin-bottom:7px">⏱</div>
-          <div style="font-size:12px;font-weight:700;color:var(--blk);margin-bottom:5px">Cycles de vente</div>
-          <div style="font-size:11px;color:var(--gray);line-height:1.5">FC→Offre · Offre→OC · OC→RC · FC→Supply Pending · Supply Pend→Confirmed</div>
-          <div style="font-size:11px;color:var(--blu);margin-top:6px;font-weight:600">→ À quelle vitesse chaque étape progresse ?</div>
-        </div>
-
-        <div style="border:1px solid var(--bdr);border-radius:10px;padding:14px;background:var(--lgray)">
-          <div style="font-size:18px;margin-bottom:7px">🗂</div>
-          <div style="font-size:12px;font-weight:700;color:var(--blk);margin-bottom:5px">Composition du pipeline</div>
-          <div style="font-size:11px;color:var(--gray);line-height:1.5">% Present Service · % Send Offer · % Receive Confirmation · % Supply Pending</div>
-          <div style="font-size:11px;color:var(--blu);margin-top:6px;font-weight:600">→ Où se concentre le portefeuille actif ?</div>
-        </div>
-
-        <div style="border:1px solid var(--bdr);border-radius:10px;padding:14px;background:var(--lgray)">
-          <div style="font-size:18px;margin-bottom:7px">✅</div>
-          <div style="font-size:12px;font-weight:700;color:var(--blk);margin-bottom:5px">Gestion CRM & aftersales</div>
-          <div style="font-size:11px;color:var(--gray);line-height:1.5">Open Tasks CS · Open Cases · Supply Pending/agent · Supply Confirmed</div>
-          <div style="font-size:11px;color:var(--blu);margin-top:6px;font-weight:600">→ Le client est-il suivi après signature ?</div>
-        </div>
-
-        <div style="border:1px solid var(--bdr);border-radius:10px;padding:14px;background:var(--lgray)">
-          <div style="font-size:18px;margin-bottom:7px">💶</div>
-          <div style="font-size:12px;font-weight:700;color:var(--blk);margin-bottom:5px">Valeur générée</div>
-          <div style="font-size:11px;color:var(--gray);line-height:1.5">CR3 Gross · CR3 Net · AOV moyen · ROI = CR3 × AOV · GBV Share / Team Share</div>
-          <div style="font-size:11px;color:var(--blu);margin-top:6px;font-weight:600">→ Quelle valeur réelle par opp traitée ?</div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- SLIDE 3 -->
-  <div class="ss">
-    <div class="snb"><span class="snbadge">SLIDE 3</span><span class="st2">La fracture fondamentale — L0/L1 vs L2/L3</span></div>
-    <div class="ssub">Un seul changement de philosophie explique tous les écarts de performance</div>
-    <div class="smsg"><strong>Message à passer :</strong> La différence entre un agent L0/L1 et un agent L2/L3 n'est pas une question de talent ou d'expérience — c'est <strong>une question de qualité post-OC</strong>. Le RC Done s'effondre chez L0/L1 (52-59%) vs L2/L3 (73-74%), et le RC Bkg suit (49-55% vs 66-67%). La fracture se joue dans la préparation et la relance entre l'OC et le RC.</div>
-    <div class="split2">
-      <div class="fracbox fb-r">
-        <div class="fbt">L0 / L1 — Conversion qui s'effondre au RC</div>
-        <div class="fbh">"OC OK, mais le RC ne tient pas"</div>
-        <div class="fbi">
-          → RC Done : <strong>59% (L0) · 52% (L1) ⚠</strong> — −17pt<br>
-          → RC Bkg : <strong>54.5% · 49.3% ⚠</strong> — closing faible<br>
-          → First OC Bkg : <strong>32.6% · 33.2%</strong> — OC limité<br>
-          → L0 : <strong>2h 27 call/jour (le min) · 7.75 em/opp</strong><br>
-          → L1 : <strong>213 opps (max) · 7.2 em/opp (min) · OC→RC 8.0j</strong>
-        </div>
-      </div>
-      <div class="fracbox fb-g">
-        <div class="fbt">L2 / L3 — Conversion supérieure</div>
-        <div class="fbh">"Écrit + qualité OC pour L2, funnel solide pour L3"</div>
-        <div class="fbi">
-          → RC Done : <strong>74.4% (L2) · 73.4% (L3) ★</strong> — +17pt<br>
-          → RC Bkg : <strong>66.5% · 66.7% ★</strong> — closing record<br>
-          → L2 : <strong>9.13 em/opp ★ · 40.1% First OC Bkg ★ · CR3 25.67% ★</strong><br>
-          → L3 : <strong>OC Done 73.6% ★ · Offer Made 92.8% ★</strong><br>
-          → Volume modéré : <strong>L2 144 · L3 162 opps</strong>
-        </div>
-      </div>
-    </div>
-    <div class="sauts">
-      <div class="saut">
-        <div class="saut-l" style="color:var(--gray)">Saut L0 → L1</div>
-        <div class="saut-t">Plus de volume oral, mais sans méthode</div>
-        <div class="saut-d">Le L1 passe à 2h 45 call/jour (record) avec 213 opps/agent (record), mais 7.2 em/opp (le pire). Plus de feux, pas de système — RC Bkg chute à 49.3%.</div>
-      </div>
-      <div class="saut">
-        <div class="saut-l" style="color:var(--grn)">Saut L1 → L2 — Le plus important</div>
-        <div class="saut-t">L'écrit comme méthode</div>
-        <div class="saut-d">L2 = 9.13 em/opp (record) + First OC Bkg 40.1% (record). Trace écrite + structure → CR3 25.67% (top), avec moins d'opps (144).</div>
-      </div>
-      <div class="saut">
-        <div class="saut-l" style="color:var(--c3d)">Saut L2 → L3</div>
-        <div class="saut-t">Funnel solide à toutes les étapes</div>
-        <div class="saut-d">L3 = OC Done 73.6% + Offer Made 92.8% + RC Bkg 66.7% (records). Pas de trou dans le funnel — pilotage end-to-end.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FUNNEL CHART EMBED IN SLIDE 3 -->
-  <div class="ss" style="margin-top:0">
-    <div style="background:#fff;border-radius:16px;border:1px solid var(--bdr);padding:1.5rem 2rem;margin-bottom:1rem">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:12px">Comparaison funnel — 4 levels</div>
-      <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
-<rect width="700" height="300" fill="white" rx="8"/>
-<line x1="110" y1="250.0" x2="680" y2="250.0" stroke="#f0ede8" stroke-width="1"/>
-<text x="104" y="254.0" text-anchor="end" font-size="10" fill="#aaa">25%</text>
-<line x1="110" y1="206.0" x2="680" y2="206.0" stroke="#f0ede8" stroke-width="1"/>
-<text x="104" y="210.0" text-anchor="end" font-size="10" fill="#aaa">40%</text>
-<line x1="110" y1="162.0" x2="680" y2="162.0" stroke="#f0ede8" stroke-width="1"/>
-<text x="104" y="166.0" text-anchor="end" font-size="10" fill="#aaa">55%</text>
-<line x1="110" y1="118.0" x2="680" y2="118.0" stroke="#f0ede8" stroke-width="1"/>
-<text x="104" y="122.0" text-anchor="end" font-size="10" fill="#aaa">70%</text>
-<line x1="110" y1="74.0" x2="680" y2="74.0" stroke="#f0ede8" stroke-width="1"/>
-<text x="104" y="78.0" text-anchor="end" font-size="10" fill="#aaa">85%</text>
-<line x1="110" y1="30.0" x2="680" y2="30.0" stroke="#f0ede8" stroke-width="1"/>
-<text x="104" y="34.0" text-anchor="end" font-size="10" fill="#aaa">100%</text>
-<text x="110.0" y="290" text-anchor="middle" font-size="10" fill="#888">FC Done</text>
-<text x="224.0" y="290" text-anchor="middle" font-size="10" fill="#888">Offer Made</text>
-<text x="338.0" y="290" text-anchor="middle" font-size="10" fill="#888">OC Done</text>
-<text x="452.0" y="290" text-anchor="middle" font-size="10" fill="#888">First OC Bkg</text>
-<text x="566.0" y="290" text-anchor="middle" font-size="10" fill="#888">RC Done</text>
-<text x="680.0" y="290" text-anchor="middle" font-size="10" fill="#888">RC Bkg</text>
-<line x1="566.0" y1="30" x2="566.0" y2="250" stroke="#EF9F27" stroke-width="1.5" stroke-dasharray="4,3"/>
-<text x="570.0" y="44" font-size="9" fill="#854F0B" font-weight="700">RUPTURE ICI</text>
-<polygon points="110.0,57.4 224.0,63.5 338.0,124.2 452.0,226.9 566.0,178.6 680.0,161.2 680.0,250.0 566.0,250.0 452.0,250.0 338.0,250.0 224.0,250.0 110.0,250.0" fill="#888780" opacity="0.06"/>
-<polygon points="110.0,54.9 224.0,74.0 338.0,133.6 452.0,226.9 566.0,203.2 680.0,164.2 680.0,250.0 566.0,250.0 452.0,250.0 338.0,250.0 224.0,250.0 110.0,250.0" fill="#378ADD" opacity="0.06"/>
-<polygon points="110.0,56.4 224.0,62.3 338.0,118.0 452.0,207.5 566.0,132.7 680.0,141.5 680.0,250.0 566.0,250.0 452.0,250.0 338.0,250.0 224.0,250.0 110.0,250.0" fill="#7F77DD" opacity="0.06"/>
-<polygon points="110.0,48.7 224.0,51.5 338.0,110.3 452.0,218.9 566.0,123.7 680.0,153.1 680.0,250.0 566.0,250.0 452.0,250.0 338.0,250.0 224.0,250.0 110.0,250.0" fill="#639922" opacity="0.06"/>
-<polyline points="110.0,57.4 224.0,63.5 338.0,124.2 452.0,226.9 566.0,178.6 680.0,161.2" fill="none" stroke="#888780" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="110.0" cy="57.4" r="4" fill="#888780" stroke="white" stroke-width="1.5"/>
-<circle cx="224.0" cy="63.5" r="4" fill="#888780" stroke="white" stroke-width="1.5"/>
-<circle cx="338.0" cy="124.2" r="4" fill="#888780" stroke="white" stroke-width="1.5"/>
-<circle cx="452.0" cy="226.9" r="4" fill="#888780" stroke="white" stroke-width="1.5"/>
-<circle cx="566.0" cy="178.6" r="4" fill="#888780" stroke="white" stroke-width="1.5"/>
-<circle cx="680.0" cy="161.2" r="4" fill="#888780" stroke="white" stroke-width="1.5"/>
-<polyline points="110.0,54.9 224.0,74.0 338.0,133.6 452.0,226.9 566.0,203.2 680.0,164.2" fill="none" stroke="#378ADD" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="110.0" cy="54.9" r="4" fill="#378ADD" stroke="white" stroke-width="1.5"/>
-<circle cx="224.0" cy="74.0" r="4" fill="#378ADD" stroke="white" stroke-width="1.5"/>
-<circle cx="338.0" cy="133.6" r="4" fill="#378ADD" stroke="white" stroke-width="1.5"/>
-<circle cx="452.0" cy="226.9" r="4" fill="#378ADD" stroke="white" stroke-width="1.5"/>
-<circle cx="566.0" cy="203.2" r="4" fill="#378ADD" stroke="white" stroke-width="1.5"/>
-<circle cx="680.0" cy="164.2" r="4" fill="#378ADD" stroke="white" stroke-width="1.5"/>
-<polyline points="110.0,56.4 224.0,62.3 338.0,118.0 452.0,207.5 566.0,132.7 680.0,141.5" fill="none" stroke="#7F77DD" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="110.0" cy="56.4" r="4" fill="#7F77DD" stroke="white" stroke-width="1.5"/>
-<circle cx="224.0" cy="62.3" r="4" fill="#7F77DD" stroke="white" stroke-width="1.5"/>
-<circle cx="338.0" cy="118.0" r="4" fill="#7F77DD" stroke="white" stroke-width="1.5"/>
-<circle cx="452.0" cy="207.5" r="4" fill="#7F77DD" stroke="white" stroke-width="1.5"/>
-<circle cx="566.0" cy="132.7" r="4" fill="#7F77DD" stroke="white" stroke-width="1.5"/>
-<circle cx="680.0" cy="141.5" r="4" fill="#7F77DD" stroke="white" stroke-width="1.5"/>
-<polyline points="110.0,48.7 224.0,51.5 338.0,110.3 452.0,218.9 566.0,123.7 680.0,153.1" fill="none" stroke="#639922" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="110.0" cy="48.7" r="4" fill="#639922" stroke="white" stroke-width="1.5"/>
-<circle cx="224.0" cy="51.5" r="4" fill="#639922" stroke="white" stroke-width="1.5"/>
-<circle cx="338.0" cy="110.3" r="4" fill="#639922" stroke="white" stroke-width="1.5"/>
-<circle cx="452.0" cy="218.9" r="4" fill="#639922" stroke="white" stroke-width="1.5"/>
-<circle cx="566.0" cy="123.7" r="4" fill="#639922" stroke="white" stroke-width="1.5"/>
-<circle cx="680.0" cy="153.1" r="4" fill="#639922" stroke="white" stroke-width="1.5"/>
-<text x="578.0" y="172.6" text-anchor="middle" font-size="10" font-weight="700" fill="#888780">59.0%</text>
-<text x="552.0" y="197.2" text-anchor="middle" font-size="10" font-weight="700" fill="#378ADD">52.2%</text>
-<text x="578.0" y="126.7" text-anchor="middle" font-size="10" font-weight="700" fill="#7F77DD">74.4%</text>
-<text x="552.0" y="117.7" text-anchor="middle" font-size="10" font-weight="700" fill="#639922">73.4%</text>
-<line x1="110" y1="38" x2="130" y2="38" stroke="#888780" stroke-width="2.5"/>
-<circle cx="120" cy="38" r="3.5" fill="#888780"/>
-<text x="135" y="42" font-size="11" fill="#444">L0</text>
-<line x1="200" y1="38" x2="220" y2="38" stroke="#378ADD" stroke-width="2.5"/>
-<circle cx="210" cy="38" r="3.5" fill="#378ADD"/>
-<text x="225" y="42" font-size="11" fill="#444">L1</text>
-<line x1="290" y1="38" x2="310" y2="38" stroke="#7F77DD" stroke-width="2.5"/>
-<circle cx="300" cy="38" r="3.5" fill="#7F77DD"/>
-<text x="315" y="42" font-size="11" fill="#444">L2</text>
-<line x1="380" y1="38" x2="400" y2="38" stroke="#639922" stroke-width="2.5"/>
-<circle cx="390" cy="38" r="3.5" fill="#639922"/>
-<text x="405" y="42" font-size="11" fill="#444">L3</text>
-</svg>
-      <p style="font-size:11px;color:var(--gray);margin-top:8px">La rupture entre L0/L1 et L2/L3 est visible au RC Done : <strong>52–59% vs 73–74%</strong>. Le différenciateur majeur du L3 : 38% de calls courts (relance) vs 25% partout ailleurs.</p>
-    </div>
-
-    <!-- Condensed comparison table -->
-    <div style="background:#fff;border-radius:16px;border:1px solid var(--bdr);overflow:hidden">
-      <div style="padding:12px 18px;background:var(--blk);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Métriques clés — comparaison par level</div>
-      <table style="width:100%;border-collapse:collapse;font-size:13px">
-        <thead>
-          <tr>
-            <th style="padding:9px 14px;text-align:left;background:var(--lgray);color:var(--gray);font-size:10px;font-weight:700;text-transform:uppercase;width:200px;border-bottom:2px solid var(--bdr)">Métrique</th>
-            <th style="padding:9px 14px;text-align:center;background:var(--c0l);color:var(--c0d);font-size:10px;font-weight:700;border-bottom:2px solid var(--bdr)">L0</th>
-            <th style="padding:9px 14px;text-align:center;background:var(--c1l);color:var(--c1d);font-size:10px;font-weight:700;border-bottom:2px solid var(--bdr)">L1</th>
-            <th style="padding:9px 14px;text-align:center;background:var(--c2l);color:var(--c2d);font-size:10px;font-weight:700;border-bottom:2px solid var(--bdr)">L2</th>
-            <th style="padding:9px 14px;text-align:center;background:var(--c3l);color:var(--c3d);font-size:10px;font-weight:700;border-bottom:2px solid var(--bdr)">L3</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="background:#fafaf8"><td style="padding:8px 14px;font-weight:600;font-size:12px;color:var(--blk)">CR3 Gross (pondéré)</td><td style="text-align:center;color:var(--red);font-weight:700">19.82%</td><td style="text-align:center">20.61%</td><td style="text-align:center;color:var(--grn);font-weight:700">25.67% ★</td><td style="text-align:center;color:var(--blu);font-weight:600">24.76%</td></tr>
-          <tr><td style="padding:8px 14px;font-weight:600;font-size:12px;color:var(--blk)">RC Done</td><td style="text-align:center;color:var(--red);font-weight:700">59.0%</td><td style="text-align:center;color:var(--red);font-weight:700">52.2% ⚠</td><td style="text-align:center;color:var(--grn);font-weight:700">74.4% ★</td><td style="text-align:center;color:var(--grn);font-weight:700">73.4%</td></tr>
-          <tr style="background:#fafaf8"><td style="padding:8px 14px;font-weight:600;font-size:12px;color:var(--blk)">RC Bkg (closing)</td><td style="text-align:center;color:var(--org);font-weight:600">54.5%</td><td style="text-align:center;color:var(--red);font-weight:700">49.3% ⚠</td><td style="text-align:center;color:var(--blu);font-weight:600">66.5%</td><td style="text-align:center;color:var(--grn);font-weight:700">66.7% ★</td></tr>
-          <tr><td style="padding:8px 14px;font-weight:600;font-size:12px;color:var(--blk)">First OC Bkg</td><td style="text-align:center;color:var(--red);font-weight:700">32.6%</td><td style="text-align:center">33.2%</td><td style="text-align:center;color:var(--grn);font-weight:700">40.1% ★</td><td style="text-align:center">34.1%</td></tr>
-          <tr style="background:#fafaf8"><td style="padding:8px 14px;font-weight:600;font-size:12px;color:var(--blk)">Calls / opp</td><td style="text-align:center">5.6</td><td style="text-align:center;color:var(--gray)">n/d</td><td style="text-align:center">5.3</td><td style="text-align:center;color:var(--grn);font-weight:700">6.9 ★</td></tr>
-          <tr><td style="padding:8px 14px;font-weight:600;font-size:12px;color:var(--blk)">% calls courts (&lt;10min)</td><td style="text-align:center;color:var(--red);font-weight:700">25%</td><td style="text-align:center;color:var(--red);font-weight:700">25%</td><td style="text-align:center;color:var(--red);font-weight:700">24.5%</td><td style="text-align:center;color:var(--grn);font-weight:700">38.5% ★</td></tr>
-          <tr style="background:#fafaf8"><td style="padding:8px 14px;font-weight:600;font-size:12px;color:var(--blk)">Emails / opp</td><td style="text-align:center">9.8</td><td style="text-align:center;color:var(--red);font-weight:700">5.4</td><td style="text-align:center;color:var(--blu);font-weight:600">9.7</td><td style="text-align:center">8.3</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- SLIDE 4 -->
-  <div class="ss">
-    <div class="snb"><span class="snbadge">SLIDE 4</span><span class="st2">Profils comportementaux — Les 4 personas agent</span></div>
-    <div class="ssub">Ce qui définit chaque level au-delà des chiffres</div>
-    <div class="smsg"><strong>Message à passer :</strong> Chaque level n'est pas juste un tier de performance — c'est un comportement commercial distinct. Comprendre le persona permet de cibler le levier de coaching exact, plutôt qu'une formation générique.</div>
-
-    <!-- PERSONA MATRIX 2×2 -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--bdr);border-radius:16px;overflow:hidden;margin-bottom:1rem">
-
-      <div style="background:var(--c2l);padding:1.75rem">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <div style="width:40px;height:40px;border-radius:10px;background:var(--c2d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🎯</div>
-          <div>
-            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c2d);opacity:.7">Level 2 · Low Vol / High ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c2d)">L'Écrit-Convicteur</div>
+        <div class="dcover">
+          <div class="lhs">
+            <h1 class="dh1 dr-up d1">Quatre <em>comportements,</em><br>quatre leviers.</h1>
+            <p class="dlede dr-up d2">Une lecture de la performance commerciale FR à travers la matrice <strong>volume × ROI</strong> — pour identifier le réflexe précis qui débloque chaque niveau.</p>
+            <div class="dcover-stats dr-up d3">
+              <div class="dcs"><div class="v" data-count="54">54</div><div class="l">Agents analysés</div></div>
+              <div class="dcs"><div class="v" data-count="24.5" data-suffix=" %">24,5 %</div><div class="l">CR3 global</div></div>
+              <div class="dcs"><div class="v" data-count="19.8" data-suffix=" M€">19,8 M€</div><div class="l">GBV Q1 2026</div></div>
+            </div>
+          </div>
+          <div class="dquad dr-up d4">
+            <div class="dq dq2" data-quad="L2">
+              <div class="qh"><span class="qtag">Low Vol · High ROI</span></div>
+              <div class="qbig">L<em>2</em></div>
+              <div class="qfoot"><strong>19 agents</strong> · 25,7 % CR3</div>
+              <div class="qreveal">
+                <button class="qx" aria-label="fermer">×</button>
+                <h4>L'Écrit-Convicteur</h4>
+                <ul>
+                  <li><span>Emails / opp</span><strong>9,1 ★</strong></li>
+                  <li><span>First OC Bkg</span><strong>40,1 % ★</strong></li>
+                  <li><span>RC Done</span><strong>74,4 %</strong></li>
+                  <li><span>CR3</span><strong>25,7 % ★</strong></li>
+                  <li><span>Opps / agent</span><strong>144</strong></li>
+                </ul>
+              </div>
+            </div>
+            <div class="dq dq3" data-quad="L3">
+              <div class="qh"><span class="qtag">High Vol · High ROI</span></div>
+              <div class="qbig">L<em>3</em></div>
+              <div class="qfoot"><strong>14 agents</strong> · 24,8 % CR3</div>
+              <div class="qreveal">
+                <button class="qx" aria-label="fermer">×</button>
+                <h4>Le Pilote Post-Vente</h4>
+                <ul>
+                  <li><span>RC Bkg</span><strong>66,7 % ★</strong></li>
+                  <li><span>OC Done</span><strong>73,6 % ★</strong></li>
+                  <li><span>Offer Made</span><strong>92,8 % ★</strong></li>
+                  <li><span>Call / jour</span><strong>2h40</strong></li>
+                  <li><span>Opps / agent</span><strong>191</strong></li>
+                </ul>
+              </div>
+            </div>
+            <div class="dq dq0" data-quad="L0">
+              <div class="qh"><span class="qtag">Low Vol · Low ROI</span></div>
+              <div class="qbig">L<em>0</em></div>
+              <div class="qfoot"><strong>11 agents</strong> · 19,8 % CR3</div>
+              <div class="qreveal">
+                <button class="qx" aria-label="fermer">×</button>
+                <h4>Le Cycle Amont Rapide</h4>
+                <ul>
+                  <li><span>FC → Offer</span><strong>1,3 j</strong></li>
+                  <li><span>RC Done</span><strong>59 %</strong></li>
+                  <li><span>RC Bkg</span><strong>54,5 %</strong></li>
+                  <li><span>Call / jour</span><strong>2h27</strong></li>
+                  <li><span>Em / opp</span><strong>7,75</strong></li>
+                </ul>
+              </div>
+            </div>
+            <div class="dq dq1" data-quad="L1">
+              <div class="qh"><span class="qtag">High Vol · Low ROI</span></div>
+              <div class="qbig">L<em>1</em></div>
+              <div class="qfoot"><strong>8 agents</strong> · 20,6 % CR3</div>
+              <div class="qreveal">
+                <button class="qx" aria-label="fermer">×</button>
+                <h4>Le Téléphoneur sans Trace</h4>
+                <ul>
+                  <li><span>Opps / agent</span><strong>213 (max)</strong></li>
+                  <li><span>Call / jour</span><strong>2h45 (max)</strong></li>
+                  <li><span>Em / opp</span><strong>7,2 (min)</strong></li>
+                  <li><span>RC Done</span><strong>52 %</strong></li>
+                  <li><span>OC → RC</span><strong>8,0 j</strong></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c2d);font-style:italic;margin-bottom:10px;line-height:1.5">"9.13 emails/opp (record) — l'écrit prépare le client pour l'OC. 40.1% First OC Bkg = le meilleur du corpus."</div>
-        <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Force</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">9.13 em/opp ★ · First OC Bkg 40.1% ★ · CR3 25.67% (top) · RC Done 74.4%</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Levier</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">2h 17 call/jour (le min) · OC→RC 9.4j (le pire) · Supply Pend→Conf 9.5j</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c2d);line-height:1.4">Augmenter call/jour à 2h 40+ · ouvrir 6+ tasks/agent · short call J+2 entre OC et RC.</span></div>
+        <div class="dpg-foot">
+          <span><strong>Agent Level Analysis</strong> — Tourlane FR · 1<sup>er</sup> jan – 31 mars 2026</span>
+          <span>Source : Looker Global TL Dashboard</span>
         </div>
       </div>
 
-      <div style="background:var(--c3l);padding:1.75rem">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <div style="width:40px;height:40px;border-radius:10px;background:var(--c3d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🏆</div>
-          <div>
-            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c3d);opacity:.7">Level 3 · High Vol / High ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c3d)">Le Pilote Post-Vente</div>
+      <!-- ════════ SLIDE 2 — PERFORMANCE ════════ -->
+      <div class="deck-slide" data-slide="2">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">02</span>
+          <span>PERFORMANCE Q1 2026 VS Q1 2025</span>
+          <span class="pgright">Évolution YoY · poids dans le GBV</span>
+        </div>
+        <h2 class="dh1 compact dr-up d1">Le L2 porte la croissance,<br>le L0 monte en volume — <em>mais sans peser.</em></h2>
+        <p class="dlede dr-up d2">Le GBV total progresse de <strong>+18 % YoY</strong>, mais la croissance est très concentrée. Le L2 reste le moteur (37 % du GBV) et progresse le plus en CR3 ; le L0 explose en opportunités sans encore convertir.</p>
+
+        <div class="dperf-hero dr-up d3">
+          <div class="dphi feat">
+            <div class="l">GBV Total</div>
+            <div class="v" data-count="19.8" data-suffix=" M€">19,8 M€</div>
+            <div class="d up">+18 % YoY</div>
+          </div>
+          <div class="dphi">
+            <div class="l">CR3 Global</div>
+            <div class="v" data-count="24.5" data-suffix=" %">24,5 %</div>
+            <div class="d up">+0,2 pp YoY</div>
+          </div>
+          <div class="dphi">
+            <div class="l">Net Revenue</div>
+            <div class="v" data-count="5.64" data-suffix=" M€">5,64 M€</div>
+            <div class="d up">+42 % YoY</div>
+          </div>
+          <div class="dphi">
+            <div class="l">Opps / eFTE</div>
+            <div class="v" data-count="152">152</div>
+            <div class="d up">+32 % YoY</div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c3d);font-style:italic;margin-bottom:10px;line-height:1.5">"Solide à toutes les étapes — RC Bkg 66.7% (record), OC Done 73.6% (record), Offer Made 92.8% (record). Funnel maîtrisé end-to-end."</div>
-        <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Force</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">RC Bkg 66.7% ★ · OC Done 73.6% ★ · Offer Made 92.8% ★ · 2h 40 call/jour</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">⚠ Watchout</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">Supply Pend→Conf 10.6j (le plus long) · probablement dû à des dossiers plus complexes</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--blul);color:var(--blu);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Rôle</span><span style="font-size:12px;color:var(--c3d);line-height:1.4">Peer-coaching des L2 émergents (Antoine Revardeau, Malek Adjroud). Modèle "ouvre une task pour chaque signature".</span></div>
+
+        <table class="dperf-tbl dr-up d4">
+          <thead>
+            <tr>
+              <th>Métrique</th>
+              <th class="l-head l0h">Level 0</th><th>Δ</th>
+              <th class="l-head l1h">Level 1</th><th>Δ</th>
+              <th class="l-head l2h">Level 2</th><th>Δ</th>
+              <th class="l-head l3h">Level 3</th><th>Δ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>CR3</td>
+              <td>22,6 %</td><td class="delta dn">−1,0 pp</td>
+              <td>23,4 %</td><td class="delta dn">−0,8 pp</td>
+              <td>25,1 %</td><td class="delta">+1,3 pp</td>
+              <td>25,3 %</td><td class="delta">+0,3 pp</td>
+            </tr>
+            <tr><td>GBV</td>
+              <td>1,0 M€</td><td class="delta">×4,4</td>
+              <td>4,6 M€</td><td class="delta">+119 %</td>
+              <td>7,4 M€</td><td class="delta dn">−3 %</td>
+              <td>6,8 M€</td><td class="delta dn">−1 %</td>
+            </tr>
+            <tr><td>Part du GBV</td>
+              <td>5,1 %</td><td class="delta">+4,0 pp</td>
+              <td>23,3 %</td><td class="delta">+12,7 pp</td>
+              <td>37,4 %</td><td class="delta dn">−0,8 pp</td>
+              <td>34,1 %</td><td class="delta dn">−0,7 pp</td>
+            </tr>
+            <tr><td>Opps / eFTE</td>
+              <td>73</td><td class="delta">×7,1</td>
+              <td>159</td><td class="delta">+48 %</td>
+              <td>159</td><td class="delta">+6 %</td>
+              <td>191</td><td class="delta">+14 %</td>
+            </tr>
+            <tr><td>Net revenue</td>
+              <td>347 K€</td><td class="delta">×5,8</td>
+              <td>1,36 M€</td><td class="delta">+160 %</td>
+              <td>2,13 M€</td><td class="delta">+16 %</td>
+              <td>1,80 M€</td><td class="delta">+17 %</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="dpg-foot">
+          <span>Données retraitées hors freelancers et team leads</span>
+          <span><strong>Tourlane FR</strong> · Q1 2026</span>
         </div>
       </div>
 
-      <div style="background:var(--c0l);padding:1.75rem">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <div style="width:40px;height:40px;border-radius:10px;background:var(--c0d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">📬</div>
-          <div>
-            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c0d);opacity:.7">Level 0 · Low Vol / Low ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c0d)">Le Cycle Amont Rapide</div>
+      <!-- ════════ SLIDE 3 — NOTRE DÉMARCHE ════════ -->
+      <div class="deck-slide" data-slide="3">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">03</span>
+          <span>NOTRE DÉMARCHE</span>
+          <span class="pgright">Du résultat au levier d'action</span>
+        </div>
+        <h2 class="dh1 compact dr-up d1">La matrice dit <em>quoi.</em><br>L'analyse comportementale dit <em>pourquoi.</em></h2>
+        <p class="dlede dr-up d2">Un L1 et un L3 ont un CR3 presque identique — mais leurs comportements sont radicalement différents. Sans comprendre ces comportements, tout coaching reste générique.</p>
+
+        <div class="dmeth dr-up d3">
+          <div class="dmcard m2">
+            <div class="mn">1</div>
+            <div class="mlbl">Matrice de résultats</div>
+            <div class="mh">4 niveaux émergent du croisement volume × ROI</div>
+            <div class="mp">On positionne chaque agent sur deux dimensions — <strong>GBV par eFTE</strong> et <strong>ROI (CR3 × AOV)</strong>. Un profil de performance distinct par quadrant.</div>
+            <div class="dmeth-arrow">→</div>
+          </div>
+          <div class="dmcard m2">
+            <div class="mn">2</div>
+            <div class="mlbl">Analyse comportementale</div>
+            <div class="mh">5 dimensions pour expliquer chaque écart</div>
+            <div class="mp">Funnel · cycles de vente · composition pipeline · gestion CRM · valeur générée. On cherche le <strong>pourquoi</strong>, pas juste les chiffres.</div>
+            <div class="dmeth-arrow">→</div>
+          </div>
+          <div class="dmcard m3">
+            <div class="mn">3</div>
+            <div class="mlbl">Levier d'action</div>
+            <div class="mh">Un réflexe à changer, pas une compétence à reconstruire</div>
+            <div class="mp">Pour chaque niveau, on dérive un seul levier de coaching ciblé et mesurable. <strong>Précision plutôt qu'envergure.</strong></div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c0d);font-style:italic;margin-bottom:10px;line-height:1.5">"Cycle amont rapide (FC→OC 5.3j) puis désengagement — 2h 27 call/jour (le min), 7.75 em/opp (sous-moy.)."</div>
-        <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Symptôme</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">RC Done 59% · RC Bkg 54.5% · 2h 27 call/jour (min) · 7.75 em/opp (sous-moy.) · CR3 19.82%</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Point fort</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">FC→Offer 1.3j · cycle amont efficient. La capacité existe, il faut juste l'étendre au post-OC.</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c0d);line-height:1.4">+30 min call/jour ciblé sur RC · ouvrir une task à chaque signature · RC planifié pendant l'OC.</span></div>
+
+        <div class="dmeth-foot dr-up d4">
+          <span class="mfl">Pourquoi cette approche</span>
+          <span>L'analyse identifie pour chaque level <em>le levier exact</em> qui débloque la progression — souvent un seul réflexe, pas une compétence entière à reconstruire.</span>
         </div>
       </div>
 
-      <div style="background:var(--c1l);padding:1.75rem">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-          <div style="width:40px;height:40px;border-radius:10px;background:var(--c1d);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">🏃</div>
-          <div>
-            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--c1d);opacity:.7">Level 1 · High Vol / Low ROI</div>
-            <div style="font-size:16px;font-weight:800;color:var(--c1d)">Le Téléphoneur sans Trace</div>
+      <!-- ════════ SLIDE 4 — LA FRACTURE ════════ -->
+      <div class="deck-slide" data-slide="4">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">04</span>
+          <span>LA FRACTURE FONDAMENTALE</span>
+          <span class="pgright">L0 / L1 vs L2 / L3</span>
+        </div>
+        <h2 class="dh1 compact dr-up d1">La rupture se joue <em>entre l'OC et le RC</em> — pas avant.</h2>
+        <p class="dlede dr-up d2">Le RC Done s'effondre de <strong>17 points</strong> entre L0/L1 et L2/L3. La différence n'est pas une question de talent ou d'expérience — c'est la qualité de la phase post-Offer Call qui sépare les deux mondes.</p>
+
+        <div class="dfrac dr-up d3">
+          <div class="dfrac-box bad">
+            <div class="fb-tag">L0 / L1 — conversion qui s'effondre au RC</div>
+            <div class="fb-q">« OC OK, mais le RC ne tient pas »</div>
+            <div class="dfrac-list">
+              <div class="fr"><span class="lbl">RC Done</span><span class="val">52 – 59 %</span><span class="tag">−17 pts</span></div>
+              <div class="fr"><span class="lbl">RC Bkg (closing)</span><span class="val">49 – 55 %</span><span class="tag">−17 pts</span></div>
+              <div class="fr"><span class="lbl">First OC Bkg</span><span class="val">32 – 33 %</span><span class="tag">−7 pts</span></div>
+              <div class="fr"><span class="lbl">L1 · emails par opp</span><span class="val">7,2</span><span class="tag">le min</span></div>
+              <div class="fr"><span class="lbl">L1 · OC → RC</span><span class="val">8,0 j</span><span class="tag">le pire</span></div>
+            </div>
+          </div>
+          <div class="dfrac-box good">
+            <div class="fb-tag">L2 / L3 — conversion supérieure</div>
+            <div class="fb-q">« L'écrit pour L2, le funnel solide pour L3 »</div>
+            <div class="dfrac-list">
+              <div class="fr"><span class="lbl">RC Done</span><span class="val">73 – 74 %</span><span class="tag">★ référence</span></div>
+              <div class="fr"><span class="lbl">RC Bkg (closing)</span><span class="val">66 – 67 %</span><span class="tag">closing record</span></div>
+              <div class="fr"><span class="lbl">L2 · emails par opp</span><span class="val">9,1</span><span class="tag">le record</span></div>
+              <div class="fr"><span class="lbl">L2 · First OC Bkg</span><span class="val">40,1 %</span><span class="tag">le record</span></div>
+              <div class="fr"><span class="lbl">L3 · OC Done</span><span class="val">73,6 %</span><span class="tag">le record</span></div>
+            </div>
           </div>
         </div>
-        <div style="font-size:12px;color:var(--c1d);font-style:italic;margin-bottom:10px;line-height:1.5">"213 opps (record) · 2h 45 call/jour (record) · 7.2 em/opp (le min) — volume oral sans trace écrite."</div>
-        <div style="display:flex;flex-direction:column;gap:5px">
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--redl);color:var(--red);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✗ Symptôme</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">RC Done 52% (le pire) · RC Bkg 49.3% (le pire) · OC→RC 8.0j (le pire) · 7.2 em/opp (le min)</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--grnl);color:var(--grn);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">✓ Point fort</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">Volume call élevé (2h 45/jour) · 213 opps gérés · CR3 20.61%</span></div>
-          <div style="display:flex;gap:7px;align-items:flex-start"><span style="background:var(--orgl);color:var(--org);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;flex-shrink:0;white-space:nowrap">→ Action</span><span style="font-size:12px;color:var(--c1d);line-height:1.4">Recap email après chaque call · ouvrir une task pour chaque signature · plafonner à 170 opps.</span></div>
+
+        <!-- Interactive funnel chart -->
+        <div class="dchart-card dr-up d4">
+          <div class="ch-tt">Funnel — comparaison L0 / L1 / L2 / L3</div>
+          <div class="dchart-host"><canvas id="deckFunnel"></canvas></div>
+          <div class="ch-cap">Différenciateur majeur du L3 · <strong>38 % de calls courts</strong> (relance) vs ~25 % partout ailleurs.</div>
+        </div>
+
+        <div class="dpg-foot">
+          <span><strong>Différenciateur majeur du L3</strong> · 38 % de calls courts vs ~25 % partout ailleurs</span>
+          <span><strong>Tourlane FR</strong> · Q1 2026</span>
         </div>
       </div>
 
-    </div>
+      <!-- ════════ SLIDE 5 — PROFILS COMPORTEMENTAUX ════════ -->
+      <div class="deck-slide" data-slide="5">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">05</span>
+          <span>PROFILS COMPORTEMENTAUX</span>
+          <span class="pgright">Les 4 personas agent</span>
+        </div>
+        <h2 class="dh1 compact dr-up d1">Chaque niveau est un <em>comportement,</em><br>pas un classement.</h2>
+        <p class="dlede dr-up d2">Comprendre le persona permet de cibler le <strong>levier exact</strong> qui bloque la progression — plutôt qu'une formation générique.</p>
 
-    <!-- Efficacy bar -->
-    <div style="background:#fff;border-radius:12px;border:1px solid var(--bdr);padding:1.25rem 1.5rem">
-      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:10px">Team Share vs Opp Share vs GBV Share — efficacité par level</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;border-radius:8px;overflow:hidden;background:var(--bdr)">
-        <div style="background:var(--c0l);padding:10px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--c0d);margin-bottom:5px">L0</div>
-          <div style="font-size:11px;color:var(--gray)">11 agents · 168 opps/agent</div>
-          <div style="font-size:16px;font-weight:800;color:var(--red);margin:4px 0">19.82% CR3</div>
-          <div style="font-size:11px;font-weight:700;color:var(--red);background:var(--redl);padding:2px 6px;border-radius:4px;display:inline-block">RC Done 59% ⚠</div>
-        </div>
-        <div style="background:var(--c1l);padding:10px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--c1d);margin-bottom:5px">L1</div>
-          <div style="font-size:11px;color:var(--gray)">8 agents · 213 opps/agent ⚠</div>
-          <div style="font-size:16px;font-weight:800;color:var(--c1d);margin:4px 0">20.61% CR3</div>
-          <div style="font-size:11px;font-weight:700;color:var(--red);background:var(--redl);padding:2px 6px;border-radius:4px;display:inline-block">RC Bkg 49% ⚠</div>
-        </div>
-        <div style="background:var(--c2l);padding:10px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--c2d);margin-bottom:5px">L2</div>
-          <div style="font-size:11px;color:var(--gray)">19 agents · 144 opps/agent</div>
-          <div style="font-size:16px;font-weight:800;color:var(--c2d);margin:4px 0">25.67% CR3 ★</div>
-          <div style="font-size:11px;font-weight:700;color:var(--red);background:var(--redl);padding:2px 6px;border-radius:4px;display:inline-block">24.5% calls courts</div>
-        </div>
-        <div style="background:var(--c3l);padding:10px;text-align:center">
-          <div style="font-size:11px;font-weight:700;color:var(--c3d);margin-bottom:5px">L3</div>
-          <div style="font-size:11px;color:var(--gray)">14 agents · 162 opps/agent</div>
-          <div style="font-size:16px;font-weight:800;color:var(--grn);margin:4px 0">24.76% CR3</div>
-          <div style="font-size:11px;font-weight:700;color:var(--grn);background:var(--grnl);padding:2px 6px;border-radius:4px;display:inline-block">RC Bkg 66.7% ★</div>
+        <div class="dpers dr-up d3">
+          <div class="dperc p2">
+            <div class="dperc-h">
+              <div class="pln">L<em>2</em></div>
+              <div>
+                <div class="ptag">Low Vol · High ROI · 19 agents</div>
+                <div class="ptit">L'Écrit-Convicteur</div>
+              </div>
+            </div>
+            <div class="dperc-q">« 9,1 emails / opp — l'écrit prépare le client pour l'OC. 40 % de First OC Bkg, le meilleur du corpus. »</div>
+            <div class="dperc-rows">
+              <div class="pr"><span class="ptg force">Force</span><span class="pcnt">9,1 em/opp ★ · First OC Bkg 40,1 % ★ · CR3 25,7 % top · RC Done 74,4 %</span></div>
+              <div class="pr"><span class="ptg lever">Levier</span><span class="pcnt">2h17 call/jour (le min) · OC → RC 9,4 j (le pire) · Supply Pending → Conf 9,5 j</span></div>
+              <div class="pr"><span class="ptg action">Action</span><span class="pcnt">Augmenter call/jour à 2h40+ · short call J+2 entre OC et RC</span></div>
+            </div>
+          </div>
+
+          <div class="dperc p3">
+            <div class="dperc-h">
+              <div class="pln">L<em>3</em></div>
+              <div>
+                <div class="ptag">High Vol · High ROI · 14 agents</div>
+                <div class="ptit">Le Pilote Post-Vente</div>
+              </div>
+            </div>
+            <div class="dperc-q">« Solide à toutes les étapes — RC Bkg 66,7 % record, OC Done 73,6 % record, Offer Made 92,8 % record. »</div>
+            <div class="dperc-rows">
+              <div class="pr"><span class="ptg force">Force</span><span class="pcnt">RC Bkg 66,7 % ★ · OC Done 73,6 % ★ · Offer Made 92,8 % ★ · 2h40 call/jour</span></div>
+              <div class="pr"><span class="ptg watch">Watch</span><span class="pcnt">Supply Pending → Conf 10,6 j (le plus long) · probablement dossiers complexes</span></div>
+              <div class="pr"><span class="ptg role">Rôle</span><span class="pcnt">Peer-coach des L2 émergents · modèle « ouvre une task pour chaque signature »</span></div>
+            </div>
+          </div>
+
+          <div class="dperc p0">
+            <div class="dperc-h">
+              <div class="pln">L<em>0</em></div>
+              <div>
+                <div class="ptag">Low Vol · Low ROI · 11 agents</div>
+                <div class="ptit">Le Cycle Amont Rapide</div>
+              </div>
+            </div>
+            <div class="dperc-q">« Cycle amont rapide (FC → OC en 5,3 j) puis désengagement — 2h27 call/jour, 7,75 em/opp sous-moyenne. »</div>
+            <div class="dperc-rows">
+              <div class="pr"><span class="ptg lever">Symptôme</span><span class="pcnt">RC Done 59 % · RC Bkg 54,5 % · 2h27 call/jour (min) · CR3 19,82 %</span></div>
+              <div class="pr"><span class="ptg force">Atout</span><span class="pcnt">FC → Offer 1,3 j · cycle amont efficient. La capacité existe, il faut l'étendre au post-OC.</span></div>
+              <div class="pr"><span class="ptg action">Action</span><span class="pcnt">+30 min call/jour ciblé sur RC · ouvrir une task à chaque signature · RC planifié pendant l'OC</span></div>
+            </div>
+          </div>
+
+          <div class="dperc p1">
+            <div class="dperc-h">
+              <div class="pln">L<em>1</em></div>
+              <div>
+                <div class="ptag">High Vol · Low ROI · 8 agents</div>
+                <div class="ptit">Le Téléphoneur sans Trace</div>
+              </div>
+            </div>
+            <div class="dperc-q">« 213 opps record · 2h45 call/jour record · 7,2 em/opp le min — volume oral sans trace écrite. »</div>
+            <div class="dperc-rows">
+              <div class="pr"><span class="ptg lever">Symptôme</span><span class="pcnt">RC Done 52 % (le pire) · RC Bkg 49,3 % (le pire) · OC → RC 8,0 j · 7,2 em/opp (min)</span></div>
+              <div class="pr"><span class="ptg force">Atout</span><span class="pcnt">Volume call élevé (2h45/jour) · 213 opps gérés · CR3 20,6 %</span></div>
+              <div class="pr"><span class="ptg action">Action</span><span class="pcnt">Recap email après chaque call · ouvrir une task pour chaque signature · plafonner à 170 opps</span></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- SLIDE 5 -->
-  <div class="ss">
-    <div class="snb"><span class="snbadge">SLIDE 5</span><span class="st2">Plan d'action Q2 2026 — Insights &amp; Actions par level</span></div>
-    <div class="ssub">Actions prioritaires, leviers coaching, objectifs chiffrés</div>
-    <div class="smsg"><strong>Message à passer :</strong> Chaque level a un levier précis à activer. Le coaching générique ne fonctionne pas — il faut cibler le comportement exact qui bloque la progression. Pour le L1, c'est le réflexe RC pendant l'OC. Pour le L2, c'est le pilotage Supply post-signature. Pour le L3, c'est la protection de l'utilisation et le mentoring des L2 émergents.</div>
-    <div class="atw">
-      <table class="at">
-        <thead><tr><th style="width:65px">Level</th><th style="width:80px">GBV / NTP</th><th style="width:170px">Diagnostic Q1</th><th>Levier coaching clé</th><th>Actions Q2</th></tr></thead>
-        <tbody>
-          <tr>
-            <td class="lvc" style="color:var(--c0d)">L0</td>
-            <td class="sc" style="font-size:12px">11 agents<br>168 opps</td>
-            <td style="font-size:12px;vertical-align:top">
-              <div class="bi">RC Done 59% · RC Bkg 54.5% ⚠</div>
-              <div class="bi">7.75 em/opp (sous-moy.) · 5.05 calls/opp</div>
-              <div class="bi">2h 27 call/jour (le min) ⚠</div>
-            </td>
-            <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Étendre l'engagement au post-OC</div>
-              <div class="bloc">Le L0 a un cycle amont rapide (FC→OC en 5.3j) mais se désengage après l'envoi de l'offre. RC Done chute à 59% (vs 73-74% L2/L3) et RC Bkg à 54.5%. La capacité existe — il faut l'étendre au post-OC : plus de calls, plus d'emails de relance.</div>
-            </td>
-            <td style="vertical-align:top">
-              <div class="bi">+30 min call/jour ciblé sur RC</div>
-              <div class="bi">Em/opp objectif : &gt;8</div>
-              <div class="bi">Objectif RC Done : &gt;65%</div>
-            </td>
-          </tr>
-          <tr>
-            <td class="lvc" style="color:var(--c1d)">L1</td>
-            <td class="sc" style="font-size:12px">8 agents<br>213 opps ⚠</td>
-            <td style="font-size:12px;vertical-align:top">
-              <div class="bi">RC Done 52% (le pire) · RC Bkg 49.3% ⚠</div>
-              <div class="bi">7.2 em/opp ⚠ (le min) · OC→RC 8.0j (record)</div>
-              <div class="bi">2h 45 call/jour (max) · CR3 20.61%</div>
-            </td>
-            <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Recap email systématique + plafonner le volume</div>
-              <div class="bloc">Le L1 est le « volume sans méthode » : volume call max (2h 45/jour) mais le moins d'emails (7.2/opp). Mode pompier sans méthode écrite — le client oublie ce qui a été dit en call, RC Bkg chute à 49.3%. Recap email après chaque call + plafonner à 170 opps = méthode L2.</div>
-            </td>
-            <td style="vertical-align:top">
-              <div class="bi">Plafond 170 opps/agent</div>
-              <div class="bi">Em/opp objectif : &gt;8.5</div>
-              <div class="bi">OC→RC objectif : &lt;6j</div>
-            </td>
-          </tr>
-          <tr>
-            <td class="lvc" style="color:var(--c2d)">L2</td>
-            <td class="sc" style="font-size:12px;color:var(--grn);font-weight:700">19 agents<br>★ moteur</td>
-            <td style="font-size:12px;vertical-align:top">
-              <div class="bi">CR3 25.67% ★ · 144 opps/agent</div>
-              <div class="bi">9.13 em/opp ★ · First OC Bkg 40.1% ★</div>
-              <div class="bi">RC Done 74.4% · RC Bkg 66.5%</div>
-            </td>
-            <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Réduire OC→RC + augmenter le call/jour</div>
-              <div class="bloc">L2 = champion de l'écrit (9.13 em/opp record) et de la qualité d'OC (40.1% First OC Bkg). Pour passer L3, deux leviers : raccourcir OC→RC (9.4j → 7j) avec un short call de relance, et augmenter le temps de call quotidien (2h 17 → 2h 40).</div>
-            </td>
-            <td style="vertical-align:top">
-              <div class="bi">OC→RC objectif : &lt;7j (vs 9.4j)</div>
-              <div class="bi">Call/jour objectif : 2h 40+</div>
-              <div class="bi">CR3 objectif : &gt;27%</div>
-            </td>
-          </tr>
-          <tr>
-            <td class="lvc" style="color:var(--c3d)">L3</td>
-            <td class="sc" style="font-size:12px">14 agents<br>★ solide</td>
-            <td style="font-size:12px;vertical-align:top">
-              <div class="bi">RC Bkg 66.7% ★ · OC Done 73.6% ★</div>
-              <div class="bi">Offer Made 92.8% ★ · CR3 24.76%</div>
-              <div class="bi">8.62 em/opp · 2h 40 call/jour</div>
-            </td>
-            <td style="vertical-align:top">
-              <div style="font-size:13px;font-weight:700;color:var(--blk);margin-bottom:5px">Maintenir + diffuser la méthode aux L2</div>
-              <div class="bloc">Le L3 est solide à toutes les étapes du funnel — pas de signature unique mais une régularité. Les meilleurs L3 (Pauline Preynat, Camille Lecomte, Guillaume Dupont, Yann Magueur) peuvent peer-coacher les L2 émergents sur la rigueur end-to-end. Limite : Supply Pend→Conf 10.6j (probablement dossiers complexes).</div>
-            </td>
-            <td style="vertical-align:top">
-              <div class="bi">Maintenir RC Bkg ≥ 65%</div>
-              <div class="bi">Process Supply Pend→Conf à raccourcir (10.6j → &lt;9j)</div>
-              <div class="bi">Peer-coaching L2 émergents</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- ════════ SLIDE 6 — PLAN D'ACTION Q2 ════════ -->
+      <div class="deck-slide" data-slide="6">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">06</span>
+          <span>PLAN D'ACTION Q2 2026</span>
+          <span class="pgright">Un levier par niveau · objectifs chiffrés</span>
+        </div>
+        <h2 class="dh1 tight dr-up d1">Un seul réflexe à activer <em>par niveau.</em></h2>
+        <p class="dlede dr-up d2">Le coaching générique ne fonctionne pas. Pour chaque niveau, un comportement précis bloque la progression — et un objectif chiffré pour mesurer.</p>
+
+        <div class="dactp dr-up d3">
+          <table class="dact-tbl">
+            <thead>
+              <tr>
+                <th>Niveau</th>
+                <th>Levier coaching clé</th>
+                <th>Diagnostic Q1</th>
+                <th>Objectifs Q2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="lvc l0"><div class="lcell"><span class="lvbig">L0</span><span class="lvsub">11 agents · 168 opps</span></div></td>
+                <td class="lever">
+                  <div class="lvtit">Étendre l'engagement au post-OC</div>
+                  <div class="lvdesc">Cycle amont rapide (FC → OC en 5,3 j) mais désengagement après envoi de l'offre. La capacité existe — il faut l'étendre au post-OC.</div>
+                </td>
+                <td class="diag">
+                  <span class="dl">RC Done <em>59 %</em> · RC Bkg <em>54,5 %</em></span>
+                  <span class="dl">7,75 em/opp · 5,05 calls/opp</span>
+                  <span class="dl">2h27 call/jour <em>(le min)</em></span>
+                </td>
+                <td class="objs">
+                  <div class="ob">+30 min call/jour ciblé sur RC</div>
+                  <div class="ob">Em/opp &gt; 8</div>
+                  <div class="ob">RC Done &gt; 65 %</div>
+                </td>
+              </tr>
+              <tr>
+                <td class="lvc l1"><div class="lcell"><span class="lvbig">L1</span><span class="lvsub">8 agents · 213 opps</span></div></td>
+                <td class="lever">
+                  <div class="lvtit">Recap email systématique + plafonner le volume</div>
+                  <div class="lvdesc">« Volume sans méthode » : call max mais le moins d'emails. Le client oublie ce qui a été dit en call — RC Bkg chute à 49,3 %.</div>
+                </td>
+                <td class="diag">
+                  <span class="dl">RC Done <em>52 %</em> (le pire) · RC Bkg <em>49,3 %</em></span>
+                  <span class="dl">7,2 em/opp · OC → RC 8,0 j</span>
+                  <span class="dl">2h45 call/jour</span>
+                </td>
+                <td class="objs">
+                  <div class="ob">Plafond 170 opps/agent</div>
+                  <div class="ob">Em/opp &gt; 8,5</div>
+                  <div class="ob">OC → RC &lt; 6 j</div>
+                </td>
+              </tr>
+              <tr>
+                <td class="lvc l2"><div class="lcell"><span class="lvbig">L2</span><span class="lvsub">19 agents · ★ moteur</span></div></td>
+                <td class="lever">
+                  <div class="lvtit">Réduire OC → RC + augmenter le call/jour</div>
+                  <div class="lvdesc">Champion de l'écrit et de la qualité d'OC. Pour passer L3 : raccourcir OC → RC avec un short call de relance, et augmenter le temps de call quotidien.</div>
+                </td>
+                <td class="diag">
+                  <span class="dl">CR3 <em>25,7 % ★</em> · 144 opps/agent</span>
+                  <span class="dl">9,1 em/opp · First OC Bkg <em>40,1 % ★</em></span>
+                  <span class="dl">RC Done 74,4 % · OC → RC 9,4 j</span>
+                </td>
+                <td class="objs">
+                  <div class="ob">OC → RC &lt; 7 j</div>
+                  <div class="ob">Call/jour 2h40+</div>
+                  <div class="ob">CR3 &gt; 27 %</div>
+                </td>
+              </tr>
+              <tr>
+                <td class="lvc l3"><div class="lcell"><span class="lvbig">L3</span><span class="lvsub">14 agents · ★ solide</span></div></td>
+                <td class="lever">
+                  <div class="lvtit">Maintenir + diffuser la méthode aux L2</div>
+                  <div class="lvdesc">Solide à toutes les étapes — pas de signature unique mais une régularité. Les meilleurs L3 peuvent peer-coacher les L2 émergents sur la rigueur end-to-end.</div>
+                </td>
+                <td class="diag">
+                  <span class="dl">RC Bkg <em>66,7 % ★</em> · OC Done <em>73,6 % ★</em></span>
+                  <span class="dl">Offer Made <em>92,8 % ★</em> · CR3 24,8 %</span>
+                  <span class="dl">Supply Pend → Conf 10,6 j</span>
+                </td>
+                <td class="objs">
+                  <div class="ob">RC Bkg ≥ 65 %</div>
+                  <div class="ob">Supply Pend → Conf &lt; 9 j</div>
+                  <div class="ob">Peer-coaching L2</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- end stage -->
+
+    <!-- Pager (only in presentation mode) -->
+    <div class="deck-pager" id="deck-pager">
+      <button class="dpg-btn" id="deck-prev">← Précédent</button>
+      <div class="dpg-progress"><div class="dpg-progress-bar" id="deck-progress" style="width:16.66%"></div></div>
+      <span class="dpg-info" id="deck-info">01 / 06 — Cover</span>
+      <button class="dpg-btn" id="deck-next">Suivant →</button>
     </div>
-  </div>
+
+  </div><!-- end deck -->
 
 </div><!-- end slides page -->
 
@@ -2976,5 +3209,198 @@ function buildCard(a, agentId) {
   '<p style="font-size:11px;color:#aaa;margin:8px 0 0">★ = position de cet agent</p>';
 }
 </script>
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   EDITORIAL DECK — presentation interactivity
+   ════════════════════════════════════════════════════════════ */
+(function(){
+  const stage = document.querySelector('#page-slides .slides-stage');
+  if(!stage) return;
+  const slides = Array.from(stage.querySelectorAll('.deck-slide'));
+  const total  = slides.length;
+  const titles = ['Cover','Performance Q1','Notre démarche','La fracture','Profils comportementaux','Plan d\'action Q2'];
+  let idx = 0;
+  let presenting = false;
+  let deckChart  = null;
+
+  const root      = document.getElementById('page-slides');
+  const counter   = document.getElementById('deck-counter');
+  const progress  = document.getElementById('deck-progress');
+  const info      = document.getElementById('deck-info');
+  const btnPrev   = document.getElementById('deck-prev');
+  const btnNext   = document.getElementById('deck-next');
+  const btnTog    = document.getElementById('deck-toggle');
+  const btnFs     = document.getElementById('deck-fs');
+  const thumbsBox = document.getElementById('deck-thumbs');
+
+  // ── Build thumbs ──
+  for(let k=0;k<total;k++){
+    const t = document.createElement('button');
+    t.className = 'dmb-thumb' + (k===0?' active':'');
+    t.dataset.i = k;
+    t.title = `${String(k+1).padStart(2,'0')} — ${titles[k]}`;
+    t.addEventListener('click', () => goTo(k));
+    thumbsBox.appendChild(t);
+  }
+  const thumbs = Array.from(thumbsBox.querySelectorAll('.dmb-thumb'));
+
+  // ── Number animation on slide entry ──
+  function animateNumbers(slide){
+    slide.querySelectorAll('[data-count]').forEach(el => {
+      if(el.dataset.done==='1') return;
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const dur = 900;
+      const t0 = performance.now();
+      const isInt = Number.isInteger(target) && !suffix.includes(',');
+      function tick(now){
+        const t = Math.min(1,(now-t0)/dur);
+        const eased = 1 - Math.pow(1-t,3);
+        const v = target * eased;
+        el.textContent = (isInt ? Math.round(v) : v.toFixed(target%1===0?0:(target<10?2:1)).replace('.',','))
+                          + suffix;
+        if(t<1) requestAnimationFrame(tick); else { el.textContent = el.textContent; el.dataset.done='1'; }
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  function ensureDeckChart(){
+    const canvas = document.getElementById('deckFunnel');
+    if(!canvas) return;
+    if(deckChart){ deckChart.destroy(); }
+    const stages = ['FC Done','Offer Made','OC Done','First OC Bkg','RC Done','RC Bkg'];
+    deckChart = new Chart(canvas.getContext('2d'),{
+      type:'line',
+      data:{ labels:stages, datasets:[
+        { label:'L0', data:[90.6,88.3,69.0,32.6,59.0,54.5], borderColor:'#3A352B', backgroundColor:'rgba(58,53,43,.08)', borderWidth:2, pointRadius:4, pointHoverRadius:7, pointBackgroundColor:'#3A352B', fill:true, tension:.32 },
+        { label:'L1', data:[91.3,84.6,65.9,33.2,52.2,49.3], borderColor:'#7A3A14', backgroundColor:'rgba(122,58,20,.08)', borderWidth:2, pointRadius:4, pointHoverRadius:7, pointBackgroundColor:'#7A3A14', fill:true, tension:.32 },
+        { label:'L2', data:[93.0,89.9,70.7,40.1,74.4,66.5], borderColor:'#0F3866', backgroundColor:'rgba(15,56,102,.08)', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, pointBackgroundColor:'#0F3866', fill:true, tension:.32 },
+        { label:'L3', data:[93.8,92.8,73.6,34.1,73.4,66.7], borderColor:'#1F5F3F', backgroundColor:'rgba(31,95,63,.10)', borderWidth:2.5, pointRadius:5, pointHoverRadius:8, pointBackgroundColor:'#1F5F3F', fill:true, tension:.32 },
+      ]},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        animation:{duration:900, easing:'easeOutCubic'},
+        plugins:{
+          legend:{ display:true, position:'top', align:'end', labels:{ font:{size:11,family:'Inter'}, boxWidth:12, padding:14, color:'#1A1A1A' } },
+          tooltip:{
+            backgroundColor:'#1A1A1A', titleFont:{family:'Inter',weight:'600'}, bodyFont:{family:'Inter'},
+            callbacks:{ label:c => ` ${c.dataset.label} : ${c.parsed.y.toFixed(1)} %` }
+          },
+          annotation:{}
+        },
+        interaction:{mode:'index', intersect:false},
+        scales:{
+          y:{ min:25, max:100, ticks:{ callback:v=>v+' %', font:{size:11,family:'Inter'}, color:'#6F6B62' }, grid:{color:'#E8E3D8'} },
+          x:{ ticks:{ font:{size:11,family:'Inter'}, color:'#6F6B62' }, grid:{display:false} }
+        }
+      }
+    });
+  }
+
+  // ── Navigation ──
+  function goTo(n){
+    n = Math.max(0, Math.min(total-1, n));
+    idx = n;
+    slides.forEach((s,k)=> s.classList.toggle('live', k===n));
+    thumbs.forEach((t,k)=> t.classList.toggle('active', k===n));
+    if(counter) counter.textContent = n+1;
+    if(progress) progress.style.width = ((n+1)/total*100) + '%';
+    if(info) info.textContent = `${String(n+1).padStart(2,'0')} / ${String(total).padStart(2,'0')} — ${titles[n]}`;
+    if(btnPrev) btnPrev.disabled = (n===0);
+    if(btnNext) btnNext.disabled = (n===total-1);
+    // Trigger reveals + chart
+    requestAnimationFrame(()=>{
+      animateNumbers(slides[n]);
+      if(slides[n].dataset.slide==='4') setTimeout(ensureDeckChart, 250);
+    });
+  }
+  function next(){ goTo(idx+1); }
+  function prev(){ goTo(idx-1); }
+
+  // ── Mode toggle ──
+  function setPresent(on){
+    presenting = on;
+    root.classList.toggle('deck-present', on);
+    btnTog.textContent = on ? '✕ Sortir' : '▶ Présentation';
+    if(on){
+      goTo(idx);
+      stage.scrollIntoView({behavior:'smooth', block:'start'});
+    } else {
+      // show all
+      slides.forEach(s => s.classList.add('live'));
+      // re-animate counters in all slides
+      slides.forEach(s => animateNumbers(s));
+      ensureDeckChart();
+    }
+  }
+
+  // Initial state: scroll mode, all live
+  slides.forEach(s => s.classList.add('live'));
+  setTimeout(()=>{
+    slides.forEach(s => animateNumbers(s));
+    ensureDeckChart();
+  }, 200);
+
+  btnTog.addEventListener('click', () => setPresent(!presenting));
+  btnPrev.addEventListener('click', prev);
+  btnNext.addEventListener('click', next);
+  btnFs.addEventListener('click', () => {
+    if(!document.fullscreenElement){
+      root.requestFullscreen?.();
+      if(!presenting) setPresent(true);
+    } else {
+      document.exitFullscreen?.();
+    }
+  });
+
+  // ── Keyboard ──
+  document.addEventListener('keydown', e => {
+    if(!root.classList.contains('active')) return;
+    // ignore when typing
+    if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)) return;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){
+      if(presenting){ e.preventDefault(); next(); }
+    } else if(e.key==='ArrowLeft'||e.key==='ArrowUp'||e.key==='PageUp'){
+      if(presenting){ e.preventDefault(); prev(); }
+    } else if(e.key==='Home'){ if(presenting){ e.preventDefault(); goTo(0); } }
+      else if(e.key==='End'){ if(presenting){ e.preventDefault(); goTo(total-1); } }
+      else if(e.key==='f'||e.key==='F'){ btnFs.click(); }
+      else if(e.key==='Escape' && presenting && !document.fullscreenElement){ setPresent(false); }
+      else if(e.key==='p'||e.key==='P'){ setPresent(!presenting); }
+  });
+
+  // ── Quadrant card interactivity (cover) ──
+  document.querySelectorAll('#page-slides .dq').forEach(card => {
+    card.addEventListener('click', e => {
+      if(e.target.classList.contains('qx')){
+        card.classList.remove('expanded'); e.stopPropagation(); return;
+      }
+      // close others
+      document.querySelectorAll('#page-slides .dq.expanded').forEach(c => { if(c!==card) c.classList.remove('expanded'); });
+      card.classList.toggle('expanded');
+    });
+  });
+
+  // ── Persona card subtle interactivity (toggle highlight) ──
+  document.querySelectorAll('#page-slides .dperc').forEach(card => {
+    card.addEventListener('click', () => {
+      card.style.outline = card.style.outline ? '' : '2px solid var(--accent)';
+      card.style.outlineOffset = card.style.outline ? '4px' : '';
+    });
+  });
+
+  // ── Methodology card subtle highlight ──
+  document.querySelectorAll('#page-slides .dmcard').forEach(card => {
+    card.addEventListener('click', () => {
+      card.style.transform = 'translateY(-3px) scale(1.02)';
+      setTimeout(() => card.style.transform = '', 380);
+    });
+  });
+
+})();
+</script>
+
 </body>
 </html>
