@@ -215,6 +215,10 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .ag0h .agb{background:var(--c0d)}.ag1h .agb{background:var(--c1d)}.ag2h .agb{background:var(--c2d)}.ag3h .agb{background:var(--c3d)}
 .agt h3{font-size:13px;font-weight:700;color:var(--blk)}.agt p{font-size:11px;color:var(--gray)}
 .atbl{width:100%;border-collapse:collapse;font-size:12px}
+.atbl tr.ag-link{cursor:pointer;transition:background .15s}
+.atbl tr.ag-link:hover{background:#FAF7F1}
+.atbl tr.ag-link td:first-child{color:#1A1A1A;font-weight:600;text-decoration:underline;text-decoration-color:#D8D3C8;text-underline-offset:3px}
+.atbl tr.ag-link:hover td:first-child{text-decoration-color:#1F5F3F}
 .atbl th{padding:6px 11px;text-align:left;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--gray);border-bottom:1px solid var(--bdr);background:#fafaf8}
 .atbl td{padding:7px 11px;border-bottom:1px solid #f5f5f3;color:var(--blk)}
 .atbl tr:last-child td{border-bottom:none}
@@ -540,17 +544,21 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .fc2-chart-host .legend-note{font-size:11px;color:#6F6B62;margin-top:8px;line-height:1.5}
 .fc2-chart-host .legend-note strong{color:#1A1A1A}
 
-/* Action plan section */
+/* Action plan section — sequential, TL-style narrative */
 .fc2-action{background:#1A1A1A;color:#fff;border-radius:14px;padding:1.25rem 1.5rem;margin-top:1.25rem}
 .fc2-action h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;margin:0 0 4px;letter-spacing:-.3px}
 .fc2-action h4 em{color:#9DD2A6;font-style:italic}
-.fc2-action .ap-sub{font-size:11px;color:#aaa;margin-bottom:12px;letter-spacing:.04em}
-.fc2-action ol{list-style:none;padding:0;margin:0;counter-reset:ap}
-.fc2-action ol li{counter-increment:ap;padding:9px 0 9px 32px;border-top:1px solid #2C2C2A;position:relative;font-size:13px;line-height:1.5}
-.fc2-action ol li:first-child{border-top:none}
-.fc2-action ol li::before{content:counter(ap);position:absolute;left:0;top:9px;width:22px;height:22px;border-radius:50%;background:#1F5F3F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;font-family:'Inter',sans-serif}
-.fc2-action ol li strong{color:#fff;font-weight:700}
-.fc2-action ol li em{color:#9DD2A6;font-style:italic}
+.fc2-action .ap-sub{font-size:11px;color:#aaa;margin-bottom:14px;letter-spacing:.04em}
+
+.ap-steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
+.ap-steps li{padding:14px 0;border-top:1px solid #2C2C2A}
+.ap-steps li:first-child{border-top:none;padding-top:6px}
+.ap-tag{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9DD2A6;margin-bottom:5px}
+.ap-title{font-size:13.5px;font-weight:600;color:#fff;line-height:1.45;margin-bottom:5px}
+.ap-title strong{color:#9DD2A6;font-weight:700}
+.ap-body{font-size:12.5px;line-height:1.55;color:#cfcdc6}
+.ap-body strong{color:#fff;font-weight:600}
+.ap-body em{color:#9DD2A6;font-style:italic}
 .fc2-action .ap-empty{font-size:13px;color:#9DD2A6;font-style:italic;line-height:1.5;padding:8px 0}
 
 /* ════════════════════════════════════════════════════════════════
@@ -944,12 +952,15 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .ddaily-takeaway em{font-style:italic;color:#9DD2A6}
 .ddaily-takeaway strong{font-weight:700}
 
-/* Level radar card (slides 7-10) */
-.dlradar{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:1.25rem 1.5rem;margin:1rem 0}
-.dlradar-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:8px}
-.dlradar-host{position:relative;height:300px}
-.dlradar-cap{font-size:11px;color:var(--mute);margin-top:8px;line-height:1.5}
+/* Level radar card (slides 7-10) — compact, fits in right column of level body */
+.dlradar{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:.85rem 1rem;margin:0;display:flex;flex-direction:column}
+.dlradar-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:6px}
+.dlradar-host{position:relative;height:240px;flex:1}
+.dlradar-cap{font-size:10.5px;color:var(--mute);margin-top:6px;line-height:1.45}
 .dlradar-cap strong{color:var(--ink)}
+
+/* Compact level body: funnel left, radar right (replaces the 2-col with funnel+behavior grid) */
+.dlevel-body.compact{grid-template-columns:1.1fr 1fr;align-items:start}
 
 /* Slide 4b inline funnel chart */
 .dchart-card{background:#fff;border-radius:16px;border:1px solid var(--rule);padding:1.5rem 1.75rem;margin-top:1rem}
@@ -1641,83 +1652,81 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 <div class="page" id="page-agents">
   <div class="phdr">
     <h1>Agents par level — Q1 2026</h1>
-    <p>Agents avec minimum 100 opportunités sur la période 1er jan – 31 mars 2026. Filtre qualité : 54 agents retenus sur 96 actifs.</p>
+    <p>Roster canonique : 52 agents FR retenus pour l'analyse Q1 2026 (1<sup>er</sup> jan – 31 mars). Cliquez un agent pour ouvrir sa fiche détaillée.</p>
   </div>
   <div class="agrid">
     <div class="ag">
-      <div class="agh ag0h"><div class="agb">0</div><div class="agt"><h3>L0 — Low ROI / Low GBV</h3><p>13 agents · moy 162 opps · 20.1% CR3 · GBV total €3,067,423</p></div></div>
-      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>Statut</th></tr></thead><tbody>
-        <tr><td>Thomas Dufrene</td><td>161</td><td>43</td><td class="g">26.71%</td><td><span class="pb">→ L1</span></td></tr>
-        <tr><td>Elise Francois</td><td>168</td><td>42</td><td class="g">25.00%</td><td><span class="pb">→ L1</span></td></tr>
-        <tr><td>Florence Touyard</td><td>193</td><td>48</td><td class="m">24.87%</td><td><span class="pb">→ L1</span></td></tr>
-        <tr><td>Claire Lardenois</td><td>180</td><td>43</td><td class="m">23.89%</td><td><span class="pb">→ L1</span></td></tr>
-        <tr><td>Charline Verdeaux</td><td>177</td><td>41</td><td class="m">23.16%</td><td><span class="pb">→ L1</span></td></tr>
-        <tr><td>Marine Hecquard</td><td>100</td><td>21</td><td class="m">21.00%</td><td></td></tr>
-        <tr><td>Laurine Calas</td><td>125</td><td>25</td><td class="m">20.00%</td><td></td></tr>
-        <tr><td>Margot Bonnet</td><td>163</td><td>28</td><td class="b">17.18%</td><td></td></tr>
-        <tr><td>Zoe Morales</td><td>245</td><td>42</td><td class="b">17.14%</td><td></td></tr>
-        <tr><td>Edwige Clad</td><td>205</td><td>35</td><td class="b">17.07%</td><td></td></tr>
-        <tr><td>Mohammed Mazour</td><td>138</td><td>23</td><td class="b">16.67%</td><td></td></tr>
-        <tr><td>Eva Ancelin</td><td>139</td><td>23</td><td class="b">16.55%</td><td></td></tr>
-        <tr><td>Marhuska Ngohiag</td><td>114</td><td>14</td><td class="b">12.28%</td><td></td></tr>
+      <div class="agh ag0h"><div class="agb">0</div><div class="agt"><h3>L0 — Low ROI / Low GBV</h3><p>11 agents · moy 167 opps · 19.9 % CR3 · GBV total €2,351,584</p></div></div>
+      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead><tbody>
+        <tr class="ag-link" onclick="gotoAgentFiche('elise_francois')"><td>Elise François</td><td>159</td><td>39</td><td class="m">24.53%</td><td>€7.164</td><td>€250k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('claire_lardenois')"><td>Claire Lardenois</td><td>185</td><td>44</td><td class="m">23.78%</td><td>€6.764</td><td>€273k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('florence_touyard')"><td>Florence Touyard</td><td>189</td><td>43</td><td class="m">22.75%</td><td>€6.483</td><td>€262k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('charline_verdeaux')"><td>Charline Verdeaux</td><td>177</td><td>40</td><td class="m">22.60%</td><td>€7.760</td><td>€260k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('laurine_calas')"><td>Laurine Calas</td><td>116</td><td>23</td><td class="b">19.83%</td><td>€8.927</td><td>€155k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('thomas_dufrene')"><td>Thomas Dufrene</td><td>162</td><td>30</td><td class="b">18.52%</td><td>€8.275</td><td>€210k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('margot_bonnet')"><td>Margot Bonnet</td><td>168</td><td>31</td><td class="b">18.45%</td><td>€7.951</td><td>€192k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('zoe_morales')"><td>Zoe Morales</td><td>234</td><td>43</td><td class="b">18.38%</td><td>€6.876</td><td>€292k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('marine_hecquard')"><td>Marine Hecquard</td><td>122</td><td>21</td><td class="b">17.21%</td><td>€8.711</td><td>€132k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('edwige_clad')"><td>Edwige Clad</td><td>198</td><td>34</td><td class="b">17.17%</td><td>€5.730</td><td>€206k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('eva_ancelin')"><td>Eva Ancelin</td><td>130</td><td>18</td><td class="b">13.85%</td><td>€10.584</td><td>€119k</td></tr>
       </tbody></table>
     </div>
     <div class="ag">
-      <div class="agh ag1h"><div class="agb">1</div><div class="agt"><h3>L1 — High Volume / Low ROI</h3><p>8 agents · moy 221 opps · 20.8% CR3 · GBV total €2,748,039</p></div></div>
-      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>Statut</th></tr></thead><tbody>
-        <tr><td>Emy Chomon</td><td>204</td><td>57</td><td class="g">27.94%</td><td><span class="pb">→ L2</span></td></tr>
-        <tr><td>Thibaut Brachet</td><td>221</td><td>54</td><td class="m">24.43%</td><td></td></tr>
-        <tr><td>Emilie Belguise</td><td>222</td><td>46</td><td class="m">20.72%</td><td></td></tr>
-        <tr><td>Claire Henry</td><td>229</td><td>47</td><td class="m">20.52%</td><td></td></tr>
-        <tr><td>Thomas Guibert</td><td>193</td><td>38</td><td class="m">19.69%</td><td></td></tr>
-        <tr><td>Ella Thevenet</td><td>247</td><td>46</td><td class="m">18.62%</td><td></td></tr>
-        <tr><td>Juliette Cazes</td><td>224</td><td>40</td><td class="b">17.86%</td><td></td></tr>
-        <tr><td>Bertrand Cazabat</td><td>228</td><td>38</td><td class="b">16.67%</td><td></td></tr>
+      <div class="agh ag1h"><div class="agb">1</div><div class="agt"><h3>L1 — High Volume / Low ROI</h3><p>8 agents · moy 211 opps · 20.8 % CR3 · GBV total €2,831,100</p></div></div>
+      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead><tbody>
+        <tr class="ag-link" onclick="gotoAgentFiche('thibaut_brachet')"><td>Thibaut Brachet</td><td>207</td><td>55</td><td class="g">26.57%</td><td>€7.807</td><td>€512k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('emy_chomon')"><td>Emy Chomon</td><td>222</td><td>55</td><td class="m">24.77%</td><td>€7.458</td><td>€451k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('emilie_belguise')"><td>Emilie Belguise</td><td>204</td><td>43</td><td class="b">21.08%</td><td>€9.082</td><td>€348k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('claire_henry')"><td>Claire Henry</td><td>223</td><td>47</td><td class="b">21.08%</td><td>€7.612</td><td>€376k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('thomas_guibert')"><td>Thomas Guibert</td><td>172</td><td>35</td><td class="b">20.35%</td><td>€9.625</td><td>€276k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('ella_thevenet')"><td>Ella Thevenet</td><td>225</td><td>44</td><td class="b">19.56%</td><td>€8.824</td><td>€334k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('juliette_cazes')"><td>Juliette Cazes</td><td>209</td><td>37</td><td class="b">17.70%</td><td>€9.384</td><td>€289k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('bertrand_cazabat')"><td>Bertrand Cazabat</td><td>223</td><td>34</td><td class="b">15.25%</td><td>€10.642</td><td>€245k</td></tr>
       </tbody></table>
     </div>
   </div>
   <div class="agrid">
     <div class="ag">
-      <div class="agh ag2h"><div class="agb">2</div><div class="agt"><h3>L2 — Low GBV / High ROI</h3><p>19 agents · moy 176 opps · 23.8% CR3 · GBV total €6,402,425</p></div></div>
-      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>Statut</th></tr></thead><tbody>
-        <tr><td>Line Desmazures</td><td>231</td><td>70</td><td class="g">30.30%</td><td><span class="pb">→ L3</span></td></tr>
-        <tr><td>Mila Gascoin</td><td>162</td><td>48</td><td class="g">29.63%</td><td><span class="pb">→ L3</span></td></tr>
-        <tr><td>Malek Adjroud</td><td>159</td><td>47</td><td class="g">29.56%</td><td><span class="pb">→ L3</span></td></tr>
-        <tr><td>Antoine Revardeau</td><td>122</td><td>36</td><td class="g">29.51%</td><td><span class="pb">→ L3</span></td></tr>
-        <tr><td>Helene Ristic</td><td>129</td><td>34</td><td class="g">26.36%</td><td></td></tr>
-        <tr><td>Melissa Braun</td><td>150</td><td>39</td><td class="g">26.00%</td><td></td></tr>
-        <tr><td>Eloise Lebert</td><td>167</td><td>43</td><td class="g">25.75%</td><td></td></tr>
-        <tr><td>Charline Blas</td><td>146</td><td>37</td><td class="g">25.34%</td><td></td></tr>
-        <tr><td>Margot Casties</td><td>151</td><td>38</td><td class="g">25.17%</td><td></td></tr>
-        <tr><td>Amandine Godin</td><td>176</td><td>44</td><td class="g">25.00%</td><td></td></tr>
-        <tr><td>Chloe Solanki</td><td>211</td><td>50</td><td class="m">23.70%</td><td></td></tr>
-        <tr><td>Fabienne Pottelain</td><td>144</td><td>34</td><td class="m">23.61%</td><td></td></tr>
-        <tr><td>Alexandra Mennechez</td><td>222</td><td>50</td><td class="m">22.52%</td><td></td></tr>
-        <tr><td>Marion Hucbourghernandez</td><td>174</td><td>38</td><td class="m">21.84%</td><td></td></tr>
-        <tr><td>Constant Ledantec</td><td>125</td><td>25</td><td class="m">20.00%</td><td></td></tr>
-        <tr><td>Alexandre Paprocki</td><td>188</td><td>37</td><td class="m">19.68%</td><td></td></tr>
-        <tr><td>Aurelie Guesnet</td><td>272</td><td>48</td><td class="b">17.65%</td><td></td></tr>
-        <tr><td>Laury De-Oliveira</td><td>214</td><td>36</td><td class="b">16.82%</td><td></td></tr>
-        <tr><td>Philippe Tkatchouk</td><td>198</td><td>28</td><td class="b">14.14%</td><td></td></tr>
+      <div class="agh ag2h"><div class="agb">2</div><div class="agt"><h3>L2 — Low GBV / High ROI</h3><p>19 agents · moy 162 opps · 25.4 % CR3 · GBV total €6,374,297</p></div></div>
+      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead><tbody>
+        <tr class="ag-link" onclick="gotoAgentFiche('antoine_revardeau')"><td>Antoine Revardeau</td><td>110</td><td>35</td><td class="g">31.82%</td><td>€8.886</td><td>€277k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('malek_adjroud')"><td>Malek Adjroud</td><td>145</td><td>46</td><td class="g">31.72%</td><td>€7.204</td><td>€364k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('line_desmazures')"><td>Line Desmazures</td><td>206</td><td>63</td><td class="g">30.58%</td><td>€6.270</td><td>€513k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('mila_gascoin')"><td>Mila Gascoin</td><td>160</td><td>48</td><td class="g">30.00%</td><td>€8.628</td><td>€398k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('melissa_braun')"><td>Melissa Braun</td><td>134</td><td>38</td><td class="g">28.36%</td><td>€9.031</td><td>€312k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('amandine_godin')"><td>Amandine Godin</td><td>161</td><td>45</td><td class="g">27.95%</td><td>€8.354</td><td>€378k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('fabienne_pottelain')"><td>Fabienne Pottelain</td><td>130</td><td>36</td><td class="g">27.69%</td><td>€8.803</td><td>€297k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('charline_blas')"><td>Charline Blas</td><td>155</td><td>41</td><td class="g">26.45%</td><td>€10.999</td><td>€328k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('aurelie_guesnet')"><td>Aurélie Guesnet</td><td>177</td><td>46</td><td class="g">25.99%</td><td>€8.950</td><td>€377k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('helene_ristic')"><td>Hélène Ristic</td><td>118</td><td>30</td><td class="m">25.42%</td><td>€11.486</td><td>€254k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('eloise_lebert')"><td>Eloïse Lebert</td><td>169</td><td>42</td><td class="m">24.85%</td><td>€9.327</td><td>€336k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('marion_hucbourg_hernandez')"><td>Marion Hucbourg-Hernandez</td><td>191</td><td>46</td><td class="m">24.08%</td><td>€9.100</td><td>€419k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('margot_casties')"><td>Margot Casties</td><td>162</td><td>39</td><td class="m">24.07%</td><td>€9.926</td><td>€361k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('philippe_tkatchouk')"><td>Philippe Tkatchouk</td><td>185</td><td>43</td><td class="m">23.24%</td><td>€9.470</td><td>€348k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('alexandre_paprocki')"><td>Alexandre Paprocki</td><td>177</td><td>41</td><td class="m">23.16%</td><td>€7.872</td><td>€332k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('alexandra_mennechez')"><td>Alexandra Mennechez</td><td>203</td><td>47</td><td class="m">23.15%</td><td>€8.082</td><td>€384k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('constant_le_dantec')"><td>Constant Le Dantec</td><td>113</td><td>25</td><td class="m">22.12%</td><td>€7.503</td><td>€188k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('chloe_solanki')"><td>Chloé Solanki</td><td>178</td><td>32</td><td class="b">17.98%</td><td>€11.195</td><td>€255k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('laury_de_oliveira')"><td>Laury De-Oliveira</td><td>195</td><td>35</td><td class="b">17.95%</td><td>€12.251</td><td>€252k</td></tr>
       </tbody></table>
     </div>
     <div class="ag">
-      <div class="agh ag3h"><div class="agb">3</div><div class="agt"><h3>L3 — High GBV / High ROI</h3><p>14 agents · moy 180 opps · 28.9% CR3 · GBV total €5,917,237</p></div></div>
-      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>Statut</th></tr></thead><tbody>
-        <tr><td>Pauline Preynat</td><td>146</td><td>50</td><td class="g">34.25%</td><td></td></tr>
-        <tr><td>Camille Lecomte</td><td>158</td><td>53</td><td class="g">33.54%</td><td></td></tr>
-        <tr><td>Guillaume Dupont</td><td>189</td><td>63</td><td class="g">33.33%</td><td></td></tr>
-        <tr><td>Camille Mollon</td><td>145</td><td>48</td><td class="g">33.10%</td><td></td></tr>
-        <tr><td>Valerie Aleksandrowicz</td><td>199</td><td>60</td><td class="g">30.15%</td><td></td></tr>
-        <tr><td>Lucie Collado</td><td>171</td><td>51</td><td class="g">29.82%</td><td></td></tr>
-        <tr><td>Victoria Nouchi</td><td>217</td><td>63</td><td class="g">29.03%</td><td></td></tr>
-        <tr><td>Samantha Philippon-Joubert</td><td>221</td><td>62</td><td class="g">28.05%</td><td></td></tr>
-        <tr><td>Charlotte Garrido</td><td>189</td><td>53</td><td class="g">28.04%</td><td></td></tr>
-        <tr><td>Laurine Ghis</td><td>176</td><td>46</td><td class="g">26.14%</td><td></td></tr>
-        <tr><td>Yann Magueur</td><td>165</td><td>43</td><td class="g">26.06%</td><td></td></tr>
-        <tr><td>Fanny Mangin</td><td>168</td><td>42</td><td class="g">25.00%</td><td></td></tr>
-        <tr><td>Joumala Elalaoui</td><td>163</td><td>40</td><td class="m">24.54%</td><td></td></tr>
-        <tr><td>Alice Saint-Jean</td><td>211</td><td>50</td><td class="m">23.70%</td><td></td></tr>
+      <div class="agh ag3h"><div class="agb">3</div><div class="agt"><h3>L3 — High GBV / High ROI</h3><p>14 agents · moy 188 opps · 25.9 % CR3 · GBV total €6,413,700</p></div></div>
+      <table class="atbl"><thead><tr><th>Agent</th><th>Opps</th><th>Bkg</th><th>CR3</th><th>AOV</th><th>GBV</th></tr></thead><tbody>
+        <tr class="ag-link" onclick="gotoAgentFiche('camille_mollon')"><td>Camille Mollon</td><td>171</td><td>59</td><td class="g">34.50%</td><td>€8.074</td><td>€555k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('fanny_mangin')"><td>Fanny Mangin</td><td>142</td><td>42</td><td class="g">29.58%</td><td>€12.282</td><td>€342k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('samantha_philippon_joubert')"><td>Samantha Philippon-Joubert</td><td>208</td><td>60</td><td class="g">28.85%</td><td>€9.225</td><td>€630k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('guillaume_dupont')"><td>Guillaume Dupont</td><td>194</td><td>55</td><td class="g">28.35%</td><td>€9.162</td><td>€561k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('yann_magueur')"><td>Yann Magueur</td><td>210</td><td>59</td><td class="g">28.10%</td><td>€8.921</td><td>€560k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('victoria_nouchi')"><td>Victoria Nouchi</td><td>229</td><td>62</td><td class="g">27.07%</td><td>€8.511</td><td>€539k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('laurine_ghis')"><td>Laurine Ghis</td><td>160</td><td>43</td><td class="g">26.88%</td><td>€10.394</td><td>€396k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('lucie_collado')"><td>Lucie Collado</td><td>163</td><td>43</td><td class="g">26.38%</td><td>€11.082</td><td>€413k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('charlotte_garrido')"><td>Charlotte Garrido</td><td>191</td><td>49</td><td class="g">25.65%</td><td>€10.647</td><td>€456k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('camille_lecomte')"><td>Camille Lecomte</td><td>188</td><td>45</td><td class="m">23.94%</td><td>€10.493</td><td>€369k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('joumala_elalaoui')"><td>Joumala ElAlaoui</td><td>164</td><td>36</td><td class="b">21.95%</td><td>€11.775</td><td>€349k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('alice_saint_jean')"><td>Alice Saint-Jean</td><td>213</td><td>46</td><td class="b">21.60%</td><td>€10.885</td><td>€432k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('pauline_preynat')"><td>Pauline Preynat</td><td>186</td><td>40</td><td class="b">21.51%</td><td>€12.172</td><td>€380k</td></tr>
+        <tr class="ag-link" onclick="gotoAgentFiche('valerie_aleksandrowicz')"><td>Valérie Aleksandrowicz</td><td>216</td><td>44</td><td class="b">20.37%</td><td>€10.319</td><td>€431k</td></tr>
       </tbody></table>
     </div>
   </div>
@@ -1760,7 +1769,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <tbody>
             <tr onclick="selectAgent('vincent','victoria_nouchi')" class="ag-row" data-id="victoria_nouchi">
               <td>Victoria Nouchi</td>
-              <td><span class="badge ag333</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>229</td>
               <td>62</td>
               <td class="pos">27.1%<span class="d1 eq">≈</span></td>
@@ -1769,7 +1778,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','samantha_philippon_joubert')" class="ag-row" data-id="samantha_philippon_joubert">
               <td>Samantha Philippon-Joubert</td>
-              <td><span class="badge ag333</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>208</td>
               <td>60</td>
               <td class="pos">28.9%<span class="d1 eq">≈</span></td>
@@ -1778,7 +1787,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','emy_chomon')" class="ag-row" data-id="emy_chomon">
               <td>Emy Chomon</td>
-              <td><span class="badge ag121</span></td>
+              <td><span class="badge ag1h">L1</span></td>
               <td>222</td>
               <td>55</td>
               <td class="pos">24.8%<span class="d1 eq">≈</span></td>
@@ -1805,7 +1814,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','laurine_ghis')" class="ag-row" data-id="laurine_ghis">
               <td>Laurine Ghis</td>
-              <td><span class="badge ag030</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>160</td>
               <td>43</td>
               <td class="pos">26.9%<span class="d1 dn">▼</span></td>
@@ -1814,7 +1823,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','margot_casties')" class="ag-row" data-id="margot_casties">
               <td>Margot Casties</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>162</td>
               <td>39</td>
               <td class="pos">24.1%<span class="d1 eq">≈</span></td>
@@ -1823,7 +1832,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','fanny_mangin')" class="ag-row" data-id="fanny_mangin">
               <td>Fanny Mangin</td>
-              <td><span class="badge ag323</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>142</td>
               <td>42</td>
               <td class="pos">29.6%<span class="d1 up">▲</span></td>
@@ -1832,7 +1841,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','chloe_solanki')" class="ag-row" data-id="chloe_solanki">
               <td>Chloé Solanki</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>178</td>
               <td>32</td>
               <td class="pos">18.0%<span class="d1 dn">▼</span></td>
@@ -1850,7 +1859,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','antoine_revardeau')" class="ag-row" data-id="antoine_revardeau">
               <td>Antoine Revardeau</td>
-              <td><span class="badge ag020</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>110</td>
               <td>35</td>
               <td class="pos">31.8%<span class="d1 up">▲</span></td>
@@ -1859,7 +1868,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('vincent','constant_le_dantec')" class="ag-row" data-id="constant_le_dantec">
               <td>Constant Le Dantec</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>113</td>
               <td>25</td>
               <td class="pos">22.1%<span class="d1 dn">▼</span></td>
@@ -1946,7 +1955,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <tbody>
             <tr onclick="selectAgent('stephanie','yann_magueur')" class="ag-row" data-id="yann_magueur">
               <td>Yann Magueur</td>
-              <td><span class="badge ag333</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>210</td>
               <td>59</td>
               <td class="pos">28.1%<span class="d1 eq">≈</span></td>
@@ -1973,7 +1982,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('stephanie','alice_saint_jean')" class="ag-row" data-id="alice_saint_jean">
               <td>Alice Saint-Jean</td>
-              <td><span class="badge ag131</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>213</td>
               <td>46</td>
               <td class="pos">21.6%<span class="d1 dn">▼</span></td>
@@ -1982,7 +1991,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('stephanie','valerie_aleksandrowicz')" class="ag-row" data-id="valerie_aleksandrowicz">
               <td>Valérie Aleksandrowicz</td>
-              <td><span class="badge ag333</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>216</td>
               <td>44</td>
               <td class="pos">20.4%<span class="d1 dn">▼</span></td>
@@ -2000,7 +2009,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('stephanie','lucie_collado')" class="ag-row" data-id="lucie_collado">
               <td>Lucie Collado</td>
-              <td><span class="badge ag131</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>163</td>
               <td>43</td>
               <td class="pos">26.4%<span class="d1 dn">▼</span></td>
@@ -2027,7 +2036,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('stephanie','joumala_elalaoui')" class="ag-row" data-id="joumala_elalaoui">
               <td>Joumala ElAlaoui</td>
-              <td><span class="badge ag232</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>164</td>
               <td>36</td>
               <td class="pos">21.9%<span class="d1 dn">▼</span></td>
@@ -2036,7 +2045,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('stephanie','melissa_braun')" class="ag-row" data-id="melissa_braun">
               <td>Melissa Braun</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>134</td>
               <td>38</td>
               <td class="pos">28.4%<span class="d1 up">▲</span></td>
@@ -2045,7 +2054,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('stephanie','helene_ristic')" class="ag-row" data-id="helene_ristic">
               <td>Hélène Ristic</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>118</td>
               <td>30</td>
               <td class="pos">25.4%<span class="d1 eq">≈</span></td>
@@ -2110,7 +2119,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="tp-kpi"><span class="kv">23.1%</span><span class="kl">CR3</span></div>
         <div class="tp-kpi"><span class="kv">€3.3M</span><span class="kl">GBV Q1</span></div>
       </div>
-      <div class="tp-lvls"><span class="badge ag000</span><small>×2</small> <span class="badge ag2h">L2</span><small>×4</small> <span class="badge ag3h">L3</span><small>×3</small></div>
+      <div class="tp-lvls"><span class="badge ag0h">L0</span><small>×2</small> <span class="badge ag2h">L2</span><small>×4</small> <span class="badge ag3h">L3</span><small>×3</small></div>
     </div>
 
     <div class="tp-body">
@@ -2131,7 +2140,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('sophie','alexandra_mennechez')" class="ag-row" data-id="alexandra_mennechez">
               <td>Alexandra Mennechez</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>203</td>
               <td>47</td>
               <td class="pos">23.1%<span class="d1 dn">▼</span></td>
@@ -2140,7 +2149,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('sophie','charlotte_garrido')" class="ag-row" data-id="charlotte_garrido">
               <td>Charlotte Garrido</td>
-              <td><span class="badge ag333</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>191</td>
               <td>49</td>
               <td class="pos">25.6%<span class="d1 dn">▼</span></td>
@@ -2149,7 +2158,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('sophie','emilie_belguise')" class="ag-row" data-id="emilie_belguise">
               <td>Emilie Belguise</td>
-              <td><span class="badge ag121</span></td>
+              <td><span class="badge ag1h">L1</span></td>
               <td>204</td>
               <td>43</td>
               <td class="pos">21.1%<span class="d1 dn">▼</span></td>
@@ -2167,7 +2176,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('sophie','pauline_preynat')" class="ag-row" data-id="pauline_preynat">
               <td>Pauline Preynat</td>
-              <td><span class="badge ag131</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>186</td>
               <td>40</td>
               <td class="pos">21.5%<span class="d1 dn">▼</span></td>
@@ -2176,7 +2185,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('sophie','malek_adjroud')" class="ag-row" data-id="malek_adjroud">
               <td>Malek Adjroud</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>145</td>
               <td>46</td>
               <td class="pos">31.7%<span class="d1 up">▲</span></td>
@@ -2185,7 +2194,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('sophie','fabienne_pottelain')" class="ag-row" data-id="fabienne_pottelain">
               <td>Fabienne Pottelain</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>130</td>
               <td>36</td>
               <td class="pos">27.7%<span class="d1 up">▲</span></td>
@@ -2212,7 +2221,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('sophie','solene_billon')" class="ag-row" data-id="solene_billon">
               <td>Solène Billon</td>
-              <td><span class="badge ag020</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>80</td>
               <td>20</td>
               <td class="pos">25.0%<span class="d1 eq">≈</span></td>
@@ -2278,7 +2287,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <tbody>
             <tr onclick="selectAgent('marion','camille_mollon')" class="ag-row" data-id="camille_mollon">
               <td>Camille Mollon</td>
-              <td><span class="badge ag333</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>171</td>
               <td>59</td>
               <td class="pos">34.5%<span class="d1 up">▲</span></td>
@@ -2287,7 +2296,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('marion','marion_hucbourg_hernandez')" class="ag-row" data-id="marion_hucbourg_hernandez">
               <td>Marion Hucbourg-Hernandez</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>191</td>
               <td>46</td>
               <td class="pos">24.1%<span class="d1 eq">≈</span></td>
@@ -2296,7 +2305,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('marion','aurelie_guesnet')" class="ag-row" data-id="aurelie_guesnet">
               <td>Aurélie Guesnet</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>177</td>
               <td>46</td>
               <td class="pos">26.0%<span class="d1 eq">≈</span></td>
@@ -2305,7 +2314,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('marion','mila_gascoin')" class="ag-row" data-id="mila_gascoin">
               <td>Mila Gascoin</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>160</td>
               <td>48</td>
               <td class="pos">30.0%<span class="d1 up">▲</span></td>
@@ -2314,7 +2323,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('marion','alexandre_paprocki')" class="ag-row" data-id="alexandre_paprocki">
               <td>Alexandre Paprocki</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>177</td>
               <td>41</td>
               <td class="pos">23.2%<span class="d1 dn">▼</span></td>
@@ -2332,7 +2341,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('marion','charline_blas')" class="ag-row" data-id="charline_blas">
               <td>Charline Blas</td>
-              <td><span class="badge ag020</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>155</td>
               <td>41</td>
               <td class="pos">26.4%<span class="d1 up">▲</span></td>
@@ -2359,7 +2368,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('marion','marion_ambroisine_quinard')" class="ag-row" data-id="marion_ambroisine_quinard">
               <td>Marion-Ambroisine Quinard</td>
-              <td><span class="badge ag121</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>40</td>
               <td>12</td>
               <td class="pos">30.0%<span class="d1 up">▲</span></td>
@@ -2423,7 +2432,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           <tbody>
             <tr onclick="selectAgent('lauren','line_desmazures')" class="ag-row" data-id="line_desmazures">
               <td>Line Desmazures</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>206</td>
               <td>63</td>
               <td class="pos">30.6%<span class="d1 up">▲</span></td>
@@ -2432,7 +2441,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('lauren','guillaume_dupont')" class="ag-row" data-id="guillaume_dupont">
               <td>Guillaume Dupont</td>
-              <td><span class="badge ag333</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>194</td>
               <td>55</td>
               <td class="pos">28.4%<span class="d1 eq">≈</span></td>
@@ -2441,7 +2450,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('lauren','claire_henry')" class="ag-row" data-id="claire_henry">
               <td>Claire Henry</td>
-              <td><span class="badge ag121</span></td>
+              <td><span class="badge ag1h">L1</span></td>
               <td>223</td>
               <td>47</td>
               <td class="pos">21.1%<span class="d1 dn">▼</span></td>
@@ -2450,7 +2459,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('lauren','camille_lecomte')" class="ag-row" data-id="camille_lecomte">
               <td>Camille Lecomte</td>
-              <td><span class="badge ag323</span></td>
+              <td><span class="badge ag3h">L3</span></td>
               <td>188</td>
               <td>45</td>
               <td class="pos">23.9%<span class="d1 dn">▼</span></td>
@@ -2468,7 +2477,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('lauren','philippe_tkatchouk')" class="ag-row" data-id="philippe_tkatchouk">
               <td>Philippe Tkatchouk</td>
-              <td><span class="badge ag020</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>185</td>
               <td>43</td>
               <td class="pos">23.2%<span class="d1 dn">▼</span></td>
@@ -2477,7 +2486,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('lauren','amandine_godin')" class="ag-row" data-id="amandine_godin">
               <td>Amandine Godin</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>161</td>
               <td>45</td>
               <td class="pos">27.9%<span class="d1 up">▲</span></td>
@@ -2486,7 +2495,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
             </tr>
             <tr onclick="selectAgent('lauren','eloise_lebert')" class="ag-row" data-id="eloise_lebert">
               <td>Eloïse Lebert</td>
-              <td><span class="badge ag222</span></td>
+              <td><span class="badge ag2h">L2</span></td>
               <td>169</td>
               <td>42</td>
               <td class="pos">24.9%<span class="d1 eq">≈</span></td>
@@ -3172,52 +3181,20 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
 
           <div class="dlbeh">
-            <div class="dlbeh-tt">Comportement & cycles</div>
-            <div class="dlbeh-grid">
-        <div class="dlb-cell bad"><div class="l">Emails / opp</div><div class="v">7,75</div><div class="d dn">−8 % vs mkt 8,4</div></div>
-        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">5,05</div><div class="d">≈ marché 4,9</div></div>
-        <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 27</div><div class="d dn">−2 % vs mkt</div></div>
-        <div class="dlb-cell good"><div class="l">FC → Offer</div><div class="v">1,3 j</div><div class="d up">rapide vs mkt 1,5</div></div>
-        <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">6,3 j</div><div class="d up">le plus court ★</div></div>
-        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">8,3 j</div><div class="d">−0,9j vs mkt 9,2</div></div>
-        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">23,8 %</div><div class="d">≈ corpus uniforme</div></div>
-        <div class="dlb-cell"><div class="l">Durée moy. call</div><div class="v">10,3 min</div><div class="d up">la + longue ★</div></div>
+            <div class="dlradar">
+              <div class="dlradar-tt">Profil L0 · vs marché — chaque axe : 50 = marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-l0"></canvas></div>
+              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L0 · gris pointillé = marché. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlafter">
-              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
-              <div class="dlafter-grid">
-                <div class="dlaf">
-                  <div class="l">Open Tasks / agent</div>
-                  <div class="v">1,0 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 1 · max 3</span></div>
-                  <div class="d">CRM léger — peu de signatures à suivre</div>
-                </div>
-                <div class="dlaf">
-                  <div class="l">Open Cases / agent</div>
-                  <div class="v">3,8 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 12</span></div>
-                  <div class="d">Few cases · faible portefeuille post-vente</div>
-                </div>
-              </div>
-            </div>
-            <div class="dlpipe">
-              <div class="dlpipe-tt">Composition pipeline · 199 opps en cours</div>
-              <div class="dlpipe-bar">
-          <div class="pp-ps" style="flex:9">9 %</div>
-          <div class="pp-so" style="flex:17">17 %</div>
-          <div class="pp-rc" style="flex:44">44 %</div>
-          <div class="pp-sp" style="flex:30">30 %</div>
-              </div>
-              <div class="dlpipe-leg">
-          <span class="lps"><strong>9 %</strong> Present Service</span>
-          <span class="lso"><strong>17 %</strong> Send Offer</span>
-          <span class="lrc"><strong>44 %</strong> Receive Confirm.</span>
-          <span class="lsp"><strong>30 %</strong> Supply Pending</span>
-              </div>
+            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
+              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">5,05</div></div>
+              <div class="dlb-cell min"><div class="l">Daily call</div><div class="v">2h 27</div></div>
+              <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">6,3 j</div></div>
+              <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">8,3 j</div></div>
             </div>
           </div>
+        
         </div>
-
-
-        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L0 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l0"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L0 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict bad dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t">L'<strong>amont sans l'aval</strong>. Le cycle FC → Offer est rapide (1,3 j) et l'OC → RC est même <strong>le plus court du corpus (6,3 j)</strong>, mais le RC ne tient pas : <strong>RC Done 59,8 % vs 73 % L2/L3</strong>. <em>Levier : densifier la relance entre OC et RC (calls + emails).</em></div>
@@ -3273,52 +3250,20 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
 
           <div class="dlbeh">
-            <div class="dlbeh-tt">Comportement & cycles</div>
-            <div class="dlbeh-grid">
-        <div class="dlb-cell bad"><div class="l">Emails / opp</div><div class="v">7,2</div><div class="d dn">le min du corpus</div></div>
-        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div><div class="d">≈ marché</div></div>
-        <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 45</div><div class="d up">le record ★</div></div>
-        <div class="dlb-cell good"><div class="l">FC → Offer</div><div class="v">1,2 j</div><div class="d up">le plus rapide ★</div></div>
-        <div class="dlb-cell"><div class="l">OC → RC</div><div class="v">8,0 j</div><div class="d">≈ marché 7,9</div></div>
-        <div class="dlb-cell good"><div class="l">SP → Conf</div><div class="v">7,3 j</div><div class="d up">le plus court ★</div></div>
-        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">22,8 %</div><div class="d">≈ corpus uniforme</div></div>
-        <div class="dlb-cell bad"><div class="l">Durée moy. call</div><div class="v">9,4 min</div><div class="d dn">la + courte ⚠</div></div>
+            <div class="dlradar">
+              <div class="dlradar-tt">Profil L1 · vs marché — chaque axe : 50 = marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-l1"></canvas></div>
+              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L1 · gris pointillé = marché. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlafter">
-              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
-              <div class="dlafter-grid">
-                <div class="dlaf">
-                  <div class="l">Open Tasks / agent</div>
-                  <div class="v">1,1 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 1 · max 4</span></div>
-                  <div class="d">Tasks faibles · pas de système écrit</div>
-                </div>
-                <div class="dlaf">
-                  <div class="l">Open Cases / agent</div>
-                  <div class="v">7,0 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 58</span></div>
-                  <div class="d">1 outlier ⚠ Bertrand Cazabat (58)</div>
-                </div>
-              </div>
-            </div>
-            <div class="dlpipe">
-              <div class="dlpipe-tt">Composition pipeline · 1 703 opps gérés (record corpus)</div>
-              <div class="dlpipe-bar">
-          <div class="pp-ps" style="flex:8">8 %</div>
-          <div class="pp-so" style="flex:20">20 %</div>
-          <div class="pp-rc" style="flex:45">45 %</div>
-          <div class="pp-sp" style="flex:27">27 %</div>
-              </div>
-              <div class="dlpipe-leg">
-          <span class="lps"><strong>8 %</strong> Present Service</span>
-          <span class="lso"><strong>20 %</strong> Send Offer</span>
-          <span class="lrc"><strong>45 %</strong> Receive Confirm.</span>
-          <span class="lsp"><strong>27 %</strong> Supply Pending</span>
-              </div>
+            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
+              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div></div>
+              <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 45</div></div>
+              <div class="dlb-cell"><div class="l">OC → RC</div><div class="v">8,0 j</div></div>
+              <div class="dlb-cell good"><div class="l">SP → Conf</div><div class="v">7,3 j</div></div>
             </div>
           </div>
+        
         </div>
-
-
-        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L1 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l1"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L1 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict bad dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t">Le <strong>volume sans méthode</strong>. Le L1 prend tous les calls (2h 45/jour record) mais ne formalise pas (7,2 em/opp, le pire). Avec 213 opps simultanées, il pilote en mode pompier — <em>le client arrive au RC sans recap, et signe 1 fois sur 2 seulement.</em></div>
@@ -3374,52 +3319,20 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
 
           <div class="dlbeh">
-            <div class="dlbeh-tt">Comportement & cycles</div>
-            <div class="dlbeh-grid">
-        <div class="dlb-cell star"><div class="l">Emails / opp</div><div class="v">9,13</div><div class="d">record corpus ★</div></div>
-        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,89</div><div class="d">≈ marché</div></div>
-        <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 17</div><div class="d dn">le min ⚠</div></div>
-        <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
-        <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">9,4 j</div><div class="d dn">le plus long ⚠</div></div>
-        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">9,5 j</div><div class="d">+0,4j vs mkt 9,2</div></div>
-        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">22,0 %</div><div class="d">≈ corpus uniforme</div></div>
-        <div class="dlb-cell"><div class="l">Durée moy. call</div><div class="v">10,1 min</div><div class="d">≈ marché</div></div>
+            <div class="dlradar">
+              <div class="dlradar-tt">Profil L2 · vs marché — chaque axe : 50 = marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-l2"></canvas></div>
+              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L2 · gris pointillé = marché. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlafter">
-              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
-              <div class="dlafter-grid">
-                <div class="dlaf">
-                  <div class="l">Open Tasks / agent</div>
-                  <div class="v">4,8 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 25</span></div>
-                  <div class="d">Tasks moyens · 2 outliers ⚠ Camille Lecomte (25) · Mila Gascoin (22)</div>
-                </div>
-                <div class="dlaf">
-                  <div class="l">Open Cases / agent</div>
-                  <div class="v">2,9 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 2 · max 13</span></div>
-                  <div class="d">Cases bien gérés · 2,9 cases/agent</div>
-                </div>
-              </div>
-            </div>
-            <div class="dlpipe">
-              <div class="dlpipe-tt">Composition pipeline · 2 738 opps gérés (37 % du GBV total)</div>
-              <div class="dlpipe-bar">
-          <div class="pp-ps" style="flex:11">11 %</div>
-          <div class="pp-so" style="flex:15">15 %</div>
-          <div class="pp-rc" style="flex:46">46 %</div>
-          <div class="pp-sp" style="flex:28">28 %</div>
-              </div>
-              <div class="dlpipe-leg">
-          <span class="lps"><strong>11 %</strong> Present Service</span>
-          <span class="lso"><strong>15 %</strong> Send Offer</span>
-          <span class="lrc"><strong>46 %</strong> Receive Confirm.</span>
-          <span class="lsp"><strong>28 %</strong> Supply Pending</span>
-              </div>
+            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
+              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,89</div></div>
+              <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 17</div></div>
+              <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">9,4 j</div></div>
+              <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">9,5 j</div></div>
             </div>
           </div>
+        
         </div>
-
-
-        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L2 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l2"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L2 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict good dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t"><strong>L'écrit comme méthode</strong>. 9,1 em/opp record + First OC Bkg 39,4 % record → conversion top corpus. <em>Pour passer L3 : raccourcir OC → RC (9,4 j → 7 j) avec un short call de relance, et augmenter le call/jour à 2h 40+.</em></div>
@@ -3475,52 +3388,20 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
           </div>
 
           <div class="dlbeh">
-            <div class="dlbeh-tt">Comportement & cycles</div>
-            <div class="dlbeh-grid">
-        <div class="dlb-cell"><div class="l">Emails / opp</div><div class="v">8,62</div><div class="d up">+3 % vs mkt</div></div>
-        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div><div class="d">≈ marché</div></div>
-        <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 40</div><div class="d up">+13 min vs L2</div></div>
-        <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
-        <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">7,1 j</div><div class="d up">court vs L2 (9,4 j)</div></div>
-        <div class="dlb-cell bad"><div class="l">SP → Conf</div><div class="v">10,6 j</div><div class="d dn">le plus long · dossiers complexes</div></div>
-        <div class="dlb-cell"><div class="l">% Calls courts</div><div class="v">22,0 %</div><div class="d">≈ corpus uniforme</div></div>
-        <div class="dlb-cell"><div class="l">Durée moy. call</div><div class="v">9,7 min</div><div class="d">≈ marché</div></div>
+            <div class="dlradar">
+              <div class="dlradar-tt">Profil L3 · vs marché — chaque axe : 50 = marché</div>
+              <div class="dlradar-host"><canvas id="lvl-radar-l3"></canvas></div>
+              <div class="dlradar-cap">Polygone <strong>foncé</strong> = L3 · gris pointillé = marché. Plus loin du centre = mieux.</div>
             </div>
-            <div class="dlafter">
-              <div class="dlafter-tt">Gestion CRM & after-sales · moyennes / agent</div>
-              <div class="dlafter-grid">
-                <div class="dlaf">
-                  <div class="l">Open Tasks / agent</div>
-                  <div class="v">4,5 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 3 · max 12</span></div>
-                  <div class="d">Tasks suivis activement (médiane 3)</div>
-                </div>
-                <div class="dlaf">
-                  <div class="l">Open Cases / agent</div>
-                  <div class="v">13,5 <span style="font-size:11px;color:var(--mute);font-family:'Inter',sans-serif">méd. 6 · max 77</span></div>
-                  <div class="d">13,5 cases/agent · dossiers complexes signés</div>
-                </div>
-              </div>
-            </div>
-            <div class="dlpipe">
-              <div class="dlpipe-tt">Composition pipeline · 2 274 opps gérés (34 % du GBV total)</div>
-              <div class="dlpipe-bar">
-          <div class="pp-ps" style="flex:7">7 %</div>
-          <div class="pp-so" style="flex:13">13 %</div>
-          <div class="pp-rc" style="flex:48">48 %</div>
-          <div class="pp-sp" style="flex:32">32 %</div>
-              </div>
-              <div class="dlpipe-leg">
-          <span class="lps"><strong>7 %</strong> Present Service</span>
-          <span class="lso"><strong>13 %</strong> Send Offer</span>
-          <span class="lrc"><strong>48 %</strong> Receive Confirm.</span>
-          <span class="lsp"><strong>32 %</strong> Supply Pending</span>
-              </div>
+            <div class="dlbeh-grid" style="grid-template-columns:1fr 1fr;margin-top:.75rem">
+              <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div></div>
+              <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 40</div></div>
+              <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">7,1 j</div></div>
+              <div class="dlb-cell bad"><div class="l">SP → Conf</div><div class="v">10,6 j</div></div>
             </div>
           </div>
+        
         </div>
-
-
-        <div class="dlradar dr-up d35"><div class="dlradar-tt">Profil L3 · vs marché — chaque axe : 50 = marché</div><div class="dlradar-host"><canvas id="lvl-radar-l3"></canvas></div><div class="dlradar-cap">Polygone <strong>foncé</strong> = L3 · polygone <strong>gris pointillé</strong> = marché. Plus loin du centre = mieux.</div></div>
         <div class="dlverdict good dr-up d4">
           <div class="vd-l">Verdict</div>
           <div class="vd-t"><strong>Solide partout sur le funnel</strong>. 3 records corpus (Offer Made 93 %, OC Done 75 %, RC Bkg 67 %) + <strong>OC → RC le plus court vs L2 (7,1 j vs 9,4 j)</strong>. <em>Contrepartie : SP → Conf 10,6 j (le plus long) et 13,5 open cases/agent — conséquence des dossiers plus complexes signés.</em></div>
@@ -3714,6 +3595,45 @@ function show(id, btn){
   document.getElementById('page-'+id).classList.add('active');
   btn.classList.add('active');
   if(id==='compare') setTimeout(renderChart, 150);
+}
+
+// Find which team an agent belongs to (vincent / stephanie / sophie / marion / lauren)
+function findAgentTeam(agentId) {
+  var teams = ['vincent','stephanie','sophie','marion','lauren'];
+  for (var i = 0; i < teams.length; i++) {
+    var d = window['_agData_' + teams[i]];
+    if (d && d[agentId]) return teams[i];
+  }
+  return null;
+}
+
+// Navigate to an agent's fiche from anywhere on the site (e.g. Agents par level page)
+function gotoAgentFiche(agentId) {
+  var tid = findAgentTeam(agentId);
+  if (!tid) { alert('Agent introuvable dans les équipes.'); return; }
+  // 1) Switch to the Teams page
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-teams').classList.add('active');
+  // Highlight the Teams nav button
+  document.querySelectorAll('.nb').forEach(b => {
+    b.classList.toggle('active', /show\('teams'/.test(b.getAttribute('onclick') || ''));
+  });
+  // 2) Show the right team
+  document.querySelectorAll('.team-panel').forEach(p => p.style.display='none');
+  document.querySelectorAll('.tnb').forEach(b => b.classList.remove('active-sub'));
+  var panel = document.getElementById('tp-' + tid);
+  if (panel) panel.style.display = 'block';
+  document.querySelectorAll('.tnb').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').indexOf("'" + tid + "'") !== -1) {
+      b.classList.add('active-sub');
+    }
+  });
+  // 3) Load the agent's fiche
+  setTimeout(function(){
+    selectAgent(tid, agentId);
+    // Scroll to top of page
+    window.scrollTo({top:0, behavior:'smooth'});
+  }, 80);
 }
 
 function initSlide3Chart() {
@@ -3958,28 +3878,143 @@ function ggRow(label, val, mkt, opts) {
 }
 
 // Build personalized action plan based on weakest metrics vs market
-function buildActionPlan(metrics) {
-  // metrics: array of {label, val, mkt, hib, advice}
-  // Score each metric: how far below benchmark, weighted by hib direction
-  var actionable = [];
-  metrics.forEach(function(m) {
-    if (m.val == null || m.mkt == null || m.mkt === 0) return;
-    var diffPct = ((m.val - m.mkt) / m.mkt) * 100;
-    var underperform = m.hib ? diffPct < -5 : diffPct > 5;
-    if (underperform) {
-      actionable.push({
-        score: Math.abs(diffPct),
-        label: m.label,
-        val: m.val,
-        mkt: m.mkt,
-        diff: diffPct,
-        advice: m.advice
-      });
+// ════════════════════════════════════════════════════════════════
+// ACTION PLAN V2 — root-cause sequential analysis like a TL would write
+// 1) Diagnose where the funnel breaks first (FC → OM → OC → OCB → RC → RCB)
+// 2) Connect the funnel issue to behavioral root causes (em out, em in, calls)
+// 3) Sequence actions: Diagnostic → Action racine → Actions support → Suivi
+// ════════════════════════════════════════════════════════════════
+function buildActionPlanV2(a, enr, mb, ratios) {
+  // ratios = {fc, om, oc, ocb, rc, rcb}  (already safeRatio-fallback'd)
+  var stages = [
+    { key:'fc',  name:'FC Done',     val:ratios.fc,  mkt:mb.fc_done_ratio,
+      diag:'Trop d\'opps n\'ont pas de premier contact réalisé — perte au tout début du funnel.',
+      cause:'Cause probable : opps non contactés ou contact tardif. Sans FC, rien ne suit.',
+      action:'Contacter chaque nouvel opp dans les 24h. Bloquer 1h le matin pour traiter les nouvelles entrées en file.',
+      kpi:'Objectif FC Done > 90 %' },
+    { key:'om',  name:'Offer Made',  val:ratios.om,  mkt:mb.offer_made_ratio,
+      diag:'Beaucoup de FC réalisés mais peu d\'offres envoyées — c\'est la racine de la perte de conversion.',
+      cause:'Sans offre envoyée, pas de signature possible. Tout ce qu\'il y a en aval (OC, RC, BKG) ne peut que diminuer en proportion.',
+      action:'Envoyer une offre après chaque FC qualifié. Process : check-list post-FC, calendrier d\'envoi de l\'offre sous 48h max.',
+      kpi:'Objectif Offer Made > 88 % · priorité absolue avant tout autre levier' },
+    { key:'oc',  name:'OC Done',     val:ratios.oc,  mkt:mb.oc_done_ratio,
+      diag:'Offres envoyées mais peu d\'OC tenus — perte sur le call de présentation.',
+      cause:'Le client ne revient pas pour l\'Offer Call : OC mal fixé en amont, ou pas de relance entre l\'envoi et l\'OC.',
+      action:'Fixer la date OC AVANT de raccrocher le FC. Email de confirmation immédiat avec agenda et reminder 24h avant.',
+      kpi:'Objectif OC Done > 72 %' },
+    { key:'ocb', name:'1er OC Booking',  val:ratios.ocb, mkt:mb.oc_booking_ratio,
+      diag:'OC tenu mais peu de signatures au premier call — qualité du pitch ou préparation client à revoir.',
+      cause:'Le client n\'est pas prêt à booker au 1er OC : soit l\'offre n\'est pas alignée, soit le client n\'a pas digéré les enjeux.',
+      action:'Recap email post-OC systématique (offre, prix, prochaines étapes, appel à action). Densifier l\'écrit autour du call.',
+      kpi:'Objectif 1er OC Bkg > 36 %' },
+    { key:'rc',  name:'RC Done',     val:ratios.rc,  mkt:mb.rc_done_ratio,
+      diag:'OC tenu mais le RC ne se tient pas — désengagement entre OC et RC.',
+      cause:'Cycle OC → RC trop long ou pas de relance intermédiaire. Le client perd l\'intérêt entre les deux étapes.',
+      action:'Short call J+2 entre OC et RC pour ramener le client. Date du RC fixée pendant l\'OC, pas après.',
+      kpi:'Objectif RC Done > 65 %' },
+    { key:'rcb', name:'RC Booking',  val:ratios.rcb, mkt:mb.rc_booking_ratio,
+      diag:'RC tenu mais closing faible — le client arrive au RC sans avoir digéré l\'offre.',
+      cause:'Manque de préparation entre OC et RC. Le client redécouvre l\'offre au RC, le pitch reprend de zéro.',
+      action:'Email de relance 24h avant le RC : recap offre + points à confirmer + agenda du call. Le client arrive préparé.',
+      kpi:'Objectif RC Bkg > 60 %' },
+  ];
+
+  // Find FIRST significant funnel underperformance (root cause cascade)
+  var primary = null;
+  for (var i = 0; i < stages.length; i++) {
+    var s = stages[i];
+    if (s.val == null || s.mkt == null) continue;
+    var diffPct = (s.val - s.mkt) / s.mkt * 100;
+    if (diffPct < -8) {
+      primary = Object.assign({}, s, { diffPct: diffPct });
+      break;
     }
-  });
-  actionable.sort(function(a,b){ return b.score - a.score; });
-  return actionable.slice(0, 4); // top 4 weak spots
+  }
+  // Also note if a later stage is even worse — flag it as cascade consequence
+  var worstStage = null, worstDiff = 0;
+  for (var j = 0; j < stages.length; j++) {
+    var ss = stages[j];
+    if (ss.val == null || ss.mkt == null) continue;
+    var d = (ss.val - ss.mkt) / ss.mkt * 100;
+    if (d < worstDiff) { worstDiff = d; worstStage = ss; }
+  }
+
+  var actions = [];
+
+  // 1) Diagnostic — explain the root cause (or celebrate)
+  if (primary) {
+    var cascadeNote = '';
+    if (worstStage && worstStage.key !== primary.key && worstDiff < primary.diffPct - 3) {
+      cascadeNote = ' En conséquence, <strong>' + worstStage.name + '</strong> est aussi bas ('
+        + worstStage.val.toFixed(1) + ' % vs marché ' + worstStage.mkt.toFixed(1) + ' %) — c\'est la cascade du problème amont.';
+    }
+    actions.push({
+      tag: 'Diagnostic',
+      title: primary.diag,
+      body: '<strong>' + primary.name + '</strong> à ' + primary.val.toFixed(1) + ' % vs marché ' + primary.mkt.toFixed(1) + ' % (' + primary.diffPct.toFixed(0) + ' %). ' + primary.cause + cascadeNote
+    });
+    // 2) Action racine — fix the primary stage
+    actions.push({
+      tag: 'Action 1 · racine',
+      title: primary.action,
+      body: primary.kpi
+    });
+  } else {
+    actions.push({
+      tag: 'Performance',
+      title: 'Tous les indicateurs funnel sont au-dessus ou proches du marché.',
+      body: 'Rôle : maintenir la rigueur, peer-coacher des agents en progression sur la même méthode.'
+    });
+  }
+
+  // 3) Behavioral support actions (em out, em in, daily call) when relevant
+  var actionN = primary ? 2 : 1;
+  var emOutDelta = (enr.emails_out != null && mb.emails_out)
+    ? (enr.emails_out - mb.emails_out) / mb.emails_out * 100 : null;
+  var callDelta  = (enr.daily_call_min != null && mb.daily_call_min)
+    ? (enr.daily_call_min - mb.daily_call_min) / mb.daily_call_min * 100 : null;
+  var emInDelta  = (enr.emails_in != null && mb.emails_in)
+    ? (enr.emails_in - mb.emails_in) / mb.emails_in * 100 : null;
+
+  if (emOutDelta != null && emOutDelta < -10) {
+    actions.push({
+      tag: 'Action ' + actionN + ' · communication écrite',
+      title: 'Densifier l\'écrit — actuellement ' + enr.emails_out.toFixed(1) + ' em out / opp vs ' + mb.emails_out.toFixed(1) + ' marché (' + emOutDelta.toFixed(0) + ' %).',
+      body: 'Plus d\'écrit = plus de follow-up tracé, plus d\'arguments capitalisés, plus d\'engagement client. Recap email systématique après chaque touchpoint. Objectif : ' + Math.ceil(mb.emails_out) + '+ em out / opp.'
+    });
+    actionN++;
+  }
+  if (emInDelta != null && emInDelta < -15 && enr.emails_in != null) {
+    actions.push({
+      tag: 'Action ' + actionN + ' · engagement client',
+      title: 'Engagement client faible — ' + enr.emails_in.toFixed(1) + ' em in / opp vs ' + mb.emails_in.toFixed(1) + ' marché (' + emInDelta.toFixed(0) + ' %).',
+      body: 'Le client ne répond pas autant. Les emails doivent provoquer une réponse — questions ouvertes, choix proposés, deadlines. Mesurer le ratio em in / em out comme indicateur de qualité d\'écrit.'
+    });
+    actionN++;
+  }
+  if (callDelta != null && callDelta < -10) {
+    actions.push({
+      tag: 'Action ' + actionN + ' · volume call',
+      title: 'Augmenter le temps de call quotidien — ' + Math.round(enr.daily_call_min) + ' min/jour vs ' + Math.round(mb.daily_call_min) + ' min marché (' + callDelta.toFixed(0) + ' %).',
+      body: 'Bloquer 30 min de plus chaque jour sur relances et bring-back. La conversion vient du volume × la méthode — l\'un sans l\'autre ne suffit pas.'
+    });
+    actionN++;
+  }
+
+  // 4) Suivi mesurable
+  if (primary) {
+    actions.push({
+      tag: 'Suivi · 4 semaines',
+      title: 'Mesurer la remontée de ' + primary.name + ' comme KPI principal.',
+      body: primary.val.toFixed(0) + ' % aujourd\'hui → objectif ' + Math.round(Math.max(primary.mkt - 2, primary.val + 5)) + ' %+ d\'ici 4 semaines. Review hebdo avec TL pour tracker la tendance et ajuster les actions.'
+    });
+  }
+
+  return actions;
 }
+
+// Legacy wrapper — kept for back-compat but unused now
+function buildActionPlan(metrics) { return []; }
 
 function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
   var initials = a.name.split(' ').map(function(w){return w[0];}).join('').substring(0,2).toUpperCase();
@@ -4032,33 +4067,18 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
   var rc_pct  = (ratRC  != null ? ratRC  : 0).toFixed(1);
   var bkg_pct = (ratOCB != null ? ratOCB : 0).toFixed(1);
 
-  // Build personalized action plan
-  var actionMetrics = [
-    { label:'1<sup>er</sup> OC Booking',  val:enr.oc_booking_ratio,  mkt:mb.oc_booking_ratio,  hib:true,
-      advice:'Soigner la qualité du 1<sup>er</sup> OC — recap email post-OC, agenda du RC fixé pendant le call.' },
-    { label:'RC Done',                    val:enr.rc_done_ratio,     mkt:mb.rc_done_ratio,     hib:true,
-      advice:'Bring-back plus rapide entre OC et RC — short call J+2 pour ramener le client à la date prévue.' },
-    { label:'RC Booking',                 val:enr.rc_booking_ratio,  mkt:mb.rc_booking_ratio,  hib:true,
-      advice:'Préparation du RC — relance email 24h avant avec recap offre et points clés à confirmer.' },
-    { label:'Emails out / opp',           val:enr.emails_out,        mkt:mb.emails_out,        hib:true,
-      advice:'Densifier l\'écrit — recap email systématique après chaque call (objectif 6+ em out / opp).' },
-    { label:'OC → RC cycle',              val:enr.cyc_oc_to_rc,      mkt:mb.cyc_oc_to_rc,      hib:false,
-      advice:'Raccourcir OC → RC — date du RC fixée AVANT de raccrocher l\'OC (objectif < 7 jours).' },
-    { label:'Daily call time',            val:enr.daily_call_min,    mkt:mb.daily_call_min,    hib:true,
-      advice:'Augmenter le temps de call quotidien — bloquer 30 min/jour pour relances entre étapes.' },
-    { label:'Supply Pending → Confirmed', val:enr.cyc_sp_to_sc,      mkt:mb.cyc_sp_to_sc,      hib:false,
-      advice:'Piloter le post-signature — contact DMC J+1, update client J+2 (objectif < 8 jours).' },
-  ];
-  var plan = buildActionPlan(actionMetrics);
-  var planHtml = plan.length === 0
-    ? '<div class="ap-empty">Cet agent performe au-dessus du marché sur toutes les métriques clés. Mission : maintenir le rythme et peer-coacher des agents en progression.</div>'
-    : '<ol>' + plan.map(function(p){
-        var sign = p.diff>0?'+':'';
+  // Build personalized action plan — root-cause sequential (TL-style)
+  var planRatios = { fc:ratFC, om:ratOM, oc:ratOC, ocb:ratOCB, rc:ratRC, rcb:ratRCB };
+  var planActions = buildActionPlanV2(a, enr, mb, planRatios);
+  var planHtml = '<ol class="ap-steps">'
+    + planActions.map(function(p){
         return '<li>'
-             + '<strong>' + p.label + '</strong> ' + p.val.toFixed(1) + ' (vs marché ' + p.mkt.toFixed(1) + ', '
-             + sign + p.diff.toFixed(0) + ' %). <em>' + p.advice + '</em>'
-             + '</li>';
-      }).join('') + '</ol>';
+          + '<div class="ap-tag">' + p.tag + '</div>'
+          + '<div class="ap-title">' + p.title + '</div>'
+          + '<div class="ap-body">' + p.body + '</div>'
+        + '</li>';
+      }).join('')
+    + '</ol>';
 
   // Build a unique chart-id base so multiple cards on the page don't collide
   var cardKey = isTL
@@ -4650,23 +4670,23 @@ function loadTLCard(tid) {
   }
 
   // ── Level radar charts (slides 7-10) ──
-  // Per-level benchmark values for the 6 axes (CR3, FC Done, Offer Made, OC Done, RC Bkg, Em out/opp)
+  // 7 axes : CR3, AOV, FC Done, Offer Made, OC Done, RC Bkg, Em out / opp
   var LEVEL_RADAR = {
-    L0: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
-          values:[19.89, 90.5, 88.4, 69.2, 54.5, 4.99],
+    L0: { axes:['CR3','AOV','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[19.89, 6425, 90.5, 88.4, 69.2, 54.5, 4.99],
           color:'#3A352B', bg:'rgba(58,53,43,.18)' },
-    L1: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
-          values:[20.77, 91.3, 84.6, 66.0, 49.3, 4.59],
+    L1: { axes:['CR3','AOV','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[20.77, 8089, 91.3, 84.6, 66.0, 49.3, 4.59],
           color:'#7A3A14', bg:'rgba(122,58,20,.18)' },
-    L2: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
-          values:[25.35, 88.2, 89.7, 72.6, 66.5, 5.99],
+    L2: { axes:['CR3','AOV','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[25.35, 8194, 88.2, 89.7, 72.6, 66.5, 5.99],
           color:'#0F3866', bg:'rgba(15,56,102,.18)' },
-    L3: { axes:['CR3','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
-          values:[25.92, 87.6, 93.0, 75.2, 66.7, 5.20],
+    L3: { axes:['CR3','AOV','FC Done','Offer Made','OC Done','RC Bkg','Em out / opp'],
+          values:[25.92, 9391, 87.6, 93.0, 75.2, 66.7, 5.20],
           color:'#1F5F3F', bg:'rgba(31,95,63,.18)' },
   };
-  // Market reference per axis
-  var MKT_RADAR = [24.5, 89.0, 89.5, 71.5, 61.3, 5.26];
+  // Market reference per axis (AOV market = total GBV / total bookings = 17 970 681 / 2 177 = 8 254)
+  var MKT_RADAR = [24.5, 8254, 89.0, 89.5, 71.5, 61.3, 5.26];
 
   var _levelRadarsRendered = {};
   function ensureLevelRadar(dsSlide) {
