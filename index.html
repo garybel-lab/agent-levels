@@ -21,20 +21,24 @@
   --grn:#3B6D11;--grnl:#EAF3DE;--grnb:#97C459;
   --blu:#185FA5;--blul:#E6F1FB;--blub:#85B7EB;
 }
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#f0ede8;color:var(--blk);line-height:1.5}
-.wrap{max-width:1100px;margin:0 auto;padding:2rem 2rem 5rem}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:#EDEAE4;color:var(--blk);line-height:1.5;font-feature-settings:"ss01","cv11"}
+.wrap{max-width:1180px;margin:0 auto;padding:2rem 2rem 5rem}
 
-/* HEADER */
-.hdr{background:var(--blk);color:#fff;border-radius:16px;padding:2.5rem 3rem;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:flex-end}
-.hdr h1{font-size:26px;font-weight:700;letter-spacing:-.5px}
-.hdr p{font-size:12px;color:#aaa;margin-top:5px}
-.hdr-stats{display:flex;gap:2rem}
-.hs{text-align:right}.hs-v{font-size:24px;font-weight:700;color:#fff}.hs-l{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.05em}
+/* HEADER — editorial */
+.hdr{background:transparent;color:var(--blk);border-radius:0;padding:1rem 0 1.75rem;margin-bottom:1.25rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:flex-end;border-bottom:1px solid #D8D3C8}
+.hdr h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:42px;letter-spacing:-.5px;line-height:1.05;color:var(--blk)}
+.hdr h1 em{font-style:italic;color:#1F5F3F}
+.hdr p{font-size:11px;color:#6F6B62;margin-top:8px;letter-spacing:.04em;font-weight:500}
+.hdr-stats{display:flex;gap:0;align-items:flex-end}
+.hs{text-align:right;padding:0 1.25rem;border-right:1px solid #D8D3C8}
+.hs:first-child{padding-left:0}.hs:last-child{padding-right:0;border-right:none}
+.hs-v{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;color:var(--blk);line-height:1;letter-spacing:-.5px}
+.hs-l{font-size:9px;color:#6F6B62;text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-top:5px}
 
-/* NAV */
+/* NAV — editorial pills */
 .nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.5rem}
-.nb{padding:7px 18px;border-radius:24px;border:1.5px solid var(--bdr);background:#fff;color:var(--gray);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:all .15s}
-.nb:hover{border-color:var(--blk);color:var(--blk)}
+.nb{padding:7px 16px;border-radius:22px;border:1.5px solid #D8D3C8;background:transparent;color:#6F6B62;font-size:12.5px;font-weight:500;cursor:pointer;font-family:'Inter',inherit;transition:all .15s;letter-spacing:.01em}
+.nb:hover{border-color:var(--blk);color:var(--blk);background:rgba(0,0,0,.02)}
 .nb.active{background:var(--blk);color:#fff;border-color:var(--blk)}
 .nb.na0.active{background:var(--c0d);border-color:var(--c0d)}
 .nb.na1.active{background:var(--c1d);border-color:var(--c1d)}
@@ -49,12 +53,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 .lgnd-i{font-size:12px;color:var(--gray);line-height:1.5}
 .lgnd-i strong{color:var(--blk);font-weight:700}
 
-/* LEVEL HERO */
-.lhero{border-radius:16px;padding:2.5rem 3rem;margin-bottom:1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center}
-.lh0{background:var(--c0l);border:1px solid var(--c0b)}
-.lh1{background:var(--c1l);border:1px solid var(--c1b)}
-.lh2{background:var(--c2l);border:1px solid var(--c2b)}
-.lh3{background:var(--c3l);border:1px solid var(--c3b)}
+/* LEVEL HERO — editorial */
+.lhero{border-radius:18px;padding:2.5rem 3rem;margin-bottom:1.5rem;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center}
+.lh0{background:#E8E4DC;border:1px solid #D8D3C8}
+.lh1{background:#FBE6D6;border:1px solid #EFC994}
+.lh2{background:#DDE9F7;border:1px solid #A9CDEC}
+.lh3{background:#DEEED1;border:1px solid #B6D695}
+.lhc h2{font-family:'Instrument Serif',serif!important;font-weight:400!important;font-size:30px!important;letter-spacing:-.3px;line-height:1.1!important}
+.lhc .tl{font-family:'Instrument Serif',serif;font-style:italic;font-size:15px!important}
 .lbig{width:80px;height:80px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
 .lh0 .lbig{background:var(--c0d)}.lh1 .lbig{background:var(--c1d)}.lh2 .lbig{background:var(--c2d)}.lh3 .lbig{background:var(--c3d)}
 .lb-l{font-size:9px;font-weight:700;color:var(--gray);letter-spacing:.1em;text-transform:uppercase}
@@ -657,6 +663,84 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
 .dact-tbl td.objs{font-size:12.5px;width:24%}
 .dact-tbl td.objs .ob{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;color:var(--ink);font-weight:500}
 .dact-tbl td.objs .ob::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0}
+
+/* ── LEVEL DEEP-DIVE SLIDES (L0→L3) ── */
+.dlevel-hero{display:grid;grid-template-columns:1.5fr auto;gap:2.5rem;align-items:flex-start;margin-bottom:1.5rem}
+.dlevel-hero .lh-num{font-family:'Instrument Serif',serif;font-size:108px;line-height:.85;font-weight:400;letter-spacing:-2px;padding:18px 36px;border-radius:18px;text-align:center;flex-shrink:0}
+.dlevel-hero.h0 .lh-num{background:var(--dk-l0-bg);color:var(--dk-l0-ink)}
+.dlevel-hero.h1 .lh-num{background:var(--dk-l1-bg);color:var(--dk-l1-ink)}
+.dlevel-hero.h2 .lh-num{background:var(--dk-l2-bg);color:var(--dk-l2-ink)}
+.dlevel-hero.h3 .lh-num{background:var(--dk-l3-bg);color:var(--dk-l3-ink)}
+.dlevel-hero .lh-num em{font-style:italic;font-weight:400}
+
+.dlevel-id{display:grid;grid-template-columns:repeat(4,auto);gap:0;margin-top:1.25rem;border-top:1px solid var(--rule);padding-top:1rem;width:max-content}
+.dlid{padding:0 1.5rem;border-right:1px solid var(--rule)}
+.dlid:first-child{padding-left:0}.dlid:last-child{border-right:none;padding-right:0}
+.dlid .v{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.dlid .l{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;margin-top:5px;font-weight:600}
+
+.dlevel-body{display:grid;grid-template-columns:1.05fr 1fr;gap:1.75rem;margin-bottom:1.25rem}
+.dlfn-tt,.dlbeh-tt,.dlpipe-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:14px}
+.dlfn-row{display:grid;grid-template-columns:96px 1fr 96px;gap:10px;align-items:center;margin-bottom:8px;font-size:12px;font-variant-numeric:tabular-nums}
+.dlfn-row .lbl{color:var(--ink);font-weight:600;font-size:11.5px}
+.dlfn-row .bar{height:24px;background:rgba(0,0,0,.05);border-radius:4px;overflow:hidden;position:relative}
+.dlfn-row .bar .fill{height:100%;border-radius:4px;display:flex;align-items:center;padding:0 9px;font-weight:700;font-size:11.5px;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.dlfn.l0 .fill{background:var(--dk-l0-bg);color:var(--dk-l0-ink)}
+.dlfn.l1 .fill{background:var(--dk-l1-bg);color:var(--dk-l1-ink)}
+.dlfn.l2 .fill{background:var(--dk-l2-bg);color:var(--dk-l2-ink)}
+.dlfn.l3 .fill{background:var(--dk-l3-bg);color:var(--dk-l3-ink)}
+.dlfn-row .delta{font-size:11px;font-weight:600;color:var(--mute);text-align:right}
+.dlfn-row .delta.up{color:var(--accent)}
+.dlfn-row .delta.dn{color:var(--dk-red)}
+.dlfn-row .delta.star{color:var(--accent);font-weight:700}
+.dlfn-row.rupture{position:relative;animation:rupturePulse 2s ease-in-out 1.2s 2}
+.dlfn-row.rupture::after{content:'rupture';position:absolute;right:104px;top:-7px;font-size:8.5px;font-weight:700;color:#fff;background:var(--dk-red);padding:2px 7px;border-radius:3px;letter-spacing:.05em;text-transform:uppercase;line-height:1.4;pointer-events:none}
+@keyframes rupturePulse{0%,100%{transform:translateX(0)}50%{transform:translateX(2px)}}
+
+/* Behavior + cycles */
+.dlbeh{display:flex;flex-direction:column}
+.dlbeh-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border-radius:10px;overflow:hidden}
+.dlb-cell{background:#FAF7F1;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;min-height:80px}
+.dlb-cell .l{font-size:10px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:5px}
+.dlb-cell .v{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+.dlb-cell .d{font-size:10.5px;color:var(--mute);margin-top:4px;font-weight:500}
+.dlb-cell .d.up{color:var(--accent);font-weight:600}
+.dlb-cell .d.dn{color:var(--dk-red);font-weight:600}
+.dlb-cell.bad{background:var(--dk-redbg)}
+.dlb-cell.bad .v{color:var(--dk-red)}
+.dlb-cell.good{background:var(--dk-grnbg)}
+.dlb-cell.good .v{color:var(--dk-grn)}
+.dlb-cell.star{background:var(--dk-grnbg);position:relative}
+.dlb-cell.star::after{content:'★';position:absolute;top:8px;right:10px;color:var(--accent);font-size:13px}
+.dlb-cell.star .v{color:var(--accent)}
+
+/* Pipe composition tiny bar */
+.dlpipe{margin-top:1rem;padding:14px 16px;background:#FAF7F1;border:1px solid var(--rule);border-radius:10px}
+.dlpipe-bar{display:flex;height:22px;border-radius:4px;overflow:hidden;margin-bottom:9px}
+.dlpipe-bar > div{display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;color:var(--ink);min-width:0}
+.dlpipe-bar .pp-ps{background:#D5D0C2}
+.dlpipe-bar .pp-so{background:#EFC994}
+.dlpipe-bar .pp-rc{background:#A9CDEC}
+.dlpipe-bar .pp-sp{background:#B6D695}
+.dlpipe-leg{display:flex;flex-wrap:wrap;gap:14px;font-size:10.5px;color:var(--mute)}
+.dlpipe-leg span{display:inline-flex;align-items:center;gap:5px}
+.dlpipe-leg span::before{content:'';width:8px;height:8px;border-radius:2px}
+.dlpipe-leg .lps::before{background:#D5D0C2}.dlpipe-leg .lso::before{background:#EFC994}
+.dlpipe-leg .lrc::before{background:#A9CDEC}.dlpipe-leg .lsp::before{background:#B6D695}
+.dlpipe-leg span strong{color:var(--ink);font-weight:700}
+
+/* Verdict box */
+.dlverdict{padding:1.25rem 1.75rem;border-radius:14px;display:grid;grid-template-columns:auto 1fr;gap:1.5rem;align-items:center}
+.dlverdict.bad{background:var(--dk-redbg)}
+.dlverdict.warn{background:#FBE9D6}
+.dlverdict.good{background:var(--dk-grnbg)}
+.dlverdict .vd-l{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;min-width:90px}
+.dlverdict.bad .vd-l{color:var(--dk-red)}
+.dlverdict.warn .vd-l{color:#854F0B}
+.dlverdict.good .vd-l{color:var(--dk-grn)}
+.dlverdict .vd-t{font-family:'Instrument Serif',serif;font-style:italic;font-size:17.5px;line-height:1.5;color:var(--ink);font-weight:400}
+.dlverdict .vd-t strong{font-style:normal;font-weight:700}
+.dlverdict .vd-t em{font-style:italic;color:var(--accent)}
 
 /* Slide 4b inline funnel chart */
 .dchart-card{background:#fff;border-radius:16px;border:1px solid var(--rule);padding:1.5rem 1.75rem;margin-top:1rem}
@@ -2319,7 +2403,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
     <div class="deck-mode-bar">
       <div class="dmb-left">
         <button class="dmb-toggle" id="deck-toggle">▶ Présentation</button>
-        <span class="dmb-counter">Slide <strong id="deck-counter">1</strong> / <strong>6</strong></span>
+        <span class="dmb-counter">Slide <strong id="deck-counter">1</strong> / <strong id="deck-total">10</strong></span>
         <span class="dmb-help">↑↓ ← → · F plein écran · ESC sortir</span>
       </div>
       <div class="dmb-right">
@@ -2672,11 +2756,302 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;ba
         </div>
       </div>
 
-      <!-- ════════ SLIDE 6 — PLAN D'ACTION Q2 ════════ -->
+      <!-- ════════ SLIDE 6 — L0 ════════ -->
       <div class="deck-slide" data-slide="6">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
           <span class="pgn">06</span>
+          <span>LEVEL 0 · LE CYCLE AMONT RAPIDE</span>
+          <span class="pgright">11 agents · Low Vol · Low ROI</span>
+        </div>
+
+        <div class="dlevel-hero h0 dr-up d1">
+          <div>
+            <h2 class="dh1 compact">Cycle amont rapide,<br><em>désengagement post-OC.</em></h2>
+            <p class="dlede">Le L0 envoie l'offre vite (FC → Offer en 1,3 j), mais la conversion s'effondre après l'OC. <strong>RC Done 59 % vs 73-74 % chez L2/L3</strong> — le client n'est pas accroché entre les étapes.</p>
+            <div class="dlevel-id">
+        <div class="dlid"><div class="v">11</div><div class="l">Agents</div></div>
+        <div class="dlid"><div class="v">168</div><div class="l">Opps / agent</div></div>
+        <div class="dlid"><div class="v">19,8 %</div><div class="l">CR3</div></div>
+        <div class="dlid"><div class="v">5,1 %</div><div class="l">Part GBV</div></div>
+            </div>
+          </div>
+          <div class="lh-num">L<em>0</em></div>
+        </div>
+
+        <div class="dlevel-body dr-up d3">
+          <div class="dlfn l0">
+            <div class="dlfn-tt">Funnel — toutes étapes</div>
+      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:90.6%">90,6 %</div></div><span class="delta">+1,5 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:88.3%">88,3 %</div></div><span class="delta dn">−1,2 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:69.0%">69,0 %</div></div><span class="delta dn">−2,5 vs mkt</span></div>
+      <div class="dlfn-row rupture"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:32.6%">32,6 %</div></div><span class="delta dn">−3,9 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:59.0%">59,0 %</div></div><span class="delta dn">−7,3 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:54.5%">54,5 %</div></div><span class="delta dn">−6,8 vs mkt</span></div>
+          </div>
+
+          <div class="dlbeh">
+            <div class="dlbeh-tt">Comportement & cycles</div>
+            <div class="dlbeh-grid">
+        <div class="dlb-cell bad"><div class="l">Emails / opp</div><div class="v">7,75</div><div class="d dn">−8 % vs mkt 8,4</div></div>
+        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">5,05</div><div class="d">≈ marché 4,9</div></div>
+        <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 27</div><div class="d dn">le min · −10 %</div></div>
+        <div class="dlb-cell good"><div class="l">FC → Offer</div><div class="v">1,3 j</div><div class="d up">rapide vs mkt 1,5</div></div>
+        <div class="dlb-cell"><div class="l">OC → RC</div><div class="v">6,3 j</div><div class="d">≈ marché 7,9</div></div>
+        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">10,0 j</div><div class="d">≈ marché</div></div>
+            </div>
+            <div class="dlpipe">
+              <div class="dlpipe-tt">Composition pipeline · 199 opps en cours</div>
+              <div class="dlpipe-bar">
+          <div class="pp-ps" style="flex:9">9 %</div>
+          <div class="pp-so" style="flex:17">17 %</div>
+          <div class="pp-rc" style="flex:44">44 %</div>
+          <div class="pp-sp" style="flex:30">30 %</div>
+              </div>
+              <div class="dlpipe-leg">
+          <span class="lps"><strong>9 %</strong> Present Service</span>
+          <span class="lso"><strong>17 %</strong> Send Offer</span>
+          <span class="lrc"><strong>44 %</strong> Receive Confirm.</span>
+          <span class="lsp"><strong>30 %</strong> Supply Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dlverdict bad dr-up d4">
+          <div class="vd-l">Verdict</div>
+          <div class="vd-t">L'<strong>amont sans l'aval</strong>. La capacité existe (cycle FC → Offer record) mais l'engagement post-OC fait défaut : <strong>2h 27 de call/jour (le min) + 7,75 em/opp (sous-moyenne)</strong>. <em>Levier : étendre l'engagement après l'envoi de l'offre.</em></div>
+        </div>
+
+        <div class="dpg-foot">
+          <span><strong>Tag :</strong> Le Cycle Amont Rapide</span>
+          <span>Tourlane FR · Q1 2026</span>
+        </div>
+      </div>
+
+      <!-- ════════ SLIDE 7 — L1 ════════ -->
+      <div class="deck-slide" data-slide="7">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">07</span>
+          <span>LEVEL 1 · LE TÉLÉPHONEUR SANS TRACE</span>
+          <span class="pgright">8 agents · High Vol · Low ROI</span>
+        </div>
+
+        <div class="dlevel-hero h1 dr-up d1">
+          <div>
+            <h2 class="dh1 compact">Volume oral maximum,<br><em>trace écrite minimum.</em></h2>
+            <p class="dlede">2h 45 de call/jour (le record du corpus), mais 7,2 emails/opp (le plus bas). Le client perd le fil entre les étapes — <strong>RC Done 52 % et RC Bkg 49 % sont les pires de tous les levels</strong>.</p>
+            <div class="dlevel-id">
+        <div class="dlid"><div class="v">8</div><div class="l">Agents</div></div>
+        <div class="dlid"><div class="v">213</div><div class="l">Opps / agent ⚠</div></div>
+        <div class="dlid"><div class="v">20,6 %</div><div class="l">CR3</div></div>
+        <div class="dlid"><div class="v">23,3 %</div><div class="l">Part GBV</div></div>
+            </div>
+          </div>
+          <div class="lh-num">L<em>1</em></div>
+        </div>
+
+        <div class="dlevel-body dr-up d3">
+          <div class="dlfn l1">
+            <div class="dlfn-tt">Funnel — toutes étapes</div>
+      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:91.3%">91,3 %</div></div><span class="delta up">+2,3 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:84.6%">84,6 %</div></div><span class="delta dn">−4,9 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:65.9%">65,9 %</div></div><span class="delta dn">−5,6 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:33.2%">33,2 %</div></div><span class="delta dn">−3,3 vs mkt</span></div>
+      <div class="dlfn-row rupture"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:52.2%">52,2 %</div></div><span class="delta dn">−14,8 le pire</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:49.3%">49,3 %</div></div><span class="delta dn">−12 le pire</span></div>
+          </div>
+
+          <div class="dlbeh">
+            <div class="dlbeh-tt">Comportement & cycles</div>
+            <div class="dlbeh-grid">
+        <div class="dlb-cell bad"><div class="l">Emails / opp</div><div class="v">7,2</div><div class="d dn">le min du corpus</div></div>
+        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div><div class="d">≈ marché</div></div>
+        <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 45</div><div class="d up">le record ★</div></div>
+        <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,2 j</div><div class="d">rapide</div></div>
+        <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">8,0 j</div><div class="d dn">le plus long</div></div>
+        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">9,3 j</div><div class="d">≈ marché</div></div>
+            </div>
+            <div class="dlpipe">
+              <div class="dlpipe-tt">Composition pipeline · 1 703 opps gérés (record corpus)</div>
+              <div class="dlpipe-bar">
+          <div class="pp-ps" style="flex:8">8 %</div>
+          <div class="pp-so" style="flex:20">20 %</div>
+          <div class="pp-rc" style="flex:45">45 %</div>
+          <div class="pp-sp" style="flex:27">27 %</div>
+              </div>
+              <div class="dlpipe-leg">
+          <span class="lps"><strong>8 %</strong> Present Service</span>
+          <span class="lso"><strong>20 %</strong> Send Offer</span>
+          <span class="lrc"><strong>45 %</strong> Receive Confirm.</span>
+          <span class="lsp"><strong>27 %</strong> Supply Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dlverdict bad dr-up d4">
+          <div class="vd-l">Verdict</div>
+          <div class="vd-t">Le <strong>volume sans méthode</strong>. Le L1 prend tous les calls (2h 45/jour, le record), mais ne formalise pas par écrit (7,2 em/opp, le pire). Avec 213 opps simultanés, il pilote en mode pompier — <em>le client arrive au RC sans recap, sans relance, et signe 1 fois sur 2 seulement.</em></div>
+        </div>
+
+        <div class="dpg-foot">
+          <span><strong>Tag :</strong> Le Téléphoneur sans Trace</span>
+          <span>Tourlane FR · Q1 2026</span>
+        </div>
+      </div>
+
+      <!-- ════════ SLIDE 8 — L2 ════════ -->
+      <div class="deck-slide" data-slide="8">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">08</span>
+          <span>LEVEL 2 · L'ÉCRIT-CONVICTEUR</span>
+          <span class="pgright">19 agents · Low Vol · High ROI · ★ moteur</span>
+        </div>
+
+        <div class="dlevel-hero h2 dr-up d1">
+          <div>
+            <h2 class="dh1 compact">Champion de l'écrit,<br><em>champion de la conversion.</em></h2>
+            <p class="dlede">9,1 emails/opp (record du corpus) + meilleure qualité d'OC (40,1 % de First OC Bkg). Résultat : <strong>CR3 25,7 % — record corpus, 37 % du GBV total</strong>. Le L2 mise sur la rigueur écrite plutôt que sur le volume oral.</p>
+            <div class="dlevel-id">
+        <div class="dlid"><div class="v">19</div><div class="l">Agents</div></div>
+        <div class="dlid"><div class="v">144</div><div class="l">Opps / agent</div></div>
+        <div class="dlid"><div class="v">25,7 % ★</div><div class="l">CR3</div></div>
+        <div class="dlid"><div class="v">37,4 %</div><div class="l">Part GBV</div></div>
+            </div>
+          </div>
+          <div class="lh-num">L<em>2</em></div>
+        </div>
+
+        <div class="dlevel-body dr-up d3">
+          <div class="dlfn l2">
+            <div class="dlfn-tt">Funnel — toutes étapes</div>
+      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:93.0%">93,0 %</div></div><span class="delta up">+4 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:89.9%">89,9 %</div></div><span class="delta">+0,5 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:70.7%">70,7 %</div></div><span class="delta">−0,8 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:40.1%">40,1 %</div></div><span class="delta star">le record ★</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:74.4%">74,4 %</div></div><span class="delta up">+7,4 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:66.5%">66,5 %</div></div><span class="delta up">+5,2 vs mkt</span></div>
+          </div>
+
+          <div class="dlbeh">
+            <div class="dlbeh-tt">Comportement & cycles</div>
+            <div class="dlbeh-grid">
+        <div class="dlb-cell star"><div class="l">Emails / opp</div><div class="v">9,13</div><div class="d">record corpus ★</div></div>
+        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,89</div><div class="d">≈ marché</div></div>
+        <div class="dlb-cell bad"><div class="l">Daily call</div><div class="v">2h 17</div><div class="d dn">le min ⚠</div></div>
+        <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
+        <div class="dlb-cell bad"><div class="l">OC → RC</div><div class="v">9,4 j</div><div class="d dn">le plus long ⚠</div></div>
+        <div class="dlb-cell"><div class="l">SP → Conf</div><div class="v">11,2 j</div><div class="d dn">léger retard</div></div>
+            </div>
+            <div class="dlpipe">
+              <div class="dlpipe-tt">Composition pipeline · 2 738 opps gérés (37 % du GBV total)</div>
+              <div class="dlpipe-bar">
+          <div class="pp-ps" style="flex:11">11 %</div>
+          <div class="pp-so" style="flex:15">15 %</div>
+          <div class="pp-rc" style="flex:46">46 %</div>
+          <div class="pp-sp" style="flex:28">28 %</div>
+              </div>
+              <div class="dlpipe-leg">
+          <span class="lps"><strong>11 %</strong> Present Service</span>
+          <span class="lso"><strong>15 %</strong> Send Offer</span>
+          <span class="lrc"><strong>46 %</strong> Receive Confirm.</span>
+          <span class="lsp"><strong>28 %</strong> Supply Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dlverdict good dr-up d4">
+          <div class="vd-l">Verdict</div>
+          <div class="vd-t"><strong>L'écrit comme méthode</strong>. 9,1 em/opp record + First OC Bkg 40,1 % record → conversion top corpus. <em>Pour passer L3 : raccourcir OC → RC (9,4 j → 7 j) avec un short call de relance, et augmenter le call/jour à 2h 40+.</em></div>
+        </div>
+
+        <div class="dpg-foot">
+          <span><strong>Tag :</strong> L'Écrit-Convicteur</span>
+          <span>Tourlane FR · Q1 2026</span>
+        </div>
+      </div>
+
+      <!-- ════════ SLIDE 9 — L3 ════════ -->
+      <div class="deck-slide" data-slide="9">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">09</span>
+          <span>LEVEL 3 · LE PILOTE POST-VENTE</span>
+          <span class="pgright">14 agents · High Vol · High ROI · ★ solide</span>
+        </div>
+
+        <div class="dlevel-hero h3 dr-up d1">
+          <div>
+            <h2 class="dh1 compact">Solide à toutes les étapes —<br><em>un funnel maîtrisé end-to-end.</em></h2>
+            <p class="dlede">Pas de signature unique comme le L2 ; une régularité. <strong>FC Done 93,8 %, Offer Made 92,8 %, OC Done 73,6 %, RC Bkg 66,7 %</strong> — quatre records corpus. Le L3 est le modèle à diffuser.</p>
+            <div class="dlevel-id">
+        <div class="dlid"><div class="v">14</div><div class="l">Agents</div></div>
+        <div class="dlid"><div class="v">162</div><div class="l">Opps / agent</div></div>
+        <div class="dlid"><div class="v">24,8 %</div><div class="l">CR3</div></div>
+        <div class="dlid"><div class="v">34,1 %</div><div class="l">Part GBV</div></div>
+            </div>
+          </div>
+          <div class="lh-num">L<em>3</em></div>
+        </div>
+
+        <div class="dlevel-body dr-up d3">
+          <div class="dlfn l3">
+            <div class="dlfn-tt">Funnel — toutes étapes</div>
+      <div class="dlfn-row"><span class="lbl">FC Done</span><div class="bar"><div class="fill" style="width:93.8%">93,8 %</div></div><span class="delta star">le record ★</span></div>
+      <div class="dlfn-row"><span class="lbl">Offer Made</span><div class="bar"><div class="fill" style="width:92.8%">92,8 %</div></div><span class="delta star">le record ★</span></div>
+      <div class="dlfn-row"><span class="lbl">OC Done</span><div class="bar"><div class="fill" style="width:73.6%">73,6 %</div></div><span class="delta star">le record ★</span></div>
+      <div class="dlfn-row"><span class="lbl">1er OC Bkg</span><div class="bar"><div class="fill" style="width:34.1%">34,1 %</div></div><span class="delta dn">−2,4 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Done</span><div class="bar"><div class="fill" style="width:73.4%">73,4 %</div></div><span class="delta up">+6,4 vs mkt</span></div>
+      <div class="dlfn-row"><span class="lbl">RC Bkg</span><div class="bar"><div class="fill" style="width:66.7%">66,7 %</div></div><span class="delta star">le record ★</span></div>
+          </div>
+
+          <div class="dlbeh">
+            <div class="dlbeh-tt">Comportement & cycles</div>
+            <div class="dlbeh-grid">
+        <div class="dlb-cell"><div class="l">Emails / opp</div><div class="v">8,62</div><div class="d up">+3 % vs mkt</div></div>
+        <div class="dlb-cell"><div class="l">Calls / opp</div><div class="v">4,76</div><div class="d">≈ marché</div></div>
+        <div class="dlb-cell good"><div class="l">Daily call</div><div class="v">2h 40</div><div class="d up">+13 min vs L2</div></div>
+        <div class="dlb-cell"><div class="l">FC → Offer</div><div class="v">1,6 j</div><div class="d">≈ marché</div></div>
+        <div class="dlb-cell good"><div class="l">OC → RC</div><div class="v">7,1 j</div><div class="d up">rapide vs L2</div></div>
+        <div class="dlb-cell bad"><div class="l">SP → Conf</div><div class="v">11,1 j</div><div class="d dn">le plus long ⚠</div></div>
+            </div>
+            <div class="dlpipe">
+              <div class="dlpipe-tt">Composition pipeline · 2 274 opps gérés (34 % du GBV total)</div>
+              <div class="dlpipe-bar">
+          <div class="pp-ps" style="flex:7">7 %</div>
+          <div class="pp-so" style="flex:13">13 %</div>
+          <div class="pp-rc" style="flex:48">48 %</div>
+          <div class="pp-sp" style="flex:32">32 %</div>
+              </div>
+              <div class="dlpipe-leg">
+          <span class="lps"><strong>7 %</strong> Present Service</span>
+          <span class="lso"><strong>13 %</strong> Send Offer</span>
+          <span class="lrc"><strong>48 %</strong> Receive Confirm.</span>
+          <span class="lsp"><strong>32 %</strong> Supply Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dlverdict good dr-up d4">
+          <div class="vd-l">Verdict</div>
+          <div class="vd-t"><strong>Solide partout sur le funnel</strong>. 4 records corpus simultanés (FC, Offer Made, OC Done, RC Bkg) — pas de point faible, juste de la rigueur end-to-end. <em>Limite : Supply Pending → Conf 11,1 j (dossiers complexes signés). Rôle : peer-coach des L2 émergents.</em></div>
+        </div>
+
+        <div class="dpg-foot">
+          <span><strong>Tag :</strong> Le Pilote Post-Vente</span>
+          <span>Tourlane FR · Q1 2026</span>
+        </div>
+      </div>
+      <!-- ════════ SLIDE 10 — PLAN D'ACTION Q2 ════════ -->
+      <div class="deck-slide" data-slide="10">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">10</span>
           <span>PLAN D'ACTION Q2 2026</span>
           <span class="pgright">Un levier par niveau · objectifs chiffrés</span>
         </div>
@@ -3219,7 +3594,9 @@ function buildCard(a, agentId) {
   if(!stage) return;
   const slides = Array.from(stage.querySelectorAll('.deck-slide'));
   const total  = slides.length;
-  const titles = ['Cover','Performance Q1','Notre démarche','La fracture','Profils comportementaux','Plan d\'action Q2'];
+  const titles = ['Cover','Performance Q1','Notre démarche','La fracture','Profils comportementaux','Level 0 — Cycle Amont Rapide','Level 1 — Téléphoneur sans Trace','Level 2 — Écrit-Convicteur','Level 3 — Pilote Post-Vente','Plan d\'action Q2'];
+  const totalEl = document.getElementById('deck-total');
+  if(totalEl) totalEl.textContent = total;
   let idx = 0;
   let presenting = false;
   let deckChart  = null;
@@ -3263,6 +3640,22 @@ function buildCard(a, agentId) {
         if(t<1) requestAnimationFrame(tick); else { el.textContent = el.textContent; el.dataset.done='1'; }
       }
       requestAnimationFrame(tick);
+    });
+  }
+
+  // Replay funnel bar widths so they animate from 0% on slide entry
+  function replayBars(slide){
+    const fills = slide.querySelectorAll('.dlfn-row .fill');
+    fills.forEach(f => {
+      if(!f.dataset.target) f.dataset.target = f.style.width;
+      f.style.transition = 'none';
+      f.style.width = '0%';
+    });
+    requestAnimationFrame(() => {
+      fills.forEach(f => {
+        f.style.transition = '';
+        f.style.width = f.dataset.target;
+      });
     });
   }
 
@@ -3313,6 +3706,7 @@ function buildCard(a, agentId) {
     // Trigger reveals + chart
     requestAnimationFrame(()=>{
       animateNumbers(slides[n]);
+      replayBars(slides[n]);
       if(slides[n].dataset.slide==='4') setTimeout(ensureDeckChart, 250);
     });
   }
@@ -3339,7 +3733,7 @@ function buildCard(a, agentId) {
   // Initial state: scroll mode, all live
   slides.forEach(s => s.classList.add('live'));
   setTimeout(()=>{
-    slides.forEach(s => animateNumbers(s));
+    slides.forEach(s => { animateNumbers(s); replayBars(s); });
     ensureDeckChart();
   }, 200);
 
