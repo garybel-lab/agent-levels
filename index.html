@@ -785,6 +785,35 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .dlverdict .vd-t strong{font-style:normal;font-weight:700}
 .dlverdict .vd-t em{font-style:italic;color:var(--accent)}
 
+/* ── DAILY MANAGEMENT slide (between fracture and personas) ── */
+.ddaily{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:1.5rem 0}
+.ddaily-col{background:#FAF7F1;border:1px solid var(--rule);border-radius:14px;padding:1.5rem 1.25rem;display:flex;flex-direction:column}
+.ddaily-col.l0{border-top:4px solid var(--dk-l0-ink)}
+.ddaily-col.l1{border-top:4px solid var(--dk-l1-ink)}
+.ddaily-col.l2{border-top:4px solid var(--dk-l2-ink)}
+.ddaily-col.l3{border-top:4px solid var(--dk-l3-ink)}
+.ddaily-col .h-lvl{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;line-height:1;letter-spacing:-.5px}
+.ddaily-col.l0 .h-lvl{color:var(--dk-l0-ink)}
+.ddaily-col.l1 .h-lvl{color:var(--dk-l1-ink)}
+.ddaily-col.l2 .h-lvl{color:var(--dk-l2-ink)}
+.ddaily-col.l3 .h-lvl{color:var(--dk-l3-ink)}
+.ddaily-col .h-lvl em{font-style:italic;font-weight:400}
+.ddaily-col .h-tag{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:6px 0 14px}
+.ddaily-col .row{display:flex;justify-content:space-between;align-items:baseline;padding:6px 0;border-top:1px dashed var(--rule);font-size:11.5px;font-variant-numeric:tabular-nums}
+.ddaily-col .row:first-of-type{border-top:none}
+.ddaily-col .row .lbl{color:var(--mute);font-weight:500}
+.ddaily-col .row .val{font-family:'Instrument Serif',serif;font-size:18px;color:var(--ink);font-weight:400;line-height:1}
+.ddaily-col .row .val.star{color:var(--accent)}
+.ddaily-col .row .val.warn{color:var(--dk-red)}
+.ddaily-col .badge{display:inline-block;font-size:9px;font-weight:700;color:#fff;padding:1px 6px;border-radius:3px;letter-spacing:.05em;margin-left:5px;text-transform:uppercase}
+.ddaily-col .badge.star{background:var(--accent)}
+.ddaily-col .badge.warn{background:var(--dk-red)}
+
+.ddaily-takeaway{background:var(--ink);color:#fff;border-radius:14px;padding:1rem 1.5rem;font-size:13px;line-height:1.55;display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:baseline;margin-top:.5rem}
+.ddaily-takeaway .l{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9DD2A6;flex-shrink:0}
+.ddaily-takeaway em{font-style:italic;color:#9DD2A6}
+.ddaily-takeaway strong{font-weight:700}
+
 /* Slide 4b inline funnel chart */
 .dchart-card{background:#fff;border-radius:16px;border:1px solid var(--rule);padding:1.5rem 1.75rem;margin-top:1rem}
 .dchart-card .ch-tt{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mute);margin-bottom:12px}
@@ -2794,20 +2823,93 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         <div class="dchart-card dr-up d4">
           <div class="ch-tt">Funnel — comparaison L0 / L1 / L2 / L3</div>
           <div class="dchart-host"><canvas id="deckFunnel"></canvas></div>
-          <div class="ch-cap">Différenciateur majeur du L3 · <strong>38 % de calls courts</strong> (relance) vs ~25 % partout ailleurs.</div>
+          <div class="ch-cap">La rupture se concentre sur le RC : L0/L1 perdent <strong>15-20 points</strong> entre OC Done et RC Done (vs ≈ <strong>0 point</strong> pour L2/L3). Pas un problème de funnel amont — un problème de relance après l'offre.</div>
         </div>
 
         <div class="dpg-foot">
-          <span><strong>Différenciateur majeur du L3</strong> · 38 % de calls courts vs ~25 % partout ailleurs</span>
+          <span><strong>L2 / L3</strong> · 6,3-6,8 relances par opp vs <strong>5,7</strong> pour L1 — différentiel de qualité, pas de volume</span>
           <span><strong>Tourlane FR</strong> · Q1 2026</span>
         </div>
       </div>
 
-      <!-- ════════ SLIDE 5 — PROFILS COMPORTEMENTAUX ════════ -->
+      <!-- ════════ SLIDE 5 — GESTION QUOTIDIENNE ════════ -->
       <div class="deck-slide" data-slide="5">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
           <span class="pgn">05</span>
+          <span>GESTION QUOTIDIENNE</span>
+          <span class="pgright">Volume × profondeur · la signature de chaque level</span>
+        </div>
+        <h2 class="dh1 compact dr-up d1">Le différenciateur n'est pas <em>la quantité,</em><br>c'est la <em>profondeur</em> de chaque contact.</h2>
+        <p class="dlede dr-up d2">% de calls courts (~22 % partout) : aucun écart entre levels. Le pattern qui sépare L2/L3 de L0/L1 est ailleurs — <strong>la durée moyenne par call</strong> et le <strong>volume de relances par opp</strong>.</p>
+
+        <div class="ddaily dr-up d3">
+          <div class="ddaily-col l0">
+            <div class="h-lvl">L<em>0</em></div>
+            <div class="h-tag">11 agents · 168 opps</div>
+            <div class="row"><span class="lbl">Calls / jour</span><span class="val">13,3</span></div>
+            <div class="row"><span class="lbl">Em. out / jour</span><span class="val">13,1</span></div>
+            <div class="row"><span class="lbl">Durée moy. / call</span><span class="val">11,1 min</span></div>
+            <div class="row"><span class="lbl">Calls courts / opp</span><span class="val">1,20</span></div>
+            <div class="row"><span class="lbl">Em. out / opp</span><span class="val">4,99</span></div>
+            <div class="row"><span class="lbl">Relances / opp</span><span class="val">6,19</span></div>
+            <div class="row"><span class="lbl">Total Q1 calls</span><span class="val">848</span></div>
+            <div class="row"><span class="lbl">Total Q1 emails</span><span class="val">838</span></div>
+          </div>
+          <div class="ddaily-col l1">
+            <div class="h-lvl">L<em>1</em></div>
+            <div class="h-tag">8 agents · 213 opps</div>
+            <div class="row"><span class="lbl">Calls / jour</span><span class="val star">15,8 <span class="badge star">max</span></span></div>
+            <div class="row"><span class="lbl">Em. out / jour</span><span class="val star">15,3 <span class="badge star">max</span></span></div>
+            <div class="row"><span class="lbl">Durée moy. / call</span><span class="val warn">10,4 min <span class="badge warn">min</span></span></div>
+            <div class="row"><span class="lbl">Calls courts / opp</span><span class="val">1,08</span></div>
+            <div class="row"><span class="lbl">Em. out / opp</span><span class="val warn">4,59 <span class="badge warn">min</span></span></div>
+            <div class="row"><span class="lbl">Relances / opp</span><span class="val warn">5,67 <span class="badge warn">min</span></span></div>
+            <div class="row"><span class="lbl">Total Q1 calls</span><span class="val">1 014</span></div>
+            <div class="row"><span class="lbl">Total Q1 emails</span><span class="val">978</span></div>
+          </div>
+          <div class="ddaily-col l2">
+            <div class="h-lvl">L<em>2</em></div>
+            <div class="h-tag">19 agents · 144 opps</div>
+            <div class="row"><span class="lbl">Calls / jour</span><span class="val warn">11,0 <span class="badge warn">min</span></span></div>
+            <div class="row"><span class="lbl">Em. out / jour</span><span class="val">12,9</span></div>
+            <div class="row"><span class="lbl">Durée moy. / call</span><span class="val">12,5 min</span></div>
+            <div class="row"><span class="lbl">Calls courts / opp</span><span class="val">1,07</span></div>
+            <div class="row"><span class="lbl">Em. out / opp</span><span class="val star">5,73 <span class="badge star">max</span></span></div>
+            <div class="row"><span class="lbl">Relances / opp</span><span class="val star">6,80 <span class="badge star">max</span></span></div>
+            <div class="row"><span class="lbl">Total Q1 calls</span><span class="val">704</span></div>
+            <div class="row"><span class="lbl">Total Q1 emails</span><span class="val">825</span></div>
+          </div>
+          <div class="ddaily-col l3">
+            <div class="h-lvl">L<em>3</em></div>
+            <div class="h-tag">14 agents · 162 opps</div>
+            <div class="row"><span class="lbl">Calls / jour</span><span class="val">12,0</span></div>
+            <div class="row"><span class="lbl">Em. out / jour</span><span class="val">13,2</span></div>
+            <div class="row"><span class="lbl">Durée moy. / call</span><span class="val star">13,3 min <span class="badge star">max</span></span></div>
+            <div class="row"><span class="lbl">Calls courts / opp</span><span class="val">1,06</span></div>
+            <div class="row"><span class="lbl">Em. out / opp</span><span class="val">5,20</span></div>
+            <div class="row"><span class="lbl">Relances / opp</span><span class="val">6,26</span></div>
+            <div class="row"><span class="lbl">Total Q1 calls</span><span class="val">771</span></div>
+            <div class="row"><span class="lbl">Total Q1 emails</span><span class="val">842</span></div>
+          </div>
+        </div>
+
+        <div class="ddaily-takeaway dr-up d4">
+          <span class="l">Lecture</span>
+          <span><strong>L1</strong> fait le plus d'activité brute (1 014 calls + 978 emails Q1) mais ses calls sont les <strong>plus courts</strong> (10,4 min) — résultat : <em>le moins de relances par opp (5,67)</em> malgré le volume. <strong>L2 / L3</strong> misent sur la <em>profondeur</em> de chaque contact : calls plus longs (12,5–13,3 min) + plus d'emails par opp = meilleure conversion.</span>
+        </div>
+
+        <div class="dpg-foot">
+          <span>Calls courts = calls &lt; 10 min · Relances / opp = calls courts + emails out</span>
+          <span><strong>Tourlane FR</strong> · Q1 2026</span>
+        </div>
+      </div>
+
+      <!-- ════════ SLIDE 6 — PROFILS COMPORTEMENTAUX ════════ -->
+      <div class="deck-slide" data-slide="6">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">06</span>
           <span>PROFILS COMPORTEMENTAUX</span>
           <span class="pgright">Les 4 personas agent</span>
         </div>
@@ -2881,11 +2983,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         </div>
       </div>
 
-      <!-- ════════ SLIDE 6 — L0 ════════ -->
-      <div class="deck-slide" data-slide="6">
+      <!-- ════════ SLIDE 7 — L0 ════════ -->
+      <div class="deck-slide" data-slide="7">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
-          <span class="pgn">06</span>
+          <span class="pgn">07</span>
           <span>LEVEL 0 · LE CYCLE AMONT RAPIDE</span>
           <span class="pgright">11 agents · Low Vol · Low ROI</span>
         </div>
@@ -2969,11 +3071,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         </div>
       </div>
 
-      <!-- ════════ SLIDE 7 — L1 ════════ -->
-      <div class="deck-slide" data-slide="7">
+      <!-- ════════ SLIDE 8 — L1 ════════ -->
+      <div class="deck-slide" data-slide="8">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
-          <span class="pgn">07</span>
+          <span class="pgn">08</span>
           <span>LEVEL 1 · LE TÉLÉPHONEUR SANS TRACE</span>
           <span class="pgright">8 agents · High Vol · Low ROI</span>
         </div>
@@ -3057,11 +3159,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         </div>
       </div>
 
-      <!-- ════════ SLIDE 8 — L2 ════════ -->
-      <div class="deck-slide" data-slide="8">
+      <!-- ════════ SLIDE 9 — L2 ════════ -->
+      <div class="deck-slide" data-slide="9">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
-          <span class="pgn">08</span>
+          <span class="pgn">09</span>
           <span>LEVEL 2 · L'ÉCRIT-CONVICTEUR</span>
           <span class="pgright">19 agents · Low Vol · High ROI · ★ moteur</span>
         </div>
@@ -3145,11 +3247,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         </div>
       </div>
 
-      <!-- ════════ SLIDE 9 — L3 ════════ -->
-      <div class="deck-slide" data-slide="9">
+      <!-- ════════ SLIDE 10 — L3 ════════ -->
+      <div class="deck-slide" data-slide="10">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
-          <span class="pgn">09</span>
+          <span class="pgn">10</span>
           <span>LEVEL 3 · LE PILOTE POST-VENTE</span>
           <span class="pgright">14 agents · High Vol · High ROI · ★ solide</span>
         </div>
@@ -3233,11 +3335,11 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
         </div>
       </div>
 
-      <!-- ════════ SLIDE 10 — PLAN D'ACTION Q2 ════════ -->
-      <div class="deck-slide" data-slide="10">
+      <!-- ════════ SLIDE 11 — PLAN D'ACTION Q2 ════════ -->
+      <div class="deck-slide" data-slide="11">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
-          <span class="pgn">10</span>
+          <span class="pgn">11</span>
           <span>PLAN D'ACTION Q2 2026</span>
           <span class="pgright">Un levier par niveau · objectifs chiffrés</span>
         </div>
@@ -3783,7 +3885,7 @@ function buildCard(a, agentId) {
   if(!stage) return;
   const slides = Array.from(stage.querySelectorAll('.deck-slide'));
   const total  = slides.length;
-  const titles = ['Cover','Performance Q1','Notre démarche','La fracture','Profils comportementaux','Level 0 — Cycle Amont Rapide','Level 1 — Téléphoneur sans Trace','Level 2 — Écrit-Convicteur','Level 3 — Pilote Post-Vente','Plan d\'action Q2'];
+  const titles = ['Cover','Performance Q1','Notre démarche','La fracture','Gestion quotidienne','Profils comportementaux','Level 0 — Cycle Amont Rapide','Level 1 — Téléphoneur sans Trace','Level 2 — Écrit-Convicteur','Level 3 — Pilote Post-Vente','Plan d\'action Q2'];
   const totalEl = document.getElementById('deck-total');
   if(totalEl) totalEl.textContent = total;
   let idx = 0;
