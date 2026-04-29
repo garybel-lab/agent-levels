@@ -3712,6 +3712,27 @@ function loadCard(tid, agentId) {
   if (ac) {
     ac.style.display='block';
     ac.innerHTML = buildCard(a, agentId);
+    // Render personal funnel chart after DOM injection
+    setTimeout(function(){
+      var enr = (window._agentEnrichment && window._agentEnrichment[agentId]) || {};
+      var mb  = (window._levelBenchmarks && window._levelBenchmarks.MARKET) || {};
+      function _safe(v, n, d) {
+        if (v != null && v >= 5) return v;
+        if (d && d > 0) return (n / d) * 100;
+        return v;
+      }
+      var ratios = [
+        _safe(enr.fc_done_ratio,    a.fc_done,   a.opps),
+        _safe(enr.offer_made_ratio, a.so_count,  a.fc_done),
+        _safe(enr.oc_done_ratio,    a.oc_done,   a.so_count),
+        _safe(enr.oc_booking_ratio, a.first_bkg, a.oc_done),
+        _safe(enr.rc_done_ratio,    a.rc_done,   a.oc_done),
+        _safe(enr.rc_booking_ratio, a.first_bkg, a.rc_done),
+      ];
+      var market = [mb.fc_done_ratio, mb.offer_made_ratio, mb.oc_done_ratio,
+                    mb.oc_booking_ratio, mb.rc_done_ratio, mb.rc_booking_ratio];
+      renderFc2Funnel('pfunnel-' + agentId, a.name, ratios, market, false);
+    }, 50);
   }
 }
 
@@ -3948,12 +3969,29 @@ function buildCard(a, agentIdOrEnr, isTL) {
   var aovDiffPct = (a.aov - mktAOV) / mktAOV * 100;
   var aovCls = Math.abs(aovDiffPct) < 5 ? 'eq' : (aovDiffPct > 0 ? 'up' : 'dn');
 
+  // ── Funnel ratios with fallback to canonical _agData_ counts ──
+  // Some agents (Samantha PJ, Eloïse Lebert, etc.) have null or implausibly low
+  // enrichment ratios. When enrichment is missing or < 5 (clearly a parse bug),
+  // compute the ratio from the raw counts in _agData_ instead.
+  function safeRatio(enrVal, num, denom, minPlausible) {
+    var threshold = (minPlausible == null ? 5 : minPlausible);
+    if (enrVal != null && enrVal >= threshold) return enrVal;
+    if (denom && denom > 0) return (num / denom) * 100;
+    return enrVal; // could be null
+  }
+  var ratFC  = safeRatio(enr.fc_done_ratio,    a.fc_done,   a.opps);
+  var ratOM  = safeRatio(enr.offer_made_ratio, a.so_count,  a.fc_done);
+  var ratOC  = safeRatio(enr.oc_done_ratio,    a.oc_done,   a.so_count);
+  var ratRC  = safeRatio(enr.rc_done_ratio,    a.rc_done,   a.oc_done);
+  var ratOCB = safeRatio(enr.oc_booking_ratio, a.first_bkg, a.oc_done);
+  var ratRCB = safeRatio(enr.rc_booking_ratio, a.first_bkg, a.rc_done);
+
   // Funnel step %
-  var fc_pct = (enr.fc_done_ratio || 0).toFixed(1);
-  var so_pct = (enr.offer_made_ratio || 0).toFixed(1);
-  var oc_pct = (enr.oc_done_ratio || 0).toFixed(1);
-  var rc_pct = (enr.rc_done_ratio || 0).toFixed(1);
-  var bkg_pct = (enr.oc_booking_ratio || 0).toFixed(1);
+  var fc_pct  = (ratFC  != null ? ratFC  : 0).toFixed(1);
+  var so_pct  = (ratOM  != null ? ratOM  : 0).toFixed(1);
+  var oc_pct  = (ratOC  != null ? ratOC  : 0).toFixed(1);
+  var rc_pct  = (ratRC  != null ? ratRC  : 0).toFixed(1);
+  var bkg_pct = (ratOCB != null ? ratOCB : 0).toFixed(1);
 
   // Build personalized action plan
   var actionMetrics = [
@@ -4023,14 +4061,14 @@ function buildCard(a, agentIdOrEnr, isTL) {
       + '<div class="fc2-fstep bkg"><div class="l">BKG</div><div class="v">' + a.first_bkg + '</div><div class="pct">' + bkg_pct + ' %</div></div>'
     + '</div>'
 
-    // RATIOS funnel — gauges vs market
+    // RATIOS funnel — gauges vs market (uses safeRatio fallbacks)
     + '<div class="fc2-h">Ratios funnel · jauges vs marché</div>'
-    + ggRow('FC Done',     enr.fc_done_ratio,     mb.fc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
-    + ggRow('Offer Made',  enr.offer_made_ratio,  mb.offer_made_ratio,  {unit:' %', higherIsBetter:true, scaleMax:100})
-    + ggRow('OC Done',     enr.oc_done_ratio,     mb.oc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
-    + ggRow('1er OC → Bkg',enr.oc_booking_ratio,  mb.oc_booking_ratio,  {unit:' %', higherIsBetter:true, scaleMax:80})
-    + ggRow('RC Done',     enr.rc_done_ratio,     mb.rc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
-    + ggRow('RC → Bkg',    enr.rc_booking_ratio,  mb.rc_booking_ratio,  {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('FC Done',     ratFC,  mb.fc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('Offer Made',  ratOM,  mb.offer_made_ratio,  {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('OC Done',     ratOC,  mb.oc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('1er OC → Bkg',ratOCB, mb.oc_booking_ratio,  {unit:' %', higherIsBetter:true, scaleMax:80})
+    + ggRow('RC Done',     ratRC,  mb.rc_done_ratio,     {unit:' %', higherIsBetter:true, scaleMax:100})
+    + ggRow('RC → Bkg',    ratRCB, mb.rc_booking_ratio,  {unit:' %', higherIsBetter:true, scaleMax:100})
 
     // COMMUNICATION
     + '<div class="fc2-h">Communication · vs marché</div>'
@@ -4054,6 +4092,11 @@ function buildCard(a, agentIdOrEnr, isTL) {
     + ggRow('Open Cases',  enr.open_cases, 6.0, {higherIsBetter:false, decimals:0})
     + ggRow('Supply Pending (volume Q1)', a.sp_count, null, {decimals:0, scaleMax:60})
 
+    // PERSONAL FUNNEL CHART — line graph: agent vs market
+    + '<div class="fc2-h">Funnel personnel · courbe vs marché</div>'
+    + '<div class="pfunnel-wrap"><canvas id="pfunnel-' + (isTL ? 'tl-' + (a.name || '').replace(/\s/g,'_') : (typeof agentIdOrEnr === "string" ? agentIdOrEnr : "card")) + '"></canvas></div>'
+    + '<p style="font-size:11px;color:#6F6B62;margin:8px 0 0;line-height:1.5">Ligne <strong>noire</strong> = ' + a.name + ' · ligne <strong>pointillée grise</strong> = moyenne marché (52 agents canonique)</p>'
+
     // ACTION PLAN — personalized
     + '<div class="fc2-action">'
       + '<h4>Plan d\'action <em>personnalisé</em></h4>'
@@ -4062,6 +4105,48 @@ function buildCard(a, agentIdOrEnr, isTL) {
     + '</div>'
 
     + '</div>'; // end fc2
+}
+
+// Render the personal funnel line chart for an agent or TL
+function renderFc2Funnel(canvasId, agentName, ratios, marketRatios, isTL) {
+  var canvas = document.getElementById(canvasId);
+  if (!canvas || typeof Chart === 'undefined') return;
+  if (canvas._chart) { try { canvas._chart.destroy(); } catch(e){} }
+  var stages = ['FC Done','Offer Made','OC Done','1er OC Bkg','RC Done','RC Bkg'];
+  var agentColor = isTL ? '#1A1A1A' : '#1A1A1A';
+  canvas._chart = new Chart(canvas.getContext('2d'), {
+    type:'line',
+    data:{ labels:stages, datasets:[
+      { label: agentName, data: ratios,
+        borderColor: agentColor, backgroundColor:'rgba(26,26,26,0.06)',
+        borderWidth:3, pointRadius:6, pointHoverRadius:8,
+        pointBackgroundColor: agentColor, fill:false, tension:0.3 },
+      { label:'Moyenne marché', data: marketRatios,
+        borderColor:'#9B968A', backgroundColor:'rgba(0,0,0,0)',
+        borderWidth:2, borderDash:[6,4], pointRadius:4,
+        pointBackgroundColor:'#9B968A', fill:false, tension:0.3 }
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      animation:{duration:700, easing:'easeOutCubic'},
+      plugins:{
+        legend:{ display:true, position:'top', align:'end',
+                 labels:{ font:{size:11,family:'Inter'}, boxWidth:12, padding:14, color:'#1A1A1A' } },
+        tooltip:{ backgroundColor:'#1A1A1A',
+          titleFont:{family:'Inter',weight:'600'}, bodyFont:{family:'Inter'},
+          callbacks:{ label:function(c){
+            return ' ' + c.dataset.label + ' : ' + (c.parsed.y!=null?c.parsed.y.toFixed(1)+' %':'—');
+          } } }
+      },
+      interaction:{mode:'index', intersect:false},
+      scales:{
+        y:{ min:0, max:100,
+            ticks:{ callback:function(v){return v+' %';}, font:{size:11,family:'Inter'}, color:'#6F6B62' },
+            grid:{color:'#E8E3D8'} },
+        x:{ ticks:{ font:{size:11,family:'Inter'}, color:'#6F6B62' }, grid:{display:false} }
+      }
+    }
+  });
 }
 
 // ════════════════════════════════════════════════════════════════
@@ -4189,6 +4274,29 @@ function loadTLCard(tid) {
     ac.innerHTML = html.replace('</div>', '</div>' + teamStrip);
     // Highlight TL button
     document.querySelectorAll('#tp-' + tid + ' .tl-btn').forEach(function(b){b.classList.add('active');});
+    // Render TL personal funnel chart
+    setTimeout(function(){
+      var mb = (window._levelBenchmarks && window._levelBenchmarks.MARKET) || {};
+      function _safe(v, n, d) {
+        if (v != null && v >= 5) return v;
+        if (d && d > 0) return (n / d) * 100;
+        return v;
+      }
+      var fa = agg.fakeAgent;
+      var e  = agg.enr;
+      var ratios = [
+        _safe(e.fc_done_ratio,    fa.fc_done,   fa.opps),
+        _safe(e.offer_made_ratio, fa.so_count,  fa.fc_done),
+        _safe(e.oc_done_ratio,    fa.oc_done,   fa.so_count),
+        _safe(e.oc_booking_ratio, fa.first_bkg, fa.oc_done),
+        _safe(e.rc_done_ratio,    fa.rc_done,   fa.oc_done),
+        _safe(e.rc_booking_ratio, fa.first_bkg, fa.rc_done),
+      ];
+      var market = [mb.fc_done_ratio, mb.offer_made_ratio, mb.oc_done_ratio,
+                    mb.oc_booking_ratio, mb.rc_done_ratio, mb.rc_booking_ratio];
+      var canvasId = 'pfunnel-tl-' + fa.name.replace(/\s/g,'_');
+      renderFc2Funnel(canvasId, fa.name, ratios, market, true);
+    }, 50);
   }
   // Reset agent select
   var sel = document.getElementById('sel-' + tid);
