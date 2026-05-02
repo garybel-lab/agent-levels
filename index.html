@@ -545,21 +545,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .fc2-chart-host .legend-note strong{color:#1A1A1A}
 
 /* Action plan section — sequential, TL-style narrative */
-.fc2-action{background:#1A1A1A;color:#fff;border-radius:14px;padding:1.25rem 1.5rem;margin-top:1.25rem}
-.fc2-action h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;margin:0 0 4px;letter-spacing:-.3px}
-.fc2-action h4 em{color:#9DD2A6;font-style:italic}
-.fc2-action .ap-sub{font-size:11px;color:#aaa;margin-bottom:14px;letter-spacing:.04em}
-
+.fc2-action{background:#FAF7F1;color:#1A1A1A;border:1px solid #E0DCD0;border-radius:14px;padding:1.25rem 1.5rem;margin-top:1.25rem}
+.fc2-action h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;margin:0 0 3px;letter-spacing:-.3px;color:#1A1A1A}
+.fc2-action h4 em{color:#C17B3B;font-style:italic}
+.fc2-action .ap-sub{font-size:11px;color:#8A857E;margin-bottom:12px;letter-spacing:.04em}
+.ap-reasoning{font-family:'Instrument Serif',serif;font-size:13.5px;line-height:1.7;color:#4A4540;font-style:italic;margin-bottom:18px;padding:12px 14px;background:#F3EFE8;border-left:3px solid #C17B3B;border-radius:0 6px 6px 0}
 .ap-steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0}
-.ap-steps li{padding:14px 0;border-top:1px solid #2C2C2A}
-.ap-steps li:first-child{border-top:none;padding-top:6px}
-.ap-tag{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9DD2A6;margin-bottom:5px}
-.ap-title{font-size:13.5px;font-weight:600;color:#fff;line-height:1.45;margin-bottom:5px}
-.ap-title strong{color:#9DD2A6;font-weight:700}
-.ap-body{font-size:12.5px;line-height:1.55;color:#cfcdc6}
-.ap-body strong{color:#fff;font-weight:600}
-.ap-body em{color:#9DD2A6;font-style:italic}
-.fc2-action .ap-empty{font-size:13px;color:#9DD2A6;font-style:italic;line-height:1.5;padding:8px 0}
+.ap-steps li{padding:14px 0;border-top:1px solid #E8E3D8}
+.ap-steps li:first-child{border-top:none;padding-top:4px}
+.ap-tag{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:7px;display:inline-block;padding:3px 9px;border-radius:20px}
+.ap-tag.t-diag{color:#8B4513;background:#FEF0E0}
+.ap-tag.t-p1{color:#B22222;background:#FDECEA}
+.ap-tag.t-pn{color:#9B6B00;background:#FFF8E1}
+.ap-tag.t-suivi{color:#2E6B46;background:#E6F4EC}
+.ap-tag.t-ok{color:#2E6B46;background:#E6F4EC}
+.ap-title{font-size:13.5px;font-weight:600;color:#1A1A1A;line-height:1.45;margin-bottom:6px}
+.ap-title strong{color:#B22222;font-weight:700}
+.ap-body{font-size:12px;line-height:1.6;color:#5C5750}
+.ap-body strong{color:#1A1A1A;font-weight:600}
+.ap-body em{color:#C17B3B;font-style:italic}
+.fc2-action .ap-empty{font-size:13px;color:#2E6B46;font-style:italic;line-height:1.5;padding:8px 0}
 
 /* ════════════════════════════════════════════════════════════════
    EDITORIAL DECK — slides redesigned to match Tourlane FR Q1 2026
@@ -3937,36 +3942,17 @@ function buildActionPlanV2(a, enr, mb, ratios) {
     if (d < worstDiff) { worstDiff = d; worstStage = ss; }
   }
 
-  var actions = [];
-
-  // 1) Diagnostic — explain the root cause (or celebrate)
-  if (primary) {
-    var cascadeNote = '';
-    if (worstStage && worstStage.key !== primary.key && worstDiff < primary.diffPct - 3) {
-      cascadeNote = ' En conséquence, <strong>' + worstStage.name + '</strong> est aussi bas ('
-        + worstStage.val.toFixed(1) + ' % vs marché ' + worstStage.mkt.toFixed(1) + ' %) — c\'est la cascade du problème amont.';
-    }
-    actions.push({
-      tag: 'Diagnostic',
-      title: primary.diag,
-      body: '<strong>' + primary.name + '</strong> à ' + primary.val.toFixed(1) + ' % vs marché ' + primary.mkt.toFixed(1) + ' % (' + primary.diffPct.toFixed(0) + ' %). ' + primary.cause + cascadeNote
-    });
-    // 2) Action racine — fix the primary stage
-    actions.push({
-      tag: 'Action 1 · racine',
-      title: primary.action,
-      body: primary.kpi
-    });
-  } else {
-    actions.push({
-      tag: 'Performance',
-      title: 'Tous les indicateurs funnel sont au-dessus ou proches du marché.',
-      body: 'Rôle : maintenir la rigueur, peer-coacher des agents en progression sur la même méthode.'
-    });
+  // Helper: derive CSS tag class from tag text
+  function tagClass(tag) {
+    if (tag === 'Diagnostic') return 't-diag';
+    if (tag === 'Action 1 · racine') return 't-p1';
+    if (/^Action/.test(tag)) return 't-pn';
+    if (/^Suivi/.test(tag)) return 't-suivi';
+    return 't-ok';
   }
 
-  // 3) Behavioral support actions (em out, em in, daily call) when relevant
-  var actionN = primary ? 2 : 1;
+  // Build reasoning introduction
+  var reasoning = '';
   var emOutDelta = (enr.emails_out != null && mb.emails_out)
     ? (enr.emails_out - mb.emails_out) / mb.emails_out * 100 : null;
   var callDelta  = (enr.daily_call_min != null && mb.daily_call_min)
@@ -3974,27 +3960,77 @@ function buildActionPlanV2(a, enr, mb, ratios) {
   var emInDelta  = (enr.emails_in != null && mb.emails_in)
     ? (enr.emails_in - mb.emails_in) / mb.emails_in * 100 : null;
 
+  if (primary) {
+    var sign = primary.diffPct < 0 ? '' : '+';
+    reasoning = 'Analyse Q1 2026 : le premier point de friction identifié se situe au stade <strong>'
+      + primary.name + '</strong> (' + primary.val.toFixed(1) + '&thinsp;% vs marché '
+      + primary.mkt.toFixed(1) + '&thinsp;%, soit ' + sign + primary.diffPct.toFixed(0) + '&thinsp;%). '
+      + 'Les étapes en aval (OC, RC, Booking) sont mécaniquement impactées par cette fuite : '
+      + 'corriger la cause racine produit un effet de levier sur l\'ensemble du funnel, plutôt que de traiter chaque symptôme séparément.';
+    var commWeaknesses = [];
+    if (emOutDelta != null && emOutDelta < -10) commWeaknesses.push('l\'écrit (' + emOutDelta.toFixed(0) + '&thinsp;% vs marché)');
+    if (callDelta  != null && callDelta  < -10) commWeaknesses.push('le volume de calls (' + callDelta.toFixed(0) + '&thinsp;% vs marché)');
+    if (emInDelta  != null && emInDelta  < -15) commWeaknesses.push('l\'engagement client entrant (' + emInDelta.toFixed(0) + '&thinsp;% vs marché)');
+    if (commWeaknesses.length) {
+      reasoning += ' Par ailleurs, ' + commWeaknesses.join(' et ') + ' sont en retrait — des actions complémentaires sont intégrées ci-dessous.';
+    }
+  } else {
+    reasoning = 'Analyse Q1 2026 : tous les indicateurs funnel sont dans la norme ou au-dessus du marché. '
+      + 'L\'enjeu n\'est plus de corriger des faiblesses structurelles, mais de consolider les points forts '
+      + 'et de les transmettre à l\'équipe comme modèle de méthode.';
+  }
+
+  var actions = [];
+
+  // 1) Diagnostic — explain the root cause (or celebrate)
+  if (primary) {
+    var cascadeNote = '';
+    if (worstStage && worstStage.key !== primary.key && worstDiff < primary.diffPct - 3) {
+      cascadeNote = ' En cascade, <strong>' + worstStage.name + '</strong> est aussi bas ('
+        + worstStage.val.toFixed(1) + '&thinsp;% vs marché ' + worstStage.mkt.toFixed(1) + '&thinsp;%).';
+    }
+    actions.push({
+      tag: 'Diagnostic', tagClass: 't-diag',
+      title: primary.diag,
+      body: '<strong>' + primary.name + '</strong> à ' + primary.val.toFixed(1) + '&thinsp;% vs marché ' + primary.mkt.toFixed(1) + '&thinsp;% (' + primary.diffPct.toFixed(0) + '&thinsp;%). ' + primary.cause + cascadeNote
+    });
+    // 2) Action racine — fix the primary stage
+    actions.push({
+      tag: 'Action 1 · Priorité', tagClass: 't-p1',
+      title: primary.action,
+      body: primary.kpi
+    });
+  } else {
+    actions.push({
+      tag: 'Funnel · Top performer', tagClass: 't-ok',
+      title: 'Tous les indicateurs funnel sont au-dessus ou proches du marché.',
+      body: 'Rôle : maintenir la rigueur, peer-coacher des agents en progression sur la même méthode.'
+    });
+  }
+
+  // 3) Behavioral support actions (em out, em in, daily call) when relevant
+  var actionN = primary ? 2 : 1;
   if (emOutDelta != null && emOutDelta < -10) {
     actions.push({
-      tag: 'Action ' + actionN + ' · communication écrite',
-      title: 'Densifier l\'écrit — actuellement ' + enr.emails_out.toFixed(1) + ' em out / opp vs ' + mb.emails_out.toFixed(1) + ' marché (' + emOutDelta.toFixed(0) + ' %).',
+      tag: 'Action ' + actionN + ' · Écrit', tagClass: 't-pn',
+      title: 'Densifier l\'écrit — actuellement ' + enr.emails_out.toFixed(1) + ' em out / opp vs ' + mb.emails_out.toFixed(1) + ' marché (' + emOutDelta.toFixed(0) + '&thinsp;%).',
       body: 'Plus d\'écrit = plus de follow-up tracé, plus d\'arguments capitalisés, plus d\'engagement client. Recap email systématique après chaque touchpoint. Objectif : ' + Math.ceil(mb.emails_out) + '+ em out / opp.'
     });
     actionN++;
   }
   if (emInDelta != null && emInDelta < -15 && enr.emails_in != null) {
     actions.push({
-      tag: 'Action ' + actionN + ' · engagement client',
-      title: 'Engagement client faible — ' + enr.emails_in.toFixed(1) + ' em in / opp vs ' + mb.emails_in.toFixed(1) + ' marché (' + emInDelta.toFixed(0) + ' %).',
+      tag: 'Action ' + actionN + ' · Engagement', tagClass: 't-pn',
+      title: 'Engagement client faible — ' + enr.emails_in.toFixed(1) + ' em in / opp vs ' + mb.emails_in.toFixed(1) + ' marché (' + emInDelta.toFixed(0) + '&thinsp;%).',
       body: 'Le client ne répond pas autant. Les emails doivent provoquer une réponse — questions ouvertes, choix proposés, deadlines. Mesurer le ratio em in / em out comme indicateur de qualité d\'écrit.'
     });
     actionN++;
   }
   if (callDelta != null && callDelta < -10) {
     actions.push({
-      tag: 'Action ' + actionN + ' · volume call',
-      title: 'Augmenter le temps de call quotidien — ' + Math.round(enr.daily_call_min) + ' min/jour vs ' + Math.round(mb.daily_call_min) + ' min marché (' + callDelta.toFixed(0) + ' %).',
-      body: 'Bloquer 30 min de plus chaque jour sur relances et bring-back. La conversion vient du volume × la méthode — l\'un sans l\'autre ne suffit pas.'
+      tag: 'Action ' + actionN + ' · Calls', tagClass: 't-pn',
+      title: 'Augmenter le temps de call quotidien — ' + Math.round(enr.daily_call_min) + '&thinsp;min/j vs ' + Math.round(mb.daily_call_min) + '&thinsp;min marché (' + callDelta.toFixed(0) + '&thinsp;%).',
+      body: 'Bloquer 30&thinsp;min de plus chaque jour sur relances et bring-back. La conversion vient du volume × la méthode — l\'un sans l\'autre ne suffit pas.'
     });
     actionN++;
   }
@@ -4002,12 +4038,13 @@ function buildActionPlanV2(a, enr, mb, ratios) {
   // 4) Suivi mesurable
   if (primary) {
     actions.push({
-      tag: 'Suivi · 4 semaines',
+      tag: 'Suivi · 4 semaines', tagClass: 't-suivi',
       title: 'Mesurer la remontée de ' + primary.name + ' comme KPI principal.',
-      body: primary.val.toFixed(0) + ' % aujourd\'hui → objectif ' + Math.round(Math.max(primary.mkt - 2, primary.val + 5)) + ' %+ d\'ici 4 semaines. Review hebdo avec TL pour tracker la tendance et ajuster les actions.'
+      body: primary.val.toFixed(0) + '&thinsp;% aujourd\'hui → objectif ' + Math.round(Math.max(primary.mkt - 2, primary.val + 5)) + '&thinsp;%+ d\'ici 4 semaines. Review hebdo avec TL pour tracker la tendance et ajuster les actions.'
     });
   }
 
+  actions.reasoning = reasoning;
   return actions;
 }
 
@@ -4072,10 +4109,13 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
   // Build personalized action plan — root-cause sequential (TL-style)
   var planRatios = { fc:ratFC, om:ratOM, oc:ratOC, ocb:ratOCB, rc:ratRC, rcb:ratRCB };
   var planActions = buildActionPlanV2(a, enr, mb, planRatios);
-  var planHtml = '<ol class="ap-steps">'
+  var planHtml = (planActions.reasoning
+      ? '<p class="ap-reasoning">' + planActions.reasoning + '</p>'
+      : '')
+    + '<ol class="ap-steps">'
     + planActions.map(function(p){
         return '<li>'
-          + '<div class="ap-tag">' + p.tag + '</div>'
+          + '<div class="ap-tag ' + (p.tagClass || 't-ok') + '">' + p.tag + '</div>'
           + '<div class="ap-title">' + p.title + '</div>'
           + '<div class="ap-body">' + p.body + '</div>'
         + '</li>';
@@ -4127,7 +4167,7 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
     // Action plan
     + '<div class="fc2-action">'
       + '<h4>Plan d\'action <em>personnalisé</em></h4>'
-      + '<div class="ap-sub">Top points faibles vs marché — actions ciblées pour combler l\'écart</div>'
+      + '<div class="ap-sub">Analyse Q1 2026 · priorisation root-cause · ' + a.name + '</div>'
       + planHtml
     + '</div>'
   + '</div>';
