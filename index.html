@@ -640,6 +640,26 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 @keyframes deckIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
 /* Page header chrome (number, eyebrow, footer) */
+/* ── Context slide (slide 1) ── */
+.dctx-wrap{display:flex;flex-direction:column;gap:22px}
+.dctx-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:4px}
+.dctx-card{background:#F3EFE8;border-radius:12px;padding:22px 24px}
+.dctx-label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8A857E;margin-bottom:12px}
+.dctx-text{font-size:13px;line-height:1.65;color:#4A4540;margin:0}
+.dctx-text strong{color:#1A1A1A}
+.dctx-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.dq4-pill{font-size:10.5px;font-weight:600;padding:4px 11px;border-radius:20px}
+.dq4-l0{background:rgba(111,150,220,0.15);color:#2D4E8E}
+.dq4-l1{background:rgba(220,170,80,0.2);color:#7A4F00}
+.dq4-l2{background:rgba(80,180,130,0.18);color:#1A5E40}
+.dq4-l3{background:rgba(180,100,180,0.15);color:#5E1A5E}
+.dctx-goal{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid #E0DCD0}
+.dctx-goal:first-of-type{border-top:none;padding-top:0}
+.dctx-goal-n{font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;color:#C17B3B;flex-shrink:0;line-height:1;margin-top:-3px}
+.dctx-goal-txt{font-size:13px;line-height:1.65;color:#4A4540}
+.dctx-goal-txt strong{color:#1A1A1A}
+.dctx-nota{font-family:'Instrument Serif',serif;font-style:italic;font-size:14px;line-height:1.7;color:#4A4540;background:#F3EFE8;border-left:3px solid #C17B3B;padding:12px 16px;border-radius:0 8px 8px 0;max-width:72ch;margin-bottom:2px}
+/* ── End context slide ── */
 .dpg-eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;color:var(--mute);letter-spacing:.05em;margin-bottom:1.5rem}
 .dpg-eyebrow .pgn{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;font-size:12px}
 .dpg-eyebrow .pgdot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
@@ -2721,11 +2741,54 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 
     <div class="slides-stage">
 
-      <!-- ════════ SLIDE 1 — COVER ════════ -->
+      <!-- ════════ SLIDE 1 — CONTEXTE ════════ -->
       <div class="deck-slide live" data-slide="1">
         <div class="dpg-eyebrow">
           <span class="pgdot"></span>
           <span class="pgn">01</span>
+          <span>CONTEXTE · OBJECTIFS DE LA SESSION</span>
+          <span class="pgright">Tourlane FR · Q1 2026</span>
+        </div>
+        <div class="dctx-wrap">
+          <div class="dr-up d1">
+            <h1 class="dh1" style="font-size:52px;max-width:20ch;margin-bottom:.75rem">Lire Q1 pour <em>agir</em> en Q2.</h1>
+            <p class="dctx-nota">Cette session n'est pas là pour pointer des agents. C'est une rétrospective <strong>factuelle et bienveillante</strong> — orientée performance et ROI — pour comprendre ce que Q1 2026 révèle sur nos comportements commerciaux, et transformer cette lecture en leviers d'action concrets pour Q2.</p>
+          </div>
+          <div class="dctx-body dr-up d2">
+            <div class="dctx-card">
+              <div class="dctx-label">Ce que nous avons fait — le travail d'analyse</div>
+              <p class="dctx-text">54 agents analysés et classifiés selon la matrice <strong>volume × ROI</strong> présentée par Thibaut. Quatre profils comportementaux distincts, chacun révélant une logique commerciale différente sur la période jan–mars 2026.</p>
+              <div class="dctx-pills">
+                <span class="dq4-pill dq4-l0">L0 · Low Vol · Low ROI · 11 agents</span>
+                <span class="dq4-pill dq4-l1">L1 · High Vol · Low ROI · 8 agents</span>
+                <span class="dq4-pill dq4-l2">L2 · Low Vol · High ROI · 19 agents</span>
+                <span class="dq4-pill dq4-l3">L3 · High Vol · High ROI · 14 agents</span>
+              </div>
+            </div>
+            <div class="dctx-card">
+              <div class="dctx-label">Objectifs de la session d'aujourd'hui</div>
+              <div class="dctx-goal">
+                <div class="dctx-goal-n">01</div>
+                <div class="dctx-goal-txt"><strong>Identifier des patterns comportementaux</strong> dans chaque niveau — les réflexes, volumes et timings qui caractérisent chaque profil et permettent de définir ce qu'est un <em>comportement de performance.</em></div>
+              </div>
+              <div class="dctx-goal">
+                <div class="dctx-goal-n">02</div>
+                <div class="dctx-goal-txt"><strong>Dériver des leviers managériaux</strong> ciblés par niveau — un diagnostic root-cause par profil pour un coaching précis sur la cause, pas sur les symptômes. <em>Un réflexe à activer par niveau.</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dpg-foot">
+          <span><strong>Agent Level Analysis</strong> — Tourlane FR · 1<sup>er</sup> jan – 31 mars 2026</span>
+          <span>Source : Looker Global TL Dashboard</span>
+        </div>
+      </div>
+
+      <!-- ════════ SLIDE 2 — COVER ════════ -->
+      <div class="deck-slide" data-slide="2">
+        <div class="dpg-eyebrow">
+          <span class="pgdot"></span>
+          <span class="pgn">02</span>
           <span>AGENT PORTFOLIO REVIEW · Q1 2026</span>
           <span class="pgright">Tourlane FR</span>
         </div>
@@ -4088,16 +4151,15 @@ function buildCard(a, agentIdOrEnr, isTL, preTabsHtml) {
     if (denom && denom > 0) return (num / denom) * 100;
     return enrVal; // could be null
   }
-  // Non-canonical agents (Marceau, Fiona, Solène, etc.) have null enrichment ratios.
-  // Don't fall back to agData counts — fc_done=opps there, giving misleading values.
-  var hasEnrRatios = enr.fc_done_ratio != null || enr.offer_made_ratio != null
-                  || enr.oc_done_ratio != null  || enr.rc_done_ratio   != null;
-  var ratFC  = hasEnrRatios ? safeRatio(enr.fc_done_ratio,    a.fc_done,   a.opps)     : null;
-  var ratOM  = hasEnrRatios ? safeRatio(enr.offer_made_ratio, a.so_count,  a.fc_done)  : null;
-  var ratOC  = hasEnrRatios ? safeRatio(enr.oc_done_ratio,    a.oc_done,   a.so_count) : null;
-  var ratRC  = hasEnrRatios ? safeRatio(enr.rc_done_ratio,    a.rc_done,   a.oc_done)  : null;
-  var ratOCB = hasEnrRatios ? safeRatio(enr.oc_booking_ratio, a.first_bkg, a.oc_done)  : null;
-  var ratRCB = hasEnrRatios ? safeRatio(enr.rc_booking_ratio, a.first_bkg, a.rc_done)  : null;
+  // ratOM: only Looker can give the real offer_made_ratio (FC→Offer rate).
+  // agData has fc_done=opps as a placeholder, making so_count/fc_done = so_count/opps ≠ Looker metric.
+  // All other step-conversion rates (OC/SO, RC/OC, BKG/OC) are internally consistent from agData.
+  var ratFC  = safeRatio(enr.fc_done_ratio,    a.fc_done,   a.opps);
+  var ratOM  = enr.offer_made_ratio != null ? enr.offer_made_ratio : null; // no fallback for offer_made
+  var ratOC  = safeRatio(enr.oc_done_ratio,    a.oc_done,   a.so_count);
+  var ratRC  = safeRatio(enr.rc_done_ratio,    a.rc_done,   a.oc_done);
+  var ratOCB = safeRatio(enr.oc_booking_ratio, a.first_bkg, a.oc_done);
+  var ratRCB = safeRatio(enr.rc_booking_ratio, a.first_bkg, a.rc_done);
 
   // Funnel step % — show dash when ratio is unavailable
   var fc_pct  = ratFC  != null ? ratFC.toFixed(1)  + ' %' : '—';
@@ -4661,7 +4723,7 @@ function loadTLCard(tid) {
   if(!stage) return;
   const slides = Array.from(stage.querySelectorAll('.deck-slide'));
   const total  = slides.length;
-  const titles = ['Cover','Performance Q1','Notre démarche','La fracture','Gestion quotidienne','Profils comportementaux','Level 0 — Cycle Amont Rapide','Level 1 — Téléphoneur sans Trace','Level 2 — Écrit-Convicteur','Level 3 — Pilote Post-Vente','Plan d\'action Q2'];
+  const titles = ['Contexte · Objectifs','Cover — Les 4 profils','Performance Q1','Notre démarche','La fracture','Gestion quotidienne','Profils comportementaux','Level 0 — Cycle Amont Rapide','Level 1 — Téléphoneur sans Trace','Level 2 — Écrit-Convicteur','Level 3 — Pilote Post-Vente','Plan d\'action Q2'];
   const totalEl = document.getElementById('deck-total');
   if(totalEl) totalEl.textContent = total;
   let idx = 0;
