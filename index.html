@@ -544,6 +544,30 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 .fc2-chart-host .legend-note{font-size:11px;color:#6F6B62;margin-top:8px;line-height:1.5}
 .fc2-chart-host .legend-note strong{color:#1A1A1A}
 
+/* ── PIN Gate ── */
+#pin-gate{position:fixed;inset:0;background:#EDEAE4;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif}
+#pin-gate.unlocked{display:none}
+.pin-card{background:#FAF7F1;border:1px solid #D8D3C8;border-radius:18px;padding:52px 56px 44px;text-align:center;max-width:360px;width:90%;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+.pin-logo{font-family:'Instrument Serif',serif;font-size:13px;letter-spacing:.08em;color:#8A857E;margin-bottom:28px;text-transform:uppercase}
+.pin-card h2{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;color:#1A1A1A;margin-bottom:6px;letter-spacing:-.3px}
+.pin-card h2 em{font-style:italic;color:#C17B3B}
+.pin-sub{font-size:12.5px;color:#8A857E;line-height:1.6;margin-bottom:32px}
+.pin-dots{display:flex;justify-content:center;gap:10px;margin-bottom:28px}
+.pin-dot{width:14px;height:14px;border-radius:50%;border:2px solid #D8D3C8;background:transparent;transition:all .15s}
+.pin-dot.filled{background:#1A1A1A;border-color:#1A1A1A}
+.pin-dot.error{background:#B22222;border-color:#B22222}
+.pin-field{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+.pin-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:220px;margin:0 auto}
+.pin-key{background:#fff;border:1px solid #E0DCD0;border-radius:10px;padding:14px 0;font-size:18px;font-weight:600;color:#1A1A1A;cursor:pointer;transition:background .12s,transform .1s;user-select:none}
+.pin-key:hover{background:#F3EFE8}
+.pin-key:active{transform:scale(.94);background:#EBE6DC}
+.pin-key.del{font-size:15px;color:#8A857E;font-weight:500}
+.pin-key.empty{visibility:hidden}
+.pin-error-msg{font-size:12px;color:#B22222;margin-top:14px;min-height:16px;letter-spacing:.02em}
+@keyframes pinShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-10px)}40%{transform:translateX(10px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+.pin-shake{animation:pinShake .35s ease}
+/* ── End PIN Gate ── */
+
 /* Action plan section — sequential, TL-style narrative */
 .fc2-action{background:#FAF7F1;color:#1A1A1A;border:1px solid #E0DCD0;border-radius:14px;padding:1.25rem 1.5rem;margin-top:1.25rem}
 .fc2-action h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:20px;margin:0 0 3px;letter-spacing:-.3px;color:#1A1A1A}
@@ -1037,6 +1061,90 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-
 </style>
 </head>
 <body>
+
+<!-- ═══ PIN GATE ═══ -->
+<div id="pin-gate">
+  <div class="pin-card">
+    <div class="pin-logo">Tourlane FR · Agent Level Analysis</div>
+    <h2>Accès <em>sécurisé</em></h2>
+    <p class="pin-sub">Entrez le code à 4 chiffres<br>pour accéder aux données Q1 2026.</p>
+    <div class="pin-dots" id="pin-dots">
+      <div class="pin-dot" id="pd0"></div>
+      <div class="pin-dot" id="pd1"></div>
+      <div class="pin-dot" id="pd2"></div>
+      <div class="pin-dot" id="pd3"></div>
+    </div>
+    <div class="pin-keypad" id="pin-keypad">
+      <button class="pin-key" data-k="1">1</button>
+      <button class="pin-key" data-k="2">2</button>
+      <button class="pin-key" data-k="3">3</button>
+      <button class="pin-key" data-k="4">4</button>
+      <button class="pin-key" data-k="5">5</button>
+      <button class="pin-key" data-k="6">6</button>
+      <button class="pin-key" data-k="7">7</button>
+      <button class="pin-key" data-k="8">8</button>
+      <button class="pin-key" data-k="9">9</button>
+      <button class="pin-key empty" aria-hidden="true"></button>
+      <button class="pin-key" data-k="0">0</button>
+      <button class="pin-key del" data-k="del">⌫</button>
+    </div>
+    <div class="pin-error-msg" id="pin-error"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var CORRECT = '1234';
+  var gate  = document.getElementById('pin-gate');
+  var dots  = [0,1,2,3].map(function(i){ return document.getElementById('pd'+i); });
+  var errEl = document.getElementById('pin-error');
+  var entry = '';
+
+  if(sessionStorage.getItem('tl_auth')==='ok'){
+    gate.classList.add('unlocked'); return;
+  }
+
+  function render(){
+    dots.forEach(function(d,i){
+      d.classList.toggle('filled', i < entry.length);
+      d.classList.remove('error');
+    });
+    errEl.textContent = '';
+  }
+
+  function shake(){
+    dots.forEach(function(d){ d.classList.add('error'); });
+    var kp = document.getElementById('pin-keypad');
+    kp.classList.add('pin-shake');
+    errEl.textContent = 'Code incorrect — réessayez.';
+    setTimeout(function(){ kp.classList.remove('pin-shake'); entry=''; render(); }, 400);
+  }
+
+  function tryUnlock(){
+    if(entry === CORRECT){
+      sessionStorage.setItem('tl_auth','ok');
+      gate.classList.add('unlocked');
+    } else {
+      shake();
+    }
+  }
+
+  document.getElementById('pin-keypad').addEventListener('click', function(e){
+    var btn = e.target.closest('.pin-key');
+    if(!btn) return;
+    var k = btn.dataset.k;
+    if(k === 'del'){ entry = entry.slice(0,-1); render(); }
+    else if(entry.length < 4){ entry += k; render(); if(entry.length===4) setTimeout(tryUnlock,120); }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(gate.classList.contains('unlocked')) return;
+    if(e.key>='0' && e.key<='9' && entry.length<4){ entry+=e.key; render(); if(entry.length===4) setTimeout(tryUnlock,120); }
+    else if(e.key==='Backspace'){ entry=entry.slice(0,-1); render(); }
+    else if(e.key==='Enter' && entry.length===4){ tryUnlock(); }
+  });
+})();
+</script>
+
 <div class="wrap">
 
 <div class="hdr">
